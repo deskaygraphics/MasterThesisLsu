@@ -2,7 +2,7 @@
 %% This is file `lsuthesis.cls', a LaTeX class derived from `book.cls'.
 %%
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{lsuthesis}[2025/04/08 LSU Thesis Class]
+\ProvidesClass{lsuthesis}[2025/12/20 LSU Thesis Class]
 % We want ``book'' class but with ``12pt'' and ``oneside'' as default
 % options, unless the user specifies different values. Thus we have
 % to process such options ourselves, with our own defaults, and then
@@ -133,22 +133,29 @@
             \advance\labelwidth-\labelsep
             \parsep\baselineskip
             \topsep\baselineskip
-            \itemsep\baselineskip}
+            \itemsep\z@}
 \let\@listI\@listi
 \@listi
 \def\@listii {\leftmargin\leftmarginii
               \labelwidth\leftmargin
               \advance\labelwidth-\labelsep
-              \topsep\baselineskip
+              \topsep\z@
               \parsep\baselineskip
-              \itemsep   \parsep}
+              \itemsep\z@}
 \def\@listiii{\leftmargin\leftmarginiii
               \labelwidth\leftmargin
               \advance\labelwidth-\labelsep
-              \topsep\baselineskip
-              \parsep    \z@
-              \partopsep \p@ \@plus\z@ \@minus\p@
-              \itemsep   \topsep}
+              \topsep\z@
+              \parsep\baselineskip
+              %\partopsep \p@ \@plus\z@ \@minus\p@
+              \itemsep\z@}
+\def\@listiv{\leftmargin\leftmarginiv
+              \labelwidth\leftmargin
+              \advance\labelwidth-\labelsep
+              \topsep\z@
+              \parsep\baselineskip
+              \itemsep\z@}
+
 
 
 \renewenvironment{verse}
@@ -219,6 +226,12 @@
              \parsep\baselineskip
              \itemsep\z@}
 \def\@listiii{\leftmargin\leftmarginiii
+              \labelwidth\leftmargin
+              \advance\labelwidth-\labelsep
+              \topsep\z@
+              \parsep\baselineskip
+              \itemsep\z@}
+\def\@listiv{\leftmargin\leftmarginiv
               \labelwidth\leftmargin
               \advance\labelwidth-\labelsep
               \topsep\z@

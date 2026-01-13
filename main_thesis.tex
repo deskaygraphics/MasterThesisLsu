@@ -1,32 +1,28 @@
 \documentclass[oneside,doublespacing,raggedright]{lsuthesis}
 
-%% Establish encoding
-\usepackage{ifluatex}
-\ifluatex
-  \usepackage{fontspec,unicode-math}
-  % Set consistent OpenType fonts for LuaLaTeX/XeLaTeX
-  \setmainfont{TeX Gyre Termes}[Ligatures=TeX,Scale=1.0]
-  \setsansfont{TeX Gyre Heros}[Scale=1.0]
-  \setmonofont{TeX Gyre Cursor}[Scale=1.0]
-  \setmathfont{TeX Gyre Termes Math}
-\else
-  \usepackage[utf8]{inputenc}
-  \usepackage[T1]{fontenc}
-  \usepackage{lmodern} % consistent scalable fonts for pdfLaTeX
-  \usepackage{textcomp}
-\fi
+%% Establish encoding - Using LSU template default fonts (CMU)
+% \usepackage{ifluatex}
+% \ifluatex
+%   \usepackage{fontspec,unicode-math}
+%   % Set consistent OpenType fonts for LuaLaTeX/XeLaTeX
+%   \setmainfont{TeX Gyre Termes}[Ligatures=TeX,Scale=1.0]
+%   \setsansfont{TeX Gyre Heros}[Scale=1.0]
+%   \setmonofont{TeX Gyre Cursor}[Scale=1.0]
+%   \setmathfont{TeX Gyre Termes Math}
+% \else
+%   \usepackage[utf8]{inputenc}
+%   \usepackage[T1]{fontenc}
+%   \usepackage{lmodern} % consistent scalable fonts for pdfLaTeX
+%   \usepackage{textcomp}
+% \fi
 
-% Ensure uniform base font size and leading (override class defaults if needed)
-\AtBeginDocument{\fontsize{12}{14}\selectfont}
-
-% Consistent section/chapter titles styling
-\usepackage{titlesec}
-\titleformat{\chapter}[display]{\normalfont\bfseries\Large\centering}{\chaptername\ \thechapter}{0.5em}{}
-\titleformat{\section}{\normalfont\bfseries\large}{\thesection}{0.5em}{}
-\titleformat{\subsection}{\normalfont\bfseries\normalsize}{\thesubsection}{0.5em}{}
-
-% Make captions use document font and a consistent smaller size
-\usepackage[font=small,labelfont=bf]{caption}
+% LSU template handles font sizing and chapter/section formatting
+% \AtBeginDocument{\fontsize{12}{14}\selectfont}
+% \usepackage{titlesec}
+% \titleformat{\chapter}[display]{\normalfont\bfseries\Large\centering}{\chaptername\ \thechapter}{0.5em}{}
+% \titleformat{\section}{\normalfont\bfseries\large}{\thesection}{0.5em}{}
+% \titleformat{\subsection}{\normalfont\bfseries\normalsize}{\thesubsection}{0.5em}{}
+% \usepackage[font=small,labelfont=bf]{caption}
 
 % Improve micro-typography (pdfLaTeX and LuaLaTeX)
 \usepackage{microtype}
@@ -38,15 +34,17 @@
 \usepackage{graphicx}
 \graphicspath{{media/}}
 \DeclareGraphicsExtensions{.png,.pdf,.jpg,.jpeg}
-\usepackage{natbib}
+\usepackage[round]{natbib}
 \usepackage{url}
+\usepackage{doi}
 \usepackage{hyperref}
 \usepackage{bookmark}
 \usepackage{xcolor}
 
 
-\usepackage{ragged2e}     % for justification control
-\usepackage[none]{hyphenat}  % to globally disable hyphenation
+% LSU template handles text justification and hyphenation
+% \usepackage{ragged2e}
+% \usepackage[none]{hyphenat}
 
 
 \hypersetup{
@@ -99,7 +97,6 @@ The is my Acknowledgments
 
 \chapter*{\centering\mbox{Abstract}}
 \addcontentsline{toc}{chapter}{Abstract}
-\justifying
 
 Land subsidence has become an escalating geohazard in rapidly urbanizing regions such 
 as East Baton Rouge Parish (EBRP), Louisiana, where groundwater extraction, infrastructure loading, 
@@ -134,19 +131,46 @@ deformation stabilization, with a mean velocity of $-0.530$~mm/year and cumulati
 
 \section{Background}
 
-Land subsidence is a gradual or sudden downward displacement of the Earth's surface caused by both natural and anthropogenic processes. While natural mechanisms such as sediment consolidation, glacial isostatic adjustment, and tectonic motion contribute to subsidence, human activities are now recognized as the dominant drivers in most severe global cases, accounting for more than 80\% of documented high-impact events worldwide (\citeauthor{Galloway2014}, \citeyear{Galloway2014};
+Land subsidence is a gradual or sudden downward displacement of the Earth's surface caused by both natural and anthropogenic processes. 
+While natural mechanisms such as sediment consolidation, glacial isostatic adjustment, and tectonic motion contribute to subsidence,
+ human activities are now recognized as the dominant drivers in most severe global cases, accounting for more than 80\% of documented 
+ high-impact events worldwide (\citeauthor{Galloway2014}, \citeyear{Galloway2014};
  \citeauthor{Higgins2016}, \citeyear{Higgins2016})
-. Excessive groundwater extraction, aquifer-system compaction, soil consolidation, and static loading from urban infrastructure significantly increase subsidence rates, posing substantial risks to infrastructure stability, groundwater sustainability, flood resilience, and environmental systems in rapidly urbanizing regions.
-East Baton Rouge Parish (EBRP), Louisiana, represents a prominent subsidence-prone urban area where geological, hydrological, and anthropogenic factors interact in a complex manner. The region is characterized by low-relief topography and unconsolidated sediments, making it highly sensitive to pore-pressure reduction caused by intensive pumping from the Southern Hills Aquifer System. Rapid urban expansion and heavy infrastructure loading further exacerbate ground deformation. Structural controls such as the Baton Rouge and Denham Springs fault systems introduce spatially heterogeneous and non-linear deformation patterns, increasing vulnerability to flooding, pipeline rupture, and foundation failure \citep{Wang2021, Abdalla2024}.
+. Excessive groundwater extraction, aquifer-system compaction, soil consolidation, and static loading from urban infrastructure 
+significantly increase subsidence rates, posing substantial risks to infrastructure stability, groundwater sustainability, flood 
+resilience, and environmental systems in rapidly urbanizing regions.
+East Baton Rouge Parish (EBRP), Louisiana, represents a prominent subsidence-prone urban area where geological, hydrological, and 
+anthropogenic factors interact in a complex manner. The region is characterized by low-relief topography and unconsolidated sediments, 
+making it highly sensitive to pore-pressure reduction caused by intensive pumping from the Southern Hills Aquifer System. Rapid urban 
+expansion and heavy infrastructure loading further exacerbate ground deformation. Structural controls such as the Baton Rouge and 
+Denham Springs fault systems introduce spatially heterogeneous and non-linear deformation patterns, increasing vulnerability to flooding, 
+pipeline rupture, and foundation failure \citep{Wang2021, Abdalla2024}.
 
-Traditional land-subsidence monitoring techniques, including geotechnical surveys, levelling campaigns, and GNSS/GPS measurements, provide high accuracy at discrete locations but are limited by sparse spatial coverage, high operational costs, and insufficient temporal resolution for regional-scale risk assessment. The advent of satellite-based Interferometric Synthetic Aperture Radar (InSAR) has transformed subsidence monitoring by enabling millimetre-level deformation measurements over large areas. In particular, time-series approaches such as Persistent Scatterer InSAR (PS-InSAR) and Small Baseline Subset InSAR (SBAS-InSAR) have proven effective for detecting subtle, long-term deformation in urban and mixed land-cover environments \citep{Ferretti2001, Berardino2002, Ferretti2011}.
+Traditional land-subsidence monitoring techniques, including geotechnical surveys, levelling campaigns, and GNSS/GPS measurements, 
+provide high accuracy at discrete locations but are limited by sparse spatial coverage, high operational costs, and insufficient temporal 
+resolution for regional-scale risk assessment. The advent of satellite-based Interferometric Synthetic Aperture Radar (InSAR) has transformed 
+subsidence monitoring by enabling millimetre-level deformation measurements over large areas. In particular, time-series approaches such as 
+Persistent Scatterer InSAR (PS-InSAR) and Small Baseline Subset InSAR (SBAS-InSAR) have proven effective for detecting subtle, long-term 
+deformation in urban and mixed land-cover environments \citep{Ferretti2001, Berardino2002, Ferretti2011}.
 
-Despite these advances, converting large-scale InSAR observations into reliable and interpretable spatio-temporal forecasts remains challenging due to the non-linear, multi-factor nature of subsidence processes. Physically based numerical models offer insight into deformation mechanisms but often require detailed soil and hydrogeological parameters that are rarely available at regional scales \citep{Zhou2022}. Recent developments in machine learning have demonstrated strong potential for addressing these challenges by learning complex relationships between deformation and environmental controls directly from data. In particular, tree-based ensemble models such as the Extra Trees Regressor have shown strong performance in spatial susceptibility mapping due to their robustness to 
+Despite these advances, converting large-scale InSAR observations into reliable and interpretable spatio-temporal forecasts remains 
+challenging due to the non-linear, multi-factor nature of subsidence processes. Physically based numerical models offer insight into
+ deformation mechanisms but often require detailed soil and hydrogeological parameters that are rarely available at regional scales 
+ \citep{Zhou2022}. Recent developments in machine learning have demonstrated strong potential for addressing these challenges by learning 
+ complex relationships between deformation and environmental controls directly from data. In particular, tree-based ensemble models such 
+ as the Extra Trees Regressor have shown strong performance in spatial susceptibility mapping due to their robustness to 
 multicollinearity, ability to model non-linear interactions, and reduced overfitting compared to conventional Random Forest approaches \citep{Cieslik2022, Gao2024}.
 
-While ensemble tree models are well suited for spatial susceptibility analysis, they do not explicitly capture temporal dependencies. Long Short-Term Memory (LSTM) networks address this limitation by modelling sequential deformation dynamics and long-term temporal dependencies within InSAR time series. However, purely data-driven LSTM models may generate physically unrealistic trends when extrapolated beyond the observation period. To overcome this limitation, recent studies have emphasized the integration of deep learning with physics-based constraints to improve forecast stability and geomechanical plausibility \citep{Zhu2024}.
+While ensemble tree models are well suited for spatial susceptibility analysis, they do not explicitly capture temporal dependencies. 
+Long Short-Term Memory (LSTM) networks address this limitation by modelling sequential deformation dynamics and long-term temporal 
+dependencies within InSAR time series. However, purely data-driven LSTM models may generate physically unrealistic trends when 
+extrapolated beyond the observation period. To overcome this limitation, recent studies have emphasized the integration of deep 
+learning with physics-based constraints to improve forecast stability and geomechanical plausibility \citep{Zhu2024}.
 
-Guided by this framework, the present study integrates SBAS-InSAR--derived deformation, Extra Trees--based spatial susceptibility mapping, and a physics-informed LSTM spatio-temporal forecasting approach enhanced with explainable artificial intelligence. This integrated methodology provides a robust, interpretable, and geomechanically consistent framework for assessing present-day subsidence patterns and generating reliable projections of ground deformation in East Baton Rouge Parish through 2030.
+Guided by this framework, the present study integrates SBAS-InSAR--derived deformation, Extra Trees--based spatial susceptibility mapping, 
+and a physics-informed LSTM spatio-temporal forecasting approach enhanced with explainable artificial intelligence. This integrated methodology 
+provides a robust, interpretable, and geomechanically consistent framework for assessing present-day subsidence patterns and generating reliable
+ projections of ground deformation in East Baton Rouge Parish through 2030.
 
 
 
@@ -351,7 +375,7 @@ SHAP (SHapley Additive exPlanations) was applied to the Extra Trees spatial mode
 Analogy: SBAS-InSAR acts as the radar sweep; the Extra Trees model provides the hazard map; the Hybrid LSTM--Physics framework is the autopilot where LSTM learns history and physics constraints enforce safe, physically plausible forecasts through 2030.
 
 \chapter[References]{\centering References}
-\bibliographystyle{apalike}
+\bibliographystyle{plainnat}
 \bibliography{references}
 
 \end{document}

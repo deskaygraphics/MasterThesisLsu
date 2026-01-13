@@ -2,7 +2,7 @@
 %% This is file `lsutitle.sty', a LaTeX class derived from `book.cls'.
 %%
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesPackage{lsutitle}[2025/04/08 LSU Thesis Title Package]
+\ProvidesPackage{lsutitle}[2025/12/20 LSU Thesis Title Package]
 % \title and \author already defined in latex.ltx to modify \@title and
 % \@author, but an empty \author should be an error instead of a warning,
 % so for that we would want:
@@ -125,6 +125,19 @@
 \newenvironment{centeredpage}{%
   \chapter*{}\begin{center}\vspace*{\stretch{1}}}{%
   \vspace*{\stretch{1}}\end{center}}
+
+
+%% The usual ``itemize'' and ``enumerate'' environments will be set by
+%% lsuthesis with single-spaced items but with items and paragraphs
+%% separated by a blank line.
+%% We define ``itemize-lsu-tight'' and ``enumerate-lsu-tight'' to eliminate
+%% the blank lines.
+\newenvironment{itemize-lsu-tight}{%
+  \begin{itemize}[begin-vspace=0pt,para-vspace=0pt,item-vspace=0pt]}{%
+  \end{itemize}}
+\newenvironment{enumerate-lsu-tight}{%
+  \begin{enumerate}[begin-vspace=0pt,para-vspace=0pt,item-vspace=0pt]}{%
+  \end{enumerate}}
 
 
 \endinput
