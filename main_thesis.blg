@@ -6,11 +6,13 @@ The style file: plainnat.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: references.bib
 Warning--I didn't find a database entry for "Galloway2014"
+Warning--I didn't find a database entry for "ESA"
+Warning--I didn't find a database entry for "2021"
 Warning--I didn't find a database entry for "Holzer1985"
 Warning--empty publisher in Ferretti2020
 You've used 43 entries,
             2773 wiz_defined-function locations,
-            932 strings with 14204 characters,
+            934 strings with 14210 characters,
 and the built_in function-call counts, 22856 in all, are:
 = -- 2033
 > -- 1545
@@ -49,4 +51,4 @@ warning$ -- 1
 while$ -- 189
 width$ -- 0
 write$ -- 646
-(There were 3 warnings)
+(There were 5 warnings)

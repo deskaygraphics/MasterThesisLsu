@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.8)  13 JAN 2026 04:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.8)  13 JAN 2026 05:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -518,16 +518,13 @@ Package natbib Warning: Citation `Galloway2014' on page 1 undefined on input lin
 
 [4]
 Chapter 2.
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 218.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 220.
 (/home/kangah/.miktex/texmfs/install/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Underfull \hbox (badness 1571) in paragraph at lines 228--236
+Underfull \hbox (badness 1571) in paragraph at lines 230--238
 []\T1/lmr/m/n/12 (+20) Geologically, East Baton Rouge Parish is underlain by thick sequences of
  []
-
-
-Package natbib Warning: Citation `Galloway2014' on page 5 undefined on input line 241.
 
 
 
@@ -535,55 +532,62 @@ Package natbib Warning: Citation `Galloway2014' on page 5 undefined on input lin
 
 {/home/kangah/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-ts1.enc}]
 
-Package natbib Warning: Citation `Galloway2014' on page 6 undefined on input line 277.
+Package natbib Warning: Citation `Galloway2014' on page 6 undefined on input line 279.
 
 
 
 [6]
-<media/MyStudyArea.png, id=173, 706.13812pt x 520.94624pt>
+<media/MyStudyArea.png, id=176, 706.13812pt x 520.94624pt>
 File: media/MyStudyArea.png Graphic file (type png)
 <use media/MyStudyArea.png>
-Package pdftex.def Info: media/MyStudyArea.png  used on input line 282.
+Package pdftex.def Info: media/MyStudyArea.png  used on input line 284.
 (pdftex.def)             Requested size: 498.66788pt x 426.39174pt.
 
-Overfull \hbox (29.66788pt too wide) in paragraph at lines 282--284
+Overfull \hbox (29.66788pt too wide) in paragraph at lines 284--285
  [][] 
  []
 
 
 
 [7 <./media/MyStudyArea.png (PNG copy)>]
+
+Package natbib Warning: Citation `ESA' on page 8 undefined on input line 304.
+
+
+Package natbib Warning: Citation `2021' on page 8 undefined on input line 304.
+
+
+
+[8]
+
+[9]
 Chapter 3.
 
-Package natbib Warning: Citation `Galloway2014' on page 8 undefined on input line 292.
+Package natbib Warning: Citation `Galloway2014' on page 10 undefined on input line 327.
 
 
-Package natbib Warning: Citation `Holzer1985' on page 8 undefined on input line 294.
+Package natbib Warning: Citation `Holzer1985' on page 10 undefined on input line 329.
 
 
-Underfull \hbox (badness 1527) in paragraph at lines 298--299
+Underfull \hbox (badness 1527) in paragraph at lines 333--334
 []\T1/lmr/m/n/12 (+20) The development of Synthetic Aperture Radar Interferometry (InSAR) has
  []
 
 
-Underfull \hbox (badness 1264) in paragraph at lines 298--299
+Underfull \hbox (badness 1264) in paragraph at lines 333--334
 \T1/lmr/m/n/12 (+20) transformed ground-deformation monitoring by providing high-resolution, wide-area
  []
 
 
 
-[8
+[10
 
 ]
-Underfull \hbox (badness 1087) in paragraph at lines 302--303
+Underfull \hbox (badness 1087) in paragraph at lines 337--338
 []\T1/lmr/m/n/12 (+20) Early Differential InSAR (D-InSAR) was limited by atmospheric delay and
  []
 
 
-
-[9]
-
-[10]
 
 [11]
 
@@ -600,20 +604,22 @@ Underfull \hbox (badness 1087) in paragraph at lines 302--303
 [17]
 
 [18]
+
+[19]
+
+[20]
 Chapter 4.
 
 
-[19
+[21
 
 ]
 
-[20]
-
-[21]
+[22]
 Chapter 5.
 (main_thesis.bbl
 
-[22
+[23
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 35--39
@@ -622,11 +628,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 35--39
 
 
 
-[23
+[24
 
 ]
 
-[24]
+[25]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 117.
  (/home/kangah/.miktex/texmfs/install/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -637,43 +643,43 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 
 
-[25]
-
 [26]
 
 [27]
+
+[28]
 Underfull \hbox (badness 2197) in paragraph at lines 251--256
 \T1/lmr/m/n/12 (+20) integrated remote sensing approaches.  \T1/lmr/m/it/12 (+20) Coastal Engineering\T1/lmr/m/n/12 (+20) , 182:104287, 2023.
  []
 
 
 
-[28]
+[29]
 
-[29])
+[30])
 
 Package natbib Warning: There were undefined citations.
 
 
 
-[30] (main_thesis.aux)
+[31] (main_thesis.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 13980 strings out of 475460
- 219814 string characters out of 5766565
- 641780 words of memory out of 5000000
- 36457 multiletter control sequences out of 15000+600000
- 602774 words of font info for 142 fonts, out of 8000000 for 9000
+ 13982 strings out of 475460
+ 219830 string characters out of 5766565
+ 641711 words of memory out of 5000000
+ 36458 multiletter control sequences out of 15000+600000
+ 602677 words of font info for 141 fonts, out of 8000000 for 9000
  0 hyphenation exceptions out of 8191
  90i,6n,93p,1138b,653s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </home/kangah/.miktex/texmfs/install/fonts/type1/public/lm/lmbx12.pfb></home/kangah/.miktex/texmfs/install/fonts/type1/public/lm/lmmi12.pfb></home/kangah/.miktex/texmfs/install/fonts/type1/public/lm/lmr12.pfb></home/kangah/.miktex/texmfs/install/fonts/type1/public/lm/lmr8.pfb></home/kangah/.miktex/texmfs/install/fonts/type1/public/lm/lmri12.pfb></home/kangah/.miktex/texmfs/install/fonts/type1/public/lm/lmsy10.pfb></home/kangah/.miktex/texmfs/install/fonts/type1/public/lm/lmsy8.pfb></home/kangah/.miktex/texmfs/install/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main_thesis.pdf (37 pages, 366108 bytes).
+Output written on main_thesis.pdf (38 pages, 368471 bytes).
 PDF statistics:
- 611 PDF objects out of 1000 (max. 8388607)
- 132 named destinations out of 1000 (max. 500000)
- 23230 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 623 PDF objects out of 1000 (max. 8388607)
+ 135 named destinations out of 1000 (max. 500000)
+ 23238 words of extra memory for PDF output out of 24883 (max. 10000000)
 

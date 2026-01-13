@@ -211,9 +211,11 @@ Chapter 6 summarizes key conclusions, provides recommendations for land subsiden
 
 
 
-\chapter[Study Area]{\centering Study Area}
+\chapter[Study Area and Materials Used]{\centering Study Area and Materials Used}
 
-This study is conducted in East Baton Rouge Parish (EBRP), located in southeastern 
+\section{Study Area}
+
+This study is conducted in East Baton Rouge Parish (EBRP), located in southeastern
 Louisiana, United States, within the Baton Rouge Capital Area.
 The parish covers approximately 471 square miles and extends between 30\textdegree18'--30\textdegree36'N 
 latitude and 91\textdegree06'--90\textdegree48'W longitude (Figure~\ref{fig:study_area}).
@@ -238,7 +240,7 @@ Land subsidence in EBRP is driven predominantly by anthropogenic activities,
 especially long-term groundwater extraction from the Baton Rouge aquifer system.
 Sustained withdrawal of groundwater reduces pore pressure within aquifer systems, 
 leading to aquifer-system compaction and progressive lowering of the land surface 
-\citep{Galloway2014}.
+\citep{Galloway2000SubsidenceUS}.
 These effects may be irreversible where inelastic compaction occurs.
 Subsidence associated with groundwater depletion has been widely documented across 
 sedimentary basins in the United States and is increasingly mapped using geodetic 
@@ -280,10 +282,43 @@ and long-term planning in sedimentary basin environments
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=6.9in,height=5.9in]{media/MyStudyArea.png}
-\caption{Location map of East Baton Rouge Parish study area, Louisiana, showing 
-spatial extent and geographic context.}
+\caption{Location map of East Baton Rouge Parish}
 \label{fig:study_area}
 \end{figure}
+
+\section{Materials Used}
+This study utilises a comprehensive set of satellite data, auxiliary geospatial datasets,
+atmospheric products, and open-source software tools to drive ten (8) years (2017-2025) of ground 
+deformation and velocity estimates using timeseries SBAS-InSAR techniques.
+The materials used are described in detail below.
+\subsection{Sentinel-1 SAR Dataset}
+A total of 246 Sentinel-1A descending line-of-sight (LOS) Single-Look Complex (SLC) scenes
+were used in this study. The data were acquired in Interferometric Wide (IW) mode with VV polarisation in
+descending tracks. Sentinel-1 is a C-band (5.405 GHz) SAR mission operated by the European Space Agency (ESA) and 
+provides systematic, long-term observations suitable for deformation monitoring. 
+
+\subsection{Precise Orbit Ephemerides}
+Precise Orbits Ephemerides (POEORB) provided by the ESA were applied to all Sentinel-1 acquisitions.
+The use of POEORB significantly improves satellite position accuracy compared to restituted Orbits and reduces long
+wavelength phase ramps in Interferometric products. This step is essential for reliable deformation timeseries analysis,
+particularly for long temporal stacks \citep{ESA,2021}.
+\subsection{Geospatial Conditioning Factors}
+Twenty (20) geospatial conditioning factors were prepared at 30 m resolution and 
+aligned to a common grid. Key groups include:
+\begin{itemize}
+\item Topographic: elevation (30 m SRTM), slope, aspect, curvature, Topographic 
+  Wetness Index (TWI).
+\item Geological/hydrogeological: soil type, lithology, distance to Baton Rouge 
+  and Denham Springs fault lines.
+\item Anthropogenic/environmental: Land Use/Land Cover (LULC), NDVI, distances to 
+  roads, rivers, groundwater wells, railways, and bridges.
+\end{itemize}
+Continuous layers were min--max scaled; categorical layers were one-hot encoded.
+
+\subsection{Validation Data}
+GNSS vertical displacement time series from the GulfNet CORS network (notably 
+stations 1LSU and GMVS within EBRP) are used for independent validation of 
+InSAR-derived deformation.
 
 \chapter[Literature Review]{\centering Literature Review}
 
@@ -369,24 +404,7 @@ While many studies have applied InSAR and machine or deep learning (ML/DL) metho
 
 
 
-\chapter[Materials and Methods]{\centering Materials and Methods}
-
-\section{Materials}
-
-\subsection{Sentinel-1 SAR Dataset}
-This study utilises Sentinel-1A descending line-of-sight (LOS) Single-Look Complex (SLC) scenes acquired between January 2017 and January 2025. A total of 246 SLC scenes in Interferometric Wide (IW) mode with VV polarisation were collected. Data processing integrated Precise Orbit Determination (POD) products from ESA to ensure geolocation accuracy within ~5 cm.
-
-\subsection{Geospatial Conditioning Factors}
-Twenty (20) geospatial conditioning factors were prepared at 30 m resolution and aligned to a common grid. Key groups include:
-\begin{itemize}
-\item Topographic: elevation (30 m SRTM), slope, aspect, curvature, Topographic Wetness Index (TWI).
-\item Geological/hydrogeological: soil type, lithology, distance to Baton Rouge and Denham Springs fault lines.
-\item Anthropogenic/environmental: Land Use/Land Cover (LULC), NDVI, distances to roads, rivers, groundwater wells, railways, and bridges.
-\end{itemize}
-Continuous layers were min--max scaled; categorical layers were one-hot encoded.
-
-\subsection{Validation Data}
-GNSS vertical displacement time series from the GulfNet CORS network (notably stations 1LSU and GMVS within EBRP) are used for independent validation of InSAR-derived deformation.
+\chapter[Methods]{\centering Methods}
 
 \section{Methodologies}
 
