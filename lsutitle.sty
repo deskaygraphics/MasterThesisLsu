@@ -1,0 +1,132 @@
+%%
+%% This is file `lsutitle.sty', a LaTeX class derived from `book.cls'.
+%%
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\ProvidesPackage{lsutitle}[2025/04/08 LSU Thesis Title Package]
+% \title and \author already defined in latex.ltx to modify \@title and
+% \@author, but an empty \author should be an error instead of a warning,
+% so for that we would want:
+%%\def\@author{\@latex@error{No \noexpand\author given}\@ehc}}
+% However, ``amsbook'' redefines \author to instead modify \authors. Thus
+% we choose between \@author and \authors (first one that isn't empty),
+% otherwise produce the error.
+\let\@author\@empty
+\let\authors\@empty
+\def\@@author{\ifx\@author\@empty\ifx\authors\@empty\@latex@error{No \noexpand\author given}\@ehc\else\authors\fi\else\@author\fi}
+% We now similarly define other elements of the title page.
+\def\thesistype#1{\gdef\@thesistype{#1}}
+\def\@thesistype{Thesis}
+\def\soughtdegree#1{\gdef\@soughtdegree{#1}}
+\def\@soughtdegree{Doctor of Philosophy}
+\def\department#1{\gdef\@department{#1}}
+\def\@department{\@latex@error{No \noexpand\department given}\@ehc}
+\def\degrees#1{\gdef\@degrees{#1}}
+\def\@degrees{\@latex@warning@no@line{No \noexpand\degrees given}}
+\def\graduationdate#1{\gdef\@graduationdate{#1}}
+\def\@graduationdate{\@latex@warning@no@line{No \noexpand\graduationdate given}}
+
+\renewcommand\maketitle{\begin{titlepage}%
+  \renewcommand\baselinestretch{}\normalsize
+  \centering
+  \begingroup
+    \LARGE\bfseries\MakeUppercase{\@title}\par
+  \endgroup
+  \vspace*{\stretch{1}}
+  \begingroup
+    A \@thesistype\\
+    \ \\
+    Submitted to the Graduate Faculty of the\\
+    Louisiana State University and\\
+    Agricultural and Mechanical College\\
+    in partial fulfillment of the\\
+    requirements for the degree of\\
+    \@soughtdegree\\
+    \ \\
+    in\\
+    \ \\
+    \@department\\
+  \endgroup
+  \vspace*{\stretch{1}}
+  \begingroup
+    by\\
+    \@@author\\
+    \@degrees\\
+    \@graduationdate
+  \endgroup
+  \end{titlepage}%
+}
+
+%% For setting landscape page numbers (required by LSU), the following trick
+%% is based off an idea by David Carlisle in
+%% https://tex.stackexchange.com/questions/278113/single-landscape-page-with-page-number-at-the-bottom
+%% It is included here in lsutitle because putting it in the document class
+%% would make it harder for a user to change document classes. It could also
+%% be put in a separate package ``lsulandscape'' that could even depend on
+%% ``pdflscape'', but putting it here reduces the number of files. To use
+%% this, one does
+%%  \usepackage{pdflscape}
+%%  \begin{landscape}
+%%    Landscape material.
+%%    \fillandplacepagenumber
+%%  \end{landscape}
+%%
+%% The code goes to the bottom of the page, creates a box of height/depth 0,
+%% aligned on an internal box of height/depth 0, and then with the page
+%% number sticking out below precisely the amount determined by \footskip.
+\def\fillandplacepagenumber{%
+  \par\thispagestyle{empty}%
+  \vbox to\z@{\vss}\vfill
+  \vbox to\z@{\baselineskip\z@
+    \hb@xt@\linewidth{\hss}%
+    \baselineskip\footskip
+    \hb@xt@\linewidth{%
+      \hfil\thepage\hfil}\vss}}
+
+
+%% Epigraph (quotation) support.
+\usepackage{epigraph}
+\setlength\beforeepigraphskip{0pt}
+\setlength\afterepigraphskip{0pt}
+\setlength\epigraphrule{0pt}
+%% For the next line we typically want
+%\renewcommand\epigraphsize{\singlespacing\small}
+%% or we might want
+%\if@lsuthesisdoublespace
+%\renewcommand\epigraphsize{\singlespacing\small}
+%\fi
+%% but we can't use \singlespacing nor refer to \if@lsuthesisdoublespace
+%% because the user might not be using the ``lsuthesis'' class. (That's
+%% the entire reason ``lsutitle'' was split into a separate package!)
+%% Thus we need a different way to test. When the ``setspace'' package
+%% isn't loaded, \baselinestretch should be empty, so that's the condition
+%% we test. This isn't fool-proof. The value might be 1 with some other
+%% document class, or some other document class might itself load
+%% ``setspace'' and do something. But in those cases all the spacing will
+%% likely differ from ``lsuthesis'', so our fixups will anyhow be incorrect.
+\renewcommand\epigraphsize{\ifx\baselinestretch\@empty\else\def\baselinestretch{1}\normalsize\vskip\baselineskip\fi}
+%% When an epigraph is set between a \chapter and \section, too much space
+%% is produced afterwards. This helper macro fixes the spacing.
+\def\shrinkpostepigraphspacing{%
+  \ifx\baselinestretch\@empty
+  \vspace{-\baselineskip}%
+  \else
+  \vspace{-\dimexpr\baselineskip/\baselinestretch\relax}%
+  \fi}
+%% The user must explicitly invoke the helper macro:
+%%  \chapter{Title}
+%%  \epigraph{Quote}{Acknowledgment}
+%%  \shrinkpostepigraphspacing
+%%  \section{Title}
+%% This is not needed if a regular paragraph follows the epigraph.
+
+
+%% LSU allows vertically centered pages in the frontmatter, to be used
+%% for copyright page, dedication page, and epigraph page.
+\newenvironment{centeredpage}{%
+  \chapter*{}\begin{center}\vspace*{\stretch{1}}}{%
+  \vspace*{\stretch{1}}\end{center}}
+
+
+\endinput
+%%
+%% End of file `lsutitle.sty'.

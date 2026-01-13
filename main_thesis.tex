@@ -1,0 +1,357 @@
+\documentclass[oneside,doublespacing,raggedright]{lsuthesis}
+
+%% Establish encoding
+\usepackage{ifluatex}
+\ifluatex
+  \usepackage{fontspec,unicode-math}
+  % Set consistent OpenType fonts for LuaLaTeX/XeLaTeX
+  \setmainfont{TeX Gyre Termes}[Ligatures=TeX,Scale=1.0]
+  \setsansfont{TeX Gyre Heros}[Scale=1.0]
+  \setmonofont{TeX Gyre Cursor}[Scale=1.0]
+  \setmathfont{TeX Gyre Termes Math}
+\else
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern} % consistent scalable fonts for pdfLaTeX
+  \usepackage{textcomp}
+\fi
+
+% Ensure uniform base font size and leading (override class defaults if needed)
+\AtBeginDocument{\fontsize{12}{14}\selectfont}
+
+% Consistent section/chapter titles styling
+\usepackage{titlesec}
+\titleformat{\chapter}[display]{\normalfont\bfseries\Large\centering}{\chaptername\ \thechapter}{0.5em}{}
+\titleformat{\section}{\normalfont\bfseries\large}{\thesection}{0.5em}{}
+\titleformat{\subsection}{\normalfont\bfseries\normalsize}{\thesubsection}{0.5em}{}
+
+% Make captions use document font and a consistent smaller size
+\usepackage[font=small,labelfont=bf]{caption}
+
+% Improve micro-typography (pdfLaTeX and LuaLaTeX)
+\usepackage{microtype}
+
+%% Always bring in amsmath
+\usepackage{amsmath,amssymb}
+
+%% Additional packages
+\usepackage{graphicx}
+\graphicspath{{media/}}
+\DeclareGraphicsExtensions{.png,.pdf,.jpg,.jpeg}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{xcolor}
+
+
+\usepackage{ragged2e}     % for justification control
+\usepackage[none]{hyphenat}  % to globally disable hyphenation
+
+
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via lsuthesis}
+}
+
+%% Title information
+\usepackage{lsutitle}
+\title{LAND SUBSIDENCE SUSCEPTIBILITY MAPPING AND SPATIO-TEMPORAL FORECASTING BY INTEGRATING SENTINEL-1 INSAR IMAGERY WITH MACHINE AND DEEP LEARNING MODELS}
+\thesistype{Thesis}
+\department{The Department of Civil and Environmental Engineering}
+\soughtdegree{Master of Science }
+\author{Desmond Kangah}
+\degrees{B.S., University of Mines and Technology, 2023}
+\graduationdate{May 2025}
+
+
+\begin{document}
+
+%% The command "\frontmatter" switches to lowercase roman page numbers and
+%% unnumbered chapter headings without the word "Chapter".
+\frontmatter
+
+\maketitle
+
+\begin{centeredpage}
+This thesis is dedicated to me
+\end{centeredpage}
+
+\chapter[Acknowledgments]{\centering Acknowledgments}
+The is my Acknowledgments
+
+%%TABLE OF CONTENTS
+\clearpage
+\phantomsection
+\tableofcontents
+
+%% LIST OF TABLES
+\clearpage
+\phantomsection
+\listoftables
+
+%%LIST OF FIGURES
+\clearpage
+\phantomsection
+\listoffigures
+
+% \chapter[Abbreviations]{\centering Abbreviations}
+
+\chapter*{\centering\mbox{Abstract}}
+\addcontentsline{toc}{chapter}{Abstract}
+\justifying
+
+Land subsidence has become an escalating geohazard in rapidly urbanizing regions such 
+as East Baton Rouge Parish (EBRP), Louisiana, where groundwater extraction, infrastructure loading, 
+and geomorphological variability jointly drive ground deformation. Continuous monitoring and 
+forecasting are therefore critical for infrastructure protection and sustainable water--resource
+management. This study presents an integrated framework for land--subsidence susceptibility  
+mapping and spatio--temporal forecasting by combining Sentinel--1 Small Baseline Subset 
+Interferometric Synthetic Aperture Radar (SBAS--InSAR) observations with machine--learning 
+and deep--learning models. Multi--temporal SBAS--InSAR data spanning 2017--2025 
+(246 descending line--of--sight scenes) were analyzed alongside key geospatial 
+conditioning factors, including  topographic wetness index, 
+elevation, slope, soil type, precipitation, curvature, aspect, land--use/land--cover, and distances to 
+faults, rivers, roads,  railways, wells, and bridges.
+
+Gaussian noise--based data augmentation was applied to mitigate data gaps and enhance model generalization. 
+Susceptibility mapping identified the Extra Trees Regressor as the optimal spatial model, achieving a test 
+$R^2$ of 0.9063 and reduced overfitting relative to Random Forest ($R^2 = 0.8037$). 
+A physics--informed spatio--temporal modeling approach integrating Long Short--Term Memory (LSTM) temporal 
+learning with adaptive stabilization was applied to forecast land subsidence, yielding an 
+overall $R^2$ of 0.9368 and a Pearson correlation of 0.9723. SHAP analysis highlighted land--use/land--cover, 
+fault proximity, and River--DEM interactions as dominant subsidence drivers. Projections to 2030 indicate gradual 
+deformation stabilization, with a mean velocity of $-0.530$~mm/year and cumulative displacement of $-6.42$~mm.
+
+
+
+
+%% The command "\mainmatter" switches to regular page numbers and
+%% chapter headings that include the word "Chapter".
+\mainmatter
+
+\chapter[Introduction]{\centering Introduction} 
+
+\section{Background}
+
+Land subsidence is a gradual or sudden downward displacement of the Earth's surface caused by both natural and anthropogenic processes. While natural mechanisms such as sediment consolidation, glacial isostatic adjustment, and tectonic motion contribute to subsidence, human activities are now recognized as the dominant drivers in most severe global cases, accounting for more than 80\% of documented high-impact events worldwide (\citeauthor{Galloway2014}, \citeyear{Galloway2014};
+ \citeauthor{Higgins2016}, \citeyear{Higgins2016})
+. Excessive groundwater extraction, aquifer-system compaction, soil consolidation, and static loading from urban infrastructure significantly increase subsidence rates, posing substantial risks to infrastructure stability, groundwater sustainability, flood resilience, and environmental systems in rapidly urbanizing regions.
+East Baton Rouge Parish (EBRP), Louisiana, represents a prominent subsidence-prone urban area where geological, hydrological, and anthropogenic factors interact in a complex manner. The region is characterized by low-relief topography and unconsolidated sediments, making it highly sensitive to pore-pressure reduction caused by intensive pumping from the Southern Hills Aquifer System. Rapid urban expansion and heavy infrastructure loading further exacerbate ground deformation. Structural controls such as the Baton Rouge and Denham Springs fault systems introduce spatially heterogeneous and non-linear deformation patterns, increasing vulnerability to flooding, pipeline rupture, and foundation failure \citep{Wang2021, Abdalla2024}.
+
+Traditional land-subsidence monitoring techniques, including geotechnical surveys, levelling campaigns, and GNSS/GPS measurements, provide high accuracy at discrete locations but are limited by sparse spatial coverage, high operational costs, and insufficient temporal resolution for regional-scale risk assessment. The advent of satellite-based Interferometric Synthetic Aperture Radar (InSAR) has transformed subsidence monitoring by enabling millimetre-level deformation measurements over large areas. In particular, time-series approaches such as Persistent Scatterer InSAR (PS-InSAR) and Small Baseline Subset InSAR (SBAS-InSAR) have proven effective for detecting subtle, long-term deformation in urban and mixed land-cover environments \citep{Ferretti2001, Berardino2002, Ferretti2011}.
+
+Despite these advances, converting large-scale InSAR observations into reliable and interpretable spatio-temporal forecasts remains challenging due to the non-linear, multi-factor nature of subsidence processes. Physically based numerical models offer insight into deformation mechanisms but often require detailed soil and hydrogeological parameters that are rarely available at regional scales \citep{Zhou2022}. Recent developments in machine learning have demonstrated strong potential for addressing these challenges by learning complex relationships between deformation and environmental controls directly from data. In particular, tree-based ensemble models such as the Extra Trees Regressor have shown strong performance in spatial susceptibility mapping due to their robustness to 
+multicollinearity, ability to model non-linear interactions, and reduced overfitting compared to conventional Random Forest approaches \citep{Cieslik2022, Gao2024}.
+
+While ensemble tree models are well suited for spatial susceptibility analysis, they do not explicitly capture temporal dependencies. Long Short-Term Memory (LSTM) networks address this limitation by modelling sequential deformation dynamics and long-term temporal dependencies within InSAR time series. However, purely data-driven LSTM models may generate physically unrealistic trends when extrapolated beyond the observation period. To overcome this limitation, recent studies have emphasized the integration of deep learning with physics-based constraints to improve forecast stability and geomechanical plausibility \citep{Zhu2024}.
+
+Guided by this framework, the present study integrates SBAS-InSAR--derived deformation, Extra Trees--based spatial susceptibility mapping, and a physics-informed LSTM spatio-temporal forecasting approach enhanced with explainable artificial intelligence. This integrated methodology provides a robust, interpretable, and geomechanically consistent framework for assessing present-day subsidence patterns and generating reliable projections of ground deformation in East Baton Rouge Parish through 2030.
+
+
+
+\section{Thesis Objectives}
+\label{sec:objectives}
+
+The main research objectives are to:
+
+\begin{enumerate}
+\def\labelenumi{\roman{enumi}.}
+\item
+  Generate  high-resolution land-subsidence map for East Baton Rouge Parish using 
+  Sentinel-1 SBAS-InSAR data (2017--2025)
+\item
+  Identify and rank key environmental and anthropogenic drivers for land subsidence
+ using EXtra Trees and Random Forest machine-learning model with  SHAP-based Explainability.
+\item
+  Develop a physics-informed LSTM-based spatio-temporal model to forcast land subsidence from 
+  InSAR time-series data, ensuring geomechanically consistent projections through 2030.
+\end{enumerate}
+
+
+\section{Thesis Organization}
+
+This thesis is structured into six chapters as follows:
+
+Chapter 1, this chapter, introduces the research topic of land subsidence susceptibility mapping and spatio-temporal forecasting. It provides background information, outlines research objectives, and presents the thesis organization.
+
+Chapter 2 presents the study area characteristics of East Baton Rouge Parish, including its geological setting, hydrogeological conditions, and historical subsidence patterns that make it vulnerable to ground deformation.
+
+Chapter 3 provides a comprehensive literature review covering: advances in InSAR monitoring techniques for subsidence, machine learning applications in susceptibility mapping, deep learning approaches for time-series forecasting, hybrid modeling frameworks, and methods for analyzing subsidence driving factors. The chapter concludes by identifying research gaps this study aims to address.
+
+Chapter 4 details the methodology employed, including: PS-InSAR processing of Sentinel-1 data, preparation of environmental and anthropogenic predictor variables, development of machine learning models (Random Forest) for susceptibility mapping, implementation of deep learning models (LSTM, MLP, SVR) for temporal forecasting, and construction of the hybrid stacked ensemble framework. The chapter also describes validation procedures using GNSS data and SHAP-based interpretation methods.
+
+Chapter 5 presents the analysis results and discussion, covering: spatial patterns of observed subsidence, relative importance of driving factors, performance evaluation of individual and ensemble models, and validation against ground-truth measurements. The implications for urban planning and groundwater management are also discussed.
+
+Chapter 6 summarizes key conclusions, provides recommendations for land subsidence monitoring and mitigation in East Baton Rouge, acknowledges study limitations, and suggests directions for future research.
+
+
+
+\chapter[Study Area]{\centering Study Area}
+
+This study will be conducted in East Baton Rouge Parish (EBRP), located
+in southeastern Louisiana and forming part of the Capital Area alongside
+four neighboring parishes. Covering approximately 471 square miles, the
+parish is shaped by the Mississippi and Comite Rivers, extensive cypress
+swamps, and forested plains. Despite its diverse landscape, EBRP faces
+persistent geological and environmental challenges, including land
+subsidence, soil instability, and climate-induced ground deformation.
+
+Subsidence in EBRP is primarily caused by the extraction of groundwater,
+oil, and natural gas, which leads to gradual land sinking. The problem
+is further aggravated by the area's soft soil and increasing
+construction activities, which promote settlement and consolidation.
+Frequent heavy rainfall and flooding also intensify erosion and ground
+movement. To ensure the region's long-term stability, sustainable
+groundwater management, detailed geotechnical investigations, and
+effective flood and riverbank control measures are essential. These
+efforts will help mitigate the effects of natural and human-induced land
+deformation and strengthen EBRP's resilience to future environmental
+challenges.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=6.9in,height=5.9in]{media/MyStudyArea.png}
+\caption{PSI Methodology steps}
+\end{figure}
+
+\chapter[Literature Review]{\centering Literature Review}
+
+\section{Overview of Land Subsidence in Urban Areas}
+
+Land subsidence is increasingly recognized as a major global geohazard, with over 80\% of severe cases associated with aquifer compaction and groundwater withdrawal \citep{Galloway2014}. In rapidly urbanizing regions like the Lower Mississippi Basin, the interplay between shallow geology and heavy infrastructure growth intensifies surface deformation. Urban environments are particularly susceptible due to the high density of man-made structures that act as static loads on compressible soil layers. Research indicates that unmitigated subsidence triggers a cascade of secondary hazards, including pipeline ruptures, building tilting, and structural failures, resulting in significant economic losses \citep{Wang2021}.
+
+Land subsidence, which is defined as the slow downward movement of the Earth\textquotesingle s surface, is becoming more widely acknowledged as a significant geohazard in areas of the world that are rapidly becoming more urbanized \citep{Galloway2023}. In urban environments, subsidence processes are fueled by excessive groundwater extraction, sediment consolidation, urban infrastructure loading, and land-use change \citep{Holzer1985}. Research on the Lower Mississippi Basin, for instance, demonstrates how shallow geology and infrastructure growth can intensify surface deformation and compaction \citep{Wang2021}. The hazards include diminished drainage capacity, heightened susceptibility to flooding in low-lying urban corridors, and harm to pipelines and foundations. Subsurface faulting and structural geology make subsidence patterns in many cities even more complex \citep{Younas2023}. These findings highlight the need for reliable frameworks that can both map the areas where subsidence is most likely to occur and predict its future course.
+
+\section{Advancements in InSAR Monitoring for Subsidence}
+
+The development of Synthetic Aperture Radar Interferometry (InSAR) has transformed ground-deformation monitoring by providing high-resolution, wide-area observations. Traditional geodetic techniques, such as GNSS and levelling, have historically provided precise point measurements but are limited by prohibitive costs and low spatial resolution.
+
+\subsection{Methodological Evolution}
+
+Early Differential InSAR (D-InSAR) was limited by atmospheric delay and spatiotemporal decorrelation. Multi-temporal approaches like Persistent Scatterer InSAR (PS-InSAR) improved accuracy by identifying stable radar targets that retain high phase stability over time, achieving sub-millimeter precision on built infrastructure \citep{Ferretti2001, Ferretti2011}. However, PS-InSAR is often sparse in non-urbanized or vegetated areas, limiting its applicability to mixed land-cover environments.
+
+Small Baseline Subset (SBAS-InSAR) has emerged as a superior alternative, particularly in regions like Louisiana with mixed urban and vegetated terrain \citep{Berardino2002}. By utilizing multiple master interferograms with small perpendicular baselines, SBAS identifies Slowly Decorrelating Filtered Pixels (SDFP), which significantly reduces the impact of spatial and temporal decorrelation. Recent studies indicate that processing high-volume datasets—such as the 246 descending Sentinel-1 scenes (2017–2025) used in this research—allows for the detection of both linear and complex non-linear deformation trends with millimetre-level accuracy. Comparatively, SBAS-InSAR provides up to 2.83 times higher monitoring density than PS-InSAR in mixed urban-rural environments \citep{Bayik2025}.
+
+Unlike traditional geodetic methods, InSAR enables millimeter-scale motion detection across vast regions regardless of weather or lighting conditions \citep{Ferretti2020, Crosetto2016}. Building on these advances, newer methods such as Distributed Scatterer (DS-InSAR) and Multi-Temporal InSAR (MT-InSAR) extend coherence to mixed urban--rural environments by statistically analyzing pixel clusters \citep{Fattahi2015}.
+
+\subsection{Atmospheric Correction and Data Quality}
+
+Modern InSAR frameworks integrate the Generic Atmospheric Correction Online Service (GACOS) to mitigate tropospheric delay, significantly reducing the root-mean-square (RMS) error of phase measurements. This enhancement is critical for long-term monitoring in tropical and subtropical regions where water vapor fluctuations are substantial. The advent of open-access Sentinel-1A/B data with a 12-day revisit cycle has further enhanced InSAR's operational value for regional subsidence monitoring.
+
+Numerous studies have demonstrated the effectiveness of SBAS-InSAR: \citet{Hakim2023} used PS-InSAR coupled with hybrid CNN--SVR models to improve deformation prediction in Indonesia; \citet{Li2020} applied PS-InSAR and LSTM networks in Beijing, achieving R² \textgreater{} 0.85 between deformation and aquifer changes; and \citet{Yu2023} integrated PS-InSAR with GNSS in Houston to map displacements of 5--15 mm~yr$^{-1}$. More recent works, including \citet{Peng2024} and \citet{Liu2023}, show that data-driven fusion of InSAR with deep-learning architectures like LSTM can outperform traditional regression models in temporal subsidence forecasting.
+
+Beyond urban analysis, InSAR has advanced environmental and hydrogeological applications, linking surface deformation to aquifer compaction, groundwater extraction, and soil-structure interactions. For instance, \citet{Wang2023} used InSAR and RF regression to identify groundwater depth as the main driver of subsidence in China, while \citet{Li2020} demonstrated strong correlations between deformation and groundwater-level fluctuations. Overall, InSAR's ability to deliver dense, long-term deformation time series combined with its compatibility with machine-learning and deep-learning frameworks makes it an indispensable tool for both monitoring and forecasting. Yet, most existing studies emphasize \emph{where} deformation occurs rather than \emph{how and when} it evolves. The present research bridges this gap by integrating SBAS-InSAR time-series data with hybrid deep-learning models to perform spatio-temporal forecasting and assess environmental causative factors driving subsidence across East Baton Rouge.
+
+\section{Machine Learning for Subsidence Susceptibility Mapping}
+
+Machine learning (ML) has become the global standard for modelling the non-linear relationship between ground deformation and various geospatial drivers, such as Land Use/Land Cover (LULC), soil types, and distance from faults. \citet{Gharechaee2023} applied RF, KNN, and CART to InSAR-derived subsidence in Iran's Bakhtegan Basin, finding RF performed best and highlighting that the leading susceptibility factors were not only groundwater withdrawal but also proximity to dams, faults and mines. \citet{Orlandi2024} compared ML approaches in Murcia, Spain, using land-use, lithology, and other predictors, demonstrating the utility of ML for zonation and factor ranking.
+
+\subsection{Ensemble Learners and Extra Trees Regression}
+
+While Random Forest (RF) remains a common benchmark due to its ability to handle multi-variate data without pre-defined assumptions, it can be prone to overfitting in complex geological datasets \citep{Breiman2001}. This study identifies the Extra Trees (ERT) Regressor as a more robust alternative for subsidence susceptibility mapping. By implementing random splits at the node level, ERT enhances model generalisation and reduces variance compared to conventional bagged ensembles \citep{Gao2024, Mame2025}. In the East Baton Rouge Parish region, Extra Trees achieved a test $R^2$ of 0.9063, significantly outperforming Random Forest ($R^2 = 0.8037$), demonstrating superior predictive power and reduced overfitting for complex, multi-factor subsidence systems.
+
+\subsection{Gaussian Process Regression and Data Augmentation}
+
+Gaussian Process Regression (GPR) is increasingly used for its ability to model calibrated predictive uncertainty, making it highly effective for small datasets and areas with limited observability. To address the technical challenge of small dataset sizes in local subsidence surveys, Gaussian noise-based data augmentation has been validated as an effective strategy to expand training samples and ensure model stability \citep{Mame2025}. This augmentation approach mitigated data gaps and enhanced model generalization, expanding the effective training dataset to over 390,000 samples. \citet{Hosseinzadeh2024} evaluated seven ML methods (CART, BRT, SVM, RF, logistic regression, etc.) in Iran and found BRT outperformed others in susceptibility mapping. These studies demonstrate ML's strength in spatial patterning and factor ranking, yet many stop short of integrating temporal forecasting or sequence modelling, limiting their value for prediction of future subsidence trends.
+
+\section{Deep Learning and Time Series Forecasting of Subsidence}
+
+Deep-learning (DL) models, especially sequence models like LSTM, are increasingly adopted for subsidence forecasting because of their ability to capture temporal dependencies and non-linear dynamics. \citet{Li2020} applied LSTM to PS-InSAR data in Beijing Plain, showing promise for temporal modelling though with limitations in spatial generalization. \citet{Mirmazloumi2023} used LSTM on InSAR time-series for three mining sites, demonstrating an early-warning capability by forecasting 3--5 steps ahead.
+
+\subsection{LSTM and Bidirectional Architectures}
+
+Long Short-Term Memory (LSTM) networks are adept at capturing non-linear trends in InSAR time series through a memory cell regulated by three gates: the input, forget, and output gates \citep{Hochreiter1997, Greff2017}. Bidirectional LSTM (BiLSTM) further improves accuracy by capturing information in both forward and backward temporal directions, providing a more holistic understanding of deformation dynamics \citep{Raissi2019}.
+
+\citet{Liu2023} implemented SBAS-InSAR plus an attention-LSTM (AT-LSTM) model for mining subsidence, highlighting how attention mechanisms improve temporal modelling. \citet{Soni2025} developed a modified LSTM for PS-InSAR in mining-induced subsidence, achieving high accuracy (R² \textasciitilde{} 0.98). These works confirm that DL sequence modelling is powerful for forecasting, but many studies remain site-specific, focus largely on mining rather than urban settings, and rarely integrate causative-factor analysis or ML-based spatial mapping.
+
+\subsection{CNN-LSTM Hybrids and Attention Mechanisms}
+
+Combining Convolutional Neural Networks (CNN) for spatial feature extraction with LSTM for temporal learning significantly improves prediction accuracy for complex non-linear deformations. \citet{Lu2024} developed DACLnet, a Dual-Attention-Mechanism CNN-LSTM Network for accurate prediction of nonlinear InSAR deformation, achieving state-of-the-art performance in capturing spatial-temporal patterns. The integration of Attention Mechanisms allows models to focus on critical time points, such as sudden shifts in deformation rates caused by seasonal rainfall or peak pumping, thereby improving both accuracy and interpretability.
+
+\section{Integrated Hybrid Frameworks and Physics Constraints}
+
+For spatio-temporal forecasting, the literature increasingly focuses on Long Short-Term Memory (LSTM) networks due to their ability to capture long-term temporal dependencies through gated memory cells. However, standalone data-driven models may lack geomechanical consistency and produce physically unrealistic trends when extrapolated beyond the observation period \citep{Zhu2024}. To resolve this limitation, current research favours hybrid deep-learning frameworks that combine the temporal strengths of LSTM with the non-linear interaction mapping of Multi-Layer Perceptrons (MLP) and the smooth kernel-based regression of Support Vector Regression (SVR). These components are fused via a stacking ensemble using a meta-learner (MLP), which achieves superior accuracy by leveraging the complementary strengths of each base algorithm.
+
+\subsection{Stacking Ensembles and Meta-Learning}
+
+The convergence of ML (for spatial susceptibility) and DL (for temporal forecasting) into hybrid frameworks is still emerging in the subsidence domain. Stacking multiple base learners (e.g., LSTM, MLP, and SVR) via a meta-learner improves robustness and predictive reliability compared to standalone models. \citet{Zheng2024} compared SVR, Holt smoothing and MLP on InSAR time-series and found MLP versatile but did not extend to LSTM or hybrid stacks. \citet{Naghibi2022} developed an integrated InSAR-machine learning approach for ground deformation rate modelling in arid areas, demonstrating the value of combining remote sensing with ensemble methods. Recent advances by \citet{Zhu2024} employed SBAS-InSAR and CNN-BiGRU-attention models for high-precision subsidence prediction, achieving remarkable accuracy in mining areas and validating the potential of attention-based hybrid architectures.
+
+This study's hybrid stacked ensemble framework achieves an overall $R^2$ of 0.9368, with a Pearson correlation of 0.9723, providing a physically plausible projection of stabilization through 2030. The framework operates analogously to a medical diagnostic panel: the LSTM serves as the cardiologist examining deformation history over time; the MLP functions as the geneticist identifying how different factors interact non-linearly; and the SVR acts as the radiologist detecting smooth, consistent patterns in the data. A meta-learner (Lead Consultant) optimally weights their predictions to provide the most reliable forecast, ensuring geomechanical plausibility and scientific consistency in the 2030 subsidence projections.
+
+\subsection{Physics-Informed Machine Learning (PIML)}
+
+Purely data-driven models may produce physically implausible results, such as unrealistic acceleration or velocity reversals. Physics-Informed Machine Learning (PIML) frameworks integrate geophysical constraints (e.g., velocity continuity and conservation laws) to ensure that long-term projections remain geomechanically consistent. \citet{Raissi2019} developed Physics-Informed Neural Networks (PINNs), which encode physical laws as penalty terms in the loss function, thereby constraining the model to produce physically realistic predictions. Such gaps suggest the potential for stacked models using meta-learning ensembles to combine base-model predictions and latent features for enhanced accuracy and interpretability. Hybrid models are common in other geohazard domains (e.g., landslides, groundwater) but remain under-utilized in urban subsidence. Thus, implementing a hybrid DL/ML ensemble to both \emph{map} and \emph{forecast} subsidence fills a methodological gap in current literature.
+
+\section{Subsidence Driving Factor Analysis and Explainability}
+
+A critical limitation of traditional deep learning is its ``black-box'' nature, which hinders its use in urban planning and policy-making. Explainable AI (XAI) tools, specifically SHapley Additive exPlanations (SHAP), are now applied to quantify the marginal contribution of each input factor to the subsidence signal. \citet{Liu2025} applied XGBoost and SHAP on PS-InSAR deformation along the Beijing--Xiong 'an railway, showing groundwater fluctuations contributed approximately 35\% of subsidence signal. \citet{Xue2024} used ML on InSAR data to inspect deformation along high-speed rail corridors, emphasizing hydrological and structural controls.
+
+Understanding \emph{why} subsidence occurs and identifying and quantifying drivers is vital for decision-making in resource management and infrastructure planning. SHAP analysis has revealed that while LULC and fault proximity are primary contributors, River-DEM interactions and groundwater fluctuations account for significant portions of the deformation signal in regional contexts. By integrating SHAP within a hybrid forecasting pipeline, transparent and scientifically defensible explanations of subsidence mechanisms can be provided, supporting sustainable water resource and infrastructure management \citep{Chen2023}. These studies show how driver-ranking can support mitigation strategies and inform policy decisions. Nevertheless, few investigations combine hybrid DL forecasting with explicit causative-factor analysis in urban contexts; the use of SHAP in a hybrid DL/ML framework addresses a real literature gap.
+
+\section{Data Scarcity and Augmentation Techniques}
+
+In geohazard research, obtaining large datasets for model training is often time-consuming and expensive. Gaussian noise-based data augmentation is a validated strategy to improve model stability and generalisation. Adding small amounts of noise allows the training set to expand significantly without distorting the original data distribution, thereby preventing overfitting in tree-based and deep-learning architectures. This approach has been successfully applied in the context of subsidence prediction with Extra Trees models, where synthetic data generation improved model robustness without compromising prediction accuracy \citep{Mame2025}.
+
+\section{Research Gaps and Study Objectives}
+
+While many studies have applied InSAR and machine or deep learning (ML/DL) methods to analyze land subsidence, most have treated spatial susceptibility mapping and temporal forecasting as separate tasks, often overlooking model interpretability \citep{Gharechaee2023, Rahmani2024, Fu2023}. Applications within complex U.S. Gulf Coast urban environments also remain limited. Recent research by \citet{Qiao2023} highlighted the specific need for integrated monitoring and assessment frameworks in coastal subsidence-prone regions. To address these gaps, this study integrates Small Baseline Subset InSAR (SBAS-InSAR) time-series data with a hybrid ML/DL ensemble combining Extra Trees for spatial susceptibility mapping and an LSTM-MLP-SVR stacking framework for temporal forecasting, coupled with SHAP (SHapley Additive exPlanations) interpretation to develop predictive and interpretable subsidence models tailored to Baton Rouge's unique environmental and infrastructural conditions \citep{Abdalla2024, Mojtahedi2025}.
+
+
+
+\chapter[Materials and Methods]{\centering Materials and Methods}
+
+\section{Materials}
+
+\subsection{Sentinel-1 SAR Dataset}
+This study utilises Sentinel-1A descending line-of-sight (LOS) Single-Look Complex (SLC) scenes acquired between January 2017 and January 2025. A total of 246 SLC scenes in Interferometric Wide (IW) mode with VV polarisation were collected. Data processing integrated Precise Orbit Determination (POD) products from ESA to ensure geolocation accuracy within ~5 cm.
+
+\subsection{Geospatial Conditioning Factors}
+Twenty (20) geospatial conditioning factors were prepared at 30 m resolution and aligned to a common grid. Key groups include:
+\begin{itemize}
+\item Topographic: elevation (30 m SRTM), slope, aspect, curvature, Topographic Wetness Index (TWI).
+\item Geological/hydrogeological: soil type, lithology, distance to Baton Rouge and Denham Springs fault lines.
+\item Anthropogenic/environmental: Land Use/Land Cover (LULC), NDVI, distances to roads, rivers, groundwater wells, railways, and bridges.
+\end{itemize}
+Continuous layers were min--max scaled; categorical layers were one-hot encoded.
+
+\subsection{Validation Data}
+GNSS vertical displacement time series from the GulfNet CORS network (notably stations 1LSU and GMVS within EBRP) are used for independent validation of InSAR-derived deformation.
+
+\section{Methodologies}
+
+\subsection{SBAS-InSAR Processing Pipeline}
+Small Baseline Subset (SBAS-InSAR) was applied to the 246-scene SLC stack to extract deformation time series. SBAS settings prioritised small perpendicular and temporal baselines to identify Slowly Decorrelating Filtered Pixels (SDFP) and ensure dense coverage across mixed urban–vegetated terrain. Atmospheric delays were mitigated with GACOS corrections. Phase unwrapping used the Minimum Cost Flow (MCF) algorithm and deformation time series were geocoded to the study grid.
+
+\subsection{Gaussian Noise-Based Data Augmentation}
+To mitigate limited labeled samples, Gaussian noise augmentation was applied by perturbing feature vectors with zero-mean Gaussian noise set to 3\% of each parameter's range. The augmentation expanded the training dataset by a factor of 2.5 to a total of 393,412 samples while preserving overall feature distributions.
+
+\subsection{Spatial Susceptibility Modelling: Extra Trees Regressor}
+Spatial susceptibility mapping employed the Extra Trees (Extremely Randomized Trees) regressor. Key points:
+\begin{itemize}
+\item Randomised node splits and feature sampling reduce variance and overfitting compared to RF.
+\item Hyperparameters were tuned via Bayesian optimisation (Tree-structured Parzen Estimator).
+\item Model evaluation used R², RMSE and k-fold cross-validation; feature importance was interpreted with SHAP.
+\end{itemize}
+
+\subsection{Spatio-Temporal Forecasting: Hybrid LSTM--Physics Framework}
+A hybrid forecasting pipeline combines data-driven temporal learning with physics-inspired stabilisation:
+\begin{enumerate}
+\item Temporal learner: stacked LSTM (64 then 32 units) trained on 12-step PS time sequences with associated feature groups; Adam optimiser and early stopping employed.
+\item Physics-based smoothing: a hyperbolic-tangent filter constrains instantaneous accelerations to a physical threshold (0.35 mm~yr$^{-2}$) to enforce year-to-year velocity continuity.
+\item Adaptive stabilisation: an exponential decay term models long-term geomechanical relaxation and prevents unrealistic linear acceleration in multi-year forecasts to 2030.
+\end{enumerate}
+Base-model out-of-fold predictions (LSTM, MLP, SVR) were combined in a stacking ensemble with an MLP meta-learner to improve forecast robustness.
+
+\subsection{Explainable AI: SHAP Analysis}
+SHAP (SHapley Additive exPlanations) was applied to the Extra Trees spatial model and the stacked ensemble outputs to quantify marginal feature contributions. SHAP-derived rankings informed interpretation of dominant drivers (e.g., LULC, fault proximity, River--DEM interactions).
+
+\bigskip
+
+Analogy: SBAS-InSAR acts as the radar sweep; the Extra Trees model provides the hazard map; the Hybrid LSTM--Physics framework is the autopilot where LSTM learns history and physics constraints enforce safe, physically plausible forecasts through 2030.
+
+\chapter[References]{\centering References}
+\bibliographystyle{apalike}
+\bibliography{references}
+
+\end{document}
