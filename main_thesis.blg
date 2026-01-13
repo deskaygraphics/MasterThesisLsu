@@ -5,46 +5,48 @@ Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: plainnat.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: references.bib
+Warning--I didn't find a database entry for "Galloway2014"
+Warning--I didn't find a database entry for "Holzer1985"
 Warning--empty publisher in Ferretti2020
-You've used 44 entries,
+You've used 43 entries,
             2773 wiz_defined-function locations,
-            934 strings with 14266 characters,
-and the built_in function-call counts, 23312 in all, are:
-= -- 2077
-> -- 1566
-< -- 10
-+ -- 524
-- -- 480
-* -- 2173
-:= -- 3689
-add.period$ -- 173
-call.type$ -- 44
-change.case$ -- 292
-chr.to.int$ -- 44
-cite$ -- 89
-duplicate$ -- 923
-empty$ -- 1717
-format.name$ -- 532
-if$ -- 4772
+            932 strings with 14204 characters,
+and the built_in function-call counts, 22856 in all, are:
+= -- 2033
+> -- 1545
+< -- 9
++ -- 517
+- -- 474
+* -- 2136
+:= -- 3621
+add.period$ -- 170
+call.type$ -- 43
+change.case$ -- 287
+chr.to.int$ -- 43
+cite$ -- 87
+duplicate$ -- 903
+empty$ -- 1677
+format.name$ -- 523
+if$ -- 4676
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 43
-newline$ -- 268
-num.names$ -- 176
-pop$ -- 465
+missing$ -- 42
+newline$ -- 263
+num.names$ -- 172
+pop$ -- 457
 preamble$ -- 1
-purify$ -- 248
+purify$ -- 244
 quote$ -- 0
-skip$ -- 704
+skip$ -- 688
 stack$ -- 0
-substring$ -- 907
-swap$ -- 52
+substring$ -- 880
+swap$ -- 51
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 484
+type$ -- 473
 warning$ -- 1
-while$ -- 194
+while$ -- 189
 width$ -- 0
-write$ -- 659
-(There was 1 warning)
+write$ -- 646
+(There were 3 warnings)

@@ -1,4 +1,4 @@
-\documentclass[oneside,doublespacing,raggedright]{lsuthesis}
+\documentclass[oneside,doublespacing,flushright]{lsuthesis}
 
 %% Establish encoding - Using LSU template default fonts (CMU)
 % \usepackage{ifluatex}
@@ -213,30 +213,76 @@ Chapter 6 summarizes key conclusions, provides recommendations for land subsiden
 
 \chapter[Study Area]{\centering Study Area}
 
-This study will be conducted in East Baton Rouge Parish (EBRP), located
-in southeastern Louisiana and forming part of the Capital Area alongside
-four neighboring parishes. Covering approximately 471 square miles, the
-parish is shaped by the Mississippi and Comite Rivers, extensive cypress
-swamps, and forested plains. Despite its diverse landscape, EBRP faces
-persistent geological and environmental challenges, including land
-subsidence, soil instability, and climate-induced ground deformation.
+This study is conducted in East Baton Rouge Parish (EBRP), located in southeastern 
+Louisiana, United States, within the Baton Rouge Capital Area.
+The parish covers approximately 471 square miles and extends between 30\textdegree18'--30\textdegree36'N 
+latitude and 91\textdegree06'--90\textdegree48'W longitude (Figure~\ref{fig:study_area}).
+The study area is bounded by major hydrological systems, including the Mississippi 
+River to the west and the Comite River to the east.
+It is characterized by low-relief floodplains, forested wetlands, and extensive 
+alluvial deposits typical of the Gulf Coast region.
+This geographic setting places East Baton Rouge Parish within a broader zone of 
+documented subsidence and aquifer-system response associated with sedimentary basins 
+in the southern United States \citep{Galloway2000SubsidenceUS}.
 
-Subsidence in EBRP is primarily caused by the extraction of groundwater,
-oil, and natural gas, which leads to gradual land sinking. The problem
-is further aggravated by the area's soft soil and increasing
-construction activities, which promote settlement and consolidation.
-Frequent heavy rainfall and flooding also intensify erosion and ground
-movement. To ensure the region's long-term stability, sustainable
-groundwater management, detailed geotechnical investigations, and
-effective flood and riverbank control measures are essential. These
-efforts will help mitigate the effects of natural and human-induced land
-deformation and strengthen EBRP's resilience to future environmental
-challenges.
+Geologically, East Baton Rouge Parish is underlain by thick sequences of 
+unconsolidated Holocene and Pleistocene deltaic and fluvial sediments, composed 
+primarily of clay, silt, and fine sand.
+These young, poorly consolidated materials exhibit high compressibility and low 
+shear strength, making the region particularly susceptible to land subsidence and 
+soil deformation when subjected to changes in effective stress \citep{Higgins2016}.
+Such geological conditions are characteristic of sedimentary basin and coastal plain 
+environments, where compaction-driven subsidence is commonly observed.
+
+Land subsidence in EBRP is driven predominantly by anthropogenic activities, 
+especially long-term groundwater extraction from the Baton Rouge aquifer system.
+Sustained withdrawal of groundwater reduces pore pressure within aquifer systems, 
+leading to aquifer-system compaction and progressive lowering of the land surface 
+\citep{Galloway2014}.
+These effects may be irreversible where inelastic compaction occurs.
+Subsidence associated with groundwater depletion has been widely documented across 
+sedimentary basins in the United States and is increasingly mapped using geodetic 
+techniques \citep{Higgins2016}.
+
+In addition to groundwater withdrawal, urban development and surface loading 
+contribute to subsidence processes within East Baton Rouge Parish.
+Expansion of infrastructure and increased building density impose additional loads 
+on compressible sediments, accelerating consolidation in low-lying areas.
+The combined effects of fluid withdrawal and surface loading produce complex 
+deformation patterns that vary spatially and temporally, emphasizing the need for 
+spatially continuous monitoring approaches such as Interferometric Synthetic Aperture 
+Radar (InSAR) \citep{Ferretti2001,Crosetto2016}.
+
+Climatic and hydrological conditions further influence ground deformation in the 
+study area.
+East Baton Rouge Parish experiences a humid subtropical climate, with high annual 
+precipitation, intense rainfall events, and periodic flooding.
+Seasonal variations in groundwater levels, soil moisture, and surface water storage 
+can induce transient and non-linear deformation signals, which may be superimposed 
+on long-term subsidence trends.
+These effects complicate the interpretation of InSAR time series and require careful 
+consideration of atmospheric and hydrologic contributions to observed displacement 
+\citep{Berardino2002,Fattahi2015}.
+
+Given the combined influence of compressible deltaic sediments, intensive groundwater 
+extraction, urban loading, and hydro-climatic variability, East Baton Rouge Parish 
+represents an ideal natural laboratory for investigating land subsidence using 
+Sentinel-1 time-series InSAR.
+The spatial extent of the study area supports high-resolution deformation mapping and 
+facilitates integration with GNSS control points for validation and uncertainty 
+assessment.
+Improved understanding of the spatial and temporal characteristics of subsidence in 
+EBRP is essential for sustainable groundwater management, infrastructure resilience, 
+and long-term planning in sedimentary basin environments 
+\citep{Crosetto2016,Galloway2014}.
+
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=6.9in,height=5.9in]{media/MyStudyArea.png}
-\caption{PSI Methodology steps}
+\caption{Location map of East Baton Rouge Parish study area, Louisiana, showing 
+spatial extent and geographic context.}
+\label{fig:study_area}
 \end{figure}
 
 \chapter[Literature Review]{\centering Literature Review}
@@ -375,6 +421,7 @@ SHAP (SHapley Additive exPlanations) was applied to the Extra Trees spatial mode
 Analogy: SBAS-InSAR acts as the radar sweep; the Extra Trees model provides the hazard map; the Hybrid LSTM--Physics framework is the autopilot where LSTM learns history and physics constraints enforce safe, physically plausible forecasts through 2030.
 
 \chapter[References]{\centering References}
+\nocite{Galloway2000SubsidenceUS}
 \bibliographystyle{plainnat}
 \bibliography{references}
 
