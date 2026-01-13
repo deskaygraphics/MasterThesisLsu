@@ -1,20 +1,6 @@
 \documentclass[oneside,doublespacing,raggedright]{lsuthesis}
 
-%% Establish encoding
-\usepackage{ifluatex}
-\ifluatex
-  \usepackage{fontspec,unicode-math}
-  % Set consistent OpenType fonts for LuaLaTeX/XeLaTeX
-  \setmainfont{TeX Gyre Termes}[Ligatures=TeX,Scale=1.0]
-  \setsansfont{TeX Gyre Heros}[Scale=1.0]
-  \setmonofont{TeX Gyre Cursor}[Scale=1.0]
-  \setmathfont{TeX Gyre Termes Math}
-\else
-  \usepackage[utf8]{inputenc}
-  \usepackage[T1]{fontenc}
-  \usepackage{lmodern} % consistent scalable fonts for pdfLaTeX
-  \usepackage{textcomp}
-\fi
+%% Fonts are configured by lsuthesis.cls - using CMU fonts
 
 % Ensure uniform base font size and leading (override class defaults if needed)
 \AtBeginDocument{\fontsize{12}{14}\selectfont}
@@ -38,8 +24,9 @@
 \usepackage{graphicx}
 \graphicspath{{media/}}
 \DeclareGraphicsExtensions{.png,.pdf,.jpg,.jpeg}
-\usepackage{natbib}
+\usepackage[round]{natbib}
 \usepackage{url}
+\usepackage{doi}
 \usepackage{hyperref}
 \usepackage{bookmark}
 \usepackage{xcolor}
@@ -187,7 +174,7 @@ Chapter 6 summarizes key conclusions, provides recommendations for land subsiden
 
 
 
-\chapter[Study Area]{\centering Study Area}
+\chapter[Study Area and Data Used]{\centering Study Area and Data Used}
 
 This study will be conducted in East Baton Rouge Parish (EBRP), located
 in southeastern Louisiana and forming part of the Capital Area alongside
@@ -351,7 +338,7 @@ SHAP (SHapley Additive exPlanations) was applied to the Extra Trees spatial mode
 Analogy: SBAS-InSAR acts as the radar sweep; the Extra Trees model provides the hazard map; the Hybrid LSTM--Physics framework is the autopilot where LSTM learns history and physics constraints enforce safe, physically plausible forecasts through 2030.
 
 \chapter[References]{\centering References}
-\bibliographystyle{apalike}
+\bibliographystyle{plainnat}
 \bibliography{references}
 
 \end{document}

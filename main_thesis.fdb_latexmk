@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main_thesis"] 1767983514.31776 "main_thesis.aux" "main_thesis.bbl" "main_thesis" 1767983515.28773 0
+["bibtex main_thesis"] 1768291027.43761 "main_thesis.aux" "main_thesis.bbl" "main_thesis" 1768291028.47671 0
   "./references.bib" 1767983319.63965 21517 69db7de720db411a3893ac1b05a607ff ""
-  "/usr/local/share/miktex-texmf/bibtex/bst/bibtex/apalike.bst" 1751903691.963 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "main_thesis.aux" 1767983514.89503 17731 c786d4c1a5f0bb72bdc56c2504e33168 "pdflatex"
+  "/home/kangah/.miktex/texmfs/install/bibtex/bst/natbib/plainnat.bst" 1759257664.7072 26816 ffe5423d2019860bad9f54bc402fac15 ""
+  "main_thesis.aux" 1768291028.04664 19159 f2ea608e2a5c11d4573d7fcd96cf854d "pdflatex"
   (generated)
   "main_thesis.bbl"
   "main_thesis.blg"
   (rewritten before read)
-["pdflatex"] 1767983514.48105 "/home/kangah/Desktop/Latex/Thesis_work_update/main_thesis.tex" "main_thesis.pdf" "main_thesis" 1767983515.28785 0
-  "/home/kangah/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map" 1761938287.36834 1578656 771ff76dbd3af99fedf35f4212cb55f4 ""
+["pdflatex"] 1768291027.61741 "/home/kangah/Desktop/MasterThesisLsu/main_thesis.tex" "main_thesis.pdf" "main_thesis" 1768291028.47684 0
+  "/home/kangah/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map" 1768290038.31953 1578656 771ff76dbd3af99fedf35f4212cb55f4 ""
   "/home/kangah/.miktex/texmfs/data/miktex/data/le/pdftex/pdflatex.fmt" 1751903951.23136 13227906 5c2fdc5dfea00995ed55fe5155b2ba25 ""
   "/home/kangah/.miktex/texmfs/install/tex/generic/bigintcalc/bigintcalc.sty" 1759257639.114 40635 c40361e206be584d448876bba8a64a3b ""
   "/home/kangah/.miktex/texmfs/install/tex/generic/bitset/bitset.sty" 1759257637.77988 33961 6b5c75130e435b2bfdb9f480a09a39f9 ""
@@ -24,6 +24,7 @@
   "/home/kangah/.miktex/texmfs/install/tex/latex/bookmark/bookmark.sty" 1759973593.60081 18245 97e6be180cf07bb6f7008cfdaaecfce5 ""
   "/home/kangah/.miktex/texmfs/install/tex/latex/caption/caption.sty" 1759257506.1966 56128 c2ccf1a29d78c33bc553880402e4fb9a ""
   "/home/kangah/.miktex/texmfs/install/tex/latex/caption/caption3.sty" 1759257506.19834 72619 ee90b6612147680fd73c3b1406a74245 ""
+  "/home/kangah/.miktex/texmfs/install/tex/latex/doi/doi.sty" 1768289854.86549 3659 31067759b0a774eb3e729b6ef72bad57 ""
   "/home/kangah/.miktex/texmfs/install/tex/latex/epigraph/epigraph.sty" 1756878818.7355 4738 9084b30b48158591384b75e8cc56d112 ""
   "/home/kangah/.miktex/texmfs/install/tex/latex/hycolor/hycolor.sty" 1759257628.71156 18571 5a6205e2f490b14bdc73fa03b48f19d6 ""
   "/home/kangah/.miktex/texmfs/install/tex/latex/hyphenat/hyphenat.sty" 1759257643.73425 5798 0437b031e663035b68539cf7ac7c8eeb ""
@@ -42,7 +43,7 @@
   "/home/kangah/.miktex/texmfs/install/tex/latex/setspace/setspace.sty" 1759257688.27434 22490 8cac309b79a4c53a4ffce4b1b07aead0 ""
   "/home/kangah/.miktex/texmfs/install/tex/latex/titlesec/titlesec.sty" 1759258483.13207 48766 87a17a4ef312a39cd43896e34a679a56 ""
   "/home/kangah/.miktex/texmfs/install/tex/latex/tocbibind/tocbibind.sty" 1756878813.561 8927 46f54e33fc9cef24f78ab3bc811cb63f ""
-  "/home/kangah/Desktop/Latex/Thesis_work_update/main_thesis.tex" 1767983512.22401 35972 d0bf9bf153bf8f7eb39fb2c61b8c1b3d ""
+  "/home/kangah/Desktop/MasterThesisLsu/main_thesis.tex" 1768291026.04763 35604 4451104f198354d11ee0d1fbc047e460 ""
   "/usr/local/share/miktex-texmf/fonts/enc/dvips/lm/lm-ec.enc" 1751903706.69918 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/share/miktex-texmf/fonts/enc/dvips/lm/lm-mathit.enc" 1751903706.69918 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "/usr/local/share/miktex-texmf/fonts/enc/dvips/lm/lm-mathsy.enc" 1751903706.69918 2840 216e6e45ad352e2456e1149f28885bee ""
@@ -98,7 +99,6 @@
   "/usr/local/share/miktex-texmf/tex/latex/base/book.cls" 1751903707.32919 23268 0045640547c14751e547e94fe4a0e0a8 ""
   "/usr/local/share/miktex-texmf/tex/latex/base/fontenc.sty" 1751903707.34219 5275 2f50a1b91fdc3c2c6ff41843a6854061 ""
   "/usr/local/share/miktex-texmf/tex/latex/base/inputenc.sty" 1751903707.34219 5048 0270515b828149155424600fd2d58ac5 ""
-  "/usr/local/share/miktex-texmf/tex/latex/base/textcomp.sty" 1751903707.34019 2846 e26604d3d895e65d874c07f30c291f3f ""
   "/usr/local/share/miktex-texmf/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1751903694.53503 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "/usr/local/share/miktex-texmf/tex/latex/etoolbox/etoolbox.sty" 1751903694.59703 46850 d87daedc2abdc653769a6f1067849fe0 ""
   "/usr/local/share/miktex-texmf/tex/latex/graphics-cfg/color.cfg" 1751903695.42504 1213 620bba36b25224fa9b7e1ccb4ecb76fd ""
@@ -128,12 +128,12 @@
   "/usr/local/share/miktex-texmf/tex/latex/xcolor/xcolor.sty" 1751903716.8153 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "lsuthesis.cls" 1756878660 20151 6c0554d481b0f240e2abfbdcbf6fedc3 ""
   "lsutitle.sty" 1756878662 5038 e83bf77326ff5916dce856f2286b78d3 ""
-  "main_thesis.aux" 1767983514.89503 17731 c786d4c1a5f0bb72bdc56c2504e33168 "pdflatex"
-  "main_thesis.bbl" 1767983514.44336 11711 26189992955c7583d072801b582ac779 "bibtex main_thesis"
-  "main_thesis.lof" 1767983514.89703 102 619e5899a8534df70a388b032e68895f "pdflatex"
-  "main_thesis.lot" 1767983514.81803 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main_thesis.tex" 1767983512.22401 35972 d0bf9bf153bf8f7eb39fb2c61b8c1b3d ""
-  "main_thesis.toc" 1767983514.89703 3570 5a90443cfaff951b6d1b844335385ea7 "pdflatex"
+  "main_thesis.aux" 1768291028.04664 19159 f2ea608e2a5c11d4573d7fcd96cf854d "pdflatex"
+  "main_thesis.bbl" 1768291027.57801 15260 1a33412c065a565d0fd29af8d28f820c "bibtex main_thesis"
+  "main_thesis.lof" 1768291028.04864 102 619e5899a8534df70a388b032e68895f "pdflatex"
+  "main_thesis.lot" 1768291027.97164 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main_thesis.tex" 1768291026.04763 35604 4451104f198354d11ee0d1fbc047e460 ""
+  "main_thesis.toc" 1768291028.04864 3584 af4e022409fad547f4b4f05f9bd97432 "pdflatex"
   "media/MyStudyArea.png" 1767516104 81226 cfbbde34f4d8b068bf1e17f10078446d ""
   (generated)
   "main_thesis.aux"

@@ -1,50 +1,50 @@
 This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main_thesis.aux
-Reallocating 'name_of_file' (item size: 1) to 8 items.
-The style file: apalike.bst
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: plainnat.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: references.bib
 Warning--empty publisher in Ferretti2020
 You've used 44 entries,
-            1935 wiz_defined-function locations,
-            773 strings with 12151 characters,
-and the built_in function-call counts, 18903 in all, are:
-= -- 1798
-> -- 929
+            2773 wiz_defined-function locations,
+            931 strings with 14198 characters,
+and the built_in function-call counts, 23270 in all, are:
+= -- 2068
+> -- 1566
 < -- 10
-+ -- 330
-- -- 320
-* -- 1762
-:= -- 3349
-add.period$ -- 132
++ -- 524
+- -- 480
+* -- 2167
+:= -- 3680
+add.period$ -- 170
 call.type$ -- 44
-change.case$ -- 380
+change.case$ -- 292
 chr.to.int$ -- 44
-cite$ -- 45
-duplicate$ -- 624
-empty$ -- 1246
-format.name$ -- 372
-if$ -- 3589
+cite$ -- 89
+duplicate$ -- 923
+empty$ -- 1717
+format.name$ -- 532
+if$ -- 4763
 int.to.chr$ -- 1
-int.to.str$ -- 0
+int.to.str$ -- 1
 missing$ -- 43
-newline$ -- 223
-num.names$ -- 132
-pop$ -- 293
+newline$ -- 265
+num.names$ -- 176
+pop$ -- 468
 preamble$ -- 1
-purify$ -- 380
+purify$ -- 248
 quote$ -- 0
-skip$ -- 455
+skip$ -- 704
 stack$ -- 0
-substring$ -- 1357
+substring$ -- 907
 swap$ -- 52
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 264
+type$ -- 484
 warning$ -- 1
-while$ -- 150
+while$ -- 194
 width$ -- 0
-write$ -- 574
+write$ -- 653
 (There was 1 warning)
