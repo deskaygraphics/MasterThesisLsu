@@ -34,15 +34,12 @@
 \usepackage{graphicx}
 \graphicspath{{media/}}
 \DeclareGraphicsExtensions{.png,.pdf,.jpg,.jpeg}
-\usepackage[round]{natbib}
+\usepackage[style=apa,backend=biber,natbib=true]{biblatex}
+\addbibresource{references.bib}
 \usepackage{url}
-\usepackage{doi}
 \usepackage{hyperref}
 \usepackage{bookmark}
 \usepackage{xcolor}
-
-% Configure DOI to display on separate line with full URL
-\renewcommand{\doitext}{\newline https://doi.org/}
 
 % LSU template handles text justification and hyphenation
 % \usepackage{ragged2e}
@@ -462,7 +459,6 @@ Analogy: SBAS-InSAR acts as the radar sweep; the Extra Trees model provides the 
 
 \chapter[References]{\centering References}
 \nocite{Galloway2000SubsidenceUS}
-\bibliographystyle{plainnat}
-\bibliography{references}
+\printbibliography[heading=none]
 
 \end{document}
