@@ -41,9 +41,8 @@
 \usepackage{bookmark}
 \usepackage{xcolor}
 
-% Configure DOI to show as full URLs
-\renewcommand{\doitext}{https://doi.org/}
-
+% Configure DOI to display on separate line with full URL
+\renewcommand{\doitext}{\newline https://doi.org/}
 
 % LSU template handles text justification and hyphenation
 % \usepackage{ragged2e}
@@ -336,15 +335,20 @@ Continuous layers were min--max scaled; categorical layers (geology, LULC) were 
 InSAR-derived deformation was validated using GNSS vertical displacement time series
  from the GulfNet CORS stations (1LSU and GMVS) in EBRP obtained from the Nevada Geodetic
  Laboratory (NGL). GNSS provides high-precision point-based measurements and serves as a 
- standard benchmark for InSAR timeseries validation 
+ standard benchmark for InSAR timeseries validation \citep{Hanssen2001InSAR,blew}
 
 \chapter[Literature Review]{\centering Literature Review}
 
 \section{Overview of Land Subsidence in Urban Areas}
 
-Land subsidence is increasingly recognized as a major global geohazard, with over 80\% of severe cases associated with aquifer compaction and groundwater withdrawal \citep{Galloway2014}. In rapidly urbanizing regions like the Lower Mississippi Basin, the interplay between shallow geology and heavy infrastructure growth intensifies surface deformation. Urban environments are particularly susceptible due to the high density of man-made structures that act as static loads on compressible soil layers. Research indicates that unmitigated subsidence triggers a cascade of secondary hazards, including pipeline ruptures, building tilting, and structural failures, resulting in significant economic losses \citep{Wang2021}.
+Land subsidence is increasingly recognized as a major global geohazard, with over 80\% of severe cases associated with aquifer compaction and groundwater 
+withdrawal \citep{Galloway2014}. In rapidly urbanizing regions like the Lower Mississippi Basin, the interplay between shallow geology and heavy infrastructure 
+growth intensifies surface deformation. Urban environments are particularly susceptible due to the high density of man-made structures that act as static loads on 
+compressible soil layers. Research indicates that unmitigated subsidence triggers a cascade of secondary hazards, including pipeline ruptures, building tilting, 
+and structural failures, resulting in significant economic losses \citep{Wang2021}.
 
-Land subsidence, which is defined as the slow downward movement of the Earth\textquotesingle s surface, is becoming more widely acknowledged as a significant geohazard in areas of the world that are rapidly becoming more urbanized \citep{Galloway2023}. In urban environments, subsidence processes are fueled by excessive groundwater extraction, sediment consolidation, urban infrastructure loading, and land-use change \citep{Holzer1985}. Research on the Lower Mississippi Basin, for instance, demonstrates how shallow geology and infrastructure growth can intensify surface deformation and compaction \citep{Wang2021}. The hazards include diminished drainage capacity, heightened susceptibility to flooding in low-lying urban corridors, and harm to pipelines and foundations. Subsurface faulting and structural geology make subsidence patterns in many cities even more complex \citep{Younas2023}. These findings highlight the need for reliable frameworks that can both map the areas where subsidence is most likely to occur and predict its future course.
+Land subsidence, which is defined as the slow downward movement of the Earth\textquotesingle s surface, is becoming more widely acknowledged as a
+ significant geohazard in areas of the world that are rapidly becoming more urbanized \citep{Galloway2023}. In urban environments, subsidence processes are fueled by excessive groundwater extraction, sediment consolidation, urban infrastructure loading, and land-use change \citep{Holzer1985}. Research on the Lower Mississippi Basin, for instance, demonstrates how shallow geology and infrastructure growth can intensify surface deformation and compaction \citep{Wang2021}. The hazards include diminished drainage capacity, heightened susceptibility to flooding in low-lying urban corridors, and harm to pipelines and foundations. Subsurface faulting and structural geology make subsidence patterns in many cities even more complex \citep{Younas2023}. These findings highlight the need for reliable frameworks that can both map the areas where subsidence is most likely to occur and predict its future course.
 
 \section{Advancements in InSAR Monitoring for Subsidence}
 
@@ -458,7 +462,7 @@ Analogy: SBAS-InSAR acts as the radar sweep; the Extra Trees model provides the 
 
 \chapter[References]{\centering References}
 \nocite{Galloway2000SubsidenceUS}
-\bibliographystyle{apalike}
+\bibliographystyle{plainnat}
 \bibliography{references}
 
 \end{document}

@@ -1,48 +1,50 @@
 This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main_thesis.aux
-Reallocating 'name_of_file' (item size: 1) to 8 items.
-The style file: apalike.bst
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: plainnat.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: references.bib
-You've used 47 entries,
-            1935 wiz_defined-function locations,
-            790 strings with 12605 characters,
-and the built_in function-call counts, 20367 in all, are:
-= -- 1939
-> -- 1018
-< -- 11
-+ -- 367
-- -- 352
-* -- 1901
-:= -- 3612
-add.period$ -- 143
-call.type$ -- 47
-change.case$ -- 410
-chr.to.int$ -- 46
-cite$ -- 47
-duplicate$ -- 664
-empty$ -- 1328
-format.name$ -- 407
-if$ -- 3862
+Warning--I didn't find a database entry for "blew"
+You've used 48 entries,
+            2773 wiz_defined-function locations,
+            964 strings with 15030 characters,
+and the built_in function-call counts, 25499 in all, are:
+= -- 2274
+> -- 1728
+< -- 12
++ -- 580
+- -- 531
+* -- 2379
+:= -- 4050
+add.period$ -- 193
+call.type$ -- 48
+change.case$ -- 319
+chr.to.int$ -- 47
+cite$ -- 96
+duplicate$ -- 1002
+empty$ -- 1859
+format.name$ -- 587
+if$ -- 5212
 int.to.chr$ -- 2
-int.to.str$ -- 0
-missing$ -- 45
-newline$ -- 239
-num.names$ -- 141
-pop$ -- 316
+int.to.str$ -- 1
+missing$ -- 47
+newline$ -- 296
+num.names$ -- 192
+pop$ -- 509
 preamble$ -- 1
-purify$ -- 410
+purify$ -- 272
 quote$ -- 0
-skip$ -- 483
+skip$ -- 763
 stack$ -- 0
-substring$ -- 1459
-swap$ -- 55
+substring$ -- 977
+swap$ -- 58
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 282
+type$ -- 523
 warning$ -- 0
-while$ -- 160
+while$ -- 210
 width$ -- 0
-write$ -- 616
+write$ -- 727
+(There was 1 warning)

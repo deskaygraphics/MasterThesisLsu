@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.7)  14 JAN 2026 15:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.7)  15 JAN 2026 17:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -401,7 +401,7 @@ Package: nextpage 2009/09/03 v1.1a additional page commands
 \epigraphwidth=\skip60
 \epigraphrule=\skip61
 ))
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 69
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 68
 .
 
 (/usr/local/share/miktex-texmf/tex/latex/lm/t1lmr.fd
@@ -414,31 +414,31 @@ File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
 (main_thesis.aux)
 \openout1 = `main_thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Info: Redefining \microtypecontext on input line 69.
-Package microtype Info: Applying patch `item' on input line 69.
-Package microtype Info: Applying patch `toc' on input line 69.
-Package microtype Info: Applying patch `eqnum' on input line 69.
-Package microtype Info: Applying patch `footnote' on input line 69.
-Package microtype Info: Applying patch `verbatim' on input line 69.
-LaTeX Info: Redefining \microtypesetup on input line 69.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Info: Redefining \microtypecontext on input line 68.
+Package microtype Info: Applying patch `item' on input line 68.
+Package microtype Info: Applying patch `toc' on input line 68.
+Package microtype Info: Applying patch `eqnum' on input line 68.
+Package microtype Info: Applying patch `footnote' on input line 68.
+Package microtype Info: Applying patch `verbatim' on input line 68.
+LaTeX Info: Redefining \microtypesetup on input line 68.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -475,7 +475,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (/usr/local/share/miktex-texmf/tex/latex/00miktex/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 69.
+Package hyperref Info: Link coloring OFF on input line 68.
 
 
 [1
@@ -587,7 +587,7 @@ Chapter 1.
 [4]
 Chapter 2.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
-23.
+22.
 (/usr/local/share/miktex-texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -600,10 +600,10 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 <media/MyStudyArea.png, id=185, 706.13812pt x 520.94624pt>
 File: media/MyStudyArea.png Graphic file (type png)
 <use media/MyStudyArea.png>
-Package pdftex.def Info: media/MyStudyArea.png  used on input line 287.
+Package pdftex.def Info: media/MyStudyArea.png  used on input line 286.
 (pdftex.def)             Requested size: 498.66788pt x 426.39174pt.
 
-Overfull \hbox (29.66788pt too wide) in paragraph at lines 287--288
+Overfull \hbox (29.66788pt too wide) in paragraph at lines 286--287
  [][] 
  []
 
@@ -612,6 +612,10 @@ Overfull \hbox (29.66788pt too wide) in paragraph at lines 287--288
 [7 <./media/MyStudyArea.png (PNG copy)>]
 
 [8]
+
+Package natbib Warning: Citation `blew' on page 9 undefined on input line 338.
+
+
 
 [9]
 Chapter 3.
@@ -660,6 +664,16 @@ Chapter 5.
 ]
 
 [25]
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
+32.
+ (/usr/local/share/miktex-texmf/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
 
 [26]
 
@@ -669,31 +683,40 @@ Chapter 5.
 
 [29]
 
-[30])
+[30]
 
-[31] (main_thesis.aux)
+[31]
+
+[32])
+
+Package natbib Warning: There were undefined citations.
+
+
+
+[33] (main_thesis.aux)
  ***********
 LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-06-09>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 13896 strings out of 468222
- 217143 string characters out of 5440165
- 651997 words of memory out of 5000000
- 41927 multiletter control sequences out of 15000+600000
- 669863 words of font info for 140 fonts, out of 8000000 for 9000
+ 13955 strings out of 468222
+ 218087 string characters out of 5440165
+ 653438 words of memory out of 5000000
+ 41975 multiletter control sequences out of 15000+600000
+ 670439 words of font info for 143 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 90i,6n,93p,1099b,663s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,6n,93p,1087b,669s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/share/miktex-texmf/fonts/type1/public/lm/lmbx12.pfb></usr/local/s
 hare/miktex-texmf/fonts/type1/public/lm/lmmi12.pfb></usr/local/share/miktex-tex
 mf/fonts/type1/public/lm/lmr12.pfb></usr/local/share/miktex-texmf/fonts/type1/p
 ublic/lm/lmr8.pfb></usr/local/share/miktex-texmf/fonts/type1/public/lm/lmri12.p
 fb></usr/local/share/miktex-texmf/fonts/type1/public/lm/lmsy10.pfb></usr/local/
-share/miktex-texmf/fonts/type1/public/lm/lmsy8.pfb>
-Output written on main_thesis.pdf (39 pages, 341490 bytes).
+share/miktex-texmf/fonts/type1/public/lm/lmsy8.pfb></usr/local/share/miktex-tex
+mf/fonts/type1/public/lm/lmtt12.pfb>
+Output written on main_thesis.pdf (41 pages, 378217 bytes).
 PDF statistics:
- 598 PDF objects out of 1000 (max. 8388607)
- 141 named destinations out of 1000 (max. 500000)
- 22726 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 664 PDF objects out of 1000 (max. 8388607)
+ 144 named destinations out of 1000 (max. 500000)
+ 23238 words of extra memory for PDF output out of 24883 (max. 10000000)
 
