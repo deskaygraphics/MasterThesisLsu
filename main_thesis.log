@@ -1,42 +1,46 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.10.8)  13 JAN 2026 05:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.7.7)  14 JAN 2026 15:26
 entering extended mode
  restricted \write18 enabled.
- file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/kangah/Desktop/MasterThesisLsu/main_thesis.tex
-(/home/kangah/Desktop/MasterThesisLsu/main_thesis.tex
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-01-18>
+**./main_thesis.tex
+(main_thesis.tex
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-06-09>
 (lsuthesis.cls
 Document Class: lsuthesis 2025/12/20 LSU Thesis Class
-(/home/kangah/.miktex/texmfs/install/tex/latex/base/book.cls
-Document Class: book 2024/06/29 v1.4n Standard LaTeX document class
-(/home/kangah/.miktex/texmfs/install/tex/latex/base/bk12.clo
-File: bk12.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
+(/usr/local/share/miktex-texmf/tex/latex/base/book.cls
+Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
+(/usr/local/share/miktex-texmf/tex/latex/base/bk12.clo
+File: bk12.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count196
-\c@chapter=\count197
-\c@section=\count198
-\c@subsection=\count199
-\c@subsubsection=\count266
-\c@paragraph=\count267
-\c@subparagraph=\count268
-\c@figure=\count269
-\c@table=\count270
+\c@part=\count275
+\c@chapter=\count276
+\c@section=\count277
+\c@subsection=\count278
+\c@subsubsection=\count279
+\c@paragraph=\count280
+\c@subparagraph=\count281
+\c@figure=\count282
+\c@table=\count283
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
-\bibindent=\dimen141
-) (/home/kangah/.miktex/texmfs/install/tex/generic/iftex/ifluatex.sty
+\bibindent=\dimen148
+)
+(/usr/local/share/miktex-texmf/tex/generic/iftex/ifluatex.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
- (/home/kangah/.miktex/texmfs/install/tex/generic/iftex/iftex.sty
+
+(/usr/local/share/miktex-texmf/tex/generic/iftex/iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
-)) (/home/kangah/.miktex/texmfs/install/tex/latex/base/inputenc.sty
+))
+(/usr/local/share/miktex-texmf/tex/latex/base/inputenc.sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
-) (/home/kangah/.miktex/texmfs/install/tex/latex/base/fontenc.sty
-Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-) (/home/kangah/.miktex/texmfs/install/tex/latex/lm/lmodern.sty
+)
+(/usr/local/share/miktex-texmf/tex/latex/base/fontenc.sty
+Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
+)
+(/usr/local/share/miktex-texmf/tex/latex/lm/lmodern.sty
 Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
@@ -70,7 +74,8 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
-) (/home/kangah/.miktex/texmfs/install/tex/latex/tocbibind/tocbibind.sty
+)
+(/home/kangah/.miktex/texmfs/install/tex/latex/tocbibind/tocbibind.sty
 Package: tocbibind 2010/10/13 v1.5k extra ToC listings
 Package tocbibind Info: The document has chapter divisions on input line 50.
 
@@ -78,258 +83,302 @@ Package tocbibind Info: The document has chapter divisions on input line 50.
 Package tocbibind Note: Using chapter style headings, unless overridden.
 
 )
-\@lsuparindent=\dimen142
-\@lsulistindent=\dimen143
+\@lsuparindent=\dimen149
+\@lsulistindent=\dimen150
  (/home/kangah/.miktex/texmfs/install/tex/latex/setspace/setspace.sty
 Package: setspace 2022/12/04 v6.7b set line spacing
-) (/home/kangah/.miktex/texmfs/install/tex/latex/etoolbox/etoolbox.sty
+)
+(/usr/local/share/miktex-texmf/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count271
-) (/home/kangah/.miktex/texmfs/install/tex/latex/tools/indentfirst.sty
+\etb@tempcnta=\count284
+)
+(/usr/local/share/miktex-texmf/tex/latex/tools/indentfirst.sty
 Package: indentfirst 2023/07/02 v1.03 Indent first paragraph (DPC)
 )
 LaTeX Info: Redefining \large on input line 325.
 LaTeX Info: Redefining \Large on input line 326.
 LaTeX Info: Redefining \LARGE on input line 327.
-) (/home/kangah/.miktex/texmfs/install/tex/latex/microtype/microtype.sty
-Package: microtype 2025/02/11 v3.2a Micro-typographical refinements (RS)
- (/home/kangah/.miktex/texmfs/install/tex/latex/graphics/keyval.sty
+)
+(/home/kangah/.miktex/texmfs/install/tex/latex/microtype/microtype.sty
+Package: microtype 2025/07/09 v3.2b Micro-typographical refinements (RS)
+
+(/usr/local/share/miktex-texmf/tex/latex/graphics/keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks19
 )
 \MT@toks=\toks20
-\MT@tempbox=\box52
-\MT@count=\count272
+\MT@tempbox=\box53
+\MT@count=\count285
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1087.
 LaTeX Info: Redefining \leftprotrusion on input line 1088.
 \MT@prot@toks=\toks21
 LaTeX Info: Redefining \rightprotrusion on input line 1107.
 LaTeX Info: Redefining \textls on input line 1449.
-\MT@outer@kern=\dimen144
+\MT@outer@kern=\dimen151
 LaTeX Info: Redefining \microtypecontext on input line 2053.
 LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
-\MT@listname@count=\count273
- (/home/kangah/.miktex/texmfs/install/tex/latex/microtype/microtype-pdftex.def
-File: microtype-pdftex.def 2025/02/11 v3.2a Definitions specific to pdftex (RS)
+\MT@listname@count=\count286
+
+(/home/kangah/.miktex/texmfs/install/tex/latex/microtype/microtype-pdftex.def
+File: microtype-pdftex.def 2025/07/09 v3.2b Definitions specific to pdftex (RS)
+
 LaTeX Info: Redefining \lsstyle on input line 944.
 LaTeX Info: Redefining \lslig on input line 944.
 \MT@outer@space=\skip51
 )
 Package microtype Info: Loading configuration file microtype.cfg.
- (/home/kangah/.miktex/texmfs/install/tex/latex/microtype/microtype.cfg
-File: microtype.cfg 2025/02/11 v3.2a microtype main configuration file (RS)
+
+(/home/kangah/.miktex/texmfs/install/tex/latex/microtype/microtype.cfg
+File: microtype.cfg 2025/07/09 v3.2b microtype main configuration file (RS)
 )
 LaTeX Info: Redefining \microtypesetup on input line 3065.
-) (/home/kangah/.miktex/texmfs/install/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2024/11/05 v2.17t AMS math features
+)
+(/usr/local/share/miktex-texmf/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2025/06/16 v2.17y AMS math features
 \@mathmargin=\skip52
 
 For additional information on amsmath, use the `?' option.
-(/home/kangah/.miktex/texmfs/install/tex/latex/amsmath/amstext.sty
-Package: amstext 2021/08/26 v2.01 AMS text
- (/home/kangah/.miktex/texmfs/install/tex/latex/amsmath/amsgen.sty
+(/usr/local/share/miktex-texmf/tex/latex/amsmath/amstext.sty
+Package: amstext 2024/11/17 v2.01 AMS text
+
+(/usr/local/share/miktex-texmf/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks22
-\ex@=\dimen145
-)) (/home/kangah/.miktex/texmfs/install/tex/latex/amsmath/amsbsy.sty
+\ex@=\dimen152
+))
+(/usr/local/share/miktex-texmf/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen146
-) (/home/kangah/.miktex/texmfs/install/tex/latex/amsmath/amsopn.sty
+\pmbraise@=\dimen153
+)
+(/usr/local/share/miktex-texmf/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count274
+\inf@bad=\count287
 LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count275
-\leftroot@=\count276
+\uproot@=\count288
+\leftroot@=\count289
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count277
-\DOTSCASE@=\count278
+\classnum@=\count290
+\DOTSCASE@=\count291
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box53
-\strutbox@=\box54
+\Mathstrutbox@=\box54
+\strutbox@=\box55
 LaTeX Info: Redefining \big on input line 721.
 LaTeX Info: Redefining \Big on input line 722.
 LaTeX Info: Redefining \bigg on input line 723.
 LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen147
+\big@size=\dimen154
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count279
+\macc@depth=\count292
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count280
+\c@MaxMatrixCols=\count293
 \dotsspace@=\muskip17
-\c@parentequation=\count281
-\dspbrk@lvl=\count282
+\c@parentequation=\count294
+\dspbrk@lvl=\count295
 \tag@help=\toks23
-\row@=\count283
-\column@=\count284
-\maxfields@=\count285
+\row@=\count296
+\column@=\count297
+\maxfields@=\count298
 \andhelp@=\toks24
-\eqnshift@=\dimen148
-\alignsep@=\dimen149
-\tagshift@=\dimen150
-\tagwidth@=\dimen151
-\totwidth@=\dimen152
-\lineht@=\dimen153
+\eqnshift@=\dimen155
+\alignsep@=\dimen156
+\tagshift@=\dimen157
+\tagwidth@=\dimen158
+\totwidth@=\dimen159
+\lineht@=\dimen160
 \@envbody=\toks25
 \multlinegap=\skip53
 \multlinetaggap=\skip54
 \mathdisplay@stack=\toks26
-LaTeX Info: Redefining \[ on input line 2953.
-LaTeX Info: Redefining \] on input line 2954.
-) (/home/kangah/.miktex/texmfs/install/tex/latex/amsfonts/amssymb.sty
+LaTeX Info: Redefining \[ on input line 2949.
+LaTeX Info: Redefining \] on input line 2950.
+)
+(/usr/local/share/miktex-texmf/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (/home/kangah/.miktex/texmfs/install/tex/latex/amsfonts/amsfonts.sty
+
+(/usr/local/share/miktex-texmf/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (/home/kangah/.miktex/texmfs/install/tex/latex/graphics/graphicx.sty
-Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
- (/home/kangah/.miktex/texmfs/install/tex/latex/graphics/graphics.sty
+))
+(/usr/local/share/miktex-texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 2024/12/31 v1.2e Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/share/miktex-texmf/tex/latex/graphics/graphics.sty
 Package: graphics 2024/08/06 v1.4g Standard LaTeX Graphics (DPC,SPQR)
- (/home/kangah/.miktex/texmfs/install/tex/latex/graphics/trig.sty
+
+(/usr/local/share/miktex-texmf/tex/latex/graphics/trig.sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
-) (/home/kangah/.miktex/texmfs/install/tex/latex/graphics-cfg/graphics.cfg
+)
+(/usr/local/share/miktex-texmf/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 106.
- (/home/kangah/.miktex/texmfs/install/tex/latex/graphics-def/pdftex.def
+
+(/usr/local/share/miktex-texmf/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen154
-\Gin@req@width=\dimen155
-) (/home/kangah/.miktex/texmfs/install/tex/latex/natbib/natbib.sty
+\Gin@req@height=\dimen161
+\Gin@req@width=\dimen162
+)
+(/home/kangah/.miktex/texmfs/install/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip55
 \bibsep=\skip56
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count286
-) (/home/kangah/.miktex/texmfs/install/tex/latex/url/url.sty
+\c@NAT@ctr=\count299
+)
+(/usr/local/share/miktex-texmf/tex/latex/url/url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-) (/home/kangah/.miktex/texmfs/install/tex/latex/doi/doi.sty
+)
+(/home/kangah/.miktex/texmfs/install/tex/latex/doi/doi.sty
 Package: doi 2018/09/09 handle doi numbers
- (/home/kangah/.miktex/texmfs/install/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2024-11-05 v7.01l Hypertext links for LaTeX
- (/home/kangah/.miktex/texmfs/install/tex/latex/kvsetkeys/kvsetkeys.sty
+
+(/usr/local/share/miktex-texmf/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2025-06-21 v7.01n Hypertext links for LaTeX
+
+(/home/kangah/.miktex/texmfs/install/tex/latex/kvsetkeys/kvsetkeys.sty
 Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-) (/home/kangah/.miktex/texmfs/install/tex/generic/kvdefinekeys/kvdefinekeys.sty
+)
+(/home/kangah/.miktex/texmfs/install/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 ) (/home/kangah/.miktex/texmfs/install/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
- (/home/kangah/.miktex/texmfs/install/tex/generic/ltxcmds/ltxcmds.sty
+
+(/home/kangah/.miktex/texmfs/install/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-) (/home/kangah/.miktex/texmfs/install/tex/generic/pdftexcmds/pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
- (/home/kangah/.miktex/texmfs/install/tex/generic/infwarerr/infwarerr.sty
+)
+(/usr/local/share/miktex-texmf/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/home/kangah/.miktex/texmfs/install/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-)) (/home/kangah/.miktex/texmfs/install/tex/latex/hycolor/hycolor.sty
+))
+(/home/kangah/.miktex/texmfs/install/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-) (/home/kangah/.miktex/texmfs/install/tex/latex/hyperref/nameref.sty
-Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
- (/home/kangah/.miktex/texmfs/install/tex/latex/refcount/refcount.sty
+)
+(/usr/local/share/miktex-texmf/tex/latex/hyperref/nameref.sty
+Package: nameref 2025-06-21 v2.57 Cross-referencing by name of section
+
+(/home/kangah/.miktex/texmfs/install/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-) (/home/kangah/.miktex/texmfs/install/tex/generic/gettitlestring/gettitlestring.sty
+)
+(/home/kangah/.miktex/texmfs/install/tex/generic/gettitlestring/gettitlestring.
+sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
  (/home/kangah/.miktex/texmfs/install/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count287
-) (/home/kangah/.miktex/texmfs/install/tex/generic/stringenc/stringenc.sty
-Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
+\c@section@level=\count300
 )
-\@linkdim=\dimen156
-\Hy@linkcounter=\count288
-\Hy@pagecounter=\count289
- (/home/kangah/.miktex/texmfs/install/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2024-11-05 v7.01l Hyperref: PDFDocEncoding definition (HO)
+(/home/kangah/.miktex/texmfs/install/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\@linkdim=\dimen163
+\Hy@linkcounter=\count301
+\Hy@pagecounter=\count302
+
+(/usr/local/share/miktex-texmf/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2025-06-21 v7.01n Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-) (/home/kangah/.miktex/texmfs/install/tex/generic/intcalc/intcalc.sty
+)
+(/home/kangah/.miktex/texmfs/install/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count290
- (/home/kangah/.miktex/texmfs/install/tex/latex/hyperref/puenc.def
-File: puenc.def 2024-11-05 v7.01l Hyperref: PDF Unicode definition (HO)
+\Hy@SavedSpaceFactor=\count303
+
+(/usr/local/share/miktex-texmf/tex/latex/hyperref/puenc.def
+File: puenc.def 2025-06-21 v7.01n Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4157.
-Package hyperref Info: Link nesting OFF on input line 4162.
-Package hyperref Info: Hyper index ON on input line 4165.
-Package hyperref Info: Plain pages OFF on input line 4172.
-Package hyperref Info: Backreferencing OFF on input line 4177.
+Package hyperref Info: Hyper figures OFF on input line 4181.
+Package hyperref Info: Link nesting OFF on input line 4186.
+Package hyperref Info: Hyper index ON on input line 4189.
+Package hyperref Info: Plain pages OFF on input line 4196.
+Package hyperref Info: Backreferencing OFF on input line 4201.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4424.
-\c@Hy@tempcnt=\count291
-LaTeX Info: Redefining \url on input line 4763.
-\XeTeXLinkMargin=\dimen157
- (/home/kangah/.miktex/texmfs/install/tex/generic/bitset/bitset.sty
+Package hyperref Info: Bookmarks ON on input line 4448.
+\c@Hy@tempcnt=\count304
+LaTeX Info: Redefining \url on input line 4787.
+\XeTeXLinkMargin=\dimen164
+
+(/home/kangah/.miktex/texmfs/install/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
- (/home/kangah/.miktex/texmfs/install/tex/generic/bigintcalc/bigintcalc.sty
-Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
-))
-\Fld@menulength=\count292
-\Field@Width=\dimen158
-\Fld@charsize=\dimen159
-Package hyperref Info: Hyper figures OFF on input line 6042.
-Package hyperref Info: Link nesting OFF on input line 6047.
-Package hyperref Info: Hyper index ON on input line 6050.
-Package hyperref Info: backreferencing OFF on input line 6057.
-Package hyperref Info: Link coloring OFF on input line 6062.
-Package hyperref Info: Link coloring with OCG OFF on input line 6067.
-Package hyperref Info: PDF/A mode OFF on input line 6072.
- (/home/kangah/.miktex/texmfs/install/tex/latex/base/atbegshi-ltx.sty
-Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
-package with kernel methods
+
+(/home/kangah/.miktex/texmfs/install/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
-\Hy@abspage=\count293
-\c@Item=\count294
-\c@Hfootnote=\count295
+))
+\Fld@menulength=\count305
+\Field@Width=\dimen165
+\Fld@charsize=\dimen166
+Package hyperref Info: Hyper figures OFF on input line 6066.
+Package hyperref Info: Link nesting OFF on input line 6071.
+Package hyperref Info: Hyper index ON on input line 6074.
+Package hyperref Info: backreferencing OFF on input line 6081.
+Package hyperref Info: Link coloring OFF on input line 6086.
+Package hyperref Info: Link coloring with OCG OFF on input line 6091.
+Package hyperref Info: PDF/A mode OFF on input line 6096.
+\Hy@abspage=\count306
+\c@Item=\count307
+\c@Hfootnote=\count308
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
- (/home/kangah/.miktex/texmfs/install/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2024-11-05 v7.01l Hyperref driver for pdfTeX
- (/home/kangah/.miktex/texmfs/install/tex/latex/base/atveryend-ltx.sty
-Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
-with kernel methods
-)
-\Fld@listcount=\count296
-\c@bookmark@seq@number=\count297
- (/home/kangah/.miktex/texmfs/install/tex/latex/rerunfilecheck/rerunfilecheck.sty
-Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
- (/home/kangah/.miktex/texmfs/install/tex/generic/uniquecounter/uniquecounter.sty
+
+(/usr/local/share/miktex-texmf/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2025-06-21 v7.01n Hyperref driver for pdfTeX
+\Fld@listcount=\count309
+\c@bookmark@seq@number=\count310
+
+(/home/kangah/.miktex/texmfs/install/tex/latex/rerunfilecheck/rerunfilecheck.st
+y
+Package: rerunfilecheck 2025-06-21 v1.11 Rerun checks for auxiliary files (HO)
+
+(/home/kangah/.miktex/texmfs/install/tex/generic/uniquecounter/uniquecounter.st
+y
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+84.
 )
 \Hy@SectionHShift=\skip57
 )) (/home/kangah/.miktex/texmfs/install/tex/latex/bookmark/bookmark.sty
 Package: bookmark 2023-12-10 v1.31 PDF bookmarks (HO)
- (/home/kangah/.miktex/texmfs/install/tex/latex/bookmark/bkm-pdftex.def
-File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO)
-\BKM@id=\count298
-)) (/home/kangah/.miktex/texmfs/install/tex/latex/xcolor/xcolor.sty
+
+(/home/kangah/.miktex/texmfs/install/tex/latex/bookmark/bkm-pdftex.def
+File: bkm-pdftex.def 2023-12-10 v1.31 bookmark driver for pdfTeX and luaTeX (HO
+)
+\BKM@id=\count311
+))
+(/usr/local/share/miktex-texmf/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
- (/home/kangah/.miktex/texmfs/install/tex/latex/graphics-cfg/color.cfg
+
+(/usr/local/share/miktex-texmf/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 274.
- (/home/kangah/.miktex/texmfs/install/tex/latex/graphics/mathcolor.ltx)
+
+(/usr/local/share/miktex-texmf/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
 Package xcolor Info: Model `RGB' extended on input line 1365.
@@ -341,9 +390,10 @@ Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
 ) (lsutitle.sty
 Package: lsutitle 2025/12/20 LSU Thesis Title Package
- (/home/kangah/.miktex/texmfs/install/tex/latex/epigraph/epigraph.sty
+(/home/kangah/.miktex/texmfs/install/tex/latex/epigraph/epigraph.sty
 Package: epigraph 2020/01/02 v1.5e typesetting epigraphs
- (/home/kangah/.miktex/texmfs/install/tex/latex/nextpage/nextpage.sty
+
+(/home/kangah/.miktex/texmfs/install/tex/latex/nextpage/nextpage.sty
 Package: nextpage 2009/09/03 v1.1a additional page commands
 )
 \beforeepigraphskip=\skip58
@@ -351,80 +401,89 @@ Package: nextpage 2009/09/03 v1.1a additional page commands
 \epigraphwidth=\skip60
 \epigraphrule=\skip61
 ))
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 66.
- (/home/kangah/.miktex/texmfs/install/tex/latex/lm/t1lmr.fd
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 69
+.
+
+(/usr/local/share/miktex-texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (/home/kangah/.miktex/texmfs/install/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count299
-\l__pdf_internal_box=\box55
-) (main_thesis.aux)
+)
+(/usr/local/share/miktex-texmf/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2025-06-09 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count312
+)
+(main_thesis.aux)
 \openout1 = `main_thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 66.
-LaTeX Font Info:    ... okay on input line 66.
-LaTeX Info: Redefining \microtypecontext on input line 66.
-Package microtype Info: Applying patch `item' on input line 66.
-Package microtype Info: Applying patch `toc' on input line 66.
-Package microtype Info: Applying patch `eqnum' on input line 66.
-Package microtype Info: Applying patch `footnote' on input line 66.
-Package microtype Info: Applying patch `verbatim' on input line 66.
-LaTeX Info: Redefining \microtypesetup on input line 66.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Info: Redefining \microtypecontext on input line 69.
+Package microtype Info: Applying patch `item' on input line 69.
+Package microtype Info: Applying patch `toc' on input line 69.
+Package microtype Info: Applying patch `eqnum' on input line 69.
+Package microtype Info: Applying patch `footnote' on input line 69.
+Package microtype Info: Applying patch `verbatim' on input line 69.
+LaTeX Info: Redefining \microtypesetup on input line 69.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 66.
+Package microtype Info: Patching command `\showhyphens'.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
- (/home/kangah/.miktex/texmfs/install/tex/latex/microtype/mt-cmr.cfg
-File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
-) (/home/kangah/.miktex/texmfs/install/tex/context/base/mkii/supp-pdf.mkii
+
+(/home/kangah/.miktex/texmfs/install/tex/latex/microtype/mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+(RS)
+)
+(/usr/local/share/miktex-texmf/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count300
-\scratchdimen=\dimen160
+\scratchcounter=\count313
+\scratchdimen=\dimen167
 \scratchbox=\box56
-\nofMPsegments=\count301
-\nofMParguments=\count302
+\nofMPsegments=\count314
+\nofMParguments=\count315
 \everyMPshowfont=\toks27
-\MPscratchCnt=\count303
-\MPscratchDim=\dimen161
-\MPnumerator=\count304
-\makeMPintoPDFobject=\count305
+\MPscratchCnt=\count316
+\MPscratchDim=\dimen168
+\MPnumerator=\count317
+\makeMPintoPDFobject=\count318
 \everyMPtoPDFconversion=\toks28
-) (/home/kangah/.miktex/texmfs/install/tex/latex/epstopdf-pkg/epstopdf-base.sty
+) (/usr/local/share/miktex-texmf/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (/home/kangah/.miktex/texmfs/install/tex/latex/00miktex/epstopdf-sys.cfg
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/local/share/miktex-texmf/tex/latex/00miktex/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 66.
+Package hyperref Info: Link coloring OFF on input line 69.
 
 
 [1
 
 
 
-{/home/kangah/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}{/home/kangah/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-ec.enc}]
+{/home/kangah/.miktex/texmfs/data/fonts/map/pdftex/pdftex.map}{/usr/local/share
+/miktex-texmf/fonts/enc/dvips/lm/lm-ec.enc}]
 
 [2
 
@@ -433,20 +492,27 @@ Package hyperref Info: Link coloring OFF on input line 66.
 [3
 
 ] (main_thesis.toc
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1.
- (/home/kangah/.miktex/texmfs/install/tex/latex/lm/ot1lmr.fd
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
+.
+ (/usr/local/share/miktex-texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1.
- (/home/kangah/.miktex/texmfs/install/tex/latex/lm/omllmm.fd
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
+.
+
+(/usr/local/share/miktex-texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 1.
- (/home/kangah/.miktex/texmfs/install/tex/latex/lm/omslmsy.fd
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+1.
+
+(/usr/local/share/miktex-texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 1.
- (/home/kangah/.miktex/texmfs/install/tex/latex/lm/omxlmex.fd
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+1.
+
+(/usr/local/share/miktex-texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -456,15 +522,19 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 1.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 1.
- (/home/kangah/.miktex/texmfs/install/tex/latex/amsfonts/umsa.fd
+
+(/usr/local/share/miktex-texmf/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-) (/home/kangah/.miktex/texmfs/install/tex/latex/microtype/mt-msa.cfg
+)
+(/home/kangah/.miktex/texmfs/install/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 1.
- (/home/kangah/.miktex/texmfs/install/tex/latex/amsfonts/umsb.fd
+
+(/usr/local/share/miktex-texmf/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (/home/kangah/.miktex/texmfs/install/tex/latex/microtype/mt-msb.cfg
+)
+(/home/kangah/.miktex/texmfs/install/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ))
 \tf@toc=\write3
@@ -497,14 +567,12 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 
 [7
 
-{/home/kangah/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-mathit.enc}{/home/kangah/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-rm.enc}{/home/kangah/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-mathsy.enc}]
+{/usr/local/share/miktex-texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/sha
+re/miktex-texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/share/miktex-texmf/fon
+ts/enc/dvips/lm/lm-mathsy.enc}]
+
+[8]
 Chapter 1.
-
-Package natbib Warning: Citation `Galloway2014' on page 1 undefined on input line 137.
-
-
-Package natbib Warning: Citation `Galloway2014' on page 1 undefined on input line 137.
-
 
 
 [1
@@ -518,32 +586,24 @@ Package natbib Warning: Citation `Galloway2014' on page 1 undefined on input lin
 
 [4]
 Chapter 2.
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 220.
-(/home/kangah/.miktex/texmfs/install/tex/latex/lm/ts1lmr.fd
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
+23.
+(/usr/local/share/miktex-texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-Underfull \hbox (badness 1571) in paragraph at lines 230--238
-[]\T1/lmr/m/n/12 (+20) Geologically, East Baton Rouge Parish is underlain by thick sequences of
- []
-
-
 
 [5
 
-{/home/kangah/.miktex/texmfs/install/fonts/enc/dvips/lm/lm-ts1.enc}]
-
-Package natbib Warning: Citation `Galloway2014' on page 6 undefined on input line 279.
-
-
+{/usr/local/share/miktex-texmf/fonts/enc/dvips/lm/lm-ts1.enc}]
 
 [6]
-<media/MyStudyArea.png, id=176, 706.13812pt x 520.94624pt>
+<media/MyStudyArea.png, id=185, 706.13812pt x 520.94624pt>
 File: media/MyStudyArea.png Graphic file (type png)
 <use media/MyStudyArea.png>
-Package pdftex.def Info: media/MyStudyArea.png  used on input line 284.
+Package pdftex.def Info: media/MyStudyArea.png  used on input line 287.
 (pdftex.def)             Requested size: 498.66788pt x 426.39174pt.
 
-Overfull \hbox (29.66788pt too wide) in paragraph at lines 284--285
+Overfull \hbox (29.66788pt too wide) in paragraph at lines 287--288
  [][] 
  []
 
@@ -551,43 +611,15 @@ Overfull \hbox (29.66788pt too wide) in paragraph at lines 284--285
 
 [7 <./media/MyStudyArea.png (PNG copy)>]
 
-Package natbib Warning: Citation `ESA' on page 8 undefined on input line 304.
-
-
-Package natbib Warning: Citation `2021' on page 8 undefined on input line 304.
-
-
-
 [8]
 
 [9]
 Chapter 3.
 
-Package natbib Warning: Citation `Galloway2014' on page 10 undefined on input line 327.
-
-
-Package natbib Warning: Citation `Holzer1985' on page 10 undefined on input line 329.
-
-
-Underfull \hbox (badness 1527) in paragraph at lines 333--334
-[]\T1/lmr/m/n/12 (+20) The development of Synthetic Aperture Radar Interferometry (InSAR) has
- []
-
-
-Underfull \hbox (badness 1264) in paragraph at lines 333--334
-\T1/lmr/m/n/12 (+20) transformed ground-deformation monitoring by providing high-resolution, wide-area
- []
-
-
 
 [10
 
 ]
-Underfull \hbox (badness 1087) in paragraph at lines 337--338
-[]\T1/lmr/m/n/12 (+20) Early Differential InSAR (D-InSAR) was limited by atmospheric delay and
- []
-
-
 
 [11]
 
@@ -622,64 +654,46 @@ Chapter 5.
 [23
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 35--39
-[]\T1/lmr/m/n/12 (+20) L. Breiman.  Random forests.  \T1/lmr/m/it/12 (+20) Machine Learning\T1/lmr/m/n/12 (+20) , 45(1):5--32, 2001.
- []
-
-
 
 [24
 
 ]
 
 [25]
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 117.
- (/home/kangah/.miktex/texmfs/install/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-
 
 [26]
 
 [27]
 
 [28]
-Underfull \hbox (badness 2197) in paragraph at lines 251--256
-\T1/lmr/m/n/12 (+20) integrated remote sensing approaches.  \T1/lmr/m/it/12 (+20) Coastal Engineering\T1/lmr/m/n/12 (+20) , 182:104287, 2023.
- []
-
-
 
 [29]
 
 [30])
 
-Package natbib Warning: There were undefined citations.
-
-
-
 [31] (main_thesis.aux)
  ***********
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-01-18>
+LaTeX2e <2025-06-01> patch level 1
+L3 programming layer <2025-06-09>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 13982 strings out of 475460
- 219830 string characters out of 5766565
- 641711 words of memory out of 5000000
- 36458 multiletter control sequences out of 15000+600000
- 602677 words of font info for 141 fonts, out of 8000000 for 9000
- 0 hyphenation exceptions out of 8191
- 90i,6n,93p,1138b,653s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</home/kangah/.miktex/texmfs/install/fonts/type1/public/lm/lmbx12.pfb></home/kangah/.miktex/texmfs/install/fonts/type1/public/lm/lmmi12.pfb></home/kangah/.miktex/texmfs/install/fonts/type1/public/lm/lmr12.pfb></home/kangah/.miktex/texmfs/install/fonts/type1/public/lm/lmr8.pfb></home/kangah/.miktex/texmfs/install/fonts/type1/public/lm/lmri12.pfb></home/kangah/.miktex/texmfs/install/fonts/type1/public/lm/lmsy10.pfb></home/kangah/.miktex/texmfs/install/fonts/type1/public/lm/lmsy8.pfb></home/kangah/.miktex/texmfs/install/fonts/type1/public/lm/lmtt12.pfb>
-Output written on main_thesis.pdf (38 pages, 368471 bytes).
+ 13896 strings out of 468222
+ 217143 string characters out of 5440165
+ 651997 words of memory out of 5000000
+ 41927 multiletter control sequences out of 15000+600000
+ 669863 words of font info for 140 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 90i,6n,93p,1099b,663s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/share/miktex-texmf/fonts/type1/public/lm/lmbx12.pfb></usr/local/s
+hare/miktex-texmf/fonts/type1/public/lm/lmmi12.pfb></usr/local/share/miktex-tex
+mf/fonts/type1/public/lm/lmr12.pfb></usr/local/share/miktex-texmf/fonts/type1/p
+ublic/lm/lmr8.pfb></usr/local/share/miktex-texmf/fonts/type1/public/lm/lmri12.p
+fb></usr/local/share/miktex-texmf/fonts/type1/public/lm/lmsy10.pfb></usr/local/
+share/miktex-texmf/fonts/type1/public/lm/lmsy8.pfb>
+Output written on main_thesis.pdf (39 pages, 341490 bytes).
 PDF statistics:
- 623 PDF objects out of 1000 (max. 8388607)
- 135 named destinations out of 1000 (max. 500000)
- 23238 words of extra memory for PDF output out of 24883 (max. 10000000)
+ 598 PDF objects out of 1000 (max. 8388607)
+ 141 named destinations out of 1000 (max. 500000)
+ 22726 words of extra memory for PDF output out of 24883 (max. 10000000)
 

@@ -41,6 +41,9 @@
 \usepackage{bookmark}
 \usepackage{xcolor}
 
+% Configure DOI to show as full URLs
+\renewcommand{\doitext}{https://doi.org/}
+
 
 % LSU template handles text justification and hyphenation
 % \usepackage{ragged2e}
@@ -106,10 +109,10 @@ management. This study presents an integrated framework for land--subsidence sus
 mapping and spatio--temporal forecasting by combining Sentinel--1 Small Baseline Subset 
 Interferometric Synthetic Aperture Radar (SBAS--InSAR) observations with machine--learning 
 and deep--learning models. Multi--temporal SBAS--InSAR data spanning 2017--2025 
-(246 descending line--of--sight scenes) were analyzed alongside key geospatial 
-conditioning factors, including  topographic wetness index, 
-elevation, slope, soil type, precipitation, curvature, aspect, land--use/land--cover, and distances to 
-faults, rivers, roads,  railways, wells, and bridges.
+(246 descending line--of--sight scenes) were analyzed alongside fifteen (15) geospatial 
+conditioning factors, including geology, land--use/land--cover, elevation (DEM), 
+slope, aspect, topographic position index (TPI), curvature, topographic wetness index (TWI), 
+precipitation, and distances to rivers, roads, faults, railways, bridges, and interpolated groundwater well influence.
 
 Gaussian noise--based data augmentation was applied to mitigate data gaps and enhance model generalization. 
 Susceptibility mapping identified the Extra Trees Regressor as the optimal spatial model, achieving a test 
@@ -298,27 +301,42 @@ descending tracks. Sentinel-1 is a C-band (5.405 GHz) SAR mission operated by th
 provides systematic, long-term observations suitable for deformation monitoring. 
 
 \subsection{Precise Orbit Ephemerides}
-Precise Orbits Ephemerides (POEORB) provided by the ESA were applied to all Sentinel-1 acquisitions.
-The use of POEORB significantly improves satellite position accuracy compared to restituted Orbits and reduces long
-wavelength phase ramps in Interferometric products. This step is essential for reliable deformation timeseries analysis,
-particularly for long temporal stacks \citep{ESA,2021}.
+Precise Orbits Ephemerides (POEORB) provided by the ESA were applied to all Sentinel-1 acquisitions
+prior to interferometric processing. Compared to restituted orbits, POEORB significantly improves 
+satellite position accuracy, reducing residual orbital errors and mitigating long-wavelength phase ramps
+in interferograms \citep{Ferretti2007InSAR}.
+
+\subsection{Digital Elevation Model and Atmospheric Data}
+A 30 m resolution Digital Elevation Model (DEM) was used to correct for topographic phase contributions 
+in interferograms generation. The DEM also served as the basis for deriving topographic conditioning factors
+used in the susceptibility analysis. 
+
+To mitigate atmospheric artefacts, particularly stratified tropospheric delays, ERA5
+(Fifth Generation ECMWF Atmospheric Reanalysis) data were incorporated during timeseries 
+processing. ERA5 provides high-resolution global estimates of atmospheric state variables and has been 
+widely adopted for atmospheric phase screen correction in InSAR studies \citep{Hersbach2020ERA5}.
+
 \subsection{Geospatial Conditioning Factors}
-Twenty (20) geospatial conditioning factors were prepared at 30 m resolution and 
-aligned to a common grid. Key groups include:
+A total of fifteen (15) geospatial conditioning factors were prepared at 30 m resolution and 
+aligned to a common spatial grid for land subsidence susceptibility modelling.
+These factors were grouped into topographic, geological, hydrological, structural/tectonic, infrastructure, climatic, and anthropogenic categories, reflecting the multi-causal nature of land subsidence processes.
+
 \begin{itemize}
-\item Topographic: elevation (30 m SRTM), slope, aspect, curvature, Topographic 
-  Wetness Index (TWI).
-\item Geological/hydrogeological: soil type, lithology, distance to Baton Rouge 
-  and Denham Springs fault lines.
-\item Anthropogenic/environmental: Land Use/Land Cover (LULC), NDVI, distances to 
-  roads, rivers, groundwater wells, railways, and bridges.
+\item Topographic factors: Digital Elevation Model (DEM), slope, aspect, Topographic Position Index (TPI), curvature, Topographic Wetness Index (TWI).
+\item Geological factors: geology, Land Use/Land Cover (LULC).
+\item Hydrological factors: distance from river.
+\item Structural/Tectonic factors: distance from fault (Baton Rouge and Denham Springs fault systems).
+\item Infrastructure factors: distance from road, distance from railway, distance from bridge.
+\item Climatic factors: precipitation.
+\item Anthropogenic factors: well\_idw (interpolated groundwater well influence).
 \end{itemize}
-Continuous layers were min--max scaled; categorical layers were one-hot encoded.
+Continuous layers were min--max scaled; categorical layers (geology, LULC) were one-hot encoded.
 
 \subsection{Validation Data}
-GNSS vertical displacement time series from the GulfNet CORS network (notably 
-stations 1LSU and GMVS within EBRP) are used for independent validation of 
-InSAR-derived deformation.
+InSAR-derived deformation was validated using GNSS vertical displacement time series
+ from the GulfNet CORS stations (1LSU and GMVS) in EBRP obtained from the Nevada Geodetic
+ Laboratory (NGL). GNSS provides high-precision point-based measurements and serves as a 
+ standard benchmark for InSAR timeseries validation 
 
 \chapter[Literature Review]{\centering Literature Review}
 
@@ -440,7 +458,7 @@ Analogy: SBAS-InSAR acts as the radar sweep; the Extra Trees model provides the 
 
 \chapter[References]{\centering References}
 \nocite{Galloway2000SubsidenceUS}
-\bibliographystyle{plainnat}
+\bibliographystyle{apalike}
 \bibliography{references}
 
 \end{document}

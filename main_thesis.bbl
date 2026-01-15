@@ -1,336 +1,298 @@
-\begin{thebibliography}{43}
-\providecommand{\natexlab}[1]{#1}
-\providecommand{\url}[1]{\texttt{#1}}
-\expandafter\ifx\csname urlstyle\endcsname\relax
-  \providecommand{\doi}[1]{doi: #1}\else
-  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+\begin{thebibliography}{}
 
-\bibitem[Abdalla et~al.(2024)Abdalla, Shami, Shahriari, and Azar]{Abdalla2024}
-A.~Abdalla, S.~Shami, M.~Shahriari, and M.~Azar.
+\bibitem[Abdalla et~al., 2024]{Abdalla2024}
+Abdalla, A., Shami, S., Shahriari, M., and Azar, M. (2024).
 \newblock Estimation of land displacement in east baton rouge parish,
   louisiana, using {InSAR}: Comparisons with {GNSS} and machine learning
   models.
-\newblock \emph{The Egyptian Journal of Remote Sensing and Space Sciences},
-  27:\penalty0 204--215, 2024.
-\newblock \doi{10.1016/j.ejrs.2024.02.008}.
+\newblock {\em The Egyptian Journal of Remote Sensing and Space Sciences},
+  27:204--215.
 
-\bibitem[Bayik et~al.(2025)Bayik, Abdikan, Ozdemir, Arikan, Sahin, and
-  Sanli]{Bayik2025}
-C.~Bayik, S.~Abdikan, A.~Ozdemir, M.~Arikan, F.~E. Sahin, and F.~B. Sanli.
+\bibitem[Bayik et~al., 2025]{Bayik2025}
+Bayik, C., Abdikan, S., Ozdemir, A., Arikan, M., Sahin, F.~E., and Sanli, F.~B.
+  (2025).
 \newblock Investigation of the landslides in beylikd\"uz\"u-esenyurt districts
   of istanbul from {InSAR} results.
-\newblock \emph{Natural Hazards}, 115:\penalty0 373--391, 2025.
-\newblock \doi{10.1007/s11069-022-05556-z}.
+\newblock {\em Natural Hazards}, 115:373--391.
 
-\bibitem[Berardino et~al.(2002)Berardino, Fornaro, Lanari, and
-  Sansosti]{Berardino2002}
-P.~Berardino, G.~Fornaro, R.~Lanari, and E.~Sansosti.
+\bibitem[Berardino et~al., 2002]{Berardino2002}
+Berardino, P., Fornaro, G., Lanari, R., and Sansosti, E. (2002).
 \newblock A new algorithm for surface deformation monitoring based on small
   baseline differential {SAR} interferograms.
-\newblock \emph{IEEE Transactions on Geoscience and Remote Sensing},
-  40\penalty0 (11):\penalty0 2375--2383, 2002.
-\newblock \doi{10.1109/TGRS.2002.803792}.
+\newblock {\em IEEE Transactions on Geoscience and Remote Sensing},
+  40(11):2375--2383.
 
-\bibitem[Breiman(2001)]{Breiman2001}
-L.~Breiman.
+\bibitem[Breiman, 2001]{Breiman2001}
+Breiman, L. (2001).
 \newblock Random forests.
-\newblock \emph{Machine Learning}, 45\penalty0 (1):\penalty0 5--32, 2001.
-\newblock \doi{10.1023/A:1010933404324}.
+\newblock {\em Machine Learning}, 45(1):5--32.
 
-\bibitem[Chen and Li(2023)]{Chen2023}
-W.~Chen and H.~Li.
+\bibitem[Chen and Li, 2023]{Chen2023}
+Chen, W. and Li, H. (2023).
 \newblock Explainable machine learning for land subsidence susceptibility
   modeling.
-\newblock \emph{Science of the Total Environment}, 903:\penalty0 166604, 2023.
-\newblock \doi{10.1016/j.scitotenv.2023.166604}.
+\newblock {\em Science of the Total Environment}, 903:166604.
 
-\bibitem[Cieslik et~al.(2022)Cieslik, Smith, and Johnson]{Cieslik2022}
-S.~Cieslik, J.~Smith, and K.~Johnson.
+\bibitem[Cieslik et~al., 2022]{Cieslik2022}
+Cieslik, S., Smith, J., and Johnson, K. (2022).
 \newblock Machine learning approaches for subsidence mapping and factor
   analysis.
-\newblock \emph{Geotechnical Engineering Journal}, 18\penalty0 (3):\penalty0
-  245--260, 2022.
+\newblock {\em Geotechnical Engineering Journal}, 18(3):245--260.
 
-\bibitem[Crosetto et~al.(2016)Crosetto, Monserrat, Cuevas-Gonz{\'a}lez,
-  Devanth{\'e}ry, and Crippa]{Crosetto2016}
-M.~Crosetto, O.~Monserrat, M.~Cuevas-Gonz{\'a}lez, N.~Devanth{\'e}ry, and
-  B.~Crippa.
+\bibitem[Crosetto et~al., 2016]{Crosetto2016}
+Crosetto, M., Monserrat, O., Cuevas-Gonz{\'a}lez, M., Devanth{\'e}ry, N., and
+  Crippa, B. (2016).
 \newblock Persistent scatterer interferometry: A review.
-\newblock \emph{ISPRS Journal of Photogrammetry and Remote Sensing},
-  115:\penalty0 78--89, 2016.
-\newblock \doi{10.1016/j.isprsjprs.2015.10.011}.
+\newblock {\em ISPRS Journal of Photogrammetry and Remote Sensing}, 115:78--89.
 
-\bibitem[Fattahi and Amelung(2015)]{Fattahi2015}
-H.~Fattahi and F.~Amelung.
+\bibitem[Fattahi and Amelung, 2015]{Fattahi2015}
+Fattahi, H. and Amelung, F. (2015).
 \newblock {InSAR} bias and uncertainty due to the systematic and stochastic
   tropospheric delay.
-\newblock \emph{Journal of Geophysical Research: Solid Earth}, 120\penalty0
-  (12):\penalty0 8758--8773, 2015.
-\newblock \doi{10.1002/2015JB012419}.
+\newblock {\em Journal of Geophysical Research: Solid Earth},
+  120(12):8758--8773.
 
-\bibitem[Ferretti et~al.(2001)Ferretti, Prati, and Rocca]{Ferretti2001}
-A.~Ferretti, C.~Prati, and F.~Rocca.
-\newblock Permanent scatterers in {SAR} interferometry.
-\newblock \emph{IEEE Transactions on Geoscience and Remote Sensing},
-  39\penalty0 (1):\penalty0 8--20, 2001.
-\newblock \doi{10.1109/36.898661}.
-
-\bibitem[Ferretti et~al.(2011)Ferretti, Fumagalli, Novali, Prati, Rocca, and
-  Rucci]{Ferretti2011}
-A.~Ferretti, A.~Fumagalli, F.~Novali, C.~Prati, F.~Rocca, and A.~Rucci.
+\bibitem[Ferretti et~al., 2011a]{Ferretti2011}
+Ferretti, A., Fumagalli, A., Novali, F., Prati, C., Rocca, F., and Rucci, A.
+  (2011a).
 \newblock A new algorithm for processing interferometric data-stacks:
   {SqueeSAR}.
-\newblock \emph{IEEE Transactions on Geoscience and Remote Sensing},
-  49\penalty0 (9):\penalty0 3460--3470, 2011.
-\newblock \doi{10.1109/TGRS.2011.2124465}.
+\newblock {\em IEEE Transactions on Geoscience and Remote Sensing},
+  49(9):3460--3470.
 
-\bibitem[Ferretti et~al.(2020)Ferretti, Fumagalli, Novali, Prati, Rocca, and
-  Rucci]{Ferretti2020}
-A.~Ferretti, A.~Fumagalli, F.~Novali, C.~Prati, F.~Rocca, and A.~Rucci.
+\bibitem[Ferretti et~al., 2011b]{Ferretti2007InSAR}
+Ferretti, A., Fumagalli, A., Novali, F., Prati, C., Rocca, F., and Rucci, A.
+  (2011b).
+\newblock A new algorithm for processing interferometric data-stacks: Squeesar.
+\newblock {\em IEEE Transactions on Geoscience and Remote Sensing},
+  49(9):3460--3470.
+
+\bibitem[Ferretti et~al., 2020]{Ferretti2020}
+Ferretti, A., Fumagalli, A., Novali, F., Prati, C., Rocca, F., and Rucci, A.
+  (2020).
 \newblock Satellite radar interferometry: Permanent scatterer analysis and
   applications.
-\newblock In \emph{Remote Sensing and Digital Image Processing}, volume~24,
-  pages 21--47. 2020.
-\newblock \doi{10.1007/978-3-030-50877-7_2}.
+\newblock In {\em Remote Sensing and Digital Image Processing}, volume~24,
+  pages 21--47. Springer.
 
-\bibitem[Fu et~al.(2023)Fu, Wang, Zhang, and Tang]{Fu2023}
-H.~Fu, C.~Wang, L.~Zhang, and Y.~Tang.
+\bibitem[Ferretti et~al., 2001]{Ferretti2001}
+Ferretti, A., Prati, C., and Rocca, F. (2001).
+\newblock Permanent scatterers in {SAR} interferometry.
+\newblock {\em IEEE Transactions on Geoscience and Remote Sensing},
+  39(1):8--20.
+
+\bibitem[Fu et~al., 2023]{Fu2023}
+Fu, H., Wang, C., Zhang, L., and Tang, Y. (2023).
 \newblock Deep learning for land subsidence prediction and susceptibility
   assessment.
-\newblock \emph{Remote Sensing}, 15\penalty0 (8):\penalty0 2134, 2023.
-\newblock \doi{10.3390/rs15082134}.
+\newblock {\em Remote Sensing}, 15(8):2134.
 
-\bibitem[Galloway et~al.(2023)Galloway, Teatini, Carre{\'o}n, and
-  Ye]{Galloway2023}
-D.~Galloway, P.~Teatini, D.~Carre{\'o}n, and S.~Ye.
+\bibitem[Galloway et~al., 2023]{Galloway2023}
+Galloway, D., Teatini, P., Carre{\'o}n, D., and Ye, S. (2023).
 \newblock Global land subsidence: Impact of climate extremes and human
   activities.
-\newblock \emph{Reviews of Geophysics}, 61\penalty0 (4):\penalty0
-  e2023RG000817, 2023.
-\newblock \doi{10.1029/2023RG000817}.
+\newblock {\em Reviews of Geophysics}, 61(4):e2023RG000817.
 
-\bibitem[Galloway et~al.(2000)Galloway, Jones, and
-  Ingebritsen]{Galloway2000SubsidenceUS}
-Devin~L. Galloway, David~R. Jones, and S.~E. Ingebritsen.
+\bibitem[Galloway et~al., 1999]{Galloway2014}
+Galloway, D.~L., Jones, D.~R., and Ingebritsen, S.~E. (1999).
 \newblock Land subsidence in the united states.
-\newblock USGS Circular 1182, U.S. Geological Survey, 2000.
-\newblock URL \url{https://doi.org/10.3133/cir1182}.
+\newblock USGS Circular 1182, U.S. Geological Survey.
+\newblock Revised 2014.
 
-\bibitem[Gao et~al.(2024)Gao, Wang, and Li]{Gao2024}
-Y.~Gao, Z.~Wang, and S.~Li.
+\bibitem[Galloway et~al., 2000]{Galloway2000SubsidenceUS}
+Galloway, D.~L., Jones, D.~R., and Ingebritsen, S.~E. (2000).
+\newblock Land subsidence in the united states.
+\newblock USGS Circular 1182, U.S. Geological Survey.
+
+\bibitem[Gao et~al., 2024]{Gao2024}
+Gao, Y., Wang, Z., and Li, S. (2024).
 \newblock Machine learning approaches for subsidence susceptibility mapping in
   urban regions.
-\newblock \emph{Remote Sensing}, 16\penalty0 (5):\penalty0 1234, 2024.
-\newblock \doi{10.3390/rs16051234}.
+\newblock {\em Remote Sensing}, 16(5):1234.
 
-\bibitem[Gharechaee et~al.(2023)Gharechaee, Samani, Sigaroodi, Baloochiyan,
-  Moosavi, Hubbart, and Sadeghi]{Gharechaee2023}
-H.~Gharechaee, A.~N. Samani, S.~K. Sigaroodi, A.~Baloochiyan, M.~S. Moosavi,
-  J.~A. Hubbart, and S.~M.~M. Sadeghi.
+\bibitem[Gharechaee et~al., 2023]{Gharechaee2023}
+Gharechaee, H., Samani, A.~N., Sigaroodi, S.~K., Baloochiyan, A., Moosavi,
+  M.~S., Hubbart, J.~A., and Sadeghi, S. M.~M. (2023).
 \newblock Land subsidence susceptibility mapping using interferometric
   synthetic aperture radar ({InSAR}) and machine-learning models in a semiarid
   region of iran.
-\newblock \emph{Land}, 12\penalty0 (4):\penalty0 843, 2023.
-\newblock \doi{10.3390/land12040843}.
+\newblock {\em Land}, 12(4):843.
 
-\bibitem[Greff et~al.(2017)Greff, Srivastava, Koutn{\'i}k, Steunebrink, and
-  Schmidhuber]{Greff2017}
-K.~Greff, R.~K. Srivastava, J.~Koutn{\'i}k, B.~R. Steunebrink, and
-  J.~Schmidhuber.
+\bibitem[Greff et~al., 2017]{Greff2017}
+Greff, K., Srivastava, R.~K., Koutn{\'i}k, J., Steunebrink, B.~R., and
+  Schmidhuber, J. (2017).
 \newblock {LSTM}: A search space odyssey.
-\newblock \emph{IEEE Transactions on Neural Networks and Learning Systems},
-  28\penalty0 (10):\penalty0 2222--2232, 2017.
-\newblock \doi{10.1109/TNNLS.2016.2582924}.
+\newblock {\em IEEE Transactions on Neural Networks and Learning Systems},
+  28(10):2222--2232.
 
-\bibitem[Hakim et~al.(2023)Hakim, Sugianto, and Ardiansyah]{Hakim2023}
-W.~L. Hakim, E.~Sugianto, and A.~Ardiansyah.
+\bibitem[Hakim et~al., 2023]{Hakim2023}
+Hakim, W.~L., Sugianto, E., and Ardiansyah, A. (2023).
 \newblock {InSAR} time-series analysis and susceptibility mapping for land
   subsidence in semarang using {ICOPS-CNN} and {ICOPS-SVR} models.
-\newblock \emph{International Journal of Applied Earth Observation and
-  Geoinformation}, 125:\penalty0 102552, 2023.
-\newblock \doi{10.1016/j.jag.2023.102552}.
+\newblock {\em International Journal of Applied Earth Observation and
+  Geoinformation}, 125:102552.
 
-\bibitem[Higgins(2016)]{Higgins2016}
-S.~A. Higgins.
+\bibitem[Hersbach et~al., 2020]{Hersbach2020ERA5}
+Hersbach, H., Bell, B., Berrisford, P., Hirahara, S., Hor{\'a}nyi, A.,
+  Mu{\~n}oz-Sabater, J., et~al. (2020).
+\newblock The era5 global reanalysis.
+\newblock {\em Quarterly Journal of the Royal Meteorological Society},
+  146(730):1999--2049.
+
+\bibitem[Higgins, 2016]{Higgins2016}
+Higgins, S.~A. (2016).
 \newblock Advances in delta-subsidence research using satellite methods.
-\newblock \emph{Hydrogeology Journal}, 24\penalty0 (3):\penalty0 587--600,
-  2016.
-\newblock \doi{10.1007/s10040-015-1330-6}.
+\newblock {\em Hydrogeology Journal}, 24(3):587--600.
 
-\bibitem[Hochreiter and Schmidhuber(1997)]{Hochreiter1997}
-S.~Hochreiter and J.~Schmidhuber.
+\bibitem[Hochreiter and Schmidhuber, 1997]{Hochreiter1997}
+Hochreiter, S. and Schmidhuber, J. (1997).
 \newblock Long short-term memory.
-\newblock \emph{Neural Computation}, 9\penalty0 (8):\penalty0 1735--1780, 1997.
-\newblock \doi{10.1162/neco.1997.9.8.1735}.
+\newblock {\em Neural Computation}, 9(8):1735--1780.
 
-\bibitem[Hosseinzadeh et~al.(2024)Hosseinzadeh, Karimi, and
-  Ghorbani]{Hosseinzadeh2024}
-S.~Hosseinzadeh, H.~Karimi, and A.~Ghorbani.
+\bibitem[Holzer and Johnson, 1985]{Holzer1985}
+Holzer, T.~L. and Johnson, A.~I. (1985).
+\newblock Land subsidence caused by ground-water withdrawal in urban areas.
+\newblock {\em GeoJournal}, 11(3):245--255.
+
+\bibitem[Hosseinzadeh et~al., 2024]{Hosseinzadeh2024}
+Hosseinzadeh, S., Karimi, H., and Ghorbani, A. (2024).
 \newblock Comparative evaluation of machine learning methods for land
   subsidence susceptibility mapping in arid regions.
-\newblock \emph{Environmental Earth Sciences}, 83:\penalty0 245, 2024.
-\newblock \doi{10.1007/s12665-024-11456-3}.
+\newblock {\em Environmental Earth Sciences}, 83:245.
 
-\bibitem[Li et~al.(2020)Li, Li, and Gou]{Li2020}
-H.~Li, Z.~Li, and W.~Gou.
+\bibitem[Li et~al., 2020]{Li2020}
+Li, H., Li, Z., and Gou, W. (2020).
 \newblock Land subsidence modelling using long short-term memory ({LSTM}) and
   persistent scatterer {InSAR} data: A case study from beijing plain.
-\newblock \emph{Hydrology and Earth System Sciences}, 24\penalty0 (6):\penalty0
-  2829--2844, 2020.
-\newblock \doi{10.5194/hess-24-2829-2020}.
+\newblock {\em Hydrology and Earth System Sciences}, 24(6):2829--2844.
 
-\bibitem[Liu et~al.(2025)Liu, Wang, Zhang, and Chen]{Liu2025}
-X.~Liu, Y.~Wang, H.~Zhang, and Q.~Chen.
+\bibitem[Liu et~al., 2025]{Liu2025}
+Liu, X., Wang, Y., Zhang, H., and Chen, Q. (2025).
 \newblock Explainable machine learning for deformation analysis along
   high-speed railway corridors using {InSAR} and {SHAP}.
-\newblock \emph{Transportation Geotechnics}, 40:\penalty0 101012, 2025.
-\newblock \doi{10.1016/j.trgeo.2024.101012}.
+\newblock {\em Transportation Geotechnics}, 40:101012.
 
-\bibitem[Liu et~al.(2023)Liu, Chen, and Zhang]{Liu2023}
-Y.~Liu, Z.~Chen, and P.~Zhang.
+\bibitem[Liu et~al., 2023]{Liu2023}
+Liu, Y., Chen, Z., and Zhang, P. (2023).
 \newblock Integrating {SBAS-InSAR} and attention-{LSTM} for time-series
   ground-subsidence prediction.
-\newblock \emph{Remote Sensing}, 15\penalty0 (13):\penalty0 3409, 2023.
-\newblock \doi{10.3390/rs15133409}.
+\newblock {\em Remote Sensing}, 15(13):3409.
 
-\bibitem[Lu et~al.(2024)Lu, Ao, Li, Zhang, and Wu]{Lu2024}
-B.~Lu, Z.~Ao, S.~Li, Y.~Zhang, and Y.~Wu.
+\bibitem[Lu et~al., 2024]{Lu2024}
+Lu, B., Ao, Z., Li, S., Zhang, Y., and Wu, Y. (2024).
 \newblock {DACLnet}: A dual-attention-mechanism {CNN-LSTM} network for accurate
   prediction of nonlinear {InSAR} deformation.
-\newblock \emph{IEEE Transactions on Geoscience and Remote Sensing},
-  62:\penalty0 1--14, 2024.
-\newblock \doi{10.1109/TGRS.2024.3367890}.
+\newblock {\em IEEE Transactions on Geoscience and Remote Sensing}, 62:1--14.
 
-\bibitem[Mame et~al.(2025)Mame, Kumar, and Singh]{Mame2025}
-S.~Mame, A.~Kumar, and R.~Singh.
+\bibitem[Mame et~al., 2025]{Mame2025}
+Mame, S., Kumar, A., and Singh, R. (2025).
 \newblock Data augmentation techniques for improving land subsidence prediction
   models.
-\newblock \emph{Geosciences}, 15\penalty0 (2):\penalty0 145, 2025.
+\newblock {\em Geosciences}, 15(2):145.
 
-\bibitem[Mirmazloumi et~al.(2023)Mirmazloumi, Wassie, Nava,
-  Cuevas-Gonz{\'a}lez, Crosetto, and Monserrat]{Mirmazloumi2023}
-S.~Mirmazloumi, Y.~Wassie, L.~Nava, M.~Cuevas-Gonz{\'a}lez, M.~Crosetto, and
-  O.~Monserrat.
+\bibitem[Mirmazloumi et~al., 2023]{Mirmazloumi2023}
+Mirmazloumi, S., Wassie, Y., Nava, L., Cuevas-Gonz{\'a}lez, M., Crosetto, M.,
+  and Monserrat, O. (2023).
 \newblock {InSAR} time series and {LSTM} model to support early warning
   detection tools of ground instabilities: Mining site case studies.
-\newblock \emph{Bulletin of Engineering Geology and the Environment},
-  82:\penalty0 374, 2023.
-\newblock \doi{10.1007/s10064-023-03388-w}.
+\newblock {\em Bulletin of Engineering Geology and the Environment}, 82:374.
 
-\bibitem[Mojtahedi et~al.(2025)Mojtahedi, Yousefpour, Chow, and
-  Cassidy]{Mojtahedi2025}
-F.~F. Mojtahedi, N.~Yousefpour, S.~H. Chow, and M.~Cassidy.
+\bibitem[Mojtahedi et~al., 2025]{Mojtahedi2025}
+Mojtahedi, F.~F., Yousefpour, N., Chow, S.~H., and Cassidy, M. (2025).
 \newblock Deep learning for time series forecasting: Review and applications in
   geotechnics and geosciences.
-\newblock \emph{Archives of Computational Methods in Engineering}, 32:\penalty0
-  3415--3445, 2025.
-\newblock \doi{10.1007/s11831-025-10244-5}.
+\newblock {\em Archives of Computational Methods in Engineering},
+  32:3415--3445.
 
-\bibitem[Naghibi et~al.(2022)Naghibi, Ahmadi, and Daneshi]{Naghibi2022}
-S.~A. Naghibi, K.~Ahmadi, and A.~Daneshi.
+\bibitem[Naghibi et~al., 2022]{Naghibi2022}
+Naghibi, S.~A., Ahmadi, K., and Daneshi, A. (2022).
 \newblock An integrated {InSAR-machine} learning approach for ground
   deformation rate modeling in arid areas.
-\newblock \emph{Science of the Total Environment}, 829:\penalty0 154585, 2022.
-\newblock \doi{10.1016/j.scitotenv.2022.154585}.
+\newblock {\em Science of the Total Environment}, 829:154585.
 
-\bibitem[Orlandi et~al.(2024)Orlandi, Abellan, and Moreno]{Orlandi2024}
-D.~Orlandi, A.~Abellan, and M.~Moreno.
+\bibitem[Orlandi et~al., 2024]{Orlandi2024}
+Orlandi, D., Abellan, A., and Moreno, M. (2024).
 \newblock A machine-learning approach for mapping susceptibility to land
   subsidence in the region of murcia, spain.
-\newblock \emph{Heliyon}, 10\penalty0 (2):\penalty0 e2434, 2024.
-\newblock \doi{10.1016/j.heliyon.2024.e2434}.
+\newblock {\em Heliyon}, 10(2):e2434.
 
-\bibitem[Peng et~al.(2024)Peng, Tang, Sun, and Zhu]{Peng2024}
-M.~Peng, C.~Tang, D.~Sun, and H.~Zhu.
+\bibitem[Peng et~al., 2024]{Peng2024}
+Peng, M., Tang, C., Sun, D., and Zhu, H. (2024).
 \newblock Characterization and prediction of {InSAR}-derived ground deformation
   using {ICA} and {LSTM} models.
-\newblock \emph{Computers \& Geosciences}, 174:\penalty0 105440, 2024.
-\newblock \doi{10.1016/j.cageo.2024.105440}.
+\newblock {\em Computers \& Geosciences}, 174:105440.
 
-\bibitem[Qiao(2023)]{Qiao2023}
-X.~Qiao.
+\bibitem[Qiao, 2023]{Qiao2023}
+Qiao, X. (2023).
 \newblock Monitoring and assessment framework for coastal subsidence regions
   using integrated remote sensing approaches.
-\newblock \emph{Coastal Engineering}, 182:\penalty0 104287, 2023.
-\newblock \doi{10.1016/j.coastaleng.2023.104287}.
+\newblock {\em Coastal Engineering}, 182:104287.
 
-\bibitem[Rahmani et~al.(2024)Rahmani, Gholami, and Golzari]{Rahmani2024}
-P.~Rahmani, H.~Gholami, and S.~Golzari.
+\bibitem[Rahmani et~al., 2024]{Rahmani2024}
+Rahmani, P., Gholami, H., and Golzari, S. (2024).
 \newblock An interpretable deep-learning model to map land subsidence hazard.
-\newblock \emph{Environmental Science and Pollution Research}, 2024.
-\newblock \doi{10.1007/s11356-024-32280-7}.
+\newblock {\em Environmental Science and Pollution Research}.
 
-\bibitem[Raissi et~al.(2019)Raissi, Perdikaris, and Karniadakis]{Raissi2019}
-M.~Raissi, P.~Perdikaris, and G.~E. Karniadakis.
+\bibitem[Raissi et~al., 2019]{Raissi2019}
+Raissi, M., Perdikaris, P., and Karniadakis, G.~E. (2019).
 \newblock Physics-informed neural networks: A deep learning framework for
   solving forward and inverse problems involving nonlinear partial differential
   equations.
-\newblock \emph{Journal of Computational Physics}, 378:\penalty0 686--707,
-  2019.
-\newblock \doi{10.1016/j.jcp.2018.10.045}.
+\newblock {\em Journal of Computational Physics}, 378:686--707.
 
-\bibitem[Soni et~al.(2025)Soni, Alam, and Vishwakarma]{Soni2025}
-R.~Soni, M.~S. Alam, and G.~K. Vishwakarma.
+\bibitem[Soni et~al., 2025]{Soni2025}
+Soni, R., Alam, M.~S., and Vishwakarma, G.~K. (2025).
 \newblock Prediction of {InSAR} deformation time-series using an improved
   {LSTM} deep learning model.
-\newblock \emph{Scientific Reports}, 15:\penalty0 5333, 2025.
-\newblock \doi{10.1038/s41598-024-83084-1}.
+\newblock {\em Scientific Reports}, 15:5333.
 
-\bibitem[Wang et~al.(2023)Wang, Jia, Ding, Feng, Yang, and Zhu]{Wang2023}
-H.~Wang, C.~Jia, P.~Ding, K.~Feng, X.~Yang, and X.~Zhu.
+\bibitem[Wang et~al., 2023]{Wang2023}
+Wang, H., Jia, C., Ding, P., Feng, K., Yang, X., and Zhu, X. (2023).
 \newblock Analysis and prediction of regional land subsidence with {InSAR}
   technology and machine-learning algorithm---case of decheng county, shandong,
   china.
-\newblock \emph{KSCE Journal of Civil Engineering}, 27:\penalty0 782--793,
-  2023.
-\newblock \doi{10.1007/s12205-022-1067-4}.
+\newblock {\em KSCE Journal of Civil Engineering}, 27:782--793.
 
-\bibitem[Wang et~al.(2021)Wang, Zhang, and Lin]{Wang2021}
-L.~Wang, W.~Zhang, and Y.~Lin.
+\bibitem[Wang et~al., 2021]{Wang2021}
+Wang, L., Zhang, W., and Lin, Y. (2021).
 \newblock Urban land subsidence and its driving factors: A case study of the
   lower mississippi river basin.
-\newblock \emph{Remote Sensing}, 13\penalty0 (19):\penalty0 3872, 2021.
-\newblock \doi{10.3390/rs13193872}.
+\newblock {\em Remote Sensing}, 13(19):3872.
 
-\bibitem[Xue et~al.(2024)Xue, Luo, Li, Lin, Chen, Chen, and Wang]{Xue2024}
-Y.~A. Xue, Q.~Luo, J.~Li, H.~Lin, G.~Chen, J.~Chen, and H.~Wang.
+\bibitem[Xue et~al., 2024]{Xue2024}
+Xue, Y.~A., Luo, Q., Li, J., Lin, H., Chen, G., Chen, J., and Wang, H. (2024).
 \newblock Regional subsidence monitoring and prediction along high-speed rail
   corridors using {InSAR} and machine learning.
-\newblock \emph{Remote Sensing}, 16\penalty0 (6):\penalty0 1275, 2024.
-\newblock \doi{10.3390/rs16061275}.
+\newblock {\em Remote Sensing}, 16(6):1275.
 
-\bibitem[Younas et~al.(2023)Younas, Malik, and Khan]{Younas2023}
-A.~Younas, U.~Malik, and Z.~Khan.
+\bibitem[Younas et~al., 2023]{Younas2023}
+Younas, A., Malik, U., and Khan, Z. (2023).
 \newblock Subsurface faulting and its impact on urban ground deformation
   patterns.
-\newblock \emph{Journal of Applied Geophysics}, 195:\penalty0 104847, 2023.
+\newblock {\em Journal of Applied Geophysics}, 195:104847.
 
-\bibitem[Yu et~al.(2023)Yu, Penna, and Li]{Yu2023}
-C.~Yu, N.~T. Penna, and Z.~Li.
+\bibitem[Yu et~al., 2023]{Yu2023}
+Yu, C., Penna, N.~T., and Li, Z. (2023).
 \newblock Ground deformation monitoring in houston using sentinel-1 {InSAR} and
   {GNSS} data.
-\newblock \emph{Remote Sensing}, 15\penalty0 (2):\penalty0 331, 2023.
-\newblock \doi{10.3390/rs15020331}.
+\newblock {\em Remote Sensing}, 15(2):331.
 
-\bibitem[Zheng et~al.(2024)Zheng, Zhang, and Liu]{Zheng2024}
-L.~Zheng, F.~Zhang, and C.~Liu.
+\bibitem[Zheng et~al., 2024]{Zheng2024}
+Zheng, L., Zhang, F., and Liu, C. (2024).
 \newblock Development and comparison of {InSAR}-based land subsidence
   prediction models using {SVR}, holt, and {MLP} approaches.
-\newblock \emph{Remote Sensing}, 16\penalty0 (17):\penalty0 3345, 2024.
-\newblock \doi{10.3390/rs16173345}.
+\newblock {\em Remote Sensing}, 16(17):3345.
 
-\bibitem[Zhou et~al.(2022)Zhou, Zhao, and Huang]{Zhou2022}
-D.~Zhou, X.~Zhao, and X.~Huang.
+\bibitem[Zhou et~al., 2022]{Zhou2022}
+Zhou, D., Zhao, X., and Huang, X. (2022).
 \newblock Constructing a large-scale urban land subsidence prediction method
   based on neural network algorithm from the perspective of multiple factors.
-\newblock \emph{Remote Sensing}, 14\penalty0 (8):\penalty0 1803, 2022.
-\newblock \doi{10.3390/rs14081803}.
+\newblock {\em Remote Sensing}, 14(8):1803.
 
-\bibitem[Zhu et~al.(2024)Zhu, Guo, Zhang, Liu, and Wang]{Zhu2024}
-M.~Zhu, Y.~Guo, J.~Zhang, S.~Liu, and X.~Wang.
+\bibitem[Zhu et~al., 2024]{Zhu2024}
+Zhu, M., Guo, Y., Zhang, J., Liu, S., and Wang, X. (2024).
 \newblock High-precision monitoring and prediction of mining area surface
   subsidence using {SBAS-InSAR} and {CNN-BiGRU-attention} model.
-\newblock \emph{Scientific Reports}, 14:\penalty0 28968, 2024.
-\newblock \doi{10.1038/s41598-024-28968-w}.
+\newblock {\em Scientific Reports}, 14:28968.
 
 \end{thebibliography}

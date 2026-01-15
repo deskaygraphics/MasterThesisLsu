@@ -1,54 +1,48 @@
 This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main_thesis.aux
-Reallocating 'name_of_file' (item size: 1) to 9 items.
-The style file: plainnat.bst
+Reallocating 'name_of_file' (item size: 1) to 8 items.
+The style file: apalike.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: references.bib
-Warning--I didn't find a database entry for "Galloway2014"
-Warning--I didn't find a database entry for "ESA"
-Warning--I didn't find a database entry for "2021"
-Warning--I didn't find a database entry for "Holzer1985"
-Warning--empty publisher in Ferretti2020
-You've used 43 entries,
-            2773 wiz_defined-function locations,
-            934 strings with 14210 characters,
-and the built_in function-call counts, 22856 in all, are:
-= -- 2033
-> -- 1545
-< -- 9
-+ -- 517
-- -- 474
-* -- 2136
-:= -- 3621
-add.period$ -- 170
-call.type$ -- 43
-change.case$ -- 287
-chr.to.int$ -- 43
-cite$ -- 87
-duplicate$ -- 903
-empty$ -- 1677
-format.name$ -- 523
-if$ -- 4676
-int.to.chr$ -- 1
-int.to.str$ -- 1
-missing$ -- 42
-newline$ -- 263
-num.names$ -- 172
-pop$ -- 457
+You've used 47 entries,
+            1935 wiz_defined-function locations,
+            790 strings with 12605 characters,
+and the built_in function-call counts, 20367 in all, are:
+= -- 1939
+> -- 1018
+< -- 11
++ -- 367
+- -- 352
+* -- 1901
+:= -- 3612
+add.period$ -- 143
+call.type$ -- 47
+change.case$ -- 410
+chr.to.int$ -- 46
+cite$ -- 47
+duplicate$ -- 664
+empty$ -- 1328
+format.name$ -- 407
+if$ -- 3862
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 45
+newline$ -- 239
+num.names$ -- 141
+pop$ -- 316
 preamble$ -- 1
-purify$ -- 244
+purify$ -- 410
 quote$ -- 0
-skip$ -- 688
+skip$ -- 483
 stack$ -- 0
-substring$ -- 880
-swap$ -- 51
-text.length$ -- 3
+substring$ -- 1459
+swap$ -- 55
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 473
-warning$ -- 1
-while$ -- 189
+type$ -- 282
+warning$ -- 0
+while$ -- 160
 width$ -- 0
-write$ -- 646
-(There were 5 warnings)
+write$ -- 616
