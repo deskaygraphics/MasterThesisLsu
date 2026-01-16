@@ -17,8 +17,8 @@
 \contentsline {chapter}{Chapter 3. Literature Review}{11}{chapter.3}%
 \contentsline {section}{\numberline {3.1.}Overview of Land Subsidence in Urban Areas}{11}{section.3.1}%
 \contentsline {section}{\numberline {3.2.}Advancements in InSAR Monitoring for Subsidence}{12}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1.}Methodological Evolution}{12}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2.}Atmospheric Correction and Data Quality}{13}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.1.}Evolution of InSAR Techniques for Subsidence Monitoring}{12}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2.}Temporal Decorrelation, Atmospheric Effects, and Time-Series Reliability}{14}{subsection.3.2.2}%
 \contentsline {section}{\numberline {3.3.}Machine Learning for Subsidence Susceptibility Mapping}{14}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1.}Ensemble Learners and Extra Trees Regression}{15}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2.}Gaussian Process Regression and Data Augmentation}{15}{subsection.3.3.2}%

@@ -351,21 +351,40 @@ Land subsidence, which is defined as the slow downward movement of the Earth\tex
 
 The development of Synthetic Aperture Radar Interferometry (InSAR) has transformed ground-deformation monitoring by providing high-resolution, wide-area observations. Traditional geodetic techniques, such as GNSS and levelling, have historically provided precise point measurements but are limited by prohibitive costs and low spatial resolution.
 
-\subsection{Methodological Evolution}
+\subsection{Evolution of InSAR Techniques for Subsidence Monitoring}
+InSAR emerged in early 1990s as a transformative remote sensing technique capable of detecting ground deformation by 
+exploiting phase differences between radar images acquired at different times. Because radar phase is sensitive to path-length changes on the order of millimetres, 
+InSAR enables precise measurement of surface displacement over large spatial extents \citep{Massonnet1998}.
 
-Early Differential InSAR (D-InSAR) was limited by atmospheric delay and spatiotemporal decorrelation. Multi-temporal approaches like Persistent Scatterer InSAR (PS-InSAR) improved accuracy by identifying stable radar targets that retain high phase stability over time, achieving sub-millimeter precision on built infrastructure \citep{Ferretti2001, Ferretti2011}. However, PS-InSAR is often sparse in non-urbanized or vegetated areas, limiting its applicability to mixed land-cover environments.
+Early applications relied on Differential InSAR (D-InSAR), which isolates deformation by subtracting topographic phase contributions using DEM. D-InSAR 
+proved effective for mapping rapid and spatially coherent deformation associated with earthquakes and volcanic activity \citep{Massonnet1993}. However, its 
+application to long-term subsidence monitoring is limited by atmospheric phase delay, temporal decorrelation, orbital errors, and phase unwrapping ambiguities,
+particularly over vegetated or urbanizing surfaces \citep{Hanssen2001InSAR}.
 
-Small Baseline Subset (SBAS-InSAR) has emerged as a superior alternative, particularly in regions like Louisiana with mixed urban and vegetated terrain \citep{Berardino2002}. By utilizing multiple master interferograms with small perpendicular baselines, SBAS identifies Slowly Decorrelating Filtered Pixels (SDFP), which significantly reduces the impact of spatial and temporal decorrelation. Recent studies indicate that processing high-volume datasets—such as the 246 descending Sentinel-1 scenes (2017–2025) used in this research—allows for the detection of both linear and complex non-linear deformation trends with millimetre-level accuracy. Comparatively, SBAS-InSAR provides up to 2.83 times higher monitoring density than PS-InSAR in mixed urban-rural environments \citep{Bayik2025}.
+To overcome these limitations, Persistent Scatterer InSAR (PS-InSAR) was introduced to exploit radar targets that remain phase-stable over long time periods,
+such as buildings and exposed infrastructure (Ferretti2001). By analysing large stacks of SAR acquisitions, PS-InSAR achieves sub-millimeter precision on built infrastructure \citep{Ferretti2001,Ferretti2011a}. However, PS-InSAR is often sparse in non-urbanized or vegetated areas, limiting its applicability to mixed land-cover environments.
+
+Small Baseline Subset (SBAS-InSAR) has emerged as a superior alternative, particularly in regions mixed urban and vegetated terrain \citep{Berardino2002}. 
+It was developed to improve spatial coverage by forming interferogram networks with short temporal timeseries reconstruction over distributed scatterers, 
+making it particularly suitable for regions characterized by mixed land cover. 
+By utilizing multiple master interferograms with small perpendicular baselines, SBAS identifies Slowly Decorrelating Filtered Pixels (SDFP), which significantly reduces the impact of spatial and temporal decorrelation.
+Recent studies indicate that large-scale time-series data processing supports the identification of both linear and complex non-linear deformation behaviours with millimetre-level accuracy.
+Comparatively, SBAS-InSAR provides up to 2.83 times higher monitoring density than PS-InSAR in mixed urban-rural environments \citep{Bayik2025}.
+
+Although SBAS-InSAR generally exhibits lower point-wise precision than PS-InSAR, it provides dense and spatially continuous deformation fields essential for regional subsidence analysis \citep{Crosetto2016}.
 
 Unlike traditional geodetic methods, InSAR enables millimeter-scale motion detection across vast regions regardless of weather or lighting conditions \citep{Ferretti2020, Crosetto2016}. Building on these advances, newer methods such as Distributed Scatterer (DS-InSAR) and Multi-Temporal InSAR (MT-InSAR) extend coherence to mixed urban--rural environments by statistically analyzing pixel clusters \citep{Fattahi2015}.
 
-\subsection{Atmospheric Correction and Data Quality}
+More recent approaches, including Distributed Scatterer (DS-InSAR) and hybrid methods such as SqueeSAR, further extend coherence in low-reflectivity areas by statistically analysing homogeneous pixel clusters \citep{Ferretti2011}
+\subsection{Temporal Decorrelation, Atmospheric Effects, and Time-Series Reliability}
 
-Modern InSAR frameworks integrate the Generic Atmospheric Correction Online Service (GACOS) to mitigate tropospheric delay, significantly reducing the root-mean-square (RMS) error of phase measurements. This enhancement is critical for long-term monitoring in tropical and subtropical regions where water vapor fluctuations are substantial. The advent of open-access Sentinel-1A/B data with a 12-day revisit cycle has further enhanced InSAR's operational value for regional subsidence monitoring.
+Temporal decorrelation remains a fundamental challenge across all 
+InSAR techniques, arising from changes in surface scattering properties caused by vegetation growth, soil moisture variation, and anthropogenic activity \citep{Zebker1992}.
+In urban–natural transition zones, heterogeneous coherence leads to spatially variable uncertainty in deformation estimates.
 
-Numerous studies have demonstrated the effectiveness of SBAS-InSAR: \citet{Hakim2023} used PS-InSAR coupled with hybrid CNN--SVR models to improve deformation prediction in Indonesia; \citet{Li2020} applied PS-InSAR and LSTM networks in Beijing, achieving R² \textgreater{} 0.85 between deformation and aquifer changes; and \citet{Yu2023} integrated PS-InSAR with GNSS in Houston to map displacements of 5--15 mm~yr$^{-1}$. More recent works, including \citet{Peng2024} and \citet{Liu2023}, show that data-driven fusion of InSAR with deep-learning architectures like LSTM can outperform traditional regression models in temporal subsidence forecasting.
-
-Beyond urban analysis, InSAR has advanced environmental and hydrogeological applications, linking surface deformation to aquifer compaction, groundwater extraction, and soil-structure interactions. For instance, \citet{Wang2023} used InSAR and RF regression to identify groundwater depth as the main driver of subsidence in China, while \citet{Li2020} demonstrated strong correlations between deformation and groundwater-level fluctuations. Overall, InSAR's ability to deliver dense, long-term deformation time series combined with its compatibility with machine-learning and deep-learning frameworks makes it an indispensable tool for both monitoring and forecasting. Yet, most existing studies emphasize \emph{where} deformation occurs rather than \emph{how and when} it evolves. The present research bridges this gap by integrating SBAS-InSAR time-series data with hybrid deep-learning models to perform spatio-temporal forecasting and assess environmental causative factors driving subsidence across East Baton Rouge.
+Atmospheric phase delay, particularly tropospheric water vapour variability, introduces long-wavelength artefacts that can mimic real deformation signals.
+These effects are especially pronounced in humid subtropical regions such as the U.S. Gulf Coast. Recent integration of numerical weather models and reanalysis products, including ERA5 and GACOS, has significantly improved atmospheric 
+correction and time-series reliability 
 
 \section{Machine Learning for Subsidence Susceptibility Mapping}
 

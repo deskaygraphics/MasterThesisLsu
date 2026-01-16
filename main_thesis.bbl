@@ -457,7 +457,7 @@
       \verb 10.1109/36.898661
       \endverb
     \endentry
-    \entry{Ferretti2011}{article}{}{}
+    \entry{Ferretti2011a}{article}{}{}
       \name{author}{6}{}{%
         {{un=0,uniquepart=base,hash=7c64281d3f118e8e0a3dd7be3b09ada2}{%
            family={Ferretti},
@@ -508,6 +508,73 @@
       \field{sortinit}{F}
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
       \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Geoscience and Remote Sensing}
+      \field{number}{9}
+      \field{title}{A new algorithm for processing interferometric data stacks: {SqueeSAR}}
+      \field{volume}{49}
+      \field{year}{2011}
+      \field{pages}{3460\bibrangedash 3470}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1109/TGRS.2010.2060189
+      \endverb
+    \endentry
+    \entry{Ferretti2011}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=7c64281d3f118e8e0a3dd7be3b09ada2}{%
+           family={Ferretti},
+           familyi={F\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d7eea9b74333d9cfaf17cf1315231744}{%
+           family={Fumagalli},
+           familyi={F\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e81f33ecd8624f04022a3c70db4fe921}{%
+           family={Novali},
+           familyi={N\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ac7acf2d3666a9ddf3335a067b7d654b}{%
+           family={Prati},
+           familyi={P\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dfa8f77429b9ae3b40fae15a4e667dd1}{%
+           family={Rocca},
+           familyi={R\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b6755d9c95726754b3d9c434657144b1}{%
+           family={Rucci},
+           familyi={R\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f18453aee7fdd2b0bdc32c24efd1b8f2}
+      \strng{fullhash}{b3211aa39ff9e3588f5727841871b981}
+      \strng{fullhashraw}{b3211aa39ff9e3588f5727841871b981}
+      \strng{bibnamehash}{b3211aa39ff9e3588f5727841871b981}
+      \strng{authorbibnamehash}{b3211aa39ff9e3588f5727841871b981}
+      \strng{authornamehash}{f18453aee7fdd2b0bdc32c24efd1b8f2}
+      \strng{authorfullhash}{b3211aa39ff9e3588f5727841871b981}
+      \strng{authorfullhashraw}{b3211aa39ff9e3588f5727841871b981}
+      \field{extraname}{3}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -571,10 +638,10 @@
       \strng{authornamehash}{f18453aee7fdd2b0bdc32c24efd1b8f2}
       \strng{authorfullhash}{b3211aa39ff9e3588f5727841871b981}
       \strng{authorfullhashraw}{b3211aa39ff9e3588f5727841871b981}
-      \field{extraname}{3}
+      \field{extraname}{4}
       \field{sortinit}{F}
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradate}{2}
+      \field{extradate}{3}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -641,7 +708,7 @@
       \strng{authornamehash}{f18453aee7fdd2b0bdc32c24efd1b8f2}
       \strng{authorfullhash}{b3211aa39ff9e3588f5727841871b981}
       \strng{authorfullhashraw}{b3211aa39ff9e3588f5727841871b981}
-      \field{extraname}{4}
+      \field{extraname}{5}
       \field{sortinit}{F}
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
       \field{extradatescope}{labelyear}
@@ -1040,52 +1107,6 @@
       \range{pages}{11}
       \verb{doi}
       \verb 10.1109/TNNLS.2016.2582924
-      \endverb
-    \endentry
-    \entry{Hakim2023}{article}{}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=4ad0510c837dae06f875422f2725e7a3}{%
-           family={Hakim},
-           familyi={H\bibinitperiod},
-           given={W.\bibnamedelimi L.},
-           giveni={W\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1228632e7f18459da3785f97a820ec3e}{%
-           family={Sugianto},
-           familyi={S\bibinitperiod},
-           given={E.},
-           giveni={E\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e2e911c5433f9e37c522a51137be04c1}{%
-           family={Ardiansyah},
-           familyi={A\bibinitperiod},
-           given={A.},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{c0b69106a23f9df5cefe592ec8127f79}
-      \strng{fullhash}{9eee030a4d235f26901131ee06f3a1ef}
-      \strng{fullhashraw}{9eee030a4d235f26901131ee06f3a1ef}
-      \strng{bibnamehash}{9eee030a4d235f26901131ee06f3a1ef}
-      \strng{authorbibnamehash}{9eee030a4d235f26901131ee06f3a1ef}
-      \strng{authornamehash}{c0b69106a23f9df5cefe592ec8127f79}
-      \strng{authorfullhash}{9eee030a4d235f26901131ee06f3a1ef}
-      \strng{authorfullhashraw}{9eee030a4d235f26901131ee06f3a1ef}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{International Journal of Applied Earth Observation and Geoinformation}
-      \field{title}{{InSAR} time-series analysis and susceptibility mapping for land subsidence in Semarang using {ICOPS-CNN} and {ICOPS-SVR} models}
-      \field{volume}{125}
-      \field{year}{2023}
-      \field{pages}{102552}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1016/j.jag.2023.102552
       \endverb
     \endentry
     \entry{Hanssen2001InSAR}{book}{}{}
@@ -1600,6 +1621,117 @@
       \verb 10.3390/geosciences15020145
       \endverb
     \endentry
+    \entry{Massonnet1998}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=dceaecff1ea2f5b3c7b5b818dbcf1581}{%
+           family={Massonnet},
+           familyi={M\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=53dd1c423c2006fa56a4f1e4c23a0d18}{%
+           family={Feigl},
+           familyi={F\bibinitperiod},
+           given={K.\bibnamedelimi L.},
+           giveni={K\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{45ae652a26e12decfd63c615c256f72d}
+      \strng{fullhash}{45ae652a26e12decfd63c615c256f72d}
+      \strng{fullhashraw}{45ae652a26e12decfd63c615c256f72d}
+      \strng{bibnamehash}{45ae652a26e12decfd63c615c256f72d}
+      \strng{authorbibnamehash}{45ae652a26e12decfd63c615c256f72d}
+      \strng{authornamehash}{45ae652a26e12decfd63c615c256f72d}
+      \strng{authorfullhash}{45ae652a26e12decfd63c615c256f72d}
+      \strng{authorfullhashraw}{45ae652a26e12decfd63c615c256f72d}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Reviews of Geophysics}
+      \field{number}{4}
+      \field{title}{Radar interferometry and its application to changes in the {Earth}'s surface}
+      \field{volume}{36}
+      \field{year}{1998}
+      \field{pages}{441\bibrangedash 500}
+      \range{pages}{60}
+      \verb{doi}
+      \verb 10.1029/97RG03139
+      \endverb
+    \endentry
+    \entry{Massonnet1993}{article}{}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=dceaecff1ea2f5b3c7b5b818dbcf1581}{%
+           family={Massonnet},
+           familyi={M\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fd4fe8657112bec19ceb03436154bfe5}{%
+           family={Rossi},
+           familyi={R\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=93e0401e279e6e8a603e507782648a8d}{%
+           family={Carmona},
+           familyi={C\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b7cfb711e5040cb95031a0288e7115ef}{%
+           family={Adragna},
+           familyi={A\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=98b1ea4dbacffbcc1f0b553cbc4d7e84}{%
+           family={Peltzer},
+           familyi={P\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c1dffc72f3c7bb8475a28df66e83e0de}{%
+           family={Feigl},
+           familyi={F\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6059919fbd508747860e04539973f6f7}{%
+           family={Rabaute},
+           familyi={R\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{50340a832180822c21b6055844df80a5}
+      \strng{fullhash}{85f3bd2114285b759043fa692dc3eb71}
+      \strng{fullhashraw}{85f3bd2114285b759043fa692dc3eb71}
+      \strng{bibnamehash}{85f3bd2114285b759043fa692dc3eb71}
+      \strng{authorbibnamehash}{85f3bd2114285b759043fa692dc3eb71}
+      \strng{authornamehash}{50340a832180822c21b6055844df80a5}
+      \strng{authorfullhash}{85f3bd2114285b759043fa692dc3eb71}
+      \strng{authorfullhashraw}{85f3bd2114285b759043fa692dc3eb71}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{title}{The displacement field of the {Landers} earthquake mapped by radar interferometry}
+      \field{volume}{364}
+      \field{year}{1993}
+      \field{pages}{138\bibrangedash 142}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1038/364138a0
+      \endverb
+    \endentry
     \entry{Mirmazloumi2023}{article}{}{}
       \name{author}{6}{}{%
         {{un=0,uniquepart=base,hash=27ecf11ccd9c6515b4e3d5fd738b0201}{%
@@ -1809,58 +1941,6 @@
       \verb 10.1016/j.heliyon.2024.e2434
       \endverb
     \endentry
-    \entry{Peng2024}{article}{}{}
-      \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=4b60b22795bd57964a53b1e32e975bf7}{%
-           family={Peng},
-           familyi={P\bibinitperiod},
-           given={M.},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e05e591c1201c1e4930f6df775733a35}{%
-           family={Tang},
-           familyi={T\bibinitperiod},
-           given={C.},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=bdb911c21c1d347276ba3753ba5a4118}{%
-           family={Sun},
-           familyi={S\bibinitperiod},
-           given={D.},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=98a75f0b76716a8f4124a02e436bc65a}{%
-           family={Zhu},
-           familyi={Z\bibinitperiod},
-           given={H.},
-           giveni={H\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{a6e697c2b6c29db8d29e3cfc917bd4dd}
-      \strng{fullhash}{3948654d15af51a102aeb629ae382bda}
-      \strng{fullhashraw}{3948654d15af51a102aeb629ae382bda}
-      \strng{bibnamehash}{3948654d15af51a102aeb629ae382bda}
-      \strng{authorbibnamehash}{3948654d15af51a102aeb629ae382bda}
-      \strng{authornamehash}{a6e697c2b6c29db8d29e3cfc917bd4dd}
-      \strng{authorfullhash}{3948654d15af51a102aeb629ae382bda}
-      \strng{authorfullhashraw}{3948654d15af51a102aeb629ae382bda}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Computers \& Geosciences}
-      \field{title}{Characterization and prediction of {InSAR}-derived ground deformation using {ICA} and {LSTM} models}
-      \field{volume}{174}
-      \field{year}{2024}
-      \field{pages}{105440}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1016/j.cageo.2024.105440
-      \endverb
-    \endentry
     \entry{Qiao2023}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=0b2fe655b3d8dbc49ab1f35287235960}{%
@@ -2030,77 +2110,14 @@
       \verb 10.1038/s41598-024-83084-1
       \endverb
     \endentry
-    \entry{Wang2023}{article}{}{}
-      \name{author}{6}{}{%
-        {{un=1,uniquepart=given,hash=39856f0439f35f79a8eed8b12d26166c}{%
-           family={Wang},
-           familyi={W\bibinitperiod},
-           given={H.},
-           giveni={H\bibinitperiod},
-           givenun=1}}%
-        {{un=0,uniquepart=base,hash=08b9765b099b0e07751becbe56bb219f}{%
-           family={Jia},
-           familyi={J\bibinitperiod},
-           given={C.},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=252d6f76d136b0c6063b1a453660e2df}{%
-           family={Ding},
-           familyi={D\bibinitperiod},
-           given={P.},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=0b7ede50de9452c7c64430dbc77b0723}{%
-           family={Feng},
-           familyi={F\bibinitperiod},
-           given={K.},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4a41a8c896da0124ca40ccc8b084022b}{%
-           family={Yang},
-           familyi={Y\bibinitperiod},
-           given={X.},
-           giveni={X\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a6ce5334b2c4a46c7f7d08b1b2f5bc23}{%
-           family={Zhu},
-           familyi={Z\bibinitperiod},
-           given={X.},
-           giveni={X\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{dccaa1dcfd3e42125e7248467021e0d9}
-      \strng{fullhash}{c841abfe3145bea3287684e5de2a4ab3}
-      \strng{fullhashraw}{c841abfe3145bea3287684e5de2a4ab3}
-      \strng{bibnamehash}{c841abfe3145bea3287684e5de2a4ab3}
-      \strng{authorbibnamehash}{c841abfe3145bea3287684e5de2a4ab3}
-      \strng{authornamehash}{dccaa1dcfd3e42125e7248467021e0d9}
-      \strng{authorfullhash}{c841abfe3145bea3287684e5de2a4ab3}
-      \strng{authorfullhashraw}{c841abfe3145bea3287684e5de2a4ab3}
-      \field{sortinit}{W}
-      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{KSCE Journal of Civil Engineering}
-      \field{title}{Analysis and prediction of regional land subsidence with {InSAR} technology and machine-learning algorithm---case of Decheng County, Shandong, China}
-      \field{volume}{27}
-      \field{year}{2023}
-      \field{pages}{782\bibrangedash 793}
-      \range{pages}{12}
-      \verb{doi}
-      \verb 10.1007/s12205-022-1067-4
-      \endverb
-    \endentry
     \entry{Wang2021}{article}{}{}
       \name{author}{3}{}{%
-        {{un=1,uniquepart=given,hash=9a75ee293f2555f40976345739087998}{%
+        {{un=0,uniquepart=base,hash=9a75ee293f2555f40976345739087998}{%
            family={Wang},
            familyi={W\bibinitperiod},
            given={L.},
            giveni={L\bibinitperiod},
-           givenun=1}}%
+           givenun=0}}%
         {{un=0,uniquepart=base,hash=13414502df57d59c82c59a065c752294}{%
            family={Zhang},
            familyi={Z\bibinitperiod},
@@ -2126,6 +2143,7 @@
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Remote Sensing}
@@ -2256,51 +2274,45 @@
       \verb 10.1016/j.jappgeo.2023.104847
       \endverb
     \endentry
-    \entry{Yu2023}{article}{}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=00016298770e12225f3d58b83d34248d}{%
-           family={Yu},
-           familyi={Y\bibinitperiod},
-           given={C.},
-           giveni={C\bibinitperiod},
+    \entry{Zebker1992}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=e67aa774576cf5d0450bc89f192bf411}{%
+           family={Zebker},
+           familyi={Z\bibinitperiod},
+           given={H.\bibnamedelimi A.},
+           giveni={H\bibinitperiod\bibinitdelim A\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=54d8fa09ac25007ef9291e003004fa7a}{%
-           family={Penna},
-           familyi={P\bibinitperiod},
-           given={N.\bibnamedelimi T.},
-           giveni={N\bibinitperiod\bibinitdelim T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ae6f64f7b429f6425fbe070323390f1b}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={Z.},
-           giveni={Z\bibinitperiod},
+        {{un=0,uniquepart=base,hash=d8f5e4dafecb2bea5ade986a900c35b7}{%
+           family={Villasenor},
+           familyi={V\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{dad4e4025351064be4c43a649e911272}
-      \strng{fullhash}{a8d52fca2a4379b68af2e4b872023313}
-      \strng{fullhashraw}{a8d52fca2a4379b68af2e4b872023313}
-      \strng{bibnamehash}{a8d52fca2a4379b68af2e4b872023313}
-      \strng{authorbibnamehash}{a8d52fca2a4379b68af2e4b872023313}
-      \strng{authornamehash}{dad4e4025351064be4c43a649e911272}
-      \strng{authorfullhash}{a8d52fca2a4379b68af2e4b872023313}
-      \strng{authorfullhashraw}{a8d52fca2a4379b68af2e4b872023313}
-      \field{sortinit}{Y}
-      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \strng{namehash}{c2eec00391d70d7565c5bf52e65730c2}
+      \strng{fullhash}{c2eec00391d70d7565c5bf52e65730c2}
+      \strng{fullhashraw}{c2eec00391d70d7565c5bf52e65730c2}
+      \strng{bibnamehash}{c2eec00391d70d7565c5bf52e65730c2}
+      \strng{authorbibnamehash}{c2eec00391d70d7565c5bf52e65730c2}
+      \strng{authornamehash}{c2eec00391d70d7565c5bf52e65730c2}
+      \strng{authorfullhash}{c2eec00391d70d7565c5bf52e65730c2}
+      \strng{authorfullhashraw}{c2eec00391d70d7565c5bf52e65730c2}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Remote Sensing}
-      \field{number}{2}
-      \field{title}{Ground deformation monitoring in Houston using Sentinel-1 {InSAR} and {GNSS} data}
-      \field{volume}{15}
-      \field{year}{2023}
-      \field{pages}{331}
-      \range{pages}{1}
+      \field{journaltitle}{IEEE Transactions on Geoscience and Remote Sensing}
+      \field{number}{5}
+      \field{title}{Decorrelation in interferometric radar echoes}
+      \field{volume}{30}
+      \field{year}{1992}
+      \field{pages}{950\bibrangedash 959}
+      \range{pages}{10}
       \verb{doi}
-      \verb 10.3390/rs15020331
+      \verb 10.1109/36.175330
       \endverb
     \endentry
     \entry{Zheng2024}{article}{}{}
@@ -2847,7 +2859,7 @@
       \verb 10.1002/2015JB012419
       \endverb
     \endentry
-    \entry{Ferretti2011}{article}{}{}
+    \entry{Ferretti2011a}{article}{}{}
       \name{author}{6}{}{%
         {{un=0,uniquepart=base,hash=7c64281d3f118e8e0a3dd7be3b09ada2}{%
            family={Ferretti},
@@ -2898,6 +2910,73 @@
       \field{sortinit}{F}
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
       \field{extradate}{1}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Geoscience and Remote Sensing}
+      \field{number}{9}
+      \field{title}{A new algorithm for processing interferometric data stacks: {SqueeSAR}}
+      \field{volume}{49}
+      \field{year}{2011}
+      \field{pages}{3460\bibrangedash 3470}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1109/TGRS.2010.2060189
+      \endverb
+    \endentry
+    \entry{Ferretti2011}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=7c64281d3f118e8e0a3dd7be3b09ada2}{%
+           family={Ferretti},
+           familyi={F\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d7eea9b74333d9cfaf17cf1315231744}{%
+           family={Fumagalli},
+           familyi={F\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e81f33ecd8624f04022a3c70db4fe921}{%
+           family={Novali},
+           familyi={N\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ac7acf2d3666a9ddf3335a067b7d654b}{%
+           family={Prati},
+           familyi={P\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dfa8f77429b9ae3b40fae15a4e667dd1}{%
+           family={Rocca},
+           familyi={R\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b6755d9c95726754b3d9c434657144b1}{%
+           family={Rucci},
+           familyi={R\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f18453aee7fdd2b0bdc32c24efd1b8f2}
+      \strng{fullhash}{b3211aa39ff9e3588f5727841871b981}
+      \strng{fullhashraw}{b3211aa39ff9e3588f5727841871b981}
+      \strng{bibnamehash}{b3211aa39ff9e3588f5727841871b981}
+      \strng{authorbibnamehash}{b3211aa39ff9e3588f5727841871b981}
+      \strng{authornamehash}{f18453aee7fdd2b0bdc32c24efd1b8f2}
+      \strng{authorfullhash}{b3211aa39ff9e3588f5727841871b981}
+      \strng{authorfullhashraw}{b3211aa39ff9e3588f5727841871b981}
+      \field{extraname}{2}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradate}{2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -2961,10 +3040,10 @@
       \strng{authornamehash}{f18453aee7fdd2b0bdc32c24efd1b8f2}
       \strng{authorfullhash}{b3211aa39ff9e3588f5727841871b981}
       \strng{authorfullhashraw}{b3211aa39ff9e3588f5727841871b981}
-      \field{extraname}{2}
+      \field{extraname}{3}
       \field{sortinit}{F}
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradate}{2}
+      \field{extradate}{3}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
@@ -3031,7 +3110,7 @@
       \strng{authornamehash}{f18453aee7fdd2b0bdc32c24efd1b8f2}
       \strng{authorfullhash}{b3211aa39ff9e3588f5727841871b981}
       \strng{authorfullhashraw}{b3211aa39ff9e3588f5727841871b981}
-      \field{extraname}{3}
+      \field{extraname}{4}
       \field{sortinit}{F}
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
       \field{extradatescope}{labelyear}
@@ -3078,7 +3157,7 @@
       \strng{authornamehash}{f18453aee7fdd2b0bdc32c24efd1b8f2}
       \strng{authorfullhash}{fade588a96a5387f8142115cbe847d5c}
       \strng{authorfullhashraw}{fade588a96a5387f8142115cbe847d5c}
-      \field{extraname}{4}
+      \field{extraname}{5}
       \field{sortinit}{F}
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
       \field{extradatescope}{labelyear}
@@ -3478,52 +3557,6 @@
       \range{pages}{11}
       \verb{doi}
       \verb 10.1109/TNNLS.2016.2582924
-      \endverb
-    \endentry
-    \entry{Hakim2023}{article}{}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=4ad0510c837dae06f875422f2725e7a3}{%
-           family={Hakim},
-           familyi={H\bibinitperiod},
-           given={W.\bibnamedelimi L.},
-           giveni={W\bibinitperiod\bibinitdelim L\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=1228632e7f18459da3785f97a820ec3e}{%
-           family={Sugianto},
-           familyi={S\bibinitperiod},
-           given={E.},
-           giveni={E\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e2e911c5433f9e37c522a51137be04c1}{%
-           family={Ardiansyah},
-           familyi={A\bibinitperiod},
-           given={A.},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{c0b69106a23f9df5cefe592ec8127f79}
-      \strng{fullhash}{9eee030a4d235f26901131ee06f3a1ef}
-      \strng{fullhashraw}{9eee030a4d235f26901131ee06f3a1ef}
-      \strng{bibnamehash}{9eee030a4d235f26901131ee06f3a1ef}
-      \strng{authorbibnamehash}{9eee030a4d235f26901131ee06f3a1ef}
-      \strng{authornamehash}{c0b69106a23f9df5cefe592ec8127f79}
-      \strng{authorfullhash}{9eee030a4d235f26901131ee06f3a1ef}
-      \strng{authorfullhashraw}{9eee030a4d235f26901131ee06f3a1ef}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{International Journal of Applied Earth Observation and Geoinformation}
-      \field{title}{{InSAR} time-series analysis and susceptibility mapping for land subsidence in Semarang using {ICOPS-CNN} and {ICOPS-SVR} models}
-      \field{volume}{125}
-      \field{year}{2023}
-      \field{pages}{102552}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1016/j.jag.2023.102552
       \endverb
     \endentry
     \entry{Hanssen2001InSAR}{book}{}{}
@@ -4038,6 +4071,117 @@
       \verb 10.3390/geosciences15020145
       \endverb
     \endentry
+    \entry{Massonnet1998}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=dceaecff1ea2f5b3c7b5b818dbcf1581}{%
+           family={Massonnet},
+           familyi={M\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=53dd1c423c2006fa56a4f1e4c23a0d18}{%
+           family={Feigl},
+           familyi={F\bibinitperiod},
+           given={K.\bibnamedelimi L.},
+           giveni={K\bibinitperiod\bibinitdelim L\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{45ae652a26e12decfd63c615c256f72d}
+      \strng{fullhash}{45ae652a26e12decfd63c615c256f72d}
+      \strng{fullhashraw}{45ae652a26e12decfd63c615c256f72d}
+      \strng{bibnamehash}{45ae652a26e12decfd63c615c256f72d}
+      \strng{authorbibnamehash}{45ae652a26e12decfd63c615c256f72d}
+      \strng{authornamehash}{45ae652a26e12decfd63c615c256f72d}
+      \strng{authorfullhash}{45ae652a26e12decfd63c615c256f72d}
+      \strng{authorfullhashraw}{45ae652a26e12decfd63c615c256f72d}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Reviews of Geophysics}
+      \field{number}{4}
+      \field{title}{Radar interferometry and its application to changes in the {Earth}'s surface}
+      \field{volume}{36}
+      \field{year}{1998}
+      \field{pages}{441\bibrangedash 500}
+      \range{pages}{60}
+      \verb{doi}
+      \verb 10.1029/97RG03139
+      \endverb
+    \endentry
+    \entry{Massonnet1993}{article}{}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=dceaecff1ea2f5b3c7b5b818dbcf1581}{%
+           family={Massonnet},
+           familyi={M\bibinitperiod},
+           given={D.},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fd4fe8657112bec19ceb03436154bfe5}{%
+           family={Rossi},
+           familyi={R\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=93e0401e279e6e8a603e507782648a8d}{%
+           family={Carmona},
+           familyi={C\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b7cfb711e5040cb95031a0288e7115ef}{%
+           family={Adragna},
+           familyi={A\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=98b1ea4dbacffbcc1f0b553cbc4d7e84}{%
+           family={Peltzer},
+           familyi={P\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c1dffc72f3c7bb8475a28df66e83e0de}{%
+           family={Feigl},
+           familyi={F\bibinitperiod},
+           given={K.},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6059919fbd508747860e04539973f6f7}{%
+           family={Rabaute},
+           familyi={R\bibinitperiod},
+           given={T.},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{50340a832180822c21b6055844df80a5}
+      \strng{fullhash}{85f3bd2114285b759043fa692dc3eb71}
+      \strng{fullhashraw}{85f3bd2114285b759043fa692dc3eb71}
+      \strng{bibnamehash}{85f3bd2114285b759043fa692dc3eb71}
+      \strng{authorbibnamehash}{85f3bd2114285b759043fa692dc3eb71}
+      \strng{authornamehash}{50340a832180822c21b6055844df80a5}
+      \strng{authorfullhash}{85f3bd2114285b759043fa692dc3eb71}
+      \strng{authorfullhashraw}{85f3bd2114285b759043fa692dc3eb71}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{title}{The displacement field of the {Landers} earthquake mapped by radar interferometry}
+      \field{volume}{364}
+      \field{year}{1993}
+      \field{pages}{138\bibrangedash 142}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1038/364138a0
+      \endverb
+    \endentry
     \entry{Mirmazloumi2023}{article}{}{}
       \name{author}{6}{}{%
         {{un=0,uniquepart=base,hash=27ecf11ccd9c6515b4e3d5fd738b0201}{%
@@ -4247,58 +4391,6 @@
       \verb 10.1016/j.heliyon.2024.e2434
       \endverb
     \endentry
-    \entry{Peng2024}{article}{}{}
-      \name{author}{4}{}{%
-        {{un=0,uniquepart=base,hash=4b60b22795bd57964a53b1e32e975bf7}{%
-           family={Peng},
-           familyi={P\bibinitperiod},
-           given={M.},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e05e591c1201c1e4930f6df775733a35}{%
-           family={Tang},
-           familyi={T\bibinitperiod},
-           given={C.},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=bdb911c21c1d347276ba3753ba5a4118}{%
-           family={Sun},
-           familyi={S\bibinitperiod},
-           given={D.},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=98a75f0b76716a8f4124a02e436bc65a}{%
-           family={Zhu},
-           familyi={Z\bibinitperiod},
-           given={H.},
-           giveni={H\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{a6e697c2b6c29db8d29e3cfc917bd4dd}
-      \strng{fullhash}{3948654d15af51a102aeb629ae382bda}
-      \strng{fullhashraw}{3948654d15af51a102aeb629ae382bda}
-      \strng{bibnamehash}{3948654d15af51a102aeb629ae382bda}
-      \strng{authorbibnamehash}{3948654d15af51a102aeb629ae382bda}
-      \strng{authornamehash}{a6e697c2b6c29db8d29e3cfc917bd4dd}
-      \strng{authorfullhash}{3948654d15af51a102aeb629ae382bda}
-      \strng{authorfullhashraw}{3948654d15af51a102aeb629ae382bda}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \true{uniqueprimaryauthor}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Computers \& Geosciences}
-      \field{title}{Characterization and prediction of {InSAR}-derived ground deformation using {ICA} and {LSTM} models}
-      \field{volume}{174}
-      \field{year}{2024}
-      \field{pages}{105440}
-      \range{pages}{1}
-      \verb{doi}
-      \verb 10.1016/j.cageo.2024.105440
-      \endverb
-    \endentry
     \entry{Qiao2023}{article}{}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=0b2fe655b3d8dbc49ab1f35287235960}{%
@@ -4468,77 +4560,14 @@
       \verb 10.1038/s41598-024-83084-1
       \endverb
     \endentry
-    \entry{Wang2023}{article}{}{}
-      \name{author}{6}{}{%
-        {{un=1,uniquepart=given,hash=39856f0439f35f79a8eed8b12d26166c}{%
-           family={Wang},
-           familyi={W\bibinitperiod},
-           given={H.},
-           giveni={H\bibinitperiod},
-           givenun=1}}%
-        {{un=0,uniquepart=base,hash=08b9765b099b0e07751becbe56bb219f}{%
-           family={Jia},
-           familyi={J\bibinitperiod},
-           given={C.},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=252d6f76d136b0c6063b1a453660e2df}{%
-           family={Ding},
-           familyi={D\bibinitperiod},
-           given={P.},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=0b7ede50de9452c7c64430dbc77b0723}{%
-           family={Feng},
-           familyi={F\bibinitperiod},
-           given={K.},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=4a41a8c896da0124ca40ccc8b084022b}{%
-           family={Yang},
-           familyi={Y\bibinitperiod},
-           given={X.},
-           giveni={X\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a6ce5334b2c4a46c7f7d08b1b2f5bc23}{%
-           family={Zhu},
-           familyi={Z\bibinitperiod},
-           given={X.},
-           giveni={X\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{dccaa1dcfd3e42125e7248467021e0d9}
-      \strng{fullhash}{c841abfe3145bea3287684e5de2a4ab3}
-      \strng{fullhashraw}{c841abfe3145bea3287684e5de2a4ab3}
-      \strng{bibnamehash}{c841abfe3145bea3287684e5de2a4ab3}
-      \strng{authorbibnamehash}{c841abfe3145bea3287684e5de2a4ab3}
-      \strng{authornamehash}{dccaa1dcfd3e42125e7248467021e0d9}
-      \strng{authorfullhash}{c841abfe3145bea3287684e5de2a4ab3}
-      \strng{authorfullhashraw}{c841abfe3145bea3287684e5de2a4ab3}
-      \field{sortinit}{W}
-      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{KSCE Journal of Civil Engineering}
-      \field{title}{Analysis and prediction of regional land subsidence with {InSAR} technology and machine-learning algorithm---case of Decheng County, Shandong, China}
-      \field{volume}{27}
-      \field{year}{2023}
-      \field{pages}{782\bibrangedash 793}
-      \range{pages}{12}
-      \verb{doi}
-      \verb 10.1007/s12205-022-1067-4
-      \endverb
-    \endentry
     \entry{Wang2021}{article}{}{}
       \name{author}{3}{}{%
-        {{un=1,uniquepart=given,hash=9a75ee293f2555f40976345739087998}{%
+        {{un=0,uniquepart=base,hash=9a75ee293f2555f40976345739087998}{%
            family={Wang},
            familyi={W\bibinitperiod},
            given={L.},
            giveni={L\bibinitperiod},
-           givenun=1}}%
+           givenun=0}}%
         {{un=0,uniquepart=base,hash=13414502df57d59c82c59a065c752294}{%
            family={Zhang},
            familyi={Z\bibinitperiod},
@@ -4564,6 +4593,7 @@
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Remote Sensing}
@@ -4694,51 +4724,45 @@
       \verb 10.1016/j.jappgeo.2023.104847
       \endverb
     \endentry
-    \entry{Yu2023}{article}{}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=00016298770e12225f3d58b83d34248d}{%
-           family={Yu},
-           familyi={Y\bibinitperiod},
-           given={C.},
-           giveni={C\bibinitperiod},
+    \entry{Zebker1992}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=e67aa774576cf5d0450bc89f192bf411}{%
+           family={Zebker},
+           familyi={Z\bibinitperiod},
+           given={H.\bibnamedelimi A.},
+           giveni={H\bibinitperiod\bibinitdelim A\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=54d8fa09ac25007ef9291e003004fa7a}{%
-           family={Penna},
-           familyi={P\bibinitperiod},
-           given={N.\bibnamedelimi T.},
-           giveni={N\bibinitperiod\bibinitdelim T\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ae6f64f7b429f6425fbe070323390f1b}{%
-           family={Li},
-           familyi={L\bibinitperiod},
-           given={Z.},
-           giveni={Z\bibinitperiod},
+        {{un=0,uniquepart=base,hash=d8f5e4dafecb2bea5ade986a900c35b7}{%
+           family={Villasenor},
+           familyi={V\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
            givenun=0}}%
       }
-      \strng{namehash}{dad4e4025351064be4c43a649e911272}
-      \strng{fullhash}{a8d52fca2a4379b68af2e4b872023313}
-      \strng{fullhashraw}{a8d52fca2a4379b68af2e4b872023313}
-      \strng{bibnamehash}{a8d52fca2a4379b68af2e4b872023313}
-      \strng{authorbibnamehash}{a8d52fca2a4379b68af2e4b872023313}
-      \strng{authornamehash}{dad4e4025351064be4c43a649e911272}
-      \strng{authorfullhash}{a8d52fca2a4379b68af2e4b872023313}
-      \strng{authorfullhashraw}{a8d52fca2a4379b68af2e4b872023313}
-      \field{sortinit}{Y}
-      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \strng{namehash}{c2eec00391d70d7565c5bf52e65730c2}
+      \strng{fullhash}{c2eec00391d70d7565c5bf52e65730c2}
+      \strng{fullhashraw}{c2eec00391d70d7565c5bf52e65730c2}
+      \strng{bibnamehash}{c2eec00391d70d7565c5bf52e65730c2}
+      \strng{authorbibnamehash}{c2eec00391d70d7565c5bf52e65730c2}
+      \strng{authornamehash}{c2eec00391d70d7565c5bf52e65730c2}
+      \strng{authorfullhash}{c2eec00391d70d7565c5bf52e65730c2}
+      \strng{authorfullhashraw}{c2eec00391d70d7565c5bf52e65730c2}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{}
       \true{uniqueprimaryauthor}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Remote Sensing}
-      \field{number}{2}
-      \field{title}{Ground deformation monitoring in Houston using Sentinel-1 {InSAR} and {GNSS} data}
-      \field{volume}{15}
-      \field{year}{2023}
-      \field{pages}{331}
-      \range{pages}{1}
+      \field{journaltitle}{IEEE Transactions on Geoscience and Remote Sensing}
+      \field{number}{5}
+      \field{title}{Decorrelation in interferometric radar echoes}
+      \field{volume}{30}
+      \field{year}{1992}
+      \field{pages}{950\bibrangedash 959}
+      \range{pages}{10}
       \verb{doi}
-      \verb 10.3390/rs15020331
+      \verb 10.1109/36.175330
       \endverb
     \endentry
     \entry{Zheng2024}{article}{}{}
