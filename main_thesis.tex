@@ -122,7 +122,7 @@ anthropogenic factors interact in a complex manner. The region is characterized 
 making it highly sensitive to pore-pressure reduction caused by intensive pumping from the Southern Hills Aquifer System. Rapid urban 
 expansion and heavy infrastructure loading further exacerbate ground deformation. Structural controls such as the Baton Rouge and 
 Denham Springs fault systems introduce spatially heterogeneous and non-linear deformation patterns, increasing vulnerability to flooding, 
-pipeline rupture, and foundation failure \citep{Wang2021, Abdalla2024}.
+pipeline rupture, and foundation failure \citep{Zou2016, Abdalla2024}.
 
 Traditional land-subsidence monitoring techniques, including geotechnical surveys, levelling campaigns, and GNSS/GPS measurements, 
 provide high accuracy at discrete locations but are limited by sparse spatial coverage, high operational costs, and insufficient temporal 
@@ -203,7 +203,7 @@ It is characterized by low-relief floodplains, forested wetlands, and extensive
 alluvial deposits typical of the Gulf Coast region.
 This geographic setting places East Baton Rouge Parish within a broader zone of 
 documented subsidence and aquifer-system response associated with sedimentary basins 
-in the southern United States \citep{Huning2023}.
+in the southern United States \citep{HosseinzadehLLand2024}.
 
 Geologically, East Baton Rouge Parish is underlain by thick sequences of 
 unconsolidated Holocene and Pleistocene deltaic and fluvial sediments, composed 
@@ -218,7 +218,7 @@ Land subsidence in EBRP is driven predominantly by anthropogenic activities,
 especially long-term groundwater extraction from the Baton Rouge aquifer system.
 Sustained withdrawal of groundwater reduces pore pressure within aquifer systems, 
 leading to aquifer-system compaction and progressive lowering of the land surface 
-\citep{Huning2023}.
+\citep{HosseinzadehLLand2024}.
 These effects may be irreversible where inelastic compaction occurs.
 Subsidence associated with groundwater depletion has been widely documented across 
 sedimentary basins in the United States and is increasingly mapped using geodetic 
@@ -230,8 +230,7 @@ Expansion of infrastructure and increased building density impose additional loa
 on compressible sediments, accelerating consolidation in low-lying areas.
 The combined effects of fluid withdrawal and surface loading produce complex 
 deformation patterns that vary spatially and temporally, emphasizing the need for 
-spatially continuous monitoring approaches such as Interferometric Synthetic Aperture 
-Radar (InSAR) \citep{Ferretti2001,Crosetto2016}.
+spatially continuous monitoring approaches such as InSAR \citep{Ferretti2001,Crosetto2016}.
 
 Climatic and hydrological conditions further influence ground deformation in the 
 study area.
@@ -290,7 +289,7 @@ used in the susceptibility analysis.
 To mitigate atmospheric artefacts, particularly stratified tropospheric delays, ERA5
 (Fifth Generation ECMWF Atmospheric Reanalysis) data were incorporated during timeseries 
 processing. ERA5 provides high-resolution global estimates of atmospheric state variables and has been 
-widely adopted for atmospheric phase screen correction in InSAR studies \citep{HosseinzadehLand2024}.
+widely adopted for atmospheric phase screen correction in InSAR studies \citep{HosseinzadehLLand2024}.
 
 \subsection{Geospatial Conditioning Factors}
 A total of fifteen (15) geospatial conditioning factors were prepared at 30 m resolution and 
@@ -395,11 +394,10 @@ compressible soil layers. Research indicates that unmitigated subsidence trigger
 and structural failures, resulting in significant economic losses \citep{ZouEtAl2016}.
 
 Land subsidence, which is defined as the slow downward movement of the Earth\textquotesingle s surface, is becoming more widely acknowledged as a
- significant geohazard in areas of the world that are rapidly becoming more urbanized \citep{Huning2023}. In urban environments, subsidence processes are fueled by excessive groundwater extraction, 
+ significant geohazard in areas of the world that are rapidly becoming more urbanized \citep{HosseinzadehLLand2024}. In urban environments, subsidence processes are fueled by excessive groundwater extraction,
  sediment consolidation, urban infrastructure loading, and land-use change \citep{Holzer1985}. Research on the Lower Mississippi Basin, for instance, demonstrates how 
  shallow geology and infrastructure growth can intensify surface deformation and compaction \citep{ZouEtAl2016}. The hazards include diminished drainage capacity, 
- heightened susceptibility to flooding in low-lying urban corridors, and harm to pipelines and foundations. Subsurface faulting and structural geology 
- make subsidence patterns in many cities even more complex \citep{Younas2023}. These findings highlight the need for reliable frameworks that can both map the areas where subsidence is most likely to occur and predict its future course.
+ heightened susceptibility to flooding in low-lying urban corridors, and harm to pipelines and foundations. Subsurface faulting and structural geology make subsidence patterns in many cities even more complex. These findings highlight the need for reliable frameworks that can both map the areas where subsidence is most likely to occur and predict its future course.
 
 \section{Advancements in InSAR Monitoring for Subsidence}
 
@@ -412,9 +410,9 @@ exploiting phase differences between radar images acquired at different times. B
 InSAR enables precise measurement of surface displacement over large spatial extents \citep{Jiang2023}.
 
 Early applications relied on Differential InSAR (D-InSAR), which isolates deformation by subtracting topographic phase contributions using DEM. D-InSAR 
-proved effective for mapping rapid and spatially coherent deformation associated with earthquakes and volcanic activity \citep{Wang2024}. However, its 
+proved effective for mapping rapid and spatially coherent deformation associated with earthquakes and volcanic activity \citep{Li2022}. However, its 
 application to long-term subsidence monitoring is limited by atmospheric phase delay, temporal decorrelation, orbital errors, and phase unwrapping ambiguities,
-particularly over vegetated or urbanizing surfaces \citep{Hussain2023}.
+particularly over vegetated or urbanizing surfaces.
 
 To overcome these limitations, Persistent Scatterer InSAR (PS-InSAR) was introduced to exploit radar targets that remain phase-stable over long time periods,
 such as buildings and exposed infrastructure (Ferretti2001). By analyzing large stacks of SAR acquisitions, PS-InSAR achieves sub-millimeter precision 
@@ -444,23 +442,23 @@ correction and time-series reliability
 
 \section{Machine Learning for Subsidence Susceptibility Mapping}
 
-Machine learning (ML) has become the global standard for modelling the non-linear relationship between ground deformation and various geospatial drivers, such as Land Use/Land Cover (LULC), soil types, and distance from faults. \citet{Gharechaee2023} applied RF, KNN, and CART to InSAR-derived subsidence in Iran's Bakhtegan Basin, finding RF performed best and highlighting that the leading susceptibility factors were not only groundwater withdrawal but also proximity to dams, faults and mines. \citet{Orlandi2024} compared ML approaches in Murcia, Spain, using land-use, lithology, and other predictors, demonstrating the utility of ML for zonation and factor ranking.
+Machine learning (ML) has become the global standard for modelling the non-linear relationship between ground deformation and various geospatial drivers, such as Land Use/Land Cover (LULC), soil types, and distance from faults. \citet{Gharechaee2023} applied RF, KNN, and CART to InSAR-derived subsidence in Iran's Bakhtegan Basin, finding RF performed best and highlighting that the leading susceptibility factors were not only groundwater withdrawal but also proximity to dams, faults and mines. \citet{Orlandi2024a} compared ML approaches in Murcia, Spain, using land-use, lithology, and other predictors, demonstrating the utility of ML for zonation and factor ranking.
 
 \subsection{Ensemble Learners and Extra Trees Regression}
 
 While Random Forest (RF) remains a common benchmark due to its ability to handle multi-variate data without pre-defined assumptions, 
 it can be prone to overfitting in complex geological datasets \citep{Breiman2001}. This study identifies the Extra Trees (ERT) Regressor as a more robust
  alternative for subsidence susceptibility mapping. By implementing random splits at the node level, ERT enhances model generalisation and reduces variance compared to 
- conventional bagged ensembles \citep{Yang2022DataAugSeismic}. In the East Baton Rouge Parish region, Extra Trees achieved a test $R^2$ of 0.9063, 
+ conventional bagged ensembles \citep{Geurts2006}. In the East Baton Rouge Parish region, Extra Trees achieved a test $R^2$ of 0.9063,
  significantly outperforming Random Forest ($R^2 = 0.8037$), demonstrating superior predictive power and reduced overfitting for complex, multi-factor subsidence systems.
 
 \subsection{Gaussian Process Regression and Data Augmentation}
 
 Gaussian Process Regression (GPR) is increasingly used for its ability to model calibrated predictive uncertainty, making it highly effective 
 for small datasets and areas with limited observability. To address the technical challenge of small dataset sizes in local subsidence surveys, 
-.Gaussian noise-based data augmentation has been validated as an effective strategy to expand training samples and ensure model stability \citep{Yang2022DataAugSeismic}. 
-This augmentation approach mitigated data gaps and enhanced model generalization, expanding the effective training dataset to over 390,000 samples. \citet{HosseinzadehLand2024} 
-evaluated seven ML methods (CART, BRT, SVM, RF, logistic regression, etc.) in Iran and found BRT outperformed others in susceptibility mapping. These studies demonstrate ML's 
+.Gaussian noise-based data augmentation has been validated as an effective strategy to expand training samples and ensure model stability \citep{Shorten2019}.
+This augmentation approach mitigated data gaps and enhanced model generalization, expanding the effective training dataset to over 390,000 samples. \citet{HosseinzadehLLand2024} 
+evaluated seven ML methods (CART, BRT, SVM, RF, logistic regression, etc.) in Iran and found BRT outperformed others in susceptibility mapping. These studies demonstrate ML's
 strength in spatial patterning and factor ranking, yet many stop short of integrating temporal forecasting or sequence modelling, limiting their value for prediction of future subsidence trends.
 
 \section{Deep Learning and Time Series Forecasting of Subsidence}
@@ -473,7 +471,7 @@ Purely data-driven models may produce physically implausible results, such as un
 
 \section{Subsidence Driving Factor Analysis and Explainability}
 
-A critical limitation of traditional deep learning is its ``black-box'' nature, which hinders its use in urban planning and policy-making. Explainable AI (XAI) tools, specifically SHapley Additive exPlanations (SHAP), are now applied to quantify the marginal contribution of each input factor to the subsidence signal. \citet{yu_explainable_2025} employed SHAP to interpret XGBoost-LightGBM-CatBoost ensemble models for land subsidence susceptibility mapping in Hangzhou, demonstrating that engineering activities and soft soil distribution are the most influential factors. \citet{Xue2024} used ML on InSAR data to inspect deformation along high-speed rail corridors, emphasizing hydrological and structural controls.
+A critical limitation of traditional deep learning is its ``black-box'' nature, which hinders its use in urban planning and policy-making. Explainable AI (XAI) tools, specifically SHapley Additive exPlanations (SHAP), are now applied to quantify the marginal contribution of each input factor to the subsidence signal. \citet{yu_explainable_2025} employed SHAP to interpret XGBoost-LightGBM-CatBoost ensemble models for land subsidence susceptibility mapping in Hangzhou, demonstrating that engineering activities and soft soil distribution are the most influential factors. Recent applications of explainable ML with InSAR data have emphasized the importance of hydrological and structural controls in regional subsidence analysis \citep{Liu2025}.
 
 Understanding why subsidence occurs and identifying and quantifying drivers is vital for decision-making in resource management and infrastructure planning. SHAP analysis has revealed that while LULC and fault proximity are primary contributors, River-DEM interactions and groundwater fluctuations account for significant portions of the deformation signal in regional contexts. By integrating SHAP within a hybrid forecasting pipeline, transparent and scientifically defensible explanations of subsidence mechanisms can be provided, supporting sustainable water resource and infrastructure management \citep{yu_explainable_2025}. These studies show how driver-ranking can support mitigation strategies and inform policy decisions. Nevertheless, few investigations combine hybrid DL forecasting with explicit causative-factor analysis in urban contexts; the use of SHAP in a hybrid DL/ML framework addresses a real literature gap.
 
@@ -481,11 +479,11 @@ Understanding why subsidence occurs and identifying and quantifying drivers is v
 
 In geohazard research, obtaining large datasets for model training is often time-consuming and expensive. Gaussian noise-based data augmentation is a validated strategy to improve model stability and generalisation.
  Adding small amounts of noise allows the training set to expand significantly without distorting the original data distribution, thereby preventing overfitting in tree-based and deep-learning architectures. 
- This approach has been successfully applied in the context of subsidence prediction with Extra Trees models, where synthetic data generation improved model robustness without compromising prediction accuracy \citep{Yang2022DataAugSeismic}.
+ This approach has been successfully applied in the context of subsidence prediction with Extra Trees models, where synthetic data generation improved model robustness without compromising prediction accuracy \citep{Shorten2019}.
 
 \section{Research Gaps and Study Objectives}
 
-While many studies have applied InSAR and machine or deep learning (ML/DL) methods to analyze land subsidence, most have treated spatial susceptibility mapping and temporal forecasting as separate tasks, often overlooking model interpretability \citep{Gharechaee2023, Rahmani2024, Hussain2023}.
+While many studies have applied InSAR and machine or deep learning (ML/DL) methods to analyze land subsidence, most have treated spatial susceptibility mapping and temporal forecasting as separate tasks, often overlooking model interpretability \citep{Gharechaee2023, Rahmani2024}.
 Applications within complex U.S. Gulf Coast urban environments also remain limited. Recent research by \citet{HeEtAl2025} highlighted the specific need for integrated monitoring and assessment frameworks in coastal subsidence-prone regions. 
 To address these gaps, this study integrates SBAS-InSAR velocity data with environmental conditioning factors using Extra Trees and Random Forest for spatial subsidence susceptibility mapping, alongside a physics-informed LSTM framework for temporal forecasting. 
 SHAP-based interpretation is employed to develop predictive and explainable subsidence models tailored to Baton Rouge's environmental and infrastructural characteristics \citep{Abdalla2024, Mojtahedi2025}.
@@ -495,7 +493,8 @@ The identified gaps and methodological advances reviewed in this chapter provide
 \chapter[Methods]{\centering Methods}
 
 \section{Methodologies}
-This chapter details the integrated framework employed to map and forecast land subsidence in East Baton Rouge Parish (Figure~\ref{fig:methodology_flowchart}). The methodology combines three complementary approaches: (1) SBAS-InSAR time-series analysis to extract deformation velocity from 246 Sentinel-1 acquisitions, (2) tree-based ensemble learning (Random Forest and Extra Trees) for spatial susceptibility mapping using 15 environmental conditioning factors, and (3) physics-informed LSTM networks for spatio-temporal forecasting. SHAP-based explainability is integrated throughout to identify dominant subsidence drivers and ensure model interpretability.
+This chapter details the integrated framework employed to map and forecast land subsidence in East Baton Rouge Parish (Figure~\ref{fig:methodology_flowchart}). The methodology combines three complementary approaches: (1) SBAS-InSAR time-series analysis to extract deformation velocity from 246 Sentinel-1 acquisitions, (2) tree-based ensemble learning (Random Forest and Extra Trees) for spatial susceptibility mapping using 15 environmental conditioning factors, and (3) physics-informed LSTM networks for spatio-temporal forecasting. 
+SHapley Additive exPlanations (SHAP) and Local Interpretable Model-agnostic Explanations (LIME)-based explainability are integrated with Mean Decrease in Impurity (MDI) to identify dominant subsidence drivers and ensure model interpretability.
 
 \subsection{SBAS-InSAR Processing}
 SBAS-InSAR was selected over PS-InSAR for this study due to the mixed urban-rural land cover characteristics of East Baton Rouge Parish. While PS-InSAR achieves higher point-wise precision on stable infrastructure, it provides sparse coverage in vegetated and agricultural areas \citep{Ferretti2011}. SBAS-InSAR, by contrast, exploits distributed scatterers and maintains coherence across heterogeneous terrain, yielding 2.83 times higher spatial density in mixed environments \citep{Bayik2025}. This enhanced coverage is critical for regional subsidence mapping and for generating sufficient training samples for machine learning models.
@@ -510,7 +509,7 @@ This approach as shown in Figure \ref{fig:methodology_flowchart} facilitates int
 \begin{figure}[!t]
 \centering
 \includegraphics[width=0.95\textwidth,keepaspectratio]{Flowchart.jpg}
-\caption{Overall methodology flowchart}
+\caption{Susceptibility prediction flowchart}
 \label{fig:methodology_flowchart}
 \end{figure}
 
@@ -533,10 +532,122 @@ The dimensions of matrix $B$ are determined by $M$ and $N$. In general, matrix $
 The SBAS-InSAR processing was implemented using the 246 descending-track Sentinel-1 SLC acquisitions spanning 2017--2025. Perpendicular baseline thresholds were set to 150 m and temporal baselines to 48 days to maximize interferometric coherence while ensuring sufficient temporal sampling. Atmospheric phase delays were corrected using GACOS tropospheric delay models, and phase unwrapping was performed using the Minimum Cost Flow algorithm. The resulting velocity field was geocoded to a 30 m grid aligned with the conditioning factor layers for subsequent machine learning analysis.
 
 \subsection{Environmental Conditioning Factors}
-Fifteen geospatial conditioning factors were compiled at 30 m resolution to characterize the environmental and anthropogenic controls on subsidence (as described in Section 2.2.4). These factors span topographic attributes (DEM, slope, aspect, TPI, curvature, TWI), geological characteristics (geology, LULC), hydrological proximity (distance to rivers), structural controls (distance to faults), infrastructure proximity (distances to roads, railways, bridges), climatic variables (precipitation), and anthropogenic activity (interpolated groundwater well influence). Continuous variables were normalized using min-max scaling to [0,1], while categorical variables (geology, LULC) were one-hot encoded. The SBAS-derived velocity values at each 30 m pixel served as the target variable for supervised learning.
+Fifteen geospatial conditioning factors were compiled at 30 m resolution to characterize the environmental and anthropogenic controls on subsidence, as illustrated in the methodology flowchart (Figure~\ref{fig:methodology_flowchart}) and detailed in Section 2.2.4 (Figures~\ref{fig:topo_factors}--\ref{fig:anthro_factors}). These factors span topographic attributes (DEM, slope, aspect, TPI, curvature, TWI), geological characteristics (geology, LULC), hydrological proximity (distance to rivers), structural controls (distance to faults), infrastructure proximity (distances to roads, railways, bridges), climatic variables (precipitation), and anthropogenic activity (interpolated groundwater well influence). Continuous variables were normalized using min-max scaling to [0,1], while categorical variables (geology, LULC) were one-hot encoded. The SBAS-derived velocity values at each 30 m pixel served as the target variable for supervised learning.
+
+\subsection{Feature Engineering and Variable Transformation}
+Feature engineering was conducted to enhance the predictive capability of the machine learning models by incorporating domain knowledge and enabling the representation of nonlinear and interaction effects among conditioning factors. This process aimed to improve model interpretability, stability, and generalization performance.
+
+\subsubsection{Interaction Feature Construction}
+Several interaction variables were generated to represent the combined influence of topographic, geological, and hydrological parameters on land displacement processes. Interaction features allow machine learning models to capture complex dependencies that cannot be represented using original variables alone \citep{Kuhn2019}. The following interaction terms were created:
+\begin{equation}
+\text{Fault\_DEM} = D_f \times E
+\end{equation}
+\begin{equation}
+\text{River\_DEM} = D_r \times E
+\end{equation}
+\begin{equation}
+\text{Slope\_DEM} = S \times E
+\end{equation}
+where $D_f$ represents distance from geological faults, $D_r$ denotes distance from rivers, $E$ is elevation derived from the Digital Elevation Model (DEM), and $S$ is slope angle. These interaction variables represent how elevation modifies the influence of tectonic structures, drainage networks, and terrain steepness on surface deformation mechanisms.
+
+\subsubsection{Polynomial Feature Generation}
+To model nonlinear relationships between conditioning factors and displacement velocity, second-order polynomial features were introduced. Polynomial expansion enables machine learning models to better approximate curved response patterns and threshold effects \citep{Hastie2009}. The following squared variables were computed:
+\begin{equation}
+\text{Fault\_squared} = D_f^2
+\end{equation}
+\begin{equation}
+\text{DEM\_squared} = E^2
+\end{equation}
+These features allow the models to capture nonlinear amplification or attenuation effects associated with proximity to fault zones and elevation gradients.
+
+\subsubsection{Logarithmic Transformation}
+Certain distance-related variables exhibited positive skewness and heteroscedasticity. To reduce distributional asymmetry and stabilize variance, logarithmic transformation was applied \citep{Osborne2010}. The transformed variable was calculated as:
+\begin{equation}
+\text{log\_Fault} = \ln(D_f + 1)
+\end{equation}
+where the constant 1 prevents undefined values when $D_f = 0$. Logarithmic scaling compresses extreme values and enhances model sensitivity to small-scale variations in fault-proximal regions.
+
+\subsubsection{Assessment of Multicollinearity}
+The introduction of interaction and polynomial features increased the potential risk of multicollinearity among predictors. Therefore, Variance Inflation Factor (VIF) analysis was performed to quantify interdependencies between variables \citep{Kutner2005}. VIF for each predictor was computed as:
+\begin{equation}
+\text{VIF}_i = \frac{1}{1 - R_i^2}
+\end{equation}
+where $R_i^2$ represents the coefficient of determination obtained by regressing the $i$-th variable against all remaining predictors. Although several engineered variables exhibited high VIF values, they were retained in the analysis because ensemble tree-based models are relatively insensitive to multicollinearity and can effectively exploit correlated predictors \citep{Dormann2013}.
+
+\subsection{Data Augmentation}
+To enhance model robustness, mitigate overfitting tendencies, and improve generalization capacity under conditions of measurement noise and sampling variability, data augmentation strategies were implemented to synthetically expand the training dataset, as illustrated in the methodology flowchart (Figure~\ref{fig:methodology_flowchart}). Augmentation introduces controlled perturbations into the original data, allowing machine learning algorithms to learn more comprehensive feature distributions and achieve greater predictive stability \citep{Shorten2019}. Given the inherent constraints in obtaining extensive, high-quality geospatial displacement measurements, augmentation was essential for strengthening the learning capacity of ensemble models.
+
+\subsubsection{Gaussian Noise Injection}
+Gaussian noise perturbation was applied to continuous predictor variables to simulate realistic measurement uncertainty and environmental stochasticity. This technique strengthens model robustness by training the algorithm on perturbed representations of the input feature space \citep{Bishop1995}. For each numerical feature $x_i$, augmented values were generated according to:
+\begin{equation}
+x_i^{\text{aug}} = x_i + \epsilon
+\end{equation}
+where the additive noise term $\epsilon$ is sampled from a Gaussian distribution:
+\begin{equation}
+\epsilon \sim \mathcal{N}(0, \sigma_i^2)
+\end{equation}
+with variance defined as:
+\begin{equation}
+\sigma_i = 0.02 \times \text{std}(x_i)
+\end{equation}
+Here, $\mathcal{N}(0, \sigma_i^2)$ represents a normal distribution with zero mean and variance $\sigma_i^2$, $\text{std}(x_i)$ denotes the standard deviation of feature $x_i$, and the coefficient 0.02 controls the magnitude of noise injection. Similarly, noise was introduced to the target variable:
+\begin{equation}
+y^{\text{aug}} = y + \eta, \quad \eta \sim \mathcal{N}(0, \sigma_y^2)
+\end{equation}
+where $\sigma_y = 0.02 \times \text{std}(y)$. This procedure maintains the underlying statistical structure of the dataset while incorporating realistic perturbations.
+
+\subsubsection{Interpolation-Based Synthetic Sample Generation}
+In addition to noise perturbation, synthetic samples were created using an interpolation technique adapted from the Synthetic Minority Over-sampling Technique (SMOTE) \citep{Chawla2002}. While SMOTE was originally formulated for classification tasks, this study adapted the approach for regression modeling. Two random samples $\mathbf{x}_a$ and $\mathbf{x}_b$ were selected from the original dataset, and new synthetic samples were generated through linear interpolation:
+\begin{equation}
+\mathbf{x}^{\text{syn}} = \alpha \mathbf{x}_a + (1 - \alpha)\mathbf{x}_b
+\end{equation}
+\begin{equation}
+y^{\text{syn}} = \alpha y_a + (1 - \alpha)y_b
+\end{equation}
+where $\alpha \sim U(0.4, 0.6)$, with $U$ denoting a uniform distribution. This formulation ensures that synthetic samples are generated in the vicinity of existing observations, thereby avoiding unrealistic extrapolation. For categorical variables such as land-use class and geological type, values were inherited from a single parent sample:
+\begin{equation}
+x_j^{\text{syn}} = x_{a,j}, \quad \text{for categorical } x_j
+\end{equation}
+This approach preserves semantic consistency within the augmented dataset.
+
+\subsubsection{Construction of the Augmented Dataset}
+The final augmented dataset was assembled by concatenating the original dataset $D_{\text{orig}}$, the noise-augmented dataset $D_{\text{noise}}$, and the interpolated synthetic dataset $D_{\text{syn}}$. Formally:
+\begin{equation}
+D_{\text{aug}} = D_{\text{orig}} \cup D_{\text{noise}} \cup D_{\text{syn}}
+\end{equation}
+The resulting dataset size increased by approximately 2.5 times relative to the original, yielding a more comprehensive representation of the feature space and a total of 393,412 training samples.
+
+\subsubsection{Prevention of Data Leakage}
+To ensure unbiased model evaluation and prevent optimistic performance estimates, augmented samples were strictly confined to the training set, while only original samples were used for testing \citep{Kaufman2012}. Let $D_{\text{orig}} = D_{\text{train}}^{\text{orig}} \cup D_{\text{test}}$ and $D_{\text{aug}} = D_{\text{train}}^{\text{orig}} \cup D_{\text{noise}} \cup D_{\text{syn}}$. Thus:
+\begin{equation}
+D_{\text{train}} = D_{\text{train}}^{\text{orig}} \cup D_{\text{noise}} \cup D_{\text{syn}}
+\end{equation}
+\begin{equation}
+D_{\text{test}} = D_{\text{test}}
+\end{equation}
+This strategy prevents artificially similar samples from appearing in both training and testing partitions, which would otherwise artificially inflate performance metrics.
+
+\subsection{Extra Trees Algorithm}
+This study employs both Random Forest and Extra Trees to determine which ensemble method provides optimal performance for subsidence susceptibility analysis, as outlined in the methodology flowchart (Figure~\ref{fig:methodology_flowchart}). Although RF is commonly used for geohazard applications, emerging evidence indicates that Extra Trees can deliver improved generalization performance when dealing with complex systems influenced by multiple factors \citep{Geurts2006}.
+
+Extra Trees (ET) represents an ensemble technique that builds upon the Random Forest methodology. Two key differences distinguish ET from RF: (1) ET generates decision trees using randomly sampled subsets without replacement, which minimizes sampling bias, and (2) in ET, randomness is introduced through random threshold selection at splits rather than through bootstrap sampling \citep{Geurts2006}.
+The splitting behavior in the ET framework is controlled by two key hyperparameters: $k$, which specifies how many features are randomly chosen at each node, and $n_{min}$, which defines the smallest permissible sample size for splitting a node. These parameters improve the model's ability to generalize and reduce the risk of overfitting \citep{Geurts2006}. The model structure is illustrated in Figure \ref{fig:etc_model}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\textwidth]{ETC.png}
+\caption{Extra Trees model architecture}
+\label{fig:etc_model}
+\end{figure}
+
+Similar to RF, the ET method performs regression in two distinct stages: bootstrap sampling followed by aggregation. In the bootstrap stage, random subsets of training data are extracted to build individual trees. During aggregation, node splits are performed using randomly chosen feature subsets. The ensemble prediction is obtained by averaging outputs across all trees constructed from these random subsets. The mathematical representation of ET regression is given by \citet{Breiman2001}:
+\begin{equation}
+p(x, \beta_1, \ldots, \beta_n) = \frac{1}{m} \sum_{i=1}^{m} p(x, \beta_n)
+\end{equation}
+where $p$ denotes the prediction from the $p$-th tree, and $\beta$ represents a random vector governing tree construction.
 
 \subsection{Random Forest Model}
-RF is a supervised machine-learning algorithm that uses several decision trees to produce predictions that are more precise. RF is an ensemble learning technique that produces the mean prediction for regression tasks by combining the predictions of several decision tree models (Figure~\ref{fig:rf_model}) \citep{Xi2023LGBM,Zhang2022Residual,Wahba2024FlashFlood}.
+RF is a supervised machine-learning algorithm that uses several decision trees to produce predictions that are more precise. RF is an ensemble learning technique that produces the mean prediction for regression tasks by combining the predictions of several decision tree models (Figure~\ref{fig:rf_model}) \citep{Breiman2001,wahba2024forecasting}.
 The RF regressor operates an estimator that fits a collection of N randomized decision tree regressors independently and identically distributes random vectors \citep{Breiman2001}.
 
 \begin{figure}[htbp]
@@ -554,30 +665,225 @@ The RF training procedure begins by generating random subsets from the original 
 \end{equation}
 where $\hat{y}$ represents the final prediction of the Random Forest model.
 
-\subsection{Extra Trees Algorithm}
-Both Random Forest and Extra Trees were implemented to identify the optimal ensemble approach for subsidence susceptibility mapping. While RF has been widely applied in geohazard studies, recent research suggests that Extra Trees may achieve superior generalization in complex, multi-factorial systems \citep{Geurts2006}.
+\subsection{Feature Importance and Model Explainability}
+The inherent black-box nature of ensemble machine learning models, despite their superior predictive performance, presents significant challenges for interpretability in scientific applications. To address this limitation and enhance understanding of the decision-making processes underlying subsidence predictions, this study employs three complementary explainability techniques: SHAP, LIME, and MDI. These methods collectively provide both global and local interpretations of model behavior, feature importance, and individual prediction rationales \citep{Lundberg2017,yu_explainable_2025}.
 
-The Extra Trees (ET) algorithm is an ensemble-based method that extends the Random Forest approach. Two fundamental distinctions differentiate ET from RF: (1) ET constructs trees utilizing random subsets of data without replacement, thereby reducing sampling bias, and (2) the randomization in ET originates from random split selection rather than bootstrap aggregation \citep{Geurts2006}.
-In the ET framework, the tree-splitting mechanism is governed by two hyperparameters: $k$ denotes the number of features randomly selected at each node, and $n_{min}$ specifies the minimum sample size required for node partitioning. These parameters enhance model generalization and mitigate overfitting \citep{Geurts2006}. The architecture of the model is shown in Figure \ref{fig:etc_model}.
+\subsubsection{MDI}
+MDI serves as a tree-based feature importance measure that quantifies the total reduction in node impurity attributable to splits on each feature, averaged across all trees in the ensemble \citep{Breiman2001}. For tree-based models such as RF and ET, MDI is computed during training by accumulating the weighted impurity decrease for each feature at every node where it is used for splitting. Mathematically, the importance $I_j$ of feature $j$ is expressed as:
+\begin{equation}
+I_j = \frac{1}{T} \sum_{t=1}^{T} \sum_{k \in S_t(j)} w_k \Delta i_k
+\end{equation}
+where $T$ denotes the total number of trees, $S_t(j)$ represents the set of splitting nodes using feature $j$ in tree $t$, $w_k$ is the weighted number of samples reaching node $k$, and $\Delta i_k$ is the impurity decrease at node $k$. Higher MDI values indicate features that contribute more substantially to reducing prediction uncertainty across the ensemble \citep{Cutler2007}.
 
-\begin{figure}[htbp]
+\subsubsection{SHAP}
+SHAP provides a unified framework for interpreting model predictions by assigning each feature an importance value for individual predictions, grounded in cooperative game theory \citep{Lundberg2017}. Unlike aggregate importance measures, SHAP values decompose each prediction into additive contributions from input features, satisfying desirable properties including local accuracy, missingness, and consistency \citep{yu_explainable_2025}. The SHAP value $\phi_j$ for feature $j$ quantifies its marginal contribution across all possible feature coalitions:
+\begin{equation}
+\phi_j = \sum_{S \subseteq F \setminus \{j\}} \frac{|S|!(|F|-|S|-1)!}{|F|!} \left[f(S \cup \{j\}) - f(S)\right]
+\end{equation}
+where $F$ represents the complete feature set, $S$ denotes a subset excluding feature $j$, $f(S)$ is the model prediction using only features in $S$, and $|\cdot|$ denotes set cardinality. For tree-based models, TreeSHAP algorithm enables efficient exact computation by exploiting the tree structure, avoiding exponential computational complexity \citep{Lundberg2017}.
+
+SHAP values offer several analytical advantages. First, they provide instance-level explanations, revealing how individual features influence specific predictions. Second, aggregated SHAP values yield global feature importance rankings. Third, dependence plots visualize feature effects across their value ranges, exposing non-linear relationships and interaction effects. Fourth, SHAP values maintain consistency: if a model changes such that a feature's contribution increases, its SHAP value reflects this change proportionally \citep{yu_explainable_2025}.
+
+\subsubsection{LIME}
+LIME generates interpretable explanations for individual predictions by approximating the complex model locally with a simpler, interpretable surrogate model \citep{Ribeiro2016}. The technique operates by perturbing the input instance, obtaining predictions for perturbed samples, and fitting a linear model weighted by proximity to the original instance. For a prediction $f(x)$ at instance $x$, LIME solves the optimization problem:
+\begin{equation}
+\xi(x) = \arg\min_{g \in G} \mathcal{L}(f, g, \pi_x) + \Omega(g)
+\end{equation}
+where $G$ represents the class of interpretable models (typically linear models), $\mathcal{L}$ measures the fidelity of surrogate model $g$ in approximating $f$ within the local region defined by proximity kernel $\pi_x$, and $\Omega(g)$ penalizes model complexity to ensure interpretability.
+
+The LIME procedure generates $N$ perturbed samples in the neighborhood of $x$, obtains their predictions from the original model, and weights them according to their proximity to $x$ using an exponential kernel. The resulting linear approximation identifies which features contribute most significantly to the specific prediction, providing locally faithful explanations even when global model behavior is highly non-linear.
+
+\subsubsection{Integrated Explainability Framework}
+This study employs these three methods synergistically to achieve comprehensive model interpretability. MDI provides computationally efficient global feature rankings inherent to the tree ensemble structure. SHAP analysis delivers theoretically grounded feature attributions with both local (instance-level) and global (aggregated) interpretability, enabling identification of dominant subsidence drivers and their directional effects. LIME complements these approaches by offering human-interpretable local explanations that validate SHAP findings and provide intuitive justifications for individual high-risk predictions.
+
+By triangulating results across these explainability techniques, this framework addresses critical limitations of black-box models in geohazard assessment, transforming predictive models into decision-support tools that provide not only accurate forecasts but also scientifically interpretable explanations of subsidence mechanisms \citep{yu_explainable_2025,Pradhan2023}. This integrated approach enables stakeholders to understand which environmental and anthropogenic factors drive subsidence risk in specific locations, facilitating targeted mitigation strategies and informed land-use planning decisions.
+
+\subsection{Physics-Informed Bi-LSTM for Spatio-Temporal Forecasting}
+While tree-based ensemble models excel at spatial susceptibility mapping by capturing complex relationships between environmental factors and subsidence patterns, they do not explicitly model temporal dependencies inherent in time-series deformation data. To address this limitation and enable robust near-decadal subsidence forecasting, this study implements a hybrid framework that integrates Bidirectional Long Short-Term Memory (Bi-LSTM) neural networks with physics-informed constraints (Figure~\ref{fig:lstm_forecast_flowchart}). This approach combines data-driven learning of spatio-temporal patterns from InSAR time series with geomechanically consistent rules that ensure physically plausible long-term projections.
+
+\begin{figure}[!t]
 \centering
-\includegraphics[width=0.6\textwidth]{ETC.png}
-\caption{Extra Trees model architecture}
-\label{fig:etc_model}
+\includegraphics[width=0.95\textwidth,keepaspectratio]{master_thesis_forcast.jpg.jpeg}
+\caption{Physics-informed Bi-LSTM forecasting framework}
+\label{fig:lstm_forecast_flowchart}
 \end{figure}
 
-Analogous to RF, the ET algorithm executes regression through two sequential phases: bootstrapping and bagging. During bootstrapping, a random subset of the training dataset is drawn to construct individual decision trees. In the bagging phase, nodes are partitioned using randomly selected feature subsets. The final prediction is determined by randomly selecting a subset and computing its corresponding output value. Mathematically, the ET regression process is expressed by the equation provided by \citet{Breiman2001}:
-\begin{equation}
-p(x, \beta_1, \ldots, \beta_n) = \frac{1}{m} \sum_{i=1}^{m} p(x, \beta_n)
-\end{equation}
-where $p$ represents the $p$-th prediction tree, and $\beta$ is a distributed vector.
+\subsubsection{Framework Overview and Conceptual Rationale}
+The physics-informed forecasting framework (Figure~\ref{fig:lstm_forecast_flowchart}) operates in two distinct stages: (1) a prediction stage, where a Bi-LSTM model is trained to learn subsidence dynamics from historical SBAS-InSAR observations, and (2) a forecasting stage, where the trained network is iteratively applied in autoregressive mode with physics-based constraints to ensure temporal stability and geomechanical realism during extrapolation beyond the observation period \citep{Raissi2019,Zhu2024}. This separation ensures that machine learning captures complex non-linear variability in the training data, while physical principles govern long-term behavior to prevent unrealistic acceleration, deceleration, or sign reversal commonly observed in purely data-driven extrapolation.
 
-\subsection{Gaussian Noise-Based Data Augmentation}
-To mitigate limited labeled samples, Gaussian noise augmentation was applied by perturbing feature vectors with zero-mean Gaussian noise set to 3\% of each parameter's range. The augmentation expanded the training dataset by a factor of 2.5 to a total of 393,412 samples while preserving overall feature distributions.
+Unlike Physics-Informed Neural Networks (PINNs) that encode partial differential equations directly into the loss function during training, the present approach applies constraints post-prediction during the autoregressive forecasting loop \citep{Raissi2019}. This design choice maintains model flexibility during training while ensuring physical consistency during deployment, thereby balancing predictive accuracy with geomechanical plausibility.
+
+\subsubsection{Data Preprocessing and Input Construction}
+As illustrated in Figure~\ref{fig:lstm_forecast_flowchart}, to suppress atmospheric noise and low-signal artifacts in the SBAS-InSAR time series, only pixels exhibiting absolute mean velocity exceeding a significance threshold were retained for temporal modeling:
+\begin{equation}
+|v| \geq 1.5 \ \text{mm yr}^{-1}
+\end{equation}
+where $v$ represents the mean annual subsidence velocity. This threshold reduces contributions from decorrelated or atmospherically contaminated pixels while preserving meaningful deformation signals.
+
+Each retained time series was normalized using min--max scaling to stabilize gradient propagation during neural network training:
+\begin{equation}
+x_t^{*} = \frac{x_t - x_{\min}}{x_{\max} - x_{\min}}
+\end{equation}
+where $x_t$ denotes the observed subsidence velocity at time $t$, and $x_{\min}$ and $x_{\max}$ represent the minimum and maximum values across the entire time series.
+
+A supervised learning structure was constructed using a sliding window approach to generate input-output pairs for sequential prediction. The input window length was set to 18 months to capture seasonal and interannual variability, while the output window was set to 6 months to enable multi-step-ahead forecasting. Formally, for a time series $\{x_t\}_{t=1}^{T}$, the input-output mapping at time index $i$ is defined as:
+\begin{equation}
+\mathbf{X}_i = [x_{t-17}, \dots, x_t], \quad \mathbf{Y}_i = [x_{t+1}, \dots, x_{t+6}]
+\end{equation}
+This formulation enables the network to learn temporal dependencies while supporting direct multi-horizon prediction, which is essential for operational forecasting applications.
+
+\subsubsection{LSTM Architecture and Temporal Dependency Modeling}
+LSTM networks address the vanishing gradient problem inherent in traditional recurrent neural networks by introducing gated memory cells that selectively retain or discard information across long sequences \citep{Hochreiter1997}. Each LSTM cell maintains a cell state $C_t$ and a hidden state $h_t$, governed by three gating mechanisms: the forget gate $f_t$, input gate $i_t$, and output gate $o_t$. The LSTM cell equations are formulated as:
+\begin{equation}
+f_t = \sigma(W_f [h_{t-1}, x_t] + b_f)
+\end{equation}
+\begin{equation}
+i_t = \sigma(W_i [h_{t-1}, x_t] + b_i)
+\end{equation}
+\begin{equation}
+\tilde{C}_t = \tanh(W_c [h_{t-1}, x_t] + b_c)
+\end{equation}
+\begin{equation}
+C_t = f_t \odot C_{t-1} + i_t \odot \tilde{C}_t
+\end{equation}
+\begin{equation}
+o_t = \sigma(W_o [h_{t-1}, x_t] + b_o)
+\end{equation}
+\begin{equation}
+h_t = o_t \odot \tanh(C_t)
+\end{equation}
+where $\sigma(\cdot)$ denotes the sigmoid activation function, $\tanh(\cdot)$ is the hyperbolic tangent activation, $\odot$ represents element-wise multiplication, $W_f, W_i, W_c, W_o$ are weight matrices, and $b_f, b_i, b_c, b_o$ are bias vectors. The forget gate controls which information from the previous cell state is discarded, the input gate regulates new information incorporation, and the output gate determines the hidden state exposed to subsequent layers.
+
+\subsubsection{Bidirectional LSTM Formulation}
+Land subsidence time series exhibit both short-term fluctuations driven by seasonal hydrological cycles and long-term trends associated with aquifer compaction. Standard unidirectional LSTM processes sequences in forward temporal order, potentially missing contextual information from future time steps within the input window. Bidirectional LSTM addresses this limitation by processing the input sequence in both forward and backward directions, enabling the network to exploit complete temporal context \citep{Schuster1997}.
+
+For each time step $t$ within the input window, the Bi-LSTM computes forward and backward hidden states:
+\begin{equation}
+\overrightarrow{h_t} = \text{LSTM}_{\text{forward}}(x_t, \overrightarrow{h_{t-1}})
+\end{equation}
+\begin{equation}
+\overleftarrow{h_t} = \text{LSTM}_{\text{backward}}(x_t, \overleftarrow{h_{t+1}})
+\end{equation}
+The final hidden representation at time $t$ is obtained by concatenating the forward and backward states:
+\begin{equation}
+h_t = [\overrightarrow{h_t}, \overleftarrow{h_t}]
+\end{equation}
+This bidirectional processing captures both antecedent conditions and subsequent trends within the input window, improving the model's ability to distinguish persistent deformation from transient noise.
+
+\subsubsection{Network Architecture and Training Configuration}
+The adopted Bi-LSTM architecture (Figure~\ref{fig:lstm_forecast_flowchart}) consists of two stacked bidirectional layers with progressively decreasing dimensionality to extract hierarchical temporal features. The first Bi-LSTM layer contains 192 units (96 forward, 96 backward), followed by batch normalization and dropout regularization to prevent overfitting.
+
+The model was trained using the Adam optimizer \citep{Kingma2014} with an initial learning rate of 0.001, which was reduced on plateau using a learning rate scheduler. The loss function is mean squared error (MSE) between predicted and observed velocity sequences:
+\begin{equation}
+\mathcal{L}_{\text{MSE}} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2
+\end{equation}
+where $N$ is the total number of time steps, $y_i$ is the observed velocity, and $\hat{y}_i$ is the predicted velocity. Training was conducted exclusively on historical data without physics-based constraints, allowing the network to learn unconstrained temporal patterns. Physics-informed corrections are applied only during the forecasting stage.
+
+\subsubsection{Autoregressive Forecasting Strategy}
+After training, the Bi-LSTM is deployed in autoregressive forecasting mode to generate long-term subsidence projections (Figure~\ref{fig:lstm_forecast_flowchart}). The procedure operates as follows: (1) the final 18 months of observed data are provided as the initial input window, (2) the trained Bi-LSTM predicts the next time step, (3) the predicted value is appended to the input sequence, (4) the oldest value is removed to maintain the 18-month window length, and (5) the process repeats iteratively to generate forecasts extending to 2030.
+
+\subsubsection{Physics-Informed Constraint Module}
+The physics-informed module (Figure~\ref{fig:lstm_forecast_flowchart}) does not modify the Bi-LSTM architecture or training process. Instead, it constrains Bi-LSTM outputs during autoregressive forecasting to enforce physically plausible subsidence evolution. The constraint framework incorporates five complementary mechanisms: exponential decay, hybrid blending, temporal smoothing, rate-of-change limitation, and sign preservation.
+
+\noindent\textit{Exponential Subsidence Decay Model.}
+
+Long-term subsidence rates in aquifer systems are expected to stabilize as pore pressure equilibration and sediment consolidation approach steady-state conditions.
+\begin{equation}
+x_{t+1}^{\text{phys}} = x_t (1 - r)^{\Delta t}
+\end{equation}
+where $x_t$ is the subsidence velocity at time $t$, $r$ is the decay constant representing the fractional reduction in velocity per unit time, and $\Delta t$ is the time increment in years. The decay constant $r$ was calibrated to 0.004 yr$^{-1}$ based on historical deceleration trends observed in the SBAS-InSAR time series and regional aquifer compaction studies \citep{Higgins2016}.
+
+\noindent\textit{Hybrid LSTM--Physics Blending.}
+
+The physics-based velocity estimate is blended with the raw Bi-LSTM prediction using a weighted combination:
+\begin{equation}
+x_{t+1} = \alpha x_{t+1}^{\text{LSTM}} + (1 - \alpha) x_{t+1}^{\text{phys}}
+\end{equation}
+where $x_{t+1}^{\text{LSTM}}$ is the unconstrained Bi-LSTM output, $x_{t+1}^{\text{phys}}$ is the physics-based decay estimate, and $\alpha \in [0,1]$ is a blending coefficient. This formulation allows the LSTM to capture short-term variability and local deviations from idealized decay behavior, while physics governs long-term trends. The coefficient $\alpha$ was set to 0.65, prioritizing data-driven predictions in the near term while increasing the influence of physics-based stabilization in the far-future forecast horizon.
+
+\noindent\textit{Temporal Continuity Constraint.}
+
+To prevent abrupt temporal discontinuities that violate geomechanical principles, a temporal smoothing filter is applied:
+\begin{equation}
+x_{t+1}^{\text{smooth}} = \beta x_{t+1} + (1 - \beta) x_t
+\end{equation}
+where $\beta$ controls the degree of smoothing. Higher $\beta$ values preserve more of the predicted signal, while lower values enforce stronger temporal continuity. The parameter $\beta$ was set to 0.85 to balance responsiveness to predicted trends with suppression of unrealistic jumps.
+
+\noindent\textit{Rate-of-Change Limitation.}
+
+Physical limits on subsidence acceleration are enforced by constraining the maximum allowable velocity change between consecutive time steps:
+\begin{equation}
+|x_{t+1} - x_t| \leq \Delta_{\max}
+\end{equation}
+where $\Delta_{\max}$ is defined as a fraction of the previous velocity magnitude: $\Delta_{\max} = 0.15|x_t|$. This constraint prevents unphysical acceleration or deceleration that would correspond to instantaneous changes in aquifer stress conditions.
+
+\noindent\textit{Sign Preservation.}
+
+To prevent unphysical sign reversal, where subsiding regions spontaneously transition to uplift without corresponding groundwater recharge or tectonic forcing, the sign consistency constraint is applied:
+\begin{equation}
+\text{sign}(x_{t+1}) = \text{sign}(x_t)
+\end{equation}
+This ensures that the directional character of deformation is maintained throughout the forecast period, consistent with the persistent stress regime in East Baton Rouge Parish.
+
+\noindent\textit{Stochastic Variability Representation.}
+
+Small-magnitude Gaussian noise is added to represent unresolved spatiotemporal heterogeneity and measurement uncertainty:
+\begin{equation}
+x_{t+1}^{\text{final}} = x_{t+1} + \epsilon, \quad \epsilon \sim \mathcal{N}(0, \sigma^2)
+\end{equation}
+where $\sigma$ is set to 2\% of the current velocity magnitude. This stochastic component prevents over-deterministic forecasts and provides a mechanism for ensemble-based uncertainty quantification.
+
+The proposed framework employs a Bi-LSTM network for data-driven prediction of subsidence time series and a physics-informed constraint module for long-term forecasting stabilization. The Bi-LSTM captures complex temporal patterns including seasonal fluctuations, interannual variability, and non-linear trends, while physical constraints enforce continuity, exponential decay, and directional stability during autoregressive forecasting. This hybrid approach yields realistic and robust near-decadal subsidence projections that balance empirical learning with geomechanical consistency, addressing a critical gap in subsidence forecasting methodologies \citep{Zhu2024,Mirmazloumi2023}.
+
+\subsection{Model Performance Evaluation Metrics}
+To ensure rigorous assessment of model performance across both spatial susceptibility mapping and temporal forecasting tasks, a comprehensive suite of quantitative metrics was employed. These metrics evaluate different aspects of model capability, including predictive accuracy, error magnitude, directional consistency, and distributional agreement between predicted and observed subsidence patterns. The evaluation framework is divided into regression metrics for continuous prediction assessment and correlation metrics for temporal pattern validation.
+
+\subsubsection{Coefficient of Determination}
+The coefficient of determination ($R^2$) quantifies the proportion of variance in the observed subsidence velocity explained by the model predictions \citep{Kutner2005}. It is computed as:
+\begin{equation}
+R^2 = 1 - \frac{\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}{\sum_{i=1}^{n}(y_i - \bar{y})^2}
+\end{equation}
+where $y_i$ represents the $i$-th observed subsidence value, $\hat{y}_i$ is the corresponding model prediction, $\bar{y}$ denotes the mean of observed values, and $n$ is the total number of samples. $R^2$ values range from 0 to 1, with values approaching 1 indicating strong explanatory power. This metric serves as the primary indicator of model fit for both ET and RF susceptibility models, as well as the Bi-LSTM forecasting model.
+
+\subsubsection{Root Mean Squared Error}
+Root Mean Squared Error (RMSE) measures the average magnitude of prediction errors in the same units as the target variable, providing an interpretable assessment of absolute model accuracy \citep{Chai2014}. RMSE is calculated as:
+\begin{equation}
+\text{RMSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}
+\end{equation}
+RMSE penalizes larger errors more heavily than smaller ones due to the squaring operation, making it sensitive to outliers and large deviations. In the context of subsidence monitoring, RMSE quantifies typical prediction error in mm/yr for velocity predictions and mm for cumulative displacement forecasts.
+
+\subsubsection{Mean Absolute Error}
+Mean Absolute Error (MAE) provides a robust measure of average prediction error that is less sensitive to outliers compared to RMSE \citep{Willmott2005}:
+\begin{equation}
+\text{MAE} = \frac{1}{n}\sum_{i=1}^{n}|y_i - \hat{y}_i|
+\end{equation}
+MAE represents the average absolute deviation between predictions and observations without emphasizing extreme errors. The comparison between RMSE and MAE values provides insight into error distribution: when RMSE substantially exceeds MAE, it indicates the presence of large prediction errors or outliers that disproportionately influence model performance.
+
+\subsubsection{Mean Absolute Percentage Error}
+Mean Absolute Percentage Error (MAPE) expresses prediction error as a percentage of observed values, enabling scale-independent comparison across different magnitudes of subsidence \citep{Hyndman2006}:
+\begin{equation}
+\text{MAPE} = \frac{100\%}{n}\sum_{i=1}^{n}\left|\frac{y_i - \hat{y}_i}{y_i}\right|
+\end{equation}
+MAPE is particularly useful for evaluating forecast performance across spatial regions experiencing different subsidence rates. However, MAPE becomes undefined when observed values approach zero and can produce asymmetric error penalties. Therefore, MAPE is reported alongside absolute error metrics to provide complementary performance perspectives.
+
+\subsubsection{Pearson Correlation Coefficient}
+The Pearson correlation coefficient ($r$) quantifies the strength and direction of linear association between predicted and observed values \citep{Rodgers1988}:
+\begin{equation}
+r = \frac{\sum_{i=1}^{n}(y_i - \bar{y})(\hat{y}_i - \bar{\hat{y}})}{\sqrt{\sum_{i=1}^{n}(y_i - \bar{y})^2}\sqrt{\sum_{i=1}^{n}(\hat{y}_i - \bar{\hat{y}})^2}}
+\end{equation}
+where $\bar{\hat{y}}$ represents the mean of predicted values. Pearson correlation ranges from $-1$ to $+1$, with values near $+1$ indicating strong positive linear correspondence. Unlike $R^2$, which assesses goodness-of-fit, the Pearson coefficient evaluates whether predictions and observations co-vary proportionally, making it valuable for assessing temporal pattern replication in time-series forecasting.
+
+\subsubsection{Nash-Sutcliffe Efficiency}
+The Nash-Sutcliffe Efficiency (NSE) coefficient is widely used in hydrological and geophysical modeling to evaluate predictive skill relative to a baseline mean model \citep{Nash1970}:
+\begin{equation}
+\text{NSE} = 1 - \frac{\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}{\sum_{i=1}^{n}(y_i - \bar{y})^2}
+\end{equation}
+NSE ranges from $-\infty$ to 1, where NSE = 1 indicates perfect prediction, NSE = 0 indicates performance equivalent to using the mean as a predictor, and NSE $<$ 0 indicates predictions worse than the mean. NSE is mathematically equivalent to $R^2$ for unbiased models but can differ when systematic bias exists. High NSE values confirm that model predictions outperform naive baseline approaches.
+
+\subsubsection{Model Comparison and Selection Criteria}
+For susceptibility mapping, model selection between ET and RF is based on test-set $R^2$, RMSE, and MAE computed on hold-out data not used during training or hyperparameter optimization. The optimal model demonstrates superior performance across multiple metrics while maintaining computational efficiency and interpretability. For temporal forecasting, the physics-informed Bi-LSTM is evaluated using $R^2$, RMSE, MAE, Pearson correlation, and NSE on validation time periods, with particular emphasis on forecast stability and absence of unphysical trends during long-term extrapolation. Additionally, comparison with GNSS vertical displacement measurements at 1LSU and GMVS stations provides independent ground-truth validation of InSAR-derived and model-predicted subsidence rates \citep{Abdalla2024}.
 
 \chapter[References]{\centering References}
-\nocite{Huning2023}
 \printbibliography[heading=none]
 
 \end{document}
