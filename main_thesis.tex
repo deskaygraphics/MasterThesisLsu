@@ -256,16 +256,16 @@ EBRP is essential for sustainable groundwater management, infrastructure resilie
 and long-term planning in sedimentary basin environments 
 \citep{Crosetto2016,Higgins2016}.
 
-Having established the geophysical and environmental context of East Baton Rouge Parish, the following chapter reviews the current state of knowledge in InSAR-based subsidence monitoring, machine learning susceptibility mapping, and temporal forecasting approaches that form the methodological foundation of this study.
-
-\begin{figure}[htbp]
+\begin{figure}[!t]
 \centering
-\includegraphics[width=6.9in,height=5.9in]{media/MyStudyArea.png}
+\includegraphics[width=\textwidth,keepaspectratio]{media/MyStudyArea.png}
 \caption{Location map of East Baton Rouge Parish}
 \label{fig:study_area}
 \end{figure}
 
-\section{Materials }
+Having established the geophysical and environmental context of East Baton Rouge Parish, the following chapter reviews the current state of knowledge in InSAR-based subsidence monitoring, machine learning susceptibility mapping, and temporal forecasting approaches that form the methodological foundation of this study.
+
+\section{Materials}
 This study utilises a comprehensive set of satellite data, auxiliary geospatial datasets,
 atmospheric products, and open-source software tools to drive ten (8) years (2017-2025) of ground 
 deformation and velocity estimates using timeseries SBAS-InSAR techniques.
@@ -295,18 +295,86 @@ widely adopted for atmospheric phase screen correction in InSAR studies \citep{H
 \subsection{Geospatial Conditioning Factors}
 A total of fifteen (15) geospatial conditioning factors were prepared at 30 m resolution and 
 aligned to a common spatial grid for land subsidence susceptibility modelling.
-These factors were grouped into topographic, geological, hydrological, structural/tectonic, infrastructure, climatic, and anthropogenic categories, reflecting the multi-causal nature of land subsidence processes.
+These factors were grouped into topographic, geological, hydrological, structural/tectonic, infrastructure, climatic, and anthropogenic categories, reflecting the multi-causal nature of land subsidence processes (Figures~\ref{fig:topo_factors}--\ref{fig:anthro_factors}).
 
-\begin{itemize}
-\item Topographic factors: Digital Elevation Model (DEM), slope, aspect, Topographic Position Index (TPI), curvature, Topographic Wetness Index (TWI).
-\item Geological factors: geology, Land Use/Land Cover (LULC).
-\item Hydrological factors: distance from river.
-\item Structural/Tectonic factors: distance from fault (Baton Rouge and Denham Springs fault systems).
-\item Infrastructure factors: distance from road, distance from railway, distance from bridge.
-\item Climatic factors: precipitation.
-\item Anthropogenic factors: well\_idw (interpolated groundwater well influence).
-\end{itemize}
-Continuous layers were min--max scaled; categorical layers (geology, LULC) were one-hot encoded.
+\subsubsection{Topographic Factors}
+Six topographic attributes were derived from the 30 m DEM: elevation, slope, aspect, Topographic Position Index (TPI), curvature, and Topographic Wetness Index (TWI). These parameters characterize terrain morphology and control surface water flow, soil moisture distribution, and differential loading conditions that influence subsidence susceptibility.
+
+\begin{figure}[htbp]
+\centering
+\begin{tabular}{cc}
+\includegraphics[width=0.48\textwidth]{All_layers/dem.png} &
+\includegraphics[width=0.48\textwidth]{All_layers/slope.png} \\
+(a) Digital Elevation Model & (b) Slope \\
+\includegraphics[width=0.48\textwidth]{All_layers/aspect.png} &
+\includegraphics[width=0.48\textwidth]{All_layers/TPI.png} \\
+(c) Aspect & (d) Topographic Position Index \\
+\includegraphics[width=0.48\textwidth]{All_layers/Curvature.png} &
+\includegraphics[width=0.48\textwidth]{All_layers/twi.png} \\
+(e) Curvature & (f) Topographic Wetness Index
+\end{tabular}
+\caption{Topographic conditioning factors for subsidence susceptibility mapping}
+\label{fig:topo_factors}
+\end{figure}
+
+\subsubsection{Geological Factors}
+Geological characteristics include bedrock geology and Land Use/Land Cover (LULC), which control subsurface compressibility and surface loading patterns.
+
+\begin{figure}[htbp]
+\centering
+\begin{tabular}{cc}
+\includegraphics[width=0.48\textwidth]{All_layers/geology.png} &
+\includegraphics[width=0.48\textwidth]{All_layers/lulcnew.png} \\
+(a) Geology & (b) Land Use/Land Cover
+\end{tabular}
+\caption{Geological conditioning factors}
+\label{fig:geo_factors}
+\end{figure}
+
+\subsubsection{Hydrological and Structural Factors}
+Distance from rivers and faults represent hydrological connectivity and structural controls on subsidence. The Baton Rouge and Denham Springs fault systems introduce spatially heterogeneous deformation patterns.
+
+\begin{figure}[htbp]
+\centering
+\begin{tabular}{cc}
+\includegraphics[width=0.48\textwidth]{All_layers/distanceriver.png} &
+\includegraphics[width=0.48\textwidth]{All_layers/dtf.png} \\
+(a) Distance to River & (b) Distance to Fault
+\end{tabular}
+\caption{Hydrological and structural conditioning factors}
+\label{fig:hydro_struct_factors}
+\end{figure}
+
+\subsubsection{Infrastructure Factors}
+Proximity to roads, railways, and bridges quantifies surface loading from built infrastructure.
+
+\begin{figure}[htbp]
+\centering
+\begin{tabular}{ccc}
+\includegraphics[width=0.32\textwidth]{All_layers/distancefrod.png} &
+\includegraphics[width=0.32\textwidth]{All_layers/distancerail.png} &
+\includegraphics[width=0.32\textwidth]{All_layers/distancebridge.png} \\
+(a) Distance to Road & (b) Distance to Railway & (c) Distance to Bridge
+\end{tabular}
+\caption{Infrastructure conditioning factors}
+\label{fig:infra_factors}
+\end{figure}
+
+\subsubsection{Climatic and Anthropogenic Factors}
+Precipitation represents climatic variability, while interpolated groundwater well influence (well\_idw) quantifies anthropogenic groundwater extraction patterns.
+
+\begin{figure}[htbp]
+\centering
+\begin{tabular}{cc}
+\includegraphics[width=0.48\textwidth]{All_layers/preci.png} &
+\includegraphics[width=0.48\textwidth]{All_layers/well.png} \\
+(a) Precipitation & (b) Groundwater Well Influence
+\end{tabular}
+\caption{Climatic and anthropogenic conditioning factors}
+\label{fig:anthro_factors}
+\end{figure}
+
+Continuous layers were min--max scaled to [0,1]; categorical layers (geology, LULC) were one-hot encoded.
 
 \subsection{Validation Data}
 InSAR-derived deformation was validated using GNSS vertical displacement time series
