@@ -319,7 +319,7 @@ Six topographic attributes were derived from the 30 m DEM: elevation, slope, asp
 \end{figure}
 
 \subsubsection{Geological Factors}
-Geological characteristics include bedrock geology and Land Use/Land Cover (LULC), which control subsurface compressibility and surface loading patterns.
+Geological characteristics include bedrock geology and Land Use/Land Cover (LULC), which control subsurface compressibility and surface loading patterns (Figure~\ref{fig:geo_factors}).
 
 \begin{figure}[htbp]
 \centering
@@ -333,7 +333,7 @@ Geological characteristics include bedrock geology and Land Use/Land Cover (LULC
 \end{figure}
 
 \subsubsection{Hydrological and Structural Factors}
-Distance from rivers and faults represent hydrological connectivity and structural controls on subsidence. The Baton Rouge and Denham Springs fault systems introduce spatially heterogeneous deformation patterns.
+Distance from rivers and faults represent hydrological connectivity and structural controls on subsidence (Figure~\ref{fig:hydro_struct_factors}). The Baton Rouge and Denham Springs fault systems introduce spatially heterogeneous deformation patterns.
 
 \begin{figure}[htbp]
 \centering
@@ -347,7 +347,7 @@ Distance from rivers and faults represent hydrological connectivity and structur
 \end{figure}
 
 \subsubsection{Infrastructure Factors}
-Proximity to roads, railways, and bridges quantifies surface loading from built infrastructure.
+Proximity to roads, railways, and bridges quantifies surface loading from built infrastructure (Figure~\ref{fig:infra_factors}).
 
 \begin{figure}[htbp]
 \centering
@@ -691,6 +691,8 @@ where $\hat{y}$ represents the final prediction of the Random Forest model.
 \section{Feature Importance and Model Explainability}
 The inherent black-box nature of ensemble machine learning models, despite their superior predictive performance, presents significant challenges for interpretability in scientific applications. To address this limitation and enhance understanding of the decision-making processes underlying subsidence predictions, this study employs three complementary explainability techniques: SHAP, LIME, and MDI. These methods collectively provide both global and local interpretations of model behavior, feature importance, and individual prediction rationales \citep{Lundberg2017,yu_explainable_2025}.
 
+
+
 \subsection{MDI}
 MDI serves as a tree-based feature importance measure that quantifies the total reduction in node impurity attributable to splits on each feature, averaged across all trees in the ensemble \citep{Breiman2001}. For tree-based models such as RF and ET, MDI is computed during training by accumulating the weighted impurity decrease for each feature at every node where it is used for splitting. Mathematically, the importance $I_j$ of feature $j$ is expressed as:
 \begin{equation}
@@ -919,28 +921,24 @@ This chapter presents the integrated results of SBAS-InSAR deformation analysis,
 
 \section{SBAS-InSAR Deformation Analysis}
 
-The SBAS-InSAR processing of 246 Sentinel-1 acquisitions (2017--2025) produced a spatially continuous velocity field at 30~m resolution covering the entire study area (Figure~\ref{fig:velocity_map}). The mean vertical displacement velocity across East Baton Rouge Parish was $-2.47$~mm/yr, with a standard deviation of $\pm 1.83$~mm/yr. Maximum subsidence rates of $-12.3$~mm/yr were observed in the southern urban corridor near the Baton Rouge fault zone, while minor uplift of $+2.1$~mm/yr occurred in elevated forested areas in the northern portion of the parish.
+The SBAS-InSAR processing of 246 Sentinel-1 acquisitions (2017--2025) produced a spatially continuous velocity field at 30~m resolution covering the entire study area (Figure~\ref{fig:sbas_results}). The mean vertical displacement velocity across East Baton Rouge Parish was $-2.47$~mm/yr, with a standard deviation of $\pm 1.83$~mm/yr. Maximum subsidence rates of $-12.3$~mm/yr were observed in the southern urban corridor near the Baton Rouge fault zone, while minor uplift of $+2.1$~mm/yr occurred in elevated forested areas in the northern portion of the parish.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.49\textwidth]{media/sbas_vel.png}
-\includegraphics[width=0.49\textwidth]{media/sbas_susc.png}
+\begin{tabular}{cc}
+\includegraphics[width=0.48\textwidth]{media/sbas_vel.png} &
+\includegraphics[width=0.48\textwidth]{media/sbas_susc.png} \\
+(a) SBAS-InSAR Velocity & (b) SBAS-InSAR Susceptibility
+\end{tabular}
 \caption{SBAS-InSAR results: (a) Mean vertical velocity (mm/yr) showing subsidence (red-orange) and uplift (blue); (b) Derived susceptibility classification.}
-\label{fig:velocity_map}
+\label{fig:sbas_results}
 \end{figure}
 
 Spatial analysis reveals distinct subsidence patterns controlled by geological and anthropogenic factors. High subsidence rates ($>5$~mm/yr) concentrate in: (1) the southern urban corridor along Interstate 10, where infrastructure loading and impervious surfaces dominate; (2) areas within 2~km of the Baton Rouge and Denham Springs fault systems; and (3) zones of intensive groundwater extraction from the Southern Hills Aquifer System. These patterns are consistent with findings from other Gulf Coast urban areas where aquifer compaction and structural controls interact \citep{Higgins2016}.
 
 Approximately 78\% of pixels maintained temporal coherence $>0.7$ throughout the 8-year observation period, demonstrating SBAS-InSAR effectiveness in the mixed urban-rural environment. Reduced coherence occurred primarily in agricultural fields and wetland areas due to vegetation-induced decorrelation \citep{Berardino2002}.
 
-Time-series displacement analysis at representative locations reveals predominantly linear deformation trends with minor seasonal variability (Figure~\ref{fig:timeseries}). Urban areas exhibit steady subsidence averaging $-3.8$~mm/yr with minimal seasonal fluctuation, indicating sustained compaction driven by static infrastructure loading and groundwater extraction. Agricultural zones show slightly higher seasonal variability ($\pm 1.2$~mm), likely reflecting irrigation-induced soil moisture changes. Fault-proximal areas display the highest subsidence rates ($-5$ to $-8$~mm/yr) with episodic acceleration during dry periods. No significant deceleration was observed during the monitoring period, indicating ongoing aquifer-system compaction without recovery.
-
-\begin{figure}[!t]
-\centering
-% \includegraphics[width=0.9\textwidth]{results/timeseries_plots.png}
-\caption{Time-series displacement at representative locations: (A) urban, (B) agricultural, (C) fault-proximal, (D) stable reference, (E) well cluster.}
-\label{fig:timeseries}
-\end{figure}
+Time-series displacement analysis at representative locations reveals predominantly linear deformation trends with minor seasonal variability. Urban areas exhibit steady subsidence averaging $-3.8$~mm/yr with minimal seasonal fluctuation, indicating sustained compaction driven by static infrastructure loading and groundwater extraction. Agricultural zones show slightly higher seasonal variability ($\pm 1.2$~mm), likely reflecting irrigation-induced soil moisture changes. Fault-proximal areas display the highest subsidence rates ($-5$ to $-8$~mm/yr) with episodic acceleration during dry periods. No significant deceleration was observed during the monitoring period, indicating ongoing aquifer-system compaction without recovery.
 
 \subsection{GNSS Validation}
 
@@ -986,32 +984,38 @@ ET achieved superior performance across all metrics, with test $R^2 = 0.9236$ co
 \centering
 \caption{Model performance comparison}
 \label{tab:model_performance}
-\begin{tabular}{lcccc}
+\begin{tabular}{lccc}
 \hline
-\textbf{Model} & \textbf{$R^2$} & \textbf{RMSE (mm/yr)} & \textbf{MAE (mm/yr)} & \textbf{Training Time (s)} \\
+\textbf{Model} & \textbf{$R^2$} & \textbf{RMSE (mm/yr)} & \textbf{MAE (mm/yr)} \\
 \hline
-Extra Trees    & 0.9236 & 1.10 & 0.72 & 45 \\
-Random Forest  & 0.8278 & 1.65 & 1.16 & 120 \\
+Extra Trees    & 0.9236 & 1.10 & 0.72 \\
+Random Forest  & 0.8278 & 1.65 & 1.16 \\
 \hline
 \end{tabular}
 \end{table}
 
-The optimized models were applied to generate spatially continuous maps at 30~m resolution. Predicted velocities range from $-11.2$ to $+1.8$~mm/yr. Susceptibility classification identified: high-risk zones ($>5$~mm/yr subsidence) covering 89~km$^2$ (18.9\% of parish area), moderate-risk (2--5~mm/yr) covering 156~km$^2$ (33.1\%), and low-risk ($<2$~mm/yr) covering 226~km$^2$ (48.0\%).
+The optimized models were applied to generate spatially continuous maps at 30~m resolution (Figures~\ref{fig:et_results} and \ref{fig:rf_results}). Predicted velocities range from $-11.2$ to $+1.8$~mm/yr. Susceptibility classification identified: high-risk zones ($>5$~mm/yr subsidence) covering 89~km$^2$ (18.9\% of parish area), moderate-risk (2--5~mm/yr) covering 156~km$^2$ (33.1\%), and low-risk ($<2$~mm/yr) covering 226~km$^2$ (48.0\%).
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.49\textwidth]{media/et_vel.png}
-\includegraphics[width=0.49\textwidth]{media/et_susc.png}
-\caption{Extra Trees model results: (a) Predicted velocity (mm/yr); (b) Susceptibility classification. High-risk zones concentrate along the southern urban corridor and fault-proximal areas.}
-\label{fig:susceptibility_map_et}
+\begin{tabular}{cc}
+\includegraphics[width=0.48\textwidth]{media/et_vel.png} &
+\includegraphics[width=0.48\textwidth]{media/et_susc.png} \\
+(c) Extra Trees Predicted Velocity & (d) Extra Trees Susceptibility
+\end{tabular}
+\caption{Extra Trees model results: (c) Predicted velocity (mm/yr); (d) Susceptibility classification. High-risk zones concentrate along the southern urban corridor and fault-proximal areas.}
+\label{fig:et_results}
 \end{figure}
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.49\textwidth]{media/rf_vel.png}
-\includegraphics[width=0.49\textwidth]{media/rf_susc.png}
-\caption{Random Forest model results: (a) Predicted velocity (mm/yr); (b) Susceptibility classification. Spatial patterns are similar to ET but with less pronounced gradients.}
-\label{fig:susceptibility_map_rf}
+\begin{tabular}{cc}
+\includegraphics[width=0.48\textwidth]{media/rf_vel.png} &
+\includegraphics[width=0.48\textwidth]{media/rf_susc.png} \\
+(e) Random Forest Predicted Velocity & (f) Random Forest Susceptibility
+\end{tabular}
+\caption{Random Forest model results: (e) Predicted velocity (mm/yr); (f) Susceptibility classification. Spatial patterns are similar to ET but with less pronounced gradients.}
+\label{fig:rf_results}
 \end{figure}
 
 The spatial distribution of high-risk zones reveals clear relationships with conditioning factors. Urban centers, particularly along the I-10 corridor and downtown Baton Rouge, exhibit elevated susceptibility due to concentrated infrastructure loading, impervious surface coverage reducing groundwater recharge, and intensive extraction from municipal wells. Areas within 2~km of the Baton Rouge and Denham Springs fault systems display enhanced susceptibility, consistent with structural controls on permeability and sediment compressibility \citep{Zou2016}. Agricultural zones in the eastern parish show moderate susceptibility related to irrigation practices and seasonal soil moisture variations.
@@ -1040,17 +1044,23 @@ The River\_DEM interaction reveals that elevation modulates hydrological influen
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.49\textwidth]{media/shap_sum_et.png}
-\includegraphics[width=0.49\textwidth]{media/shap_sum_rf.png}
-\caption{SHAP summary plots for ET (left) and RF (right). Red = high feature value, blue = low.}
+\begin{tabular}{cc}
+\includegraphics[width=0.48\textwidth]{media/shap_sum_et.png} &
+\includegraphics[width=0.48\textwidth]{media/shap_sum_rf.png} \\
+(a) SHAP Summary (Extra Trees) & (b) SHAP Summary (Random Forest)
+\end{tabular}
+\caption{SHAP summary plots: (a) Extra Trees; (b) Random Forest. Red = high feature value, blue = low.}
 \label{fig:shap_summary}
 \end{figure}
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.49\textwidth]{media/shap_bar_et.png}
-\includegraphics[width=0.49\textwidth]{media/shap_bar_rf.png}
-\caption{SHAP bar plots showing mean absolute SHAP values for ET (left) and RF (right).}
+\begin{tabular}{cc}
+\includegraphics[width=0.48\textwidth]{media/shap_bar_et.png} &
+\includegraphics[width=0.48\textwidth]{media/shap_bar_rf.png} \\
+(a) SHAP Bar Plot (Extra Trees) & (b) SHAP Bar Plot (Random Forest)
+\end{tabular}
+\caption{SHAP bar plots showing mean absolute SHAP values: (a) Extra Trees; (b) Random Forest.}
 \label{fig:shap_bar}
 \end{figure}
 
@@ -1058,9 +1068,12 @@ LIME analysis (Figure~\ref{fig:lime_examples}) provides interpretable local expl
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.49\textwidth]{media/lime_et.png}
-\includegraphics[width=0.49\textwidth]{media/lime_rf.png}
-\caption{LIME local explanations for representative high-subsidence locations. Orange bars indicate positive contributions to subsidence; blue bars indicate negative contributions.}
+\begin{tabular}{cc}
+\includegraphics[width=0.48\textwidth]{media/lime_et.png} &
+\includegraphics[width=0.48\textwidth]{media/lime_rf.png} \\
+(a) LIME Explanation (Extra Trees) & (b) LIME Explanation (Random Forest)
+\end{tabular}
+\caption{LIME local explanations for representative high-subsidence locations: (a) Extra Trees; (b) Random Forest. Orange bars indicate positive contributions to subsidence; blue bars indicate negative contributions.}
 \label{fig:lime_examples}
 \end{figure}
 
@@ -1093,23 +1106,26 @@ Bias (mm)       & $-4.03$ \\
 \end{tabular}
 \end{table}
 
-Autoregressive forecasting to 2030 (Figure~\ref{fig:forecast_maps}) indicates progressive stabilization, with mean velocity declining from the historical baseline of $-2.47$~mm/yr to $-0.530$~mm/yr by 2030---a 78.5\% reduction. This deceleration aligns with physical expectations of aquifer-system compaction approaching steady state as pore-pressure equilibration progresses \citep{Higgins2016}. Cumulative displacement from 2025 to 2030 reaches $-6.42$~mm in persistent high-subsidence zones, with spatial variability ranging from $-1.2$ to $-12.8$~mm.
+Autoregressive forecasting to 2030 (Figure~\ref{fig:lstm_forecast_results}) indicates progressive stabilization, with mean velocity declining from the historical baseline of $-2.47$~mm/yr to $-0.530$~mm/yr by 2030---a 78.5\% reduction. This deceleration aligns with physical expectations of aquifer-system compaction approaching steady state as pore-pressure equilibration progresses \citep{Higgins2016}. Cumulative displacement from 2025 to 2030 reaches $-6.42$~mm in persistent high-subsidence zones, with spatial variability ranging from $-1.2$ to $-12.8$~mm.
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.49\textwidth]{media/lstm_vel.png}
-\includegraphics[width=0.49\textwidth]{media/lstm_susc.png}
+\begin{tabular}{cc}
+\includegraphics[width=0.48\textwidth]{media/lstm_vel.png} &
+\includegraphics[width=0.48\textwidth]{media/lstm_susc.png} \\
+(a) LSTM Forecasted Velocity & (b) LSTM Forecasted Susceptibility
+\end{tabular}
 \caption{Physics-informed LSTM forecasts to 2030: (a) Predicted velocity showing gradual stabilization; (b) Forecasted susceptibility classification indicating persistent high-risk zones.}
-\label{fig:forecast_maps}
+\label{fig:lstm_forecast_results}
 \end{figure}
 
-Time-series forecasts at representative locations (Figure~\ref{fig:forecast_timeseries}) reveal spatially heterogeneous stabilization rates. Urban centers in the I-10 corridor exhibit slower stabilization ($\sim 15$\% velocity reduction by 2030), reflecting sustained infrastructure loading, continued groundwater demand, and thick compressible clay sequences. In contrast, agricultural and fault-proximal areas show more rapid deceleration ($\sim 35$\% reduction), potentially due to coarser sediments, enhanced permeability near fault damage zones, and seasonal pumping variability.
+Time-series forecasts at representative locations (Figure~\ref{fig:lstm_timeseries}) reveal spatially heterogeneous stabilization rates. Urban centers in the I-10 corridor exhibit slower stabilization ($\sim 15$\% velocity reduction by 2030), reflecting sustained infrastructure loading, continued groundwater demand, and thick compressible clay sequences. In contrast, agricultural and fault-proximal areas show more rapid deceleration ($\sim 35$\% reduction), potentially due to coarser sediments, enhanced permeability near fault damage zones, and seasonal pumping variability.
 
 \begin{figure}[!t]
 \centering
 \includegraphics[width=0.95\textwidth]{media/lstm_ts.png}
 \caption{Forecasted time-series at four representative locations showing varied stabilization rates. Blue: InSAR observations (2017--2025); green/orange: LSTM forecasts (2025--2030). Smooth transitions demonstrate physics-constraint effectiveness.}
-\label{fig:forecast_timeseries}
+\label{fig:lstm_timeseries}
 \end{figure}
 
 Forecast uncertainty, quantified through ensemble prediction with stochastic noise injection, increases with forecast horizon but remains sublinear due to physics-informed stabilization. One-year-ahead forecasts exhibit uncertainty of $\pm 2.1$~mm/yr ($\sim 12$\% of predicted value), growing to $\pm 4.8$~mm/yr ($\sim 28$\%) for five-year-ahead forecasts. The physics constraints reduce uncertainty growth by approximately 35\% compared to unconstrained LSTM, demonstrating their effectiveness for long-term extrapolation \citep{Mirmazloumi2023}.
@@ -1133,17 +1149,109 @@ The results provide actionable information for multiple stakeholders:
 \end{itemize}
 
 
-\section{Limitations}
+\chapter[Conclusions and Recommendations]{\centering Conclusions and Recommendations}
 
-Key limitations include:
+This chapter summarizes the key findings of this research, presents recommendations for land subsidence management in East Baton Rouge Parish, discusses study limitations, and suggests directions for future research.
+
+\section{Summary of Key Findings}
+
+This study developed an integrated framework for land subsidence susceptibility mapping and spatio-temporal forecasting in East Baton Rouge Parish by combining Sentinel-1 SBAS-InSAR observations with machine learning and physics-informed deep learning approaches. The key findings are:
+
+\begin{enumerate}
+\item \textbf{SBAS-InSAR Deformation Analysis:} Processing of 246 Sentinel-1 acquisitions (2017--2025) revealed mean subsidence velocities of $-2.47 \pm 1.83$~mm/yr across the study area, with maximum rates of $-12.3$~mm/yr in the southern urban corridor near the Baton Rouge fault zone. Approximately 78\% of pixels maintained coherence $>0.7$, demonstrating SBAS-InSAR effectiveness in mixed urban-rural environments.
+
+\item \textbf{Susceptibility Mapping Performance:} Extra Trees Regressor achieved superior performance ($R^2 = 0.9236$, RMSE = 1.10~mm/yr) compared to Random Forest ($R^2 = 0.8278$, RMSE = 1.65~mm/yr), confirming ET as the optimal spatial model for subsidence susceptibility in sedimentary basin environments.
+
+\item \textbf{Dominant Subsidence Drivers:} SHAP-based explainability analysis identified Land Use/Land Cover (23.4\%), distance to faults (18.7\%), River-DEM interaction (12.3\%), elevation (9.8\%), and groundwater well influence (8.2\%) as the primary conditioning factors controlling subsidence susceptibility.
+
+\item \textbf{Temporal Forecasting:} The physics-informed Bi-LSTM model achieved strong validation performance ($R^2 = 0.834$, Pearson $r = 0.918$) and projected gradual stabilization through 2030, with mean velocity declining to $-0.530$~mm/yr (78.5\% reduction) and cumulative displacement of $-6.42$~mm in persistent high-risk zones.
+
+\item \textbf{Spatial Risk Distribution:} High-risk zones ($>5$~mm/yr) cover 89~km$^2$ (18.9\% of parish area), concentrated along the I-10 corridor, within 2~km of fault systems, and in areas of intensive groundwater extraction.
+\end{enumerate}
+
+\section{Conclusions}
+
+Based on the research findings, the following conclusions are drawn:
+
+\begin{enumerate}
+\item The integration of SBAS-InSAR with ensemble machine learning provides a robust framework for regional-scale subsidence susceptibility assessment, achieving high predictive accuracy while maintaining interpretability through explainable AI techniques.
+
+\item Land subsidence in East Baton Rouge Parish is controlled by the coupled interaction of anthropogenic factors (urbanization, groundwater extraction) and geological/structural controls (fault proximity, sediment compressibility), rather than single dominant drivers.
+
+\item Physics-informed constraints effectively stabilize long-term LSTM forecasts, preventing unrealistic velocity reversals and acceleration while maintaining predictive accuracy---addressing a critical limitation of purely data-driven approaches.
+
+\item The observed subsidence rates ($-2$ to $-8$~mm/yr) indicate ongoing inelastic aquifer-system compaction that is likely irreversible under current groundwater management practices, though the forecast suggests gradual deceleration toward steady-state conditions.
+
+\item The methodology developed in this study is transferable to other subsidence-prone urban areas in sedimentary basin environments, providing a template for integrated monitoring and forecasting frameworks.
+\end{enumerate}
+
+\section{Recommendations}
+
+Based on the findings and conclusions, the following recommendations are provided for subsidence management in East Baton Rouge Parish:
+
+\subsection{Urban Planning and Land Use}
 \begin{itemize}
-\item \textbf{InSAR}: Reduced coherence in vegetated areas; residual atmospheric artifacts; LOS projection assumes vertical motion.
-\item \textbf{ML Models}: Assumes temporal stationarity; limited to 15 conditioning factors; spatial extrapolation untested.
-\item \textbf{Forecasting}: 5-year extrapolation beyond observations; assumes constant extraction patterns; limited 2-year validation period.
-\item \textbf{Validation}: Only two GNSS stations available; no independent levelling data.
+\item Designate high-susceptibility zones (particularly within 2~km of fault systems) for restricted high-density development.
+\item Incorporate subsidence risk maps into zoning regulations alongside traditional flood and seismic hazard assessments.
+\item Require geotechnical assessments for major construction projects in moderate-to-high susceptibility areas.
+\item Prioritize green infrastructure and permeable surfaces in new developments to enhance groundwater recharge.
 \end{itemize}
 
-Future work should expand GNSS coverage, integrate multi-satellite InSAR, incorporate detailed hydrogeological data, and implement coupled groundwater-subsidence modeling.
+\subsection{Infrastructure Management}
+\begin{itemize}
+\item Conduct structural assessments for critical infrastructure in zones forecasted to exceed $-10$~mm cumulative displacement by 2030, including I-10 segments, Mississippi River bridge approaches, and major pipeline corridors.
+\item Implement adaptive foundation designs for new infrastructure in high-risk areas.
+\item Establish routine monitoring protocols for bridges, levees, and underground utilities in subsidence-affected zones.
+\item Develop early warning systems based on InSAR-derived deformation thresholds.
+\end{itemize}
+
+\subsection{Groundwater Management}
+\begin{itemize}
+\item Regulate groundwater extraction in high-well-density clusters identified through SHAP analysis.
+\item Implement managed aquifer recharge (MAR) programs in the Southern Hills Aquifer System to offset extraction-induced compaction.
+\item Establish pumping quotas informed by subsidence susceptibility mapping to balance water supply needs with ground stability.
+\item Monitor groundwater levels in conjunction with InSAR observations to establish extraction-subsidence relationships.
+\end{itemize}
+
+\subsection{Monitoring and Early Warning}
+\begin{itemize}
+\item Expand GNSS station coverage in fault-proximal areas and high-subsidence zones for continuous ground-truth validation.
+\item Integrate multi-satellite InSAR (Sentinel-1, NISAR, ALOS-4) to improve temporal resolution and reduce atmospheric artifacts.
+\item Develop an operational subsidence monitoring dashboard for stakeholders using the forecasting framework established in this study.
+\item Establish deformation thresholds for infrastructure alert levels based on cumulative displacement forecasts.
+\end{itemize}
+
+\section{Study Limitations}
+
+This study has several limitations that should be considered when interpreting results:
+
+\begin{itemize}
+\item \textbf{InSAR Limitations:} Reduced coherence in vegetated and wetland areas limits spatial coverage; residual atmospheric artifacts may persist despite ERA5 correction; line-of-sight measurements assume predominantly vertical motion, which may not hold near active faults.
+
+\item \textbf{Machine Learning Constraints:} Models assume temporal stationarity of conditioning factor relationships; analysis is limited to 15 conditioning factors and may omit relevant variables (e.g., detailed soil stratigraphy, aquifer storage coefficients); spatial extrapolation beyond the training domain is untested.
+
+\item \textbf{Forecasting Uncertainties:} Five-year extrapolation beyond the observation period introduces increasing uncertainty; forecasts assume constant groundwater extraction patterns and urban development trajectories; the two-year validation period (2024--2025) may not capture long-term forecast skill.
+
+\item \textbf{Validation Data Scarcity:} Only three GNSS stations were available for validation; no independent levelling or extensometer data were accessible for cross-validation of InSAR-derived displacements.
+\end{itemize}
+
+\section{Future Research Directions}
+
+To address the identified limitations and advance subsidence research in the region, future work should:
+
+\begin{enumerate}
+\item \textbf{Expand Ground-Truth Networks:} Install additional GNSS stations and extensometers in high-subsidence zones to improve InSAR validation and enable aquifer-specific compaction monitoring.
+
+\item \textbf{Integrate Multi-Source InSAR:} Combine Sentinel-1 with upcoming NISAR L-band and ALOS-4 missions to improve coherence in vegetated areas and enable multi-frequency deformation analysis.
+
+\item \textbf{Incorporate Hydrogeological Data:} Integrate detailed aquifer stratigraphy, hydraulic conductivity, and storage coefficients to develop physics-based compaction models that complement data-driven approaches.
+
+\item \textbf{Implement Coupled Modeling:} Develop coupled groundwater flow-subsidence models that link extraction scenarios to predicted deformation, enabling scenario-based planning for water resource management.
+
+\item \textbf{Extend Temporal Analysis:} Continue InSAR monitoring to validate long-term forecasts and refine physics-informed LSTM parameters based on observed stabilization trends.
+
+\item \textbf{Regional Transferability:} Apply the integrated framework to other Gulf Coast urban areas (e.g., New Orleans, Houston) to assess methodology transferability and identify region-specific adaptations.
+\end{enumerate}
 
 
 \chapter[References]{\centering References}
