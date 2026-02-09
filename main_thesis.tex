@@ -561,13 +561,13 @@ Feature engineering was conducted to enhance the predictive capability of the ma
 \subsection{Interaction Feature Construction}
 Several interaction variables were generated to represent the combined influence of topographic, geological, and hydrological parameters on land displacement processes. Interaction features allow machine learning models to capture complex dependencies that cannot be represented using original variables alone \citep{Kuhn2019}. The following interaction terms were created:
 \begin{equation}
-\text{Fault\_DEM} = D_f \times E
+\text{DTFDEM} = D_f \times E
 \end{equation}
 \begin{equation}
-\text{River\_DEM} = D_r \times E
+\text{DTRDEM} = D_r \times E
 \end{equation}
 \begin{equation}
-\text{Slope\_DEM} = S \times E
+\text{SlopeDEM} = S \times E
 \end{equation}
 where $D_f$ represents distance from geological faults, $D_r$ denotes distance from rivers, $E$ is elevation derived from the Digital Elevation Model (DEM), and $S$ is slope angle. These interaction variables represent how elevation modifies the influence of tectonic structures, drainage networks, and terrain steepness on surface deformation mechanisms.
 
@@ -575,17 +575,17 @@ where $D_f$ represents distance from geological faults, $D_r$ denotes distance f
 \subsection{Polynomial Feature Generation}
 To model nonlinear relationships between conditioning factors and displacement velocity, second-order polynomial features were introduced. Polynomial expansion enables machine learning models to better approximate curved response patterns and threshold effects \citep{Hastie2009}. The following squared variables were computed:
 \begin{equation}
-\text{Fault\_squared} = D_f^2
+\text{DTF2} = D_f^2
 \end{equation}
 \begin{equation}
-\text{DEM\_squared} = E^2
+\text{DEM2} = E^2
 \end{equation}
 These features allow the models to capture nonlinear amplification or attenuation effects associated with proximity to fault zones and elevation gradients.
 
 \subsection{Logarithmic Transformation}
 Certain distance-related variables exhibited positive skewness and heteroscedasticity. To reduce distributional asymmetry and stabilize variance, logarithmic transformation was applied \citep{Osborne2010}. The transformed variable was calculated as:
 \begin{equation}
-\text{log\_Fault} = \ln(D_f + 1)
+\text{logDTF} = \ln(D_f + 1)
 \end{equation}
 where the constant 1 prevents undefined values when $D_f = 0$. Logarithmic scaling compresses extreme values and enhances model sensitivity to small-scale variations in fault-proximal regions.
 
@@ -904,6 +904,7 @@ r = \frac{\sum_{i=1}^{n}(y_i - \bar{y})(\hat{y}_i - \bar{\hat{y}})}{\sqrt{\sum_{
 \end{equation}
 where $\bar{\hat{y}}$ represents the mean of predicted values. Pearson correlation ranges from $-1$ to $+1$, with values near $+1$ indicating strong positive linear correspondence. Unlike $R^2$, which assesses goodness-of-fit, the Pearson coefficient evaluates whether predictions and observations co-vary proportionally, making it valuable for assessing temporal pattern replication in time-series forecasting.
 
+
 \subsection{Nash-Sutcliffe Efficiency}
 The Nash-Sutcliffe Efficiency (NSE) coefficient is widely used in hydrological and geophysical modeling to evaluate predictive skill relative to a baseline mean model \citep{Nash1970}:
 \begin{equation}
@@ -941,6 +942,7 @@ Approximately 78\% of pixels maintained temporal coherence $>0.7$ throughout the
 Time-series displacement analysis at representative locations reveals predominantly linear deformation trends with minor seasonal variability. Urban areas exhibit steady subsidence averaging $-3.8$~mm/yr with minimal seasonal fluctuation, indicating sustained compaction driven by static infrastructure loading and groundwater extraction. Agricultural zones show slightly higher seasonal variability ($\pm 1.2$~mm), likely reflecting irrigation-induced soil moisture changes. Fault-proximal areas display the highest subsidence rates ($-5$ to $-8$~mm/yr) with episodic acceleration during dry periods. No significant deceleration was observed during the monitoring period, indicating ongoing aquifer-system compaction without recovery.
 
 \subsection{GNSS Validation}
+
 
 InSAR displacements were validated against GNSS measurements from three GulfNet CORS stations (Figure~\ref{fig:gnss_validation}). GNSS components were projected into InSAR LOS using:
 \begin{equation}
@@ -1027,12 +1029,16 @@ These findings are consistent with recent subsidence susceptibility studies that
 
 Understanding the relative contribution of conditioning factors to subsidence susceptibility is essential for developing targeted mitigation strategies. Three complementary explainability techniques---Mean Decrease in Impurity (MDI), SHAP, and LIME---were applied to quantify feature importance and reveal the physical mechanisms driving subsidence in EBRP.
 
-MDI-based feature importance rankings (Figure~\ref{fig:mdi_importance}) identify the top five predictors: (1) LULC (23.4\% relative importance), (2) distance to faults (18.7\%), (3) River\_DEM interaction (12.3\%), (4) DEM (9.8\%), and (5) groundwater well influence (8.2\%). The dominance of LULC reflects the critical role of anthropogenic land modification in controlling subsidence susceptibility, consistent with findings from other urbanizing regions \citep{yu_explainable_2025}. The prominence of interaction terms (River\_DEM, Slope\_DEM) demonstrates that subsidence is controlled by coupled processes rather than individual factors acting independently.
+MDI-based feature importance rankings (Figure~\ref{fig:mdi_importance}) identify the top five predictors: (1) LULC (23.4\% relative importance), (2) DTF (18.7\%), (3) DTRDEM interaction (12.3\%), (4) DEM (9.8\%), and (5) Well (8.2\%). The dominance of LULC reflects the critical role of anthropogenic land modification in controlling subsidence susceptibility, consistent with findings from other urbanizing regions \citep{yu_explainable_2025}. The prominence of interaction terms (DTRDEM, SlopeDEM) demonstrates that subsidence is controlled by coupled processes rather than individual factors acting independently.
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=0.9\textwidth]{media/mdi_imp.png}
-\caption{MDI-based feature importance for ET (left) and RF (right). Both models consistently identify LULC, fault proximity, and topographic-hydrological interactions as dominant controls.}
+\begin{tabular}{cc}
+\includegraphics[width=0.48\textwidth]{media/mdi_imp_et_slim.png} &
+\includegraphics[width=0.48\textwidth]{media/mdi_imp_rf_slim.png} \\
+(a) MDI (Extra Trees) & (b) MDI (Random Forest)
+\end{tabular}
+\caption{MDI-based feature importance: (a) Extra Trees; (b) Random Forest. Both models consistently identify LULC, fault proximity, and topographic-hydrological interactions as dominant controls.}
 \label{fig:mdi_importance}
 \end{figure}
 
@@ -1040,7 +1046,7 @@ SHAP analysis (Figures~\ref{fig:shap_summary} and \ref{fig:shap_bar}) provides d
 
 Distance to faults shows a nonlinear threshold relationship: proximity $<1$~km generates strong positive SHAP values, while distances $>5$~km yield near-zero contributions. This suggests fault-related permeability enhancement and stress concentration are spatially limited to damage zones extending approximately 1~km from primary fault traces.
 
-The River\_DEM interaction reveals that elevation modulates hydrological influences: low-elevation areas near rivers exhibit strong positive SHAP contributions, reflecting thicker compressible sediments, higher water tables, and flooding-induced loading. Groundwater well influence (IDW $>0.8$) consistently produces positive SHAP values $>0.15$, confirming intensive extraction as a primary anthropogenic driver.
+The DTRDEM interaction reveals that elevation modulates hydrological influences: low-elevation areas near rivers exhibit strong positive SHAP contributions, reflecting thicker compressible sediments, higher water tables, and flooding-induced loading. Well influence (IDW $>0.8$) consistently produces positive SHAP values $>0.15$, confirming intensive extraction as a primary anthropogenic driver.
 
 \begin{figure}[!t]
 \centering
@@ -1049,32 +1055,35 @@ The River\_DEM interaction reveals that elevation modulates hydrological influen
 \includegraphics[width=0.48\textwidth]{media/shap_sum_rf.png} \\
 (a) SHAP Summary (Extra Trees) & (b) SHAP Summary (Random Forest)
 \end{tabular}
-\caption{SHAP summary plots: (a) Extra Trees; (b) Random Forest. Red = high feature value, blue = low.}
+\caption{SHAP summary plots: (a) Extra Trees; (b) Random Forest. Color scale in (b): red = high feature value, blue = low.}
 \label{fig:shap_summary}
 \end{figure}
 
 \begin{figure}[!t]
 \centering
 \begin{tabular}{cc}
-\includegraphics[width=0.48\textwidth]{media/shap_bar_et.png} &
-\includegraphics[width=0.48\textwidth]{media/shap_bar_rf.png} \\
+\includegraphics[width=0.48\textwidth]{media/shap_bar_et_slim.png} &
+\includegraphics[width=0.48\textwidth]{media/shap_bar_rf_slim.png} \\
 (a) SHAP Bar Plot (Extra Trees) & (b) SHAP Bar Plot (Random Forest)
 \end{tabular}
 \caption{SHAP bar plots showing mean absolute SHAP values: (a) Extra Trees; (b) Random Forest.}
 \label{fig:shap_bar}
 \end{figure}
 
-LIME analysis (Figure~\ref{fig:lime_examples}) provides interpretable local explanations for individual predictions. For a representative high-subsidence location (predicted $-8.2$~mm/yr), LIME identifies the top contributing features as: urban LULC (+2.8~mm/yr), fault distance = 0.8~km (+2.1~mm/yr), groundwater well influence = 0.85 (+1.6~mm/yr), and low DEM (+1.2~mm/yr). This decomposition confirms that predictions are driven by the confluence of factors consistent with physical subsidence mechanisms.
+LIME analysis (Figures~\ref{fig:lime_et} and \ref{fig:lime_rf}) provides interpretable local explanations for individual predictions. For a representative high-subsidence location (predicted $-8.2$~mm/yr), LIME identifies the top contributing features as: urban LULC (+2.8~mm/yr), fault distance = 0.8~km (+2.1~mm/yr), groundwater well influence = 0.85 (+1.6~mm/yr), and low DEM (+1.2~mm/yr). This decomposition confirms that predictions are driven by the confluence of factors consistent with physical subsidence mechanisms.
 
 \begin{figure}[!t]
 \centering
-\begin{tabular}{cc}
-\includegraphics[width=0.48\textwidth]{media/lime_et.png} &
-\includegraphics[width=0.48\textwidth]{media/lime_rf.png} \\
-(a) LIME Explanation (Extra Trees) & (b) LIME Explanation (Random Forest)
-\end{tabular}
-\caption{LIME local explanations for representative high-subsidence locations: (a) Extra Trees; (b) Random Forest. Orange bars indicate positive contributions to subsidence; blue bars indicate negative contributions.}
-\label{fig:lime_examples}
+\includegraphics[width=0.85\textwidth]{media/lime_et.png}
+\caption{LIME local explanation for Extra Trees model at a representative high-subsidence location. Orange bars indicate positive contributions to subsidence; blue bars indicate negative contributions.}
+\label{fig:lime_et}
+\end{figure}
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.85\textwidth]{media/lime_rf.png}
+\caption{LIME local explanation for Random Forest model at a representative high-subsidence location. Orange bars indicate positive contributions to subsidence; blue bars indicate negative contributions.}
+\label{fig:lime_rf}
 \end{figure}
 
 The consistency across MDI, SHAP, and LIME rankings validates the robustness of identified drivers and strengthens confidence in the physical interpretation. These findings align with established geomechanical understanding of subsidence in sedimentary basins \citep{Higgins2016} and provide actionable information for mitigation: (1) land-use planning should restrict high-density development in fault-proximal zones, (2) groundwater extraction should be regulated in well-dense clusters with consideration for managed aquifer recharge, (3) infrastructure placement should account for enhanced susceptibility at low elevations near rivers, and (4) coupled surface-groundwater management is essential in the southern urban corridor.
