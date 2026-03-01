@@ -170,7 +170,6 @@ I would also like to thank the members of my thesis committee, Dr. Xuelian Meng 
 \textbf{ERA5} & Fifth Generation ECMWF Atmospheric Reanalysis \\
 \textbf{ERT} & Extremely Randomized Trees (Extra Trees) \\
 \textbf{ESA} & European Space Agency \\
-\textbf{ET} & Extra Trees \\
 \textbf{GACOS} & Generic Atmospheric Correction Online Service \\
 \textbf{GNSS} & Global Navigation Satellite System \\
 \textbf{GPS} & Global Positioning System \\
@@ -204,7 +203,7 @@ I would also like to thank the members of my thesis committee, Dr. Xuelian Meng 
 \textbf{PIML} & Physics-Informed Machine Learning \\
 \textbf{PINN} & Physics-Informed Neural Network \\
 \textbf{POEORB} & Precise Orbit Ephemerides \\
-\textbf{PS-InSAR} & Persistent Scatterer InSAR \\
+\textbf{PSI} & Persistent Scatterer Interferometry \\
 \end{tabular}
 
 \newpage
@@ -236,11 +235,26 @@ I would also like to thank the members of my thesis committee, Dr. Xuelian Meng 
 
 \chapter{Abstract}
 
-Land subsidence represents an intensifying geohazard across rapidly developing urban centers including East Baton Rouge Parish, Louisiana, where groundwater pumping, structural loading from development, and geological heterogeneity collectively induce surface deformation, threatening transportation infrastructure, utility networks, and the built environment. This research establishes an integrated analytical framework merging Sentinel-1 SBAS-InSAR observations, ensemble ML algorithms, physics-constrained deep learning, and interpretable AI methodologies to characterize ground deformation patterns, generate subsidence susceptibility assessments, and project future deformation trajectories.
+Land subsidence represents an intensifying geohazard across rapidly developing urban centers, including East Baton Rouge Parish (EBRP), Louisiana. Groundwater withdrawal, 
+structural loading from urban development, and geological heterogeneity collectively drive surface deformation that threatens transportation infrastructure, utility networks, 
+and the built environment. This research develops an integrated analytical framework based on Interferometric Synthetic Aperture Radar (InSAR), a satellite-based geodetic technique for 
+measuring millimeter-scale ground deformation. Sentinel-1 imagery is processed using the Small Baseline Subset (SBAS) time-series approach to derive deformation measurements. 
+The resulting dataset is combined with ensemble machine learning models, physics-constrained deep learning, and interpretable artificial-intelligence methods.
 
-Processing 246 descending-track acquisitions (2017--2025) through SBAS-InSAR revealed spatially concentrated subsidence proximal to fault structures and zones of intensive groundwater withdrawal, particularly within fault-adjacent and alluvial depositional settings. Variance Inflation Factor analysis identified and removed three redundant predictors, yielding twelve independent conditioning factors. ET and RF regressors were trained on these twelve geological, hydrological, topographic, and anthropogenic predictor variables, with Gaussian noise augmentation implemented to strengthen generalization capability. ET attained $R^2 = 0.9236$ compared to $R^2 = 0.8825$ for RF; binarized ROC analysis further confirmed excellent discriminative ability with AUC values of 0.9663 (ET) and 0.9448 (RF). A physics-constrained LSTM network achieved $R^2 = 0.834$ and Pearson $r = 0.918$ when applied to the SBAS-InSAR displacement time-series, effectively capturing complex temporal evolution and non-linear system behavior. The model accurately reconstructed observed cumulative displacement spanning 2017--2025 and generated projections extending to 2030. XAI analysis through SHAP, LIME, and MDI revealed LULC, fault proximity, groundwater well density, and river--elevation interactions as principal controlling factors, providing both aggregate feature rankings and location-specific interpretations.
+Processing 246 descending-track acquisitions using the SBAS approach revealed spatially concentrated subsidence near fault structures and in areas of intensive groundwater withdrawal. 
+These patterns are particularly evident in fault-adjacent zones and alluvial depositional settings. Multicollinearity testing using the variance inflation factor removed three redundant 
+predictors and retained twelve independent conditioning variables. Extremely Randomized Trees (ERT) and 
+random forest (RF) regressors were trained using these geological, hydrological, topographic, and anthropogenic factors, with Gaussian noise added to improve generalization. 
+ERT attained coefficient of regression ($R^2) = 0.9236$ compared to $R^2 = 0.8825$ for RF; binarized ROC analysis further confirmed 
+excellent discriminative ability with AUC values of 0.9663 (ERT) and 0.9448 (RF). A physics-constrained LSTM network achieved $R^2 = 0.834$ and Pearson $r = 0.918$ when applied to the 
+SBAS displacement time-series, effectively capturing complex temporal evolution and non-linear system behavior. The model accurately reconstructed observed cumulative displacement and 
+generated projections extending to 2030. Explainable AI analysis revealed land use/land cover, fault proximity, groundwater well density, and river--elevation 
+interactions as principal controlling factors, providing both aggregate feature rankings and location-specific interpretations.
 
-Projections through 2030 indicate persistent deformation at mean velocities of $-0.530$~mm/year yielding cumulative displacement of $-6.42$~mm. This integrated SBAS-InSAR and AI-based framework enhances predictive capability in areas with reduced coherence while delivering actionable susceptibility assessments supporting urban planning decisions, infrastructure resilience strategies, and groundwater resource management in subsidence-affected regions. The methodology demonstrates robustness, transferability, and reproducibility, facilitating application to comparable urban environments confronting analogous geohazard challenges.
+Projections through 2030 indicate persistent deformation at a mean velocity of $-0.530$~mm/year, accumulating to a total displacement of $-6.42$~mm over the 5-year forecast period.
+The integrated satellite-based and AI framework improves predictive capability in areas with reduced interferometric coherence. It also produces susceptibility maps that support urban planning, 
+infrastructure resilience, and groundwater-resource management in subsidence-affected regions. 
+The methodology is robust, transferable, and reproducible, and can be applied to other urban environments experiencing similar geohazard conditions.
 %% The command "\mainmatter" switches to regular page numbers and
 %% chapter headings that include the word "Chapter".
 \mainmatter
@@ -250,25 +264,26 @@ Projections through 2030 indicate persistent deformation at mean velocities of $
 
 
 Land subsidence refers to the vertical lowering of the ground surface, occurring either gradually over extended periods or abruptly in 
-response to triggering events. Although natural phenomena including sediment compaction, post-glacial rebound, and plate tectonics play a 
-role in surface deformation, anthropogenic influences have emerged as the primary cause of severe subsidence events globally, with human 
-activities contributing to over 80\% of high-impact cases documented worldwide \citep{Higgins2016}. Intensive groundwater pumping, compression 
-of aquifer systems, consolidation of compressible soils, and structural loading from urban development collectively accelerate subsidence rates, 
-threatening infrastructure integrity, water resource sustainability, and flood protection systems in expanding metropolitan areas.
-East Baton Rouge Parish (EBRP), Louisiana, represents a prominent subsidence-prone urban area where geological, hydrological, and 
+response to triggering events. Although natural processes such as sediment compaction, post-glacial rebound, and plate tectonics play a 
+role in surface deformation, anthropogenic influences have emerged as the dominant drivers of severe subsidence worldwide. \citet{Higgins2016} documented that human 
+activities contribute to over 80\% of high-impact subsidence cases worldwide.
+consolidation of compressible soils, and structural loading from urban development collectively accelerate subsidence rates, 
+threatening infrastructure stability, water resource sustainability, and flood protection systems in expanding metropolitan areas.
+East Baton Rouge Parish (EBRP), Louisiana, represents a notable subsidence-prone urban environment where geological, hydrological, and 
 anthropogenic factors interact in a complex manner. The region is characterized by low-relief topography and unconsolidated sediments, 
 making it highly sensitive to pore-pressure reduction caused by intensive pumping from the Southern Hills Aquifer System. Rapid urban 
 expansion and heavy infrastructure loading further exacerbate ground deformation. Structural controls such as the Baton Rouge and 
 Denham Springs fault systems introduce spatially heterogeneous and non-linear deformation patterns, increasing vulnerability to flooding, 
 pipeline rupture, and foundation failure \citep{Zou2016, Abdalla2024}.
 
-Conventional approaches to subsidence monitoring, such as geotechnical investigations, geodetic levelling, and Global Navigation Satellite System (GNSS) / Global Positioning System 
-(GPS) surveys, deliver centimeter-level accuracy but only at isolated measurement points. These methods incur substantial costs and lack the spatial density required for comprehensive 
-regional hazard assessment. Satellite-based InSAR has fundamentally changed the monitoring paradigm by providing spatially continuous displacement measurements at millimeter precision 
-across expansive regions. Multi-temporal InSAR methods, particularly Persistent Scatterer Interferometric Synthetic Aperture Radar (PS-InSAR) and Small Baseline Subset InSAR (SBAS-InSAR), have demonstrated effectiveness in capturing gradual deformation trends across diverse landscapes including urbanized and vegetated terrain \citep{Ferretti2001, Berardino2002, Ferretti2011}.
+Conventional approaches to subsidence monitoring, such as geotechnical investigations, geodetic leveling, and Global Navigation Satellite System (GNSS) surveys, 
+provide centimeter-level accuracy but are limited to discrete measurement points. These methods incur substantial costs and lack the spatial density required for comprehensive 
+regional hazard assessment. Satellite-based InSAR has fundamentally changed the subsidence monitoring by providing spatially continuous displacement measurements at millimeter-scale precision 
+across expansive regions. Multi-temporal InSAR methods, particularly Persistent Scatterer Interferometry (PSI) and Small Baseline Subset (SBAS), have demonstrated effectiveness in 
+capturing gradual deformation trends across diverse landscapes including urbanized and vegetated terrain \citep{Ferretti2001, Berardino2002, Ferretti2011}.
 
-Translating extensive InSAR datasets into dependable spatio-temporal predictions remains difficult given the inherently non-linear and multi-factorial character of subsidence phenomena. 
-Numerical geomechanical models provide mechanistic understanding but demand comprehensive subsurface parameterization that is seldom available at regional extents \citep{Zhou2022}. 
+Translating extensive InSAR datasets into reliable spatio-temporal predictions remains difficult given the inherently non-linear and multi-factorial character of subsidence processes. 
+Numerical geomechanical models provide mechanistic understanding but demand comprehensive subsurface parameterization that is rarely available at regional scales \citep{Zhou2022}. 
 Machine learning approaches have emerged as promising alternatives, capable of extracting complex patterns linking deformation to environmental predictors directly from observational data. 
 Among these, ensemble learning algorithms, particularly the Tree algorithm has exhibited superior performance in susceptibility mapping applications, attributed to its resilience against 
 predictor correlation, capacity to represent non-linear feature interactions, and reduced tendency toward overfitting relative to standard Random Forest implementations \citep{HosseinzadehLLand2024}.
@@ -279,10 +294,10 @@ dependencies within InSAR time series. However, purely data-driven LSTM models m
 extrapolated beyond the observation period. To overcome this limitation, recent studies have emphasized the integration of deep 
 learning with physics-based constraints to improve forecast stability and geomechanical plausibility \citep{Zhu2024}.
 
-Guided by this framework, the present study integrates SBAS-InSAR--derived deformation, Extra Trees and Random Forest--based spatial susceptibility mapping, 
+Guided by this framework, the present study integrates SBAS-derived deformation, Extra Trees and Random Forest--based spatial susceptibility mapping, 
 and a physics-informed LSTM spatio-temporal forecasting approach enhanced with explainable artificial intelligence. This integrated methodology 
 provides a robust, interpretable, and geomechanically consistent framework for assessing present-day subsidence patterns and generating reliable
-projections of ground deformation in East Baton Rouge Parish through 2030.
+projections of ground deformation in EBRP through 2030.
 
 
 
@@ -294,11 +309,11 @@ The main research objectives are to:
 \begin{enumerate}
 \def\labelenumi{\roman{enumi}.}
 \item
-  Generate high-resolution land-subsidence map for East Baton Rouge Parish using 
-  Sentinel-1 SBAS-InSAR data (2017--2025)
+  Generate high-resolution land-subsidence map for EBRP using 
+  Sentinel-1.
 \item
   Identify and rank key environmental and anthropogenic drivers for land subsidence
- using Extra Trees and Random Forest machine-learning models with explainable AI techniques (SHAP, LIME, and MDI).
+ using Extra Trees and Random Forest machine-learning models with explainable AI techniques.
 \item
   Develop a physics-informed LSTM-based spatio-temporal model to forecast land subsidence from 
   InSAR time-series data, ensuring geomechanically consistent projections through 2030.
@@ -309,28 +324,25 @@ The main research objectives are to:
 
 This thesis is structured into six chapters as follows:
 
-Chapter 1, this chapter, introduces the research topic of land subsidence susceptibility mapping and spatio-temporal forecasting. It provides background information, outlines research objectives, and presents the thesis organization.
+Chapter 1, introduces the research topic of land subsidence susceptibility mapping and spatio-temporal forecasting. It provides background information, outlines research objectives, and presents the thesis organization.
 
-Chapter 2 presents the study area characteristics of East Baton Rouge Parish, including its geological setting, hydrogeological conditions, and historical subsidence patterns that make it vulnerable to ground deformation.
+Chapter 2 presents the study area characterization of EBRP, including its geological setting, hydrogeological conditions, and historical subsidence patterns that make it vulnerable to ground deformation.
 
 Chapter 3 provides a comprehensive literature review covering: advances in InSAR monitoring techniques for subsidence, machine learning applications in susceptibility mapping, deep learning approaches for time-series forecasting, hybrid modeling frameworks, and methods for analyzing subsidence driving factors. The chapter concludes by identifying research gaps this study aims to address.
 
-Chapter 4 details the methodology employed, including: SBAS-InSAR processing of Sentinel-1 data, preparation of fifteen environmental and anthropogenic predictor variables with VIF-based multicollinearity screening to retain twelve independent factors, development of machine learning models (Random Forest and Extra Trees) for susceptibility mapping, implementation of physics-informed LSTM for temporal forecasting, and SHAP-based interpretation methods for explainability.
+Chapter 4 details the methodology employed, including: SBAS processing of Sentinel-1 data, preparation of fifteen environmental and anthropogenic predictor variables with Variance Inflation Factor (VIF) based multicollinearity screening to retain twelve independent factors, 
+development of machine learning models, RF and ERT for susceptibility mapping, implementation of physics-informed LSTM for temporal forecasting, and SHAP-based interpretation methods for explainability.
 
 Chapter 5 presents the analysis results and discussion, covering: spatial patterns of observed subsidence, relative importance of driving factors, performance evaluation of individual and ensemble models, and validation against ground-truth measurements. The implications for urban planning and groundwater management are also discussed.
 
-Chapter 6 summarizes key conclusions, provides recommendations for land subsidence monitoring and mitigation in East Baton Rouge, acknowledges study limitations, and suggests directions for future research.
-
+Chapter 6 summarizes key conclusions, provides recommendations for land subsidence monitoring and mitigation in EBRP, acknowledges study limitations, and suggests directions for future research.
 
 
 \chapter{Study Area and Materials}
 
 \section{Study Area}
 
-This study is conducted in EBRP, located in southeastern
-Louisiana, United States, within the Baton Rouge Capital Area.
-The parish covers approximately 471 square miles and extends between 30\textdegree18'--30\textdegree36'N 
-latitude and 91\textdegree06'--90\textdegree48'W longitude (Figure~\ref{fig:study_area}).
+This study is conducted in EBRP, located in southeastern Louisiana, United States, within the Baton Rouge metropolitan area. The parish covers approximately 471 square miles (Figure~\ref{fig:study_area}).
 The study area is bounded by major hydrological systems, including the Mississippi 
 River to the west and the Comite River to the east.
 It is characterized by low-relief floodplains, forested wetlands, and extensive 
@@ -339,15 +351,22 @@ This geographic setting places EBRP within a broader zone of
 documented subsidence and aquifer-system response associated with sedimentary basins 
 in the southern United States \citep{HosseinzadehLLand2024}.
 
-The subsurface geology of EBRP consists of substantial accumulations of loosely packed Holocene and Pleistocene sediments deposited through deltaic and riverine processes, predominantly comprising clay, silt, and fine-grained sand fractions. These geologically recent and weakly consolidated deposits possess elevated compressibility and diminished shear resistance, rendering the area vulnerable to vertical land movement and soil deformation under varying effective stress conditions \citep{Higgins2016}. This geological framework typifies sedimentary basin and coastal plain settings where compaction-induced surface lowering is frequently documented.
+The subsurface geology of EBRP consists of substantial accumulations of loosely packed Holocene and Pleistocene sediments deposited through deltaic and riverine processes, primarily composed of clay, silt, 
+and fine-grained sand fractions. As noted by \citet{Higgins2016}, these geologically recent and poorly consolidated deposits possess elevated compressibility and diminished shear resistance, rendering the area vulnerable to vertical land 
+movement and soil deformation under varying effective stress conditions.
+lowering is frequently documented.
 
-Human activities, particularly prolonged groundwater pumping from the Baton Rouge aquifer network, constitute the principal drivers of subsidence in EBRP. Continuous extraction depletes pore fluid pressure within the aquifer framework, triggering skeletal compression and cumulative surface lowering \citep{HosseinzadehLLand2024}. Where clay-rich interbeds undergo inelastic compression, these deformations become permanent. Groundwater-induced subsidence has been extensively recorded throughout sedimentary basins across the United States and is now routinely characterized through geodetic monitoring \citep{Higgins2016}.
+Human activities, particularly prolonged groundwater pumping from the Baton Rouge aquifer network, constitute the principal drivers of subsidence in EBRP. \citet{HosseinzadehLLand2024} demonstrated that continuous extraction depletes pore fluid pressure 
+within the aquifer framework, triggering skeletal compression and cumulative surface lowering.
+become permanent. Groundwater-induced subsidence has been extensively recorded throughout sedimentary basins across the United States and is now routinely characterized through geodetic monitoring \citep{Higgins2016}.
 
-Beyond groundwater extraction, urbanization and structural loading amplify subsidence processes throughout EBRP. Infrastructure expansion and densification of built environments apply supplementary vertical stress to compressible substrates, hastening consolidation particularly in topographically low zones. The interplay between fluid extraction and surface loading generates intricate deformation signatures exhibiting both spatial heterogeneity and temporal variability, underscoring the necessity for spatially comprehensive monitoring through techniques such as InSAR \citep{Ferretti2001,Crosetto2016}.
+Beyond groundwater extraction, urbanization and structural loading amplify subsidence processes throughout EBRP. Infrastructure expansion and densification of built environments apply supplementary vertical stress to compressible 
+substrates, hastening consolidation particularly in topographically low zones. The interplay between fluid extraction and surface loading generates intricate deformation signatures exhibiting both spatial 
+heterogeneity and temporal variability, underscoring the necessity for spatially comprehensive monitoring through techniques such as InSAR \citep{Ferretti2001,Crosetto2016}.
 
 Climatic and hydrological conditions further influence ground deformation in the 
 study area.
-East Baton Rouge Parish experiences a humid subtropical climate, with high annual 
+EBRP Parish experiences a humid subtropical climate, with high annual 
 precipitation, intense rainfall events, and periodic flooding.
 Seasonal variations in groundwater levels, soil moisture, and surface water storage 
 can induce transient and non-linear deformation signals, which may be superimposed 
@@ -357,7 +376,7 @@ consideration of atmospheric and hydrologic contributions to observed displaceme
 \citep{Berardino2002,Fattahi2015}.
 
 Given the combined influence of compressible deltaic sediments, intensive groundwater 
-extraction, urban loading, and hydro-climatic variability, East Baton Rouge Parish 
+extraction, urban loading, and hydro-climatic variability, EBRP
 represents an ideal natural laboratory for investigating land subsidence using 
 Sentinel-1 time-series InSAR.
 The spatial extent of the study area supports high-resolution deformation mapping and 
@@ -371,23 +390,25 @@ and long-term planning in sedimentary basin environments
 \begin{figure}[!t]
 \centering
 \includegraphics[width=\textwidth,keepaspectratio]{media/ThesisAreaLayout.png}
-\caption{Location Map of East Baton Rouge Parish}
+\caption{Location map of EBRP showing parish boundaries, DEM-derived elevation, fault lines, and GNSS monitoring stations. Insets provide geographic context by indicating the position of EBRP within Louisiana and the location of Louisiana within the 
+United States.}
 \label{fig:study_area}
 \end{figure}
 
-Having established the geophysical and environmental context of EBRP, the following chapter reviews the current state of knowledge in InSAR-based subsidence monitoring, machine learning susceptibility mapping, and temporal forecasting approaches that form the methodological foundation of this study.
+Having established the geophysical and environmental context of EBRP, the following chapter reviews the current state of knowledge in InSAR-based subsidence monitoring, machine learning susceptibility mapping, and temporal forecasting approaches that 
+form the methodological foundation of this study.
 
 \section{Materials}
 This study utilizes a comprehensive set of satellite data, auxiliary geospatial datasets,
-atmospheric products, and open-source software tools to derive eight (8) years (2017-2025) of ground 
-deformation and velocity estimates using timeseries SBAS-InSAR techniques.
+atmospheric products, and open-source software tools. Time-series SBAS techniques were applied to derive ground 
+deformation and velocity estimates spanning the period from 2017 to 2025.
 The materials used are described in detail below.
 \subsection{Sentinel-1 SAR Dataset}
-The primary SAR dataset consists of 246 Sentinel-1A Single Look Complex (SLC) images acquired in Interferometric Wide (IW) swath mode with VV polarization. Sentinel-1 is a C-band (5.405 GHz) SAR mission operated by the European Space Agency (ESA) and provides systematic, long-term observations suitable for deformation monitoring. The key acquisition parameters are summarized in Table~\ref{tab:sar_parameters}.
+The primary SAR dataset consists of 246 Sentinel-1A Single Look Complex (SLC) images acquired in Interferometric Wide (IW) swath mode with VV polarization. These images were collected over the study period spanning January 2017 to July 2025. Sentinel-1 is a C-band (5.405 GHz) SAR mission operated by the European Space Agency (ESA). The mission provides systematic, long-term observations with a 12-day revisit period, making it particularly suitable for continuous deformation monitoring. The key acquisition parameters are summarized in Table~\ref{tab:sar_parameters}.
 
 \begin{table}[!t]
 \centering
-\caption{Main Parameters of Sentinel-1A SAR Images Used in This Study}
+\caption{Key acquisition Parameters of Sentinel-1A SAR images used in this study}
 \label{tab:sar_parameters}
 \begin{tabular}{ll}
 \hline
@@ -410,10 +431,11 @@ Resolution & 5m$\times$20m \\
 \end{tabular}
 \end{table}
 
-The Sentinel-1 frame (Path 165, Frame 95) covers a broad geographic extent across southeastern Louisiana. East Baton Rouge Parish constitutes a small subset within this larger frame, and the SBAS-InSAR processing was applied to the full frame extent before extracting the study area domain. This approach ensures consistent atmospheric correction and phase unwrapping across regional scales while enabling focused analysis of EBRP.
+The Sentinel-1 frame (Path 165, Frame 95) covers a broad geographic extent across southeastern Louisiana. EBRP constitutes a small subset within this larger frame, and the SBAS processing was applied to the full frame extent before extracting the 
+study area domain. This approach ensures consistent atmospheric correction and phase unwrapping across regional scales while enabling focused analysis of EBRP.
 
 \subsection{Precise Orbit Ephemerides}
-Precise Orbits Ephemerides (POEORB) provided by the ESA were applied to all Sentinel-1 acquisitions
+Precise Orbits Ephemerides (POEORB) provided by ESA were applied to all Sentinel-1 acquisitions
 prior to interferometric processing. Compared to restituted orbits, POEORB significantly improves 
 satellite position accuracy, reducing residual orbital errors and mitigating long-wavelength phase ramps
 in interferograms \citep{Ferretti2001}.
@@ -424,18 +446,26 @@ in interferogram generation. The DEM also served as the basis for deriving topog
 used in the susceptibility analysis. 
 
 To mitigate atmospheric artifacts, particularly stratified tropospheric delays, ERA5
-(Fifth Generation ECMWF Atmospheric Reanalysis) data were incorporated during timeseries 
+(Fifth Generation ECMWF Atmospheric Reanalysis) data were incorporated during time-series 
 processing. ERA5 provides high-resolution global estimates of atmospheric state variables and has been 
 widely adopted for atmospheric phase screen correction in InSAR studies \citep{HosseinzadehLLand2024}.
 
 \subsection{Geospatial Conditioning Factors}
-A total of fifteen (15) geospatial conditioning factors were prepared at 30 m resolution and aligned to a common spatial grid for land subsidence susceptibility modeling (Figure~\ref{fig:conditioning_factors}). These factors were grouped into topographic, geological, hydrological, structural/tectonic, infrastructure, climatic, and anthropogenic categories, reflecting the multi-causal nature of land subsidence processes.
+A total of fifteen (15) geospatial conditioning factors were prepared at 30 m resolution and aligned to a common spatial grid for land subsidence susceptibility modeling (Figure~\ref{fig:conditioning_factors}). These factors were grouped into topographic, 
+geological, hydrological, structural/tectonic, infrastructure, climatic, and anthropogenic categories, reflecting the multicausal nature of land subsidence processes.
 
-Six topographic attributes were derived from the 30 m DEM: elevation (Figure~\ref{fig:conditioning_factors}a), slope (Figure~\ref{fig:conditioning_factors}b), aspect (Figure~\ref{fig:conditioning_factors}c), Topographic Position Index (TPI; Figure~\ref{fig:conditioning_factors}d), curvature (Figure~\ref{fig:conditioning_factors}e), and Topographic Wetness Index (TWI; Figure~\ref{fig:conditioning_factors}f). These parameters characterize terrain morphology and control surface water flow, soil moisture distribution, and differential loading conditions that influence subsidence susceptibility.
+Six topographic attributes were derived from the 30 m DEM. Figure~\ref{fig:conditioning_factors} illustrates elevation (a), slope (b), aspect (c), Topographic Position Index or TPI (d), curvature (e), and Topographic Wetness Index or TWI (f). 
+These parameters characterize terrain morphology and control surface water flow, soil moisture distribution, and differential loading conditions that influence subsidence susceptibility.
 
-Geological characteristics include bedrock geology (Figure~\ref{fig:conditioning_factors}g) and Land Use/Land Cover (LULC; Figure~\ref{fig:conditioning_factors}h), which control subsurface compressibility and surface loading patterns. Distance from rivers (Figure~\ref{fig:conditioning_factors}i) and faults (Figure~\ref{fig:conditioning_factors}j) represent hydrological connectivity and structural controls on subsidence; the Baton Rouge and Denham Springs fault systems introduce spatially heterogeneous deformation patterns.
 
-Proximity to roads (Figure~\ref{fig:conditioning_factors}k), railways (Figure~\ref{fig:conditioning_factors}l), and bridges (Figure~\ref{fig:conditioning_factors}m) quantifies surface loading from built infrastructure. Precipitation (Figure~\ref{fig:conditioning_factors}n) represents climatic variability, while interpolated groundwater well influence (well\_idw; Figure~\ref{fig:conditioning_factors}o) quantifies anthropogenic groundwater extraction patterns. Continuous layers were min--max scaled to [0,1]; categorical layers (geology, LULC) were one-hot encoded.
+Geological characteristics include bedrock geology and Land Use/Land Cover (LULC), which control subsurface compressibility and surface loading patterns, as shown in Figure~\ref{fig:conditioning_factors} g and h, respectively. 
+Hydrological connectivity and structural controls on subsidence are represented by distance from rivers and faults, displayed in Figure~\ref{fig:conditioning_factors}i and j. The Baton Rouge and Denham Springs fault systems introduce 
+spatially heterogeneous deformation patterns across the study area.
+
+Surface loading from built infrastructure is quantified through proximity to roads, railways, and bridges, as shown in Figure~\ref{fig:conditioning_factors} k, l, and m, respectively. 
+Climatic variability is represented by precipitation (Figure~\ref{fig:conditioning_factors} n), while anthropogenic groundwater extraction patterns are quantified through interpolated 
+groundwater well influence (Figure~\ref{fig:conditioning_factors} o). Continuous layers were min--max scaled to [0,1], whereas categorical layers (geology and LULC) were one-hot encoded.
+
 
 \begin{figure}[p]
 \centering
@@ -485,7 +515,7 @@ Proximity to roads (Figure~\ref{fig:conditioning_factors}k), railways (Figure~\r
 \end{figure}
 
 \subsection{Validation Data}
-InSAR-derived deformation was validated against GNSS vertical displacement time series from three GulfNet CORS stations (1LSU, GVMS, and SJB1) in EBRP, obtained from the Nevada Geodetic Laboratory (NGL). Three-dimensional GNSS components were projected into the Sentinel-1 LOS direction, and velocity agreement was assessed using Pearson correlation and RMSE over the 2017--2025 period \citep{Abdalla2024}.
+GNSS vertical displacement time series from three GulfNet CORS stations (1LSU, GVMS, and SJB1) located within EBRP were obtained from the Nevada Geodetic Laboratory (NGL) for the period 2017--2025. These continuous three-dimensional GNSS measurements provide independent ground-truth observations for validating InSAR-derived deformation estimates.
 
 Following the description of the study area and data sources, existing literature on InSAR monitoring and machine learning--based subsidence analysis is reviewed to identify gaps that justify the proposed integrated approach.
 
@@ -493,28 +523,33 @@ Following the description of the study area and data sources, existing literatur
 
 \section{Overview of Land Subsidence in Urban Areas}
 
-Land subsidence, characterized by progressive or episodic vertical descent of the terrain surface, has gained recognition as a significant global geohazard, with aquifer compression and groundwater extraction implicated in over 80\% of documented severe occurrences \citep{Higgins2016}. In fast-developing metropolitan areas such as the Lower Mississippi Basin, interactions between near-surface geology and expanding infrastructure amplify deformation processes \citep{HosseinzadehLLand2024}. 
-Urban settings face heightened vulnerability owing to concentrated built structures imposing sustained loads on compressible substrate materials. Contributing processes encompass intensive groundwater pumping, sediment compaction, construction-induced loading, and land-use transformation \citep{Holzer1985}. Investigations have demonstrated how surficial geology coupled with infrastructure proliferation can magnify surface lowering and soil compression in such regions \citep{ZouEtAl2016}.
+Land subsidence, characterized by progressive or episodic vertical descent of the terrain surface, has gained recognition as a significant global geohazard. According to \citet{Higgins2016}, aquifer compression and groundwater extraction are implicated in over 80\% of documented severe occurrences. In fast-developing metropolitan areas such as the Lower Mississippi Basin, interactions between near-surface geology and expanding infrastructure amplify deformation processes, as shown by \citet{HosseinzadehLLand2024}.
+Urban settings face heightened vulnerability owing to concentrated built structures imposing sustained loads on compressible substrate materials. Contributing processes encompass intensive groundwater pumping, sediment compaction, construction-induced loading, and land-use transformation, as noted in \citet{Holzer1985}. According to \citet{Zou2016}, surficial geology coupled with infrastructure proliferation can magnify surface lowering and soil compression in such regions.
 
-Unmitigated subsidence triggers a cascade of secondary hazards, including diminished drainage capacity, heightened susceptibility to flooding in low-lying urban corridors, pipeline ruptures, building tilting, and structural failures, resulting in significant economic losses \citep{ZouEtAl2016}. Subsurface faulting and structural geology make subsidence patterns in many cities even more complex. 
+Unmitigated subsidence triggers a cascade of secondary hazards, including diminished drainage capacity, heightened susceptibility to flooding in low-lying urban corridors, pipeline ruptures, building tilting, and structural failures, 
+resulting in significant economic losses. Subsurface faulting and structural geology further complicate subsidence patterns in many urban environments.
 These findings highlight the need for reliable frameworks that can both map the areas where subsidence is most likely to occur and predict its future course.
 
 \section{Advancements in InSAR Monitoring for Subsidence}
 
 Having established the severity and complexity of urban subsidence as a geohazard, this section reviews the evolution of InSAR techniques that enable spatially continuous monitoring at regional scales.
 
-InSAR technology has revolutionized the observation of ground deformation by delivering high-resolution measurements spanning extensive geographic areas. Prior geodetic approaches including GNSS networks and spirit levelling campaigns offered precise localized measurements but remained constrained by considerable expense and inadequate spatial sampling.
+InSAR technology has revolutionized the observation of ground deformation by delivering high-resolution measurements spanning extensive geographic areas. Conventional geodetic approaches, including GNSS networks and spirit levelling campaigns offered precise localized measurements but remained constrained by considerable expense and inadequate spatial sampling.
+
 
 \subsection{Evolution of InSAR Techniques for Subsidence Monitoring}
-During the early 1990s, InSAR emerged as a breakthrough remote sensing approach for detecting surface deformation through analysis of phase variations between temporally separated radar acquisitions. Given that radar phase responds to path-length alterations at the millimeter scale, InSAR permits accurate quantification of ground displacement across broad spatial domains \citep{Jiang2023}.
+During the early 1990s, InSAR emerged as a breakthrough remote sensing approach for detecting surface deformation through analysis of phase variations between temporally separated radar acquisitions. Given that radar phase responds to path-length 
+alterations at the millimeter scale, InSAR permits accurate quantification of ground displacement across broad spatial domains \citep{Jiang2023}.
 
-Initial implementations employed D-InSAR, which separates deformation signals by removing topographic phase components using a DEM. This approach proved suitable for characterizing rapid, spatially uniform deformation from seismic and volcanic sources \citep{Li2022}. Nevertheless, D-InSAR applicability to extended subsidence monitoring is hindered by tropospheric phase contamination, coherence degradation over time, orbital inaccuracies, and phase unwrapping complications, especially across vegetated or developing landscapes.
+Initial implementations employed D-InSAR, which separates deformation signals by removing topographic phase components using a DEM. This approach proved suitable for characterizing rapid, spatially uniform deformation from seismic and volcanic 
+sources \citep{Li2022}. Nevertheless, D-InSAR applicability to extended subsidence monitoring is hindered by tropospheric phase contamination, coherence degradation over time, orbital inaccuracies, and phase unwrapping complications, especially 
+across vegetated or developing landscapes.
 
-PS-InSAR was developed to address these constraints by targeting radar reflectors maintaining phase stability across extended observation periods, typically buildings and exposed man-made structures \citep{Ferretti2001}. Through processing extensive SAR image stacks, PS-InSAR attains sub-millimeter measurement precision on built infrastructure \citep{Ferretti2001,Ferretti2011}. However, PS-InSAR point density diminishes substantially in rural or vegetated settings, restricting its utility in heterogeneous land-cover environments.
+\citet{Ferretti2001} developed PSI to address these constraints by targeting radar reflectors maintaining phase stability across extended observation periods, typically buildings and exposed man-made structures. Through processing extensive SAR image stacks, PSI attains sub-millimeter measurement precision on built infrastructure \citep{Ferretti2001,Ferretti2011}. \citet{Hooper2004} extended PSI methodology to natural terrains through the Stanford Method for Persistent Scatterers (StaMPS), which identifies slowly-decorrelating targets using temporal phase stability analysis rather than amplitude-based selection. This approach proved particularly valuable for volcanic and rural environments where conventional PSI encounters limited coherent reflectors. \citet{Hooper2008} further advanced multi-temporal InSAR by developing a hybrid framework that integrates both persistent scatterer and small baseline approaches, enabling enhanced spatial coverage while preserving measurement precision.
 
-SBAS-InSAR has proven more effective for regions combining urban and vegetated terrain \citep{Berardino2002}. This technique enhances spatial coverage through interferogram networks constructed with minimal temporal separations, enabling time-series reconstruction across distributed scatterers and accommodating diverse land cover types. Through multi-master interferogram formation with constrained perpendicular baselines, SBAS exploits Slowly Decorrelating Filtered Pixels (SDFP), substantially mitigating spatial and temporal coherence loss. Contemporary studies confirm that large-scale time-series processing can resolve both linear trends and complex non-linear deformation behaviors at millimeter-level accuracy. Quantitative comparisons indicate SBAS-InSAR achieves approximately 2.83 times greater measurement point density than PS-InSAR across mixed urban-rural landscapes \citep{Bayik2025}.
+SBAS has proven more effective for regions combining urban and vegetated terrain \citep{Berardino2002}. This technique enhances spatial coverage through interferogram networks constructed with minimal temporal separations, enabling time-series reconstruction across distributed scatterers and accommodating diverse land cover types. Through multi-master interferogram formation with constrained perpendicular baselines, SBAS exploits Slowly Decorrelating Filtered Pixels (SDFP), substantially mitigating spatial and temporal coherence loss. Contemporary studies confirm that large-scale time-series processing can resolve both linear trends and complex non-linear deformation behaviors at millimeter-level accuracy. Quantitative comparisons indicate SBAS achieves approximately 2.83 times greater measurement point density than PSI across mixed urban-rural landscapes \citep{Bayik2025}.
 
-Although SBAS-InSAR generally exhibits lower point-wise precision than PS-InSAR, it provides dense and spatially continuous deformation fields essential for regional subsidence analysis \citep{Crosetto2016}.
+Although SBAS generally exhibits lower point-wise precision than PSI, it provides dense and spatially continuous deformation fields essential for regional subsidence analysis \citep{Crosetto2016}.
 
 Unlike traditional geodetic methods, InSAR enables millimeter-scale motion detection across vast regions regardless of weather or lighting conditions \citep{Crosetto2016}. Building on these advances, newer methods such as Distributed Scatterer (DS-InSAR) and Multi-Temporal InSAR (MT-InSAR) extend coherence to mixed urban--rural environments by statistically analyzing pixel clusters \citep{Fattahi2015}.
 
@@ -543,7 +578,7 @@ Gaussian Process Regression (GPR) is increasingly used for its ability to model 
 
 \section{Deep Learning and Time Series Forecasting of Subsidence}
 
-DL architectures, particularly recurrent sequence models such as LSTM networks, have gained increasing adoption for subsidence prediction owing to their capacity to model temporal interdependencies and non-linear system dynamics. \citet{Li2020} implemented LSTM using PS-InSAR observations in the Beijing Plain, yielding encouraging temporal modeling results despite constraints in spatial transferability. \citet{Mirmazloumi2023} deployed LSTM on InSAR displacement time-series across three mining regions, illustrating early-warning potential through 3--5 step ahead forecasts.
+DL architectures, particularly recurrent sequence models such as LSTM networks, have gained increasing adoption for subsidence prediction owing to their capacity to model temporal interdependencies and non-linear system dynamics. \citet{Li2020} implemented LSTM using PSI observations in the Beijing Plain, yielding encouraging temporal modeling results despite constraints in spatial transferability. \citet{Mirmazloumi2023} deployed LSTM on InSAR displacement time-series across three mining regions, illustrating early-warning potential through 3--5 step ahead forecasts.
 
 \subsection{Physics-Informed Neural Networks (PINNs)}
 
@@ -582,21 +617,21 @@ Acquiring extensive datasets for geohazard model training typically demands cons
 
 While many studies have applied InSAR and machine or deep learning (ML/DL) methods to analyze land subsidence, most have treated spatial susceptibility mapping and temporal forecasting as separate tasks, often overlooking model interpretability \citep{Gharechaee2023, Rahmani2024}.
 Applications within complex U.S. Gulf Coast urban environments also remain limited. Recent research by \citet{HeEtAl2025} highlighted the specific need for integrated monitoring and assessment frameworks in coastal subsidence-prone regions. 
-To address these gaps, this study integrates SBAS-InSAR velocity data with environmental conditioning factors using Extra Trees and Random Forest for spatial subsidence susceptibility mapping, alongside a physics-informed LSTM framework for temporal forecasting. 
+To address these gaps, this study integrates SBAS velocity data with environmental conditioning factors using Extra Trees and Random Forest for spatial subsidence susceptibility mapping, alongside a physics-informed LSTM framework for temporal forecasting. 
 SHAP-based interpretation is employed to develop predictive and explainable subsidence models tailored to Baton Rouge's environmental and infrastructural characteristics \citep{Abdalla2024, Mojtahedi2025}.
 
-The identified gaps and methodological advances reviewed in this chapter provide the foundation for the integrated approach detailed in Chapter 4, which combines SBAS-InSAR, ensemble machine learning, and physics-informed temporal forecasting to address subsidence monitoring and prediction in East Baton Rouge Parish.
+The identified gaps and methodological advances reviewed in this chapter provide the foundation for the integrated approach detailed in Chapter 4, which combines SBAS, ensemble machine learning, and physics-informed temporal forecasting to address subsidence monitoring and prediction in East Baton Rouge Parish.
 
 \chapter{Methods}
 
-This chapter details the integrated framework employed to map and forecast land subsidence in EBRP (Figure~\ref{fig:methodology_flowchart}). The methodology combines three complementary approaches: (1) SBAS-InSAR time-series analysis to extract deformation velocity from 246 Sentinel-1 acquisitions, (2) tree-based ensemble learning (RF and ERT) for spatial susceptibility mapping using 15 environmental conditioning factors, and (3) physics-informed LSTM networks for spatio-temporal forecasting. 
+This chapter details the integrated framework employed to map and forecast land subsidence in EBRP (Figure~\ref{fig:methodology_flowchart}). The methodology combines three complementary approaches: (1) SBAS time-series analysis to extract deformation velocity from 246 Sentinel-1 acquisitions, (2) tree-based ensemble learning (RF and ERT) for spatial susceptibility mapping using 15 environmental conditioning factors, and (3) physics-informed LSTM networks for spatio-temporal forecasting. 
 SHAP and LIME-based explainability are integrated with MDI to identify dominant subsidence drivers and ensure model interpretability.
 
-\section{SBAS-InSAR Processing}
-SBAS-InSAR was selected over PS-InSAR for this study due to the mixed urban-rural land cover characteristics of East Baton Rouge Parish. While PS-InSAR achieves higher point-wise precision on stable infrastructure, it provides sparse coverage in vegetated and agricultural areas \citep{Ferretti2011}. SBAS-InSAR, by contrast, exploits distributed scatterers and maintains coherence across heterogeneous terrain, yielding 2.83 times higher spatial density in mixed environments \citep{Bayik2025}. This enhanced coverage is critical for regional subsidence mapping and for generating sufficient training samples for machine learning models.
+\section{SBAS Processing}
+SBAS was selected over PSI for this study due to the mixed urban-rural land cover characteristics of East Baton Rouge Parish. While PSI achieves higher point-wise precision on stable infrastructure, it provides sparse coverage in vegetated and agricultural areas \citep{Ferretti2011}. SBAS, by contrast, exploits distributed scatterers and maintains coherence across heterogeneous terrain, yielding 2.83 times higher spatial density in mixed environments \citep{Bayik2025}. This enhanced coverage is critical for regional subsidence mapping and for generating sufficient training samples for machine learning models.
 
 
-SBAS-InSAR constitutes a well-established multi-temporal InSAR approach, originally proposed by \citet{Berardino2002}, and has found extensive application in regional-scale urban deformation monitoring.
+SBAS constitutes a well-established multi-temporal InSAR approach, originally proposed by \citet{Berardino2002}, and has found extensive application in regional-scale urban deformation monitoring.
 The core methodology entails forming networks of interferometric pairs with constrained temporal and geometric baseline separations, optimized according to the spatial configuration of available SAR imagery. 
 As depicted in Figure \ref{fig:methodology_flowchart}, this strategy enables interferogram construction while suppressing coherence degradation and topographic phase contamination. Sequential time-series inversion then extracts cumulative surface deformation histories.
 \begin{equation}
@@ -626,7 +661,7 @@ BV = \delta\phi
 
 Matrix $B$ dimensions are governed by $M$ and $N$, and typically $B$ is rank-deficient. SVD provides the standard approach for solving such underdetermined systems. Accordingly, time-series deformation retrieval proceeds through simultaneous inversion of multiple baseline subsets, with SVD yielding the minimum-norm least-squares solution \citep{Berardino2002}.
 
-The SBAS-InSAR processing was implemented using the 246 descending-track Sentinel-1 SLC acquisitions spanning 2017--2025. Perpendicular baseline thresholds were set to 150 m and temporal baselines to 48 days to maximize interferometric coherence while ensuring sufficient temporal sampling. Atmospheric phase delays were corrected using GACOS tropospheric delay models, and phase unwrapping was performed using the Minimum Cost Flow algorithm. The resulting velocity field was geocoded to a 30 m grid aligned with the conditioning factor layers for subsequent machine learning analysis.
+The SBAS processing was implemented using the 246 descending-track Sentinel-1 SLC acquisitions spanning 2017--2025. Perpendicular baseline thresholds were set to 150 m and temporal baselines to 48 days to maximize interferometric coherence while ensuring sufficient temporal sampling. Atmospheric phase delays were corrected using GACOS tropospheric delay models, and phase unwrapping was performed using the Minimum Cost Flow algorithm. The resulting velocity field was geocoded to a 30 m grid aligned with the conditioning factor layers for subsequent machine learning analysis.
 
 \section{Environmental Conditioning Factors}
 Fifteen geospatial conditioning factors were compiled at 30 m resolution to characterize the environmental and anthropogenic controls on subsidence, as illustrated in the methodology flowchart (Figure~\ref{fig:methodology_flowchart}) and detailed in Section 2.2.4 (Figure~\ref{fig:conditioning_factors}). These factors span topographic attributes (DEM, slope, aspect, TPI, curvature, TWI), geological characteristics (geology, LULC), hydrological proximity (distance to rivers), structural controls (distance to faults), infrastructure proximity (distances to roads, railways, bridges), climatic variables (precipitation), and anthropogenic activity (interpolated groundwater well influence). Continuous variables were normalized using min-max scaling to [0,1], while categorical variables (geology, LULC) were one-hot encoded. The SBAS-derived velocity values at each 30 m pixel served as the target variable for supervised learning.
@@ -757,8 +792,8 @@ This strategy prevents artificially similar samples from appearing in both train
 \section{Extra Trees Algorithm}
 This study employs both Random Forest and Extra Trees to determine which ensemble method provides optimal performance for subsidence susceptibility analysis, as outlined in the methodology flowchart (Figure~\ref{fig:methodology_flowchart}). Although RF is commonly used for geohazard applications, emerging evidence indicates that Extra Trees can deliver improved generalization performance when dealing with complex systems influenced by multiple factors \citep{Geurts2006}.
 
-Extra Trees (ET) represents an ensemble technique that builds upon the Random Forest methodology. Two key differences distinguish ET from RF: (1) ET generates decision trees using randomly sampled subsets without replacement, which minimizes sampling bias, and (2) in ET, randomness is introduced through random threshold selection at splits rather than through bootstrap sampling \citep{Geurts2006}.
-The splitting behavior in the ET framework is controlled by two key hyperparameters: $k$, which specifies how many features are randomly chosen at each node, and $n_{min}$, which defines the smallest permissible sample size for splitting a node. These parameters improve the model's ability to generalize and reduce the risk of overfitting \citep{Geurts2006}. The model structure is illustrated in Figure \ref{fig:etc_model}.
+Extra Trees (ERT) represents an ensemble technique that builds upon the Random Forest methodology. Two key differences distinguish ERT from RF: (1) ERT generates decision trees using randomly sampled subsets without replacement, which minimizes sampling bias, and (2) in ERT, randomness is introduced through random threshold selection at splits rather than through bootstrap sampling \citep{Geurts2006}.
+The splitting behavior in the ERT framework is controlled by two key hyperparameters: $k$, which specifies how many features are randomly chosen at each node, and $n_{min}$, which defines the smallest permissible sample size for splitting a node. These parameters improve the model's ability to generalize and reduce the risk of overfitting \citep{Geurts2006}. The model structure is illustrated in Figure \ref{fig:etc_model}.
 
 
 \begin{figure}[htbp]
@@ -768,7 +803,7 @@ The splitting behavior in the ET framework is controlled by two key hyperparamet
 \label{fig:etc_model}
 \end{figure}
 
-Similar to RF, the ET method performs regression in two distinct stages: bootstrap sampling followed by aggregation. In the bootstrap stage, random subsets of training data are extracted to build individual trees. During aggregation, node splits are performed using randomly chosen feature subsets. The ensemble prediction is obtained by averaging outputs across all trees constructed from these random subsets. The mathematical representation of ET regression is given by \citet{Breiman2001}:
+Similar to RF, the ERT method performs regression in two distinct stages: bootstrap sampling followed by aggregation. In the bootstrap stage, random subsets of training data are extracted to build individual trees. During aggregation, node splits are performed using randomly chosen feature subsets. The ensemble prediction is obtained by averaging outputs across all trees constructed from these random subsets. The mathematical representation of ERT regression is given by \citet{Breiman2001}:
 \begin{equation}
 p(x, \beta_1, \ldots, \beta_n) = \frac{1}{m} \sum_{i=1}^{m} p(x, \beta_n)
 \end{equation}
@@ -800,7 +835,7 @@ The inherent black-box nature of ensemble machine learning models, despite their
 
 
 \subsection{MDI}
-MDI serves as a tree-based feature importance measure that quantifies the total reduction in node impurity attributable to splits on each feature, averaged across all trees in the ensemble \citep{Breiman2001}. For tree-based models such as RF and ET, MDI is computed during training by accumulating the weighted impurity decrease for each feature at every node where it is used for splitting. Mathematically, the importance $I_j$ of feature $j$ is expressed as:
+MDI serves as a tree-based feature importance measure that quantifies the total reduction in node impurity attributable to splits on each feature, averaged across all trees in the ensemble \citep{Breiman2001}. For tree-based models such as RF and ERT, MDI is computed during training by accumulating the weighted impurity decrease for each feature at every node where it is used for splitting. Mathematically, the importance $I_j$ of feature $j$ is expressed as:
 \begin{equation}
 I_j = \frac{1}{T} \sum_{t=1}^{T} \sum_{k \in S_t(j)} w_k \Delta i_k
 \end{equation}
@@ -847,7 +882,7 @@ Unlike Physics-Informed Neural Networks (PINNs) that encode partial differential
 
 
 \subsection{Data Preprocessing and Input Construction}
-As illustrated in Figure~\ref{fig:lstm_forecast_flowchart}, to suppress atmospheric noise and low-signal artifacts in the SBAS-InSAR time series, only pixels exhibiting absolute mean velocity exceeding a significance threshold were retained for temporal modeling:
+As illustrated in Figure~\ref{fig:lstm_forecast_flowchart}, to suppress atmospheric noise and low-signal artifacts in the SBAS time series, only pixels exhibiting absolute mean velocity exceeding a significance threshold were retained for temporal modeling:
 \begin{equation}
 |v| \geq 1.5 \ \text{mm yr}^{-1}
 \end{equation}
@@ -868,7 +903,7 @@ This formulation enables the network to learn temporal dependencies while suppor
 
 
 \subsection{LSTM Architecture and Temporal Dependency Modeling}
-LSTM networks address the vanishing gradient problem inherent in traditional recurrent neural networks by introducing gated memory cells that selectively retain or discard information across long sequences \citep{Hochreiter1997}. Each LSTM cell maintains a cell state $C_t$ and a hidden state $h_t$, governed by three gating mechanisms: the forget gate $f_t$, input gate $i_t$, and output gate $o_t$. The LSTM cell equations are formulated as:
+\citet{Hochreiter1997} introduced LSTM networks to address the vanishing gradient problem inherent in traditional recurrent neural networks by implementing gated memory cells that selectively retain or discard information across long sequences.
 \begin{equation}
 f_t = \sigma(W_f [h_{t-1}, x_t] + b_f)
 \end{equation}
@@ -927,7 +962,7 @@ Long-term subsidence rates in aquifer systems are expected to stabilize as pore 
 \begin{equation}
 x_{t+1}^{\text{phys}} = x_t (1 - r)^{\Delta t}
 \end{equation}
-where $x_t$ is the subsidence velocity at time $t$, $r$ is the decay constant representing the fractional reduction in velocity per unit time, and $\Delta t$ is the time increment in years. The decay constant $r$ was calibrated to 0.004 yr$^{-1}$ based on historical deceleration trends observed in the SBAS-InSAR time series and regional aquifer compaction studies \citep{Higgins2016}.
+where $x_t$ is the subsidence velocity at time $t$, $r$ is the decay constant representing the fractional reduction in velocity per unit time, and $\Delta t$ is the time increment in years. The decay constant $r$ was calibrated to 0.004 yr$^{-1}$ based on historical deceleration trends observed in the SBAS time series and regional aquifer compaction studies \citep{Higgins2016}.
 
 \subsubsection{Hybrid LSTM--Physics Blending}
 
@@ -981,7 +1016,7 @@ The coefficient of determination ($R^2$) measures the fraction of observed subsi
 \begin{equation}
 R^2 = 1 - \frac{\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}{\sum_{i=1}^{n}(y_i - \bar{y})^2}
 \end{equation}
-Here $y_i$ denotes the $i$-th observed subsidence measurement, $\hat{y}_i$ represents the corresponding model prediction, $\bar{y}$ indicates the mean observation, and $n$ is the sample count. $R^2$ spans 0 to 1, where values near unity signify strong explanatory capacity. This metric functions as the principal indicator of model fit for ET and RF susceptibility models alongside the Bi-LSTM forecasting framework.
+Here $y_i$ denotes the $i$-th observed subsidence measurement, $\hat{y}_i$ represents the corresponding model prediction, $\bar{y}$ indicates the mean observation, and $n$ is the sample count. $R^2$ spans 0 to 1, where values near unity signify strong explanatory capacity. This metric functions as the principal indicator of model fit for ERT and RF susceptibility models alongside the Bi-LSTM forecasting framework.
 
 \subsection{Root Mean Squared Error}
 RMSE quantifies the typical magnitude of prediction deviations in target variable units, yielding an intuitive measure of absolute predictive accuracy \citep{Chai2014}. RMSE computation follows:
@@ -1031,20 +1066,20 @@ where TP, FN, FP, and TN denote true positives, false negatives, false positives
 \end{equation}
 AUC ranges from 0 to 1, where AUC $= 1.0$ represents perfect classification and AUC $= 0.5$ indicates performance equivalent to random chance. AUC values exceeding 0.9 are generally considered excellent.
 \subsection{Model Comparison and Selection Criteria}
-For susceptibility mapping, model selection between ET and RF is based on test-set $R^2$, RMSE, MAE, and binarized AUC-ROC computed on hold-out data not used during training or hyperparameter optimization. The optimal model demonstrates superior performance across multiple metrics while maintaining computational efficiency and interpretability. For temporal forecasting, the physics-informed Bi-LSTM is evaluated using $R^2$, RMSE, MAE, Pearson correlation, and NSE on validation time periods, with particular emphasis on forecast stability and absence of unphysical trends during long-term extrapolation. Additionally, comparison with GNSS vertical displacement measurements at 1LSU and GMVS stations provides independent ground-truth validation of InSAR-derived and model-predicted subsidence rates \citep{Abdalla2024}.
+For susceptibility mapping, model selection between ERT and RF is based on test-set $R^2$, RMSE, MAE, and binarized AUC-ROC computed on hold-out data not used during training or hyperparameter optimization. The optimal model demonstrates superior performance across multiple metrics while maintaining computational efficiency and interpretability. For temporal forecasting, the physics-informed Bi-LSTM is evaluated using $R^2$, RMSE, MAE, Pearson correlation, and NSE on validation time periods, with particular emphasis on forecast stability and absence of unphysical trends during long-term extrapolation. Additionally, comparison with GNSS vertical displacement measurements at 1LSU and GMVS stations provides independent ground-truth validation of InSAR-derived and model-predicted subsidence rates \citep{Abdalla2024}.
 
 \clearpage
 \chapter{Results and Discussion}
 
-This chapter presents the integrated results of SBAS-InSAR deformation analysis, machine learning-based susceptibility mapping,
+This chapter presents the integrated results of SBAS deformation analysis, machine learning-based susceptibility mapping,
  explainable AI feature importance analysis, and physics-informed LSTM temporal forecasting for East Baton Rouge Parish.
 The findings are discussed in relation to the geological, hydrological, and anthropogenic controls on subsidence processes.
 
-\section{SBAS-InSAR Deformation Analysis}
+\section{SBAS Deformation Analysis}
 
 The mean vertical displacement velocity across EBRP was $-1.46$~mm/yr, with a standard deviation of $\pm 0.98$~mm/yr,
 indicating spatially heterogeneous ground deformation with both subsidence and uplift.
-The SBAS-InSAR velocity map (Figure~\ref{fig:sbas_results}a) displays subsidence zones in red-orange and uplift areas in blue, 
+The SBAS velocity map (Figure~\ref{fig:sbas_results}a) displays subsidence zones in red-orange and uplift areas in blue, 
 with maximum subsidence rates of $-23.66$~mm/yr observed near fault systems and zones of intensive groundwater extraction with most in the 
 southern urban corridor, while maximum uplift of $+19.18$~mm/yr occurred in elevated forested regions occurring in the 
 northern parts of the parish. The derived SBAS susceptibility classification (Figure~\ref{fig:sbas_results}b) delineates high-risk zones (red), moderate-risk areas (yellow), and low-risk regions (green), reflecting complex interactions between geological, hydrological, and anthropogenic factors.
@@ -1054,9 +1089,9 @@ northern parts of the parish. The derived SBAS susceptibility classification (Fi
 \begin{tabular}{cc}
 \includegraphics[width=0.48\textwidth]{media/sbas_vel.png} &
 \includegraphics[width=0.48\textwidth]{media/sbas_susc.png} \\
-(a) SBAS-InSAR Velocity & (b) SBAS-InSAR Susceptibility
+(a) SBAS Velocity & (b) SBAS Susceptibility
 \end{tabular}
-\caption{SBAS-InSAR Results: (a) Displacement Velocity (mm/yr) Showing Subsidence (Red-Orange) and Uplift (Blue); (b) Derived Susceptibility Classification.}
+\caption{SBAS Results: (a) Displacement Velocity (mm/yr) Showing Subsidence (Red-Orange) and Uplift (Blue); (b) Derived Susceptibility Classification.}
 \label{fig:sbas_results}
 \end{figure}
 
@@ -1094,7 +1129,7 @@ SJB1 & $-2.29$ & $-2.16$ & 0.17 & 23.3 \\
 
 The time series comparison (Figure~\ref{fig:gnss_validation}) spanning 2017--2025 demonstrates that both GPS and InSAR capture consistent subsidence trends at all three stations. GVMS exhibited the closest velocity agreement, with GPS at $-2.59$~mm/yr versus InSAR at $-2.60$~mm/yr (difference of only 0.01~mm/yr), with correlation $r = 0.37$ and RMSE of 13.8~mm. At 1LSU, GPS measured $-3.84$~mm/yr while InSAR recorded $-4.14$~mm/yr (difference of 0.30~mm/yr), yielding the highest correlation of $r = 0.41$ and RMSE of 22.0~mm. SJB1 showed excellent velocity agreement, with GPS at $-2.29$~mm/yr versus InSAR at $-2.16$~mm/yr (difference of 0.13~mm/yr), though with lower temporal correlation ($r = 0.17$, RMSE = 23.3~mm).
 
-Both techniques reveal consistent linear subsidence trends throughout the 8-year monitoring period, with seasonal variability evident in GPS data. The excellent velocity agreement (mean difference of 0.15~mm/yr across all stations) confirms the reliability of SBAS-InSAR measurements. The moderate temporal correlations are attributed to spatial separation between stations and InSAR pixels (571--993~m), differences in 3D versus line-of-sight measurement sensitivity, and tropospheric artifacts \citep{Crosetto2016}. Both GPS and InSAR confirm consistent subsidence at all stations, validating SBAS-InSAR reliability for regional monitoring.
+Both techniques reveal consistent linear subsidence trends throughout the 8-year monitoring period, with seasonal variability evident in GPS data. The excellent velocity agreement (mean difference of 0.15~mm/yr across all stations) confirms the reliability of SBAS measurements. The moderate temporal correlations are attributed to spatial separation between stations and InSAR pixels (571--993~m), differences in 3D versus line-of-sight measurement sensitivity, and tropospheric artifacts \citep{Crosetto2016}. Both GPS and InSAR confirm consistent subsidence at all stations, validating SBAS reliability for regional monitoring.
 
 
 \section{Multicollinearity Assessment}
@@ -1136,16 +1171,16 @@ As shown in Table~\ref{tab:vif_results}, elevation recorded the highest VIF at 2
 \label{fig:vif_lollipop}
 \end{figure}
 
-These results confirm that each retained variable contributes unique information to the model without inflating the variance of other predictors. This independence is important because high multicollinearity can lead to unstable model coefficients and unreliable feature importance rankings. With all VIF values below 3, the predictor set is well-conditioned for subsequent modeling, and the 12 variables were used as input features for both the ET and RF susceptibility models.
+These results confirm that each retained variable contributes unique information to the model without inflating the variance of other predictors. This independence is important because high multicollinearity can lead to unstable model coefficients and unreliable feature importance rankings. With all VIF values below 3, the predictor set is well-conditioned for subsequent modeling, and the 12 variables were used as input features for both the ERT and RF susceptibility models.
 
 \section{Spatial Susceptibility Mapping}
 
-Both ET and RF regressors were trained on the augmented dataset comprising 393,412 samples derived from SBAS-InSAR velocities and 12 
+Both ERT and RF regressors were trained on the augmented dataset comprising 393,412 samples derived from SBAS velocities and 12 
 environmental conditioning factors.
 
 \begin{table}[!t]
 \centering
-\caption{ET and RF Model Performance Comparison}
+\caption{ERT and RF Model Performance Comparison}
 \label{tab:model_performance}
 \begin{tabular}{lccc}
 \hline
@@ -1156,31 +1191,31 @@ Random Forest  & 0.8825 & 1.37 & 1.03 \\
 \hline
 \end{tabular}
 \end{table}
-ET achieved superior performance across all metrics, with test $R^2 = 0.9236$ compared to RF ($R^2 = 0.8825$). This difference, $\Delta R^2 = 0.041$, 
-is statistically significant ($p < 0.001$), confirming that ET provides better generalization for subsidence prediction in EBRP. 
-The improved performance is attributable to ET's random threshold splitting mechanism, which introduces additional randomization at node splits, reducing overfitting and enhancing robustness to multicollinear predictors \citep{Geurts2006}. Similar findings have been reported in other geohazard susceptibility studies where ET outperformed conventional RF \citep{Gharechaee2023}.
+ERT achieved superior performance across all metrics, with test $R^2 = 0.9236$ compared to RF ($R^2 = 0.8825$). This difference, $\Delta R^2 = 0.041$, 
+is statistically significant ($p < 0.001$), confirming that ERT provides better generalization for subsidence prediction in EBRP. 
+The improved performance is attributable to ERT's random threshold splitting mechanism, which introduces additional randomization at node splits, reducing overfitting and enhancing robustness to multicollinear predictors \citep{Geurts2006}. Similar findings have been reported in other geohazard susceptibility studies where ERT outperformed conventional RF \citep{Gharechaee2023}.
 In addition to regression metrics, the models were evaluated using binarized Receiver Operating Characteristic (ROC) analysis, where velocity predictions were classified as subsidence-prone  or non-subsidence. The Area Under the Curve (AUC) summarizes overall discriminative ability, with AUC $= 1.0$ representing perfect classification.
 
-As shown in Figure~\ref{fig:auc_roc}, ET achieved an AUC of 0.9663 and RF achieved an AUC of 0.9448. Both values exceed 0.94, confirming that both models have excellent ability to correctly distinguish subsidence-prone areas from stable or uplifting regions. The ROC curves rise steeply toward the upper-left corner, indicating high true positive rates at low false positive rates. 
-The higher AUC for ET is consistent with its superior regression performance with $R^2 = 0.9236$ and RF with $R^2 = 0.8825$ and confirms that ET more reliably identifies the spatial boundary between subsidence and non-subsidence zones across the study area.
+As shown in Figure~\ref{fig:auc_roc}, ERT achieved an AUC of 0.9663 and RF achieved an AUC of 0.9448. Both values exceed 0.94, confirming that both models have excellent ability to correctly distinguish subsidence-prone areas from stable or uplifting regions. The ROC curves rise steeply toward the upper-left corner, indicating high true positive rates at low false positive rates. 
+The higher AUC for ERT is consistent with its superior regression performance with $R^2 = 0.9236$ and RF with $R^2 = 0.8825$ and confirms that ERT more reliably identifies the spatial boundary between subsidence and non-subsidence zones across the study area.
 
 \begin{figure}[!t]
 \centering
 \includegraphics[width=0.7\textwidth]{media/auc_roc_et_rf.png}
-\caption{ROC Curves for ET and RF Models. Both Models Demonstrate Excellent Discrimination with AUC $> 0.94$.}
+\caption{ROC Curves for ERT and RF Models. Both Models Demonstrate Excellent Discrimination with AUC $> 0.94$.}
 \label{fig:auc_roc}
 \end{figure}
 
-The optimized models were applied to generate spatially continuous maps. The ET velocity map (Figure~\ref{fig:et_results}a) shows predicted velocities ranging from $-23.3$ to $+19.2$~mm/yr, closely matching the SBAS-InSAR observed range ($-23.7$ to $+19.2$~mm/yr). This strong agreement demonstrates that the selected environmental conditioning factors effectively capture the physical drivers of subsidence in EBRP. High subsidence ($-23.3$ to $-2$~mm/yr) concentrates in the southern parish, moderate zones ($-2$ to $1.4$~mm/yr) occupy transitional areas, and uplift ($3$ to $19.2$~mm/yr) dominates the northern forested regions.
+The optimized models were applied to generate spatially continuous maps. The ERT velocity map (Figure~\ref{fig:et_results}a) shows predicted velocities ranging from $-23.3$ to $+19.2$~mm/yr, closely matching the SBAS observed range ($-23.7$ to $+19.2$~mm/yr). This strong agreement demonstrates that the selected environmental conditioning factors effectively capture the physical drivers of subsidence in EBRP. High subsidence ($-23.3$ to $-2$~mm/yr) concentrates in the southern parish, moderate zones ($-2$ to $1.4$~mm/yr) occupy transitional areas, and uplift ($3$ to $19.2$~mm/yr) dominates the northern forested regions.
 
 \begin{figure}[!t]
 \centering
 \begin{tabular}{cc}
 \includegraphics[width=0.48\textwidth]{media/et_vel.png} &
 \includegraphics[width=0.48\textwidth]{media/et_susc.png} \\
-(a) ET Predicted Velocity & (b) ET Susceptibility
+(a) ERT Predicted Velocity & (b) ERT Susceptibility
 \end{tabular}
-\caption{ET Model Results: (a) Predicted Velocity (mm/yr); (b) Susceptibility Classification. High-Risk Zones Concentrate Along the Southern Urban Corridor and Fault-Proximal Areas.}
+\caption{ERT Model Results: (a) Predicted Velocity (mm/yr); (b) Susceptibility Classification. High-Risk Zones Concentrate Along the Southern Urban Corridor and Fault-Proximal Areas.}
 \label{fig:et_results}
 \end{figure}
 
@@ -1195,9 +1230,9 @@ The optimized models were applied to generate spatially continuous maps. The ET 
 \label{fig:rf_results}
 \end{figure}
 
-The RF velocity map (Figure~\ref{fig:rf_results}a) shows predicted velocities ranging from $-21.3$ to $+16.6$~mm/yr, with high subsidence ($-21.3$ to $-1.7$~mm/yr) in the southern parish, moderate zones ($-1.7$ to $1.3$~mm/yr) in transitional areas, and uplift ($2.7$ to $16.6$~mm/yr) in the northern regions. The corresponding susceptibility classification (Figure~\ref{fig:rf_results}b) identifies the same five risk levels as ET. Both models exhibit consistent spatial patterns, with the southern urban corridor and fault-proximal areas classified as Very High to High risk, while northern forested areas show Low to Very Low susceptibility.
+The RF velocity map (Figure~\ref{fig:rf_results}a) shows predicted velocities ranging from $-21.3$ to $+16.6$~mm/yr, with high subsidence ($-21.3$ to $-1.7$~mm/yr) in the southern parish, moderate zones ($-1.7$ to $1.3$~mm/yr) in transitional areas, and uplift ($2.7$ to $16.6$~mm/yr) in the northern regions. The corresponding susceptibility classification (Figure~\ref{fig:rf_results}b) identifies the same five risk levels as ERT. Both models exhibit consistent spatial patterns, with the southern urban corridor and fault-proximal areas classified as Very High to High risk, while northern forested areas show Low to Very Low susceptibility.
 
-In summary, SBAS-InSAR observed velocities from $-23.7$ to $+19.2$~mm/yr, while ET predicted $-23.3$ to $+19.2$~mm/yr ($R^2 = 0.9236$) and RF predicted $-21.3$ to $+16.6$~mm/yr ($R^2 = 0.8825$). All three approaches consistently identify subsidence concentrated in the southern urban corridor and fault-proximal areas, with uplift dominating the northern forested regions. The close agreement between observed SBAS-InSAR patterns and ML predictions confirms that the environmental conditioning factors effectively explain subsidence variability in EBRP.
+In summary, SBAS observed velocities from $-23.7$ to $+19.2$~mm/yr, while ERT predicted $-23.3$ to $+19.2$~mm/yr ($R^2 = 0.9236$) and RF predicted $-21.3$ to $+16.6$~mm/yr ($R^2 = 0.8825$). All three approaches consistently identify subsidence concentrated in the southern urban corridor and fault-proximal areas, with uplift dominating the northern forested regions. The close agreement between observed SBAS patterns and ML predictions confirms that the environmental conditioning factors effectively explain subsidence variability in EBRP.
 
 
 \section{Feature Importance Analysis}
@@ -1211,9 +1246,9 @@ MDI-based feature importance rankings (Figure~\ref{fig:mdi_importance}) reveal m
 \begin{tabular}{cc}
 \includegraphics[width=0.48\textwidth]{media/mdi_imp_et_slim.png} &
 \includegraphics[width=0.48\textwidth]{media/mdi_imp_rf_slim.png} \\
-(a) MDI (ET) & (b) MDI (RF)
+(a) MDI (ERT) & (b) MDI (RF)
 \end{tabular}
-\caption{MDI-Based Feature Importance: (a) ET; (b) RF. Both Models Consistently Identify LULC, Fault Proximity, and Topographic-Hydrological Interactions as Dominant Controls.}
+\caption{MDI-Based Feature Importance: (a) ERT; (b) RF. Both Models Consistently Identify LULC, Fault Proximity, and Topographic-Hydrological Interactions as Dominant Controls.}
 \label{fig:mdi_importance}
 \end{figure}
 
@@ -1268,9 +1303,9 @@ The DTRDEM interaction reveals that low-elevation areas near rivers exhibit posi
 \begin{tabular}{cc}
 \includegraphics[width=0.48\textwidth]{media/shap_sum_et.png} &
 \includegraphics[width=0.48\textwidth]{media/shap_sum_rf.png} \\
-(a) SHAP Summary (ET) & (b) SHAP Summary (RF+++)
+(a) SHAP Summary (ERT) & (b) SHAP Summary (RF+++)
 \end{tabular}
-\caption{SHAP Summary Plots: (a) ET; (b) RF. Color Scale: Red = High Feature Value, Blue = Low.}
+\caption{SHAP Summary Plots: (a) ERT; (b) RF. Color Scale: Red = High Feature Value, Blue = Low.}
 \label{fig:shap_summary}
 \end{figure}
 
@@ -1279,9 +1314,9 @@ The DTRDEM interaction reveals that low-elevation areas near rivers exhibit posi
 \begin{tabular}{cc}
 \includegraphics[width=0.48\textwidth]{media/shap_bar_et_slim.png} &
 \includegraphics[width=0.48\textwidth]{media/shap_bar_rf_slim.png} \\
-(a) SHAP Bar Plot (ET) & (b) SHAP Bar Plot (RF)
+(a) SHAP Bar Plot (ERT) & (b) SHAP Bar Plot (RF)
 \end{tabular}
-\caption{SHAP Bar Plots Showing Mean Absolute SHAP Values: (a) ET; (b) RF.}
+\caption{SHAP Bar Plots Showing Mean Absolute SHAP Values: (a) ERT; (b) RF.}
 \label{fig:shap_bar}
 \end{figure}
 
@@ -1360,7 +1395,7 @@ The physics-informed constraints effectively reduce forecast uncertainty, with o
 
 \section{Integrated Assessment and Implications}
 
-The spatial susceptibility mapping (ET) and temporal forecasting (physics-informed LSTM) provide separate but complementary perspectives on 
+The spatial susceptibility mapping (ERT) and temporal forecasting (physics-informed LSTM) provide separate but complementary perspectives on 
 subsidence risk. Time-series analysis at four representative locations demonstrates how geological setting controls 
 subsidence behavior: LSU Lakes ($-12.25$~mm/yr) on compressible Holocene sediments shows the highest rates, 
 while Downtown ($-5.02$~mm/yr) near the Mississippi River levee exhibits the lowest. North Baton Rouge ($-8.10$~mm/yr) on stable Pleistocene terraces
@@ -1377,16 +1412,16 @@ integrating subsidence risk into flood modeling and levee maintenance, and expan
 
 \section{Conclusions}
 
-This study developed an integrated framework for land subsidence susceptibility mapping and spatio-temporal forecasting in East Baton Rouge Parish by combining Sentinel-1 SBAS-InSAR observations with machine learning and physics-informed deep learning models.
+This study developed an integrated framework for land subsidence susceptibility mapping and spatio-temporal forecasting in East Baton Rouge Parish by combining Sentinel-1 SBAS observations with machine learning and physics-informed deep learning models.
 
-SBAS-InSAR analysis of 246 Sentinel-1 acquisitions (2017--2025) revealed spatially heterogeneous deformation with mean velocity of $-1.46 \pm 0.98$~mm/yr. Maximum subsidence ($-23.66$~mm/yr) occurred near fault systems and groundwater extraction zones, while uplift ($+19.18$~mm/yr) was observed in northern forested regions. Validation against three GNSS stations confirmed excellent agreement with a mean velocity difference of only 0.15~mm/yr.
+SBAS analysis of 246 Sentinel-1 acquisitions (2017--2025) revealed spatially heterogeneous deformation with mean velocity of $-1.46 \pm 0.98$~mm/yr. Maximum subsidence ($-23.66$~mm/yr) occurred near fault systems and groundwater extraction zones, while uplift ($+19.18$~mm/yr) was observed in northern forested regions. Validation against three GNSS stations confirmed excellent agreement with a mean velocity difference of only 0.15~mm/yr.
 
-VIF-based multicollinearity screening reduced the initial fifteen conditioning factors to twelve independent predictors. Extra Trees regression achieved superior performance ($R^2 = 0.9236$, RMSE = 1.10~mm/yr) compared to Random Forest ($R^2 = 0.8825$), with binarized AUC-ROC analysis confirming excellent discriminative ability (ET AUC = 0.9663, RF AUC = 0.9448). Explainability analysis using MDI, SHAP, and LIME consistently identified land use/land cover, fault proximity, elevation, and groundwater well influence as the primary subsidence drivers.
+VIF-based multicollinearity screening reduced the initial fifteen conditioning factors to twelve independent predictors. Extra Trees regression achieved superior performance ($R^2 = 0.9236$, RMSE = 1.10~mm/yr) compared to Random Forest ($R^2 = 0.8825$), with binarized AUC-ROC analysis confirming excellent discriminative ability (ERT AUC = 0.9663, RF AUC = 0.9448). Explainability analysis using MDI, SHAP, and LIME consistently identified land use/land cover, fault proximity, elevation, and groundwater well influence as the primary subsidence drivers.
 
 
 The physics-informed Bi-LSTM achieved strong forecasting performance ($R^2 = 0.834$, $r = 0.918$) and predicted continued subsidence averaging $-0.530$~mm/yr through 2030. Subsidence rates varied with geological setting, ranging from $-5.02$~mm/yr downtown to $-12.25$~mm/yr on compressible Holocene sediments near LSU Lakes.
 
-This research demonstrates that SBAS-InSAR combined with ensemble machine learning effectively maps subsidence susceptibility, physics-informed constraints ensure geomechanically consistent forecasts, and both sediment compressibility and proximity to geological structures control subsidence magnitude in EBRP.
+This research demonstrates that SBAS combined with ensemble machine learning effectively maps subsidence susceptibility, physics-informed constraints ensure geomechanically consistent forecasts, and both sediment compressibility and proximity to geological structures control subsidence magnitude in EBRP.
 
 
 \section{Limitations}
