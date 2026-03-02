@@ -805,9 +805,9 @@ The splitting behavior in the ERT framework is controlled by two key hyperparame
 
 Similar to RF, the ERT method performs regression in two distinct stages: bootstrap sampling followed by aggregation. In the bootstrap stage, random subsets of training data are extracted to build individual trees. During aggregation, node splits are performed using randomly chosen feature subsets. The ensemble prediction is obtained by averaging outputs across all trees constructed from these random subsets. The mathematical representation of ERT regression is given by \citet{Breiman2001}:
 \begin{equation}
-p(x, \beta_1, \ldots, \beta_n) = \frac{1}{m} \sum_{i=1}^{m} p(x, \beta_n)
+p(x, \beta_1, \ldots, \beta_n) = \frac{1}{m} \sum_{i=1}^{m} p(x, \beta_i)
 \end{equation}
-where $p$ denotes the prediction from the $p$-th tree, and $\beta$ represents a random vector governing tree construction.
+where $p(x, \beta_1, \ldots, \beta_n)$ is the ensemble prediction for input $x$, $x$ is the input feature vector, $m$ is the total number of trees in the ensemble, $i$ is the tree index ranging from 1 to $m$, $p(x, \beta_i)$ is the prediction from the $i$-th tree, and $\beta_i$ represents a random vector governing the construction of the $i$-th tree.
 
 \section{Random Forest Model}
 RF is a supervised machine-learning algorithm that uses several decision trees to produce predictions that are more precise. RF is an ensemble learning technique that produces the mean prediction for regression tasks by combining the predictions of several decision tree models (Figure~\ref{fig:rf_model}) \citep{Breiman2001,wahba2024forecasting}.
@@ -827,10 +827,10 @@ The RF training procedure begins by generating random subsets from the original 
 \begin{equation}
 \hat{y} = \frac{1}{n} \sum_{i=1}^{n} g(x, t_m^n)
 \end{equation}
-where $\hat{y}$ represents the final prediction of the Random Forest model.
+where $\hat{y}$ is the final prediction of the Random Forest model, $n$ is the total number of decision trees in the forest, $i$ is the tree index ranging from 1 to $n$, $g(x, t_m^n)$ is the prediction from the $i$-th decision tree trained on bootstrap sample $t_m^n$, and $x$ is the input feature vector.
 
 \section{Feature Importance and Model Explainability}
-The inherent black-box nature of ensemble machine learning models, despite their superior predictive performance, presents significant challenges for interpretability in scientific applications. To address this limitation and enhance understanding of the decision-making processes underlying subsidence predictions, this study employs three complementary explainability techniques: SHAP, LIME, and MDI. These methods collectively provide both global and local interpretations of model behavior, feature importance, and individual prediction rationales \citep{Lundberg2017,yu_explainable_2025}.
+The inherent black-box nature of ensemble machine learning models, despite their superior predictive performance, presents significant challenges for interpretability in scientific applications. To address this limitation and enhance understanding of the decision-making processes underlying subsidence predictions, this study employs three complementary explainability techniques, namely SHAP, LIME, and MDI. These methods collectively provide both global and local interpretations of model behavior, feature importance, and individual prediction rationales \citep{Lundberg2017,yu_explainable_2025}.
 
 
 
@@ -839,45 +839,49 @@ MDI serves as a tree-based feature importance measure that quantifies the total 
 \begin{equation}
 I_j = \frac{1}{T} \sum_{t=1}^{T} \sum_{k \in S_t(j)} w_k \Delta i_k
 \end{equation}
-where $T$ denotes the total number of trees, $S_t(j)$ represents the set of splitting nodes using feature $j$ in tree $t$, $w_k$ is the weighted number of samples reaching node $k$, and $\Delta i_k$ is the impurity decrease at node $k$. Higher MDI values indicate features that contribute more substantially to reducing prediction uncertainty across the ensemble \citep{Cutler2007}.
+where $I_j$ is the importance score of feature $j$, $T$ is the total number of trees in the ensemble, $t$ is the tree index ranging from 1 to $T$, $k$ is the node index within tree $t$, $S_t(j)$ represents the set of splitting nodes using feature $j$ in tree $t$, $w_k$ is the weighted number of samples reaching node $k$, and $\Delta i_k$ is the impurity decrease at node $k$. Higher MDI values indicate features that contribute more substantially to reducing prediction uncertainty across the ensemble \citep{Cutler2007}.
 
 \subsection{SHAP}
-SHAP provides a unified framework for interpreting model predictions by assigning each feature an importance value for individual predictions, grounded in cooperative game theory \citep{Lundberg2017}. Unlike aggregate importance measures, SHAP values decompose each prediction into additive contributions from input features, satisfying desirable properties including local accuracy, missingness, and consistency \citep{yu_explainable_2025}. The SHAP value $\phi_j$ for feature $j$ quantifies its marginal contribution across all possible feature coalitions:
+SHAP provides a unified framework for interpreting model predictions by assigning each feature an importance value for individual predictions, grounded in cooperative game theory \citep{Lundberg2017}. Unlike aggregate importance measures, 
+SHAP values decompose each prediction into additive contributions from input features, satisfying desirable properties including local accuracy, missingness, and consistency \citep{yu_explainable_2025}. 
+The SHAP value $\phi_j$ for feature $j$ quantifies its marginal contribution across all possible feature coalitions:
 \begin{equation}
 \phi_j = \sum_{S \subseteq F \setminus \{j\}} \frac{|S|!(|F|-|S|-1)!}{|F|!} \left[f(S \cup \{j\}) - f(S)\right]
 \end{equation}
-where $F$ represents the complete feature set, $S$ denotes a subset excluding feature $j$, $f(S)$ is the model prediction using only features in $S$, and $|\cdot|$ denotes set cardinality. For tree-based models, TreeSHAP algorithm enables efficient exact computation by exploiting the tree structure, avoiding exponential computational complexity \citep{Lundberg2017}.
+where $\phi_j$ is the SHAP value (importance contribution) of feature $j$, $F$ is the complete feature set, $S$ is a subset of features excluding feature $j$, $|S|$ is the cardinality (number of elements) of set $S$, $|F|$ is the total number of features, $f(S)$ is the model prediction using only features in subset $S$, and $f(S \cup \{j\})$ is the model prediction using features in $S$ plus feature $j$. For tree-based models, TreeSHAP algorithm enables efficient exact computation by exploiting the tree structure, avoiding exponential computational complexity \citep{Lundberg2017}.
 
-SHAP values offer several analytical advantages. First, they provide instance-level explanations, revealing how individual features influence specific predictions. Second, aggregated SHAP values yield global feature importance rankings. Third, dependence plots visualize feature effects across their value ranges, exposing non-linear relationships and interaction effects. Fourth, SHAP values maintain consistency: if a model changes such that a feature's contribution increases, its SHAP value reflects this change proportionally \citep{yu_explainable_2025}.
+SHAP values offer several analytical advantages. First, they provide instance-level explanations that reveal how individual features influence specific predictions. Second, the aggregation of SHAP values yields global feature-importance. Third, dependence plots visualize feature effects across their value ranges, exposing non-linear relationships and interaction effects. Fourth, SHAP values maintain consistency: if a model changes such that a feature's contribution increases, its SHAP value reflects this change proportionally \citep{yu_explainable_2025}.
 
 \subsection{LIME}
-LIME generates interpretable explanations for individual predictions by approximating the complex model locally with a simpler, interpretable surrogate model \citep{Ribeiro2016}. The technique operates by perturbing the input instance, obtaining predictions for perturbed samples, and fitting a linear model weighted by proximity to the original instance. For a prediction $f(x)$ at instance $x$, LIME solves the optimization problem:
+LIME generates interpretable explanations for individual predictions by approximating the complex model locally with a simpler, interpretable surrogate model \citep{Ribeiro2016}. The technique operates by perturbing the input instance, obtaining predictions for the perturbed samples, and fitting a linear model weighted by proximity to the original instance. For a prediction $f(x)$ at instance $x$, LIME solves the optimization problem:
 \begin{equation}
 \xi(x) = \arg\min_{g \in G} \mathcal{L}(f, g, \pi_x) + \Omega(g)
 \end{equation}
-where $G$ represents the class of interpretable models (typically linear models), $\mathcal{L}$ measures the fidelity of surrogate model $g$ in approximating $f$ within the local region defined by proximity kernel $\pi_x$, and $\Omega(g)$ penalizes model complexity to ensure interpretability.
+where $\xi(x)$ is the explanation for instance $x$, $x$ is the input instance being explained, $g$ is a surrogate interpretable model, $G$ is the class of interpretable models (typically linear models), $f$ is the original complex model being approximated, $\pi_x$ is the proximity kernel that weights perturbed samples by their distance to $x$, $\mathcal{L}$ is the loss function measuring the fidelity of $g$ in approximating $f$ within the local region, and $\Omega(g)$ is a penalty term for model complexity to ensure interpretability.
 
-The LIME procedure generates $N$ perturbed samples in the neighborhood of $x$, obtains their predictions from the original model, and weights them according to their proximity to $x$ using an exponential kernel. The resulting linear approximation identifies which features contribute most significantly to the specific prediction, providing locally faithful explanations even when global model behavior is highly non-linear.
+The LIME procedure generates $N$ perturbed samples in the neighborhood of $x$. These samples are evaluated using the original model to obtain predictions. The predictions are then weighted according to their proximity to $x$ using an exponential kernel. The resulting linear approximation identifies which features contribute most significantly to the specific prediction. This approach provides locally faithful explanations even when global model behavior is highly nonlinear.
 
 \subsection{Integrated Explainability Framework}
-This study employs these three methods synergistically to achieve comprehensive model interpretability. MDI provides computationally efficient global feature rankings inherent to the tree ensemble structure. SHAP analysis delivers theoretically grounded feature attributions with both local (instance-level) and global (aggregated) interpretability, enabling identification of dominant subsidence drivers and their directional effects. LIME complements these approaches by offering human-interpretable local explanations that validate SHAP findings and provide intuitive justifications for individual high-risk predictions.
+This study employs these three methods synergistically to achieve comprehensive model interpretability. MDI provides computationally efficient global feature rankings inherent to the tree ensemble structure. 
+SHAP analysis delivers theoretically grounded feature attributions at both local (instance-level) and global (aggregated) scales. This enables identification of dominant subsidence drivers and their directional effects. 
+LIME complements these approaches by offering human-interpretable local explanations that validate SHAP findings and provide intuitive justifications for individual high-risk predictions.
 
-By triangulating results across these explainability techniques, this framework addresses critical limitations of black-box models in geohazard assessment, transforming predictive models into decision-support tools that provide not only accurate forecasts but also scientifically interpretable explanations of subsidence mechanisms \citep{yu_explainable_2025,Pradhan2023}. This integrated approach enables stakeholders to understand which environmental and anthropogenic factors drive subsidence risk in specific locations, facilitating targeted mitigation strategies and informed land-use planning decisions.
+By triangulating results across these explainability techniques, this framework addresses critical limitations of black-box models in geohazard assessment. It transforms predictive models into decision-support tools that provide both accurate forecasts and scientifically interpretable explanations of subsidence mechanisms \citep{yu_explainable_2025,Pradhan2023}. This integrated approach enables stakeholders to understand which environmental and anthropogenic factors drive subsidence risk in specific locations. Such understanding facilitates targeted mitigation strategies and informed land-use planning decisions.
 
-\section{Physics-Informed LSTM for Spatio-Temporal Forecasting}
-While tree-based ensemble models excel at spatial susceptibility mapping by capturing complex relationships between environmental factors and subsidence patterns, they do not explicitly model temporal dependencies inherent in time-series deformation data. To address this limitation and enable robust near-decadal subsidence forecasting, this study implements a hybrid framework that integrates Bidirectional Long Short-Term Memory (Bi-LSTM) neural networks with physics-informed constraints (Figure~\ref{fig:lstm_forecast_flowchart}). This approach combines data-driven learning of spatio-temporal patterns from InSAR time series with geomechanically consistent rules that ensure physically plausible long-term projections.
+\section{Physics-Informed LSTM for Forecasting}
+Tree-based ensemble models excel at spatial susceptibility mapping by capturing complex relationships between environmental factors and subsidence patterns. However, they do not explicitly model temporal dependencies inherent in time-series deformation data. To address this limitation and enable robust near-decadal subsidence forecasting, this study implements a hybrid framework that integrates Bidirectional Long Short-Term Memory (Bi-LSTM) neural networks with physics-informed constraints (Figure~\ref{fig:lstm_forecast_flowchart}). This approach combines data-driven learning of spatio-temporal patterns from InSAR time series with geomechanically consistent rules. These rules ensure physically plausible long-term projections.
 
 \begin{figure}[!t]
 \centering
 \includegraphics[width=0.95\textwidth,keepaspectratio]{master_thesis_forcast_cc.jpg}
-\caption{Physics-Informed Bi-LSTM Forecasting Framework}
+\caption{Physics-informed Bi-LSTM framework for spatio-temporal subsidence forecasting from SBAS-InSAR time series, integrating data preprocessing, sequence modeling, post-prediction physical constraints, and performance evaluation.}
 \label{fig:lstm_forecast_flowchart}
 \end{figure}
 
 \subsection{Framework Overview and Conceptual Rationale}
-The physics-informed forecasting framework (Figure~\ref{fig:lstm_forecast_flowchart}) operates in two distinct stages: (1) a prediction stage, where a Bi-LSTM model is trained to learn subsidence dynamics from historical SBAS-InSAR observations, and (2) a forecasting stage, where the trained network is iteratively applied in autoregressive mode with physics-based constraints to ensure temporal stability and geomechanical realism during extrapolation beyond the observation period \citep{Raissi2019,Zhu2024}. This separation ensures that machine learning captures complex non-linear variability in the training data, while physical principles govern long-term behavior to prevent unrealistic acceleration, deceleration, or sign reversal commonly observed in purely data-driven extrapolation.
+The physics-informed forecasting framework as shown in Figure~\ref{fig:lstm_forecast_flowchart} operates in two distinct stages. In the prediction stage, a Bi-LSTM model is trained to learn subsidence dynamics from historical SBAS-InSAR observations. In the forecasting stage, the trained network is iteratively applied in autoregressive mode with physics-based constraints. These constraints ensure temporal stability and geomechanical realism during extrapolation beyond the observation period \citep{Raissi2019,Zhu2024}. This separation ensures that machine learning captures complex nonlinear variability in the training data. Meanwhile, physical principles govern long-term behavior to prevent unrealistic acceleration, deceleration, or sign reversal commonly observed in purely data-driven extrapolation.
 
-Unlike Physics-Informed Neural Networks (PINNs) that encode partial differential equations directly into the loss function during training, the present approach applies constraints post-prediction during the autoregressive forecasting loop \citep{Raissi2019}. This design choice maintains model flexibility during training while ensuring physical consistency during deployment, thereby balancing predictive accuracy with geomechanical plausibility.
+Unlike Physics-Informed Neural Networks (PINNs) that encode partial differential equations directly into the loss function during training, the present approach applies constraints post-prediction during the autoregressive forecasting loop \citep{Raissi2019}. This design choice maintains model flexibility during training while ensuring physical consistency during deployment. This balances predictive accuracy with geomechanical plausibility.
 
 
 
@@ -886,20 +890,20 @@ As illustrated in Figure~\ref{fig:lstm_forecast_flowchart}, to suppress atmosphe
 \begin{equation}
 |v| \geq 1.5 \ \text{mm yr}^{-1}
 \end{equation}
-where $v$ represents the mean annual subsidence velocity. This threshold reduces contributions from decorrelated or atmospherically contaminated pixels while preserving meaningful deformation signals.
+where $|v|$ is the absolute value of the mean annual subsidence velocity, and $v$ is the mean annual subsidence velocity (in mm yr$^{-1}$). This threshold reduces contributions from decorrelated or atmospherically contaminated pixels while preserving meaningful deformation signals.
 
 Each retained time series was normalized using min--max scaling to stabilize gradient propagation during neural network training:
 \begin{equation}
 x_t^{*} = \frac{x_t - x_{\min}}{x_{\max} - x_{\min}}
 \end{equation}
-where $x_t$ denotes the observed subsidence velocity at time $t$, and $x_{\min}$ and $x_{\max}$ represent the minimum and maximum values across the entire time series.
+where $x_t^{*}$ is the normalized subsidence velocity at time $t$, $x_t$ is the observed subsidence velocity at time $t$, $x_{\min}$ is the minimum value across the entire time series, and $x_{\max}$ is the maximum value across the entire time series.
 
 
 A supervised learning structure was constructed using a sliding window approach to generate input-output pairs for sequential prediction. The input window length was set to 18 months to capture seasonal and interannual variability, while the output window was set to 6 months to enable multi-step-ahead forecasting. Formally, for a time series $\{x_t\}_{t=1}^{T}$, the input-output mapping at time index $i$ is defined as:
 \begin{equation}
 \mathbf{X}_i = [x_{t-17}, \dots, x_t], \quad \mathbf{Y}_i = [x_{t+1}, \dots, x_{t+6}]
 \end{equation}
-This formulation enables the network to learn temporal dependencies while supporting direct multi-horizon prediction, which is essential for operational forecasting applications.
+where $\mathbf{X}_i$ is the input sequence at index $i$ containing 18 consecutive values, $\mathbf{Y}_i$ is the output sequence at index $i$ containing the next 6 values, $T$ is the total length of the time series, $t$ is the current time index, and $i$ is the sample index for the training dataset. This formulation enables the network to learn temporal dependencies while supporting direct multi-horizon prediction, which is essential for operational forecasting applications.
 
 
 \subsection{LSTM Architecture and Temporal Dependency Modeling}
@@ -907,54 +911,74 @@ This formulation enables the network to learn temporal dependencies while suppor
 \begin{equation}
 f_t = \sigma(W_f [h_{t-1}, x_t] + b_f)
 \end{equation}
+where $f_t$ is the forget gate activation at time $t$, $\sigma(\cdot)$ denotes the sigmoid activation function, $W_f$ is the weight matrix for the forget gate, $h_{t-1}$ is the previous hidden state, $x_t$ is the current input, and $b_f$ is the forget gate bias vector.
+
 \begin{equation}
 i_t = \sigma(W_i [h_{t-1}, x_t] + b_i)
 \end{equation}
+where $i_t$ is the input gate activation at time $t$, $W_i$ is the weight matrix for the input gate, and $b_i$ is the input gate bias vector.
+
 \begin{equation}
 \tilde{C}_t = \tanh(W_c [h_{t-1}, x_t] + b_c)
 \end{equation}
+where $\tilde{C}_t$ is the candidate cell state at time $t$, $\tanh(\cdot)$ is the hyperbolic tangent activation function, $W_c$ is the weight matrix for the candidate cell state, and $b_c$ is the bias vector.
+
 \begin{equation}
 C_t = f_t \odot C_{t-1} + i_t \odot \tilde{C}_t
 \end{equation}
+where $C_t$ is the updated cell state at time $t$, $\odot$ represents element-wise multiplication, $C_{t-1}$ is the previous cell state, $f_t$ determines what information to forget, and $i_t$ controls what new information to add from $\tilde{C}_t$.
+
 \begin{equation}
 o_t = \sigma(W_o [h_{t-1}, x_t] + b_o)
 \end{equation}
+where $o_t$ is the output gate activation at time $t$, $W_o$ is the weight matrix for the output gate, and $b_o$ is the output gate bias vector.
+
 \begin{equation}
 h_t = o_t \odot \tanh(C_t)
 \end{equation}
-where $\sigma(\cdot)$ denotes the sigmoid activation function, $\tanh(\cdot)$ is the hyperbolic tangent activation, $\odot$ represents element-wise multiplication, $W_f, W_i, W_c, W_o$ are weight matrices, and $b_f, b_i, b_c, b_o$ are bias vectors. The forget gate controls which information from the previous cell state is discarded, the input gate regulates new information incorporation, and the output gate determines the hidden state exposed to subsequent layers.
+where $h_t$ is the hidden state at time $t$, which serves as the output of the LSTM cell. The output gate $o_t$ determines which parts of the cell state $C_t$ are exposed to the next layer.
 
 \subsection{Bidirectional LSTM Formulation}
-Land subsidence time series exhibit both short-term fluctuations driven by seasonal hydrological cycles and long-term trends associated with aquifer compaction. Standard unidirectional LSTM processes sequences in forward temporal order, potentially missing contextual information from future time steps within the input window. Bidirectional LSTM addresses this limitation by processing the input sequence in both forward and backward directions, enabling the network to exploit complete temporal context \citep{Schuster1997}.
+Land subsidence time series exhibit both short-term fluctuations driven by seasonal hydrological cycles and long-term trends associated with aquifer compaction. Standard unidirectional LSTM processes sequences in forward temporal order, potentially missing contextual information from future time steps within the input window. Bidirectional LSTM addresses this limitation by processing the input sequence in both forward and backward directions. This enables the network to exploit complete temporal context \citep{Schuster1997}.
 
 For each time step $t$ within the input window, the Bi-LSTM computes forward and backward hidden states:
 \begin{equation}
 \overrightarrow{h_t} = \text{LSTM}_{\text{forward}}(x_t, \overrightarrow{h_{t-1}})
 \end{equation}
+where $\overrightarrow{h_t}$ is the forward hidden state at time $t$, $x_t$ is the input at time $t$, and $\overrightarrow{h_{t-1}}$ is the previous forward hidden state.
 \begin{equation}
 \overleftarrow{h_t} = \text{LSTM}_{\text{backward}}(x_t, \overleftarrow{h_{t+1}})
 \end{equation}
+where $\overleftarrow{h_t}$ is the backward hidden state at time $t$, $x_t$ is the input at time $t$, and $\overleftarrow{h_{t+1}}$ is the subsequent backward hidden state.
+
 The final hidden representation at time $t$ is obtained by concatenating the forward and backward states:
 \begin{equation}
 h_t = [\overrightarrow{h_t}, \overleftarrow{h_t}]
 \end{equation}
+where $h_t$ is the combined bidirectional hidden state, $\overrightarrow{h_t}$ is the forward hidden state, $\overleftarrow{h_t}$ is the backward hidden state, and $[\cdot, \cdot]$ denotes concatenation.
+
 This bidirectional processing captures both antecedent conditions and subsequent trends within the input window, improving the model's ability to distinguish persistent deformation from transient noise.
 
 \subsection{Network Architecture and Training Configuration}
-The adopted Bi-LSTM architecture (Figure~\ref{fig:lstm_forecast_flowchart}) consists of two stacked bidirectional layers with progressively decreasing dimensionality to extract hierarchical temporal features. The first Bi-LSTM layer contains 192 units (96 forward, 96 backward), followed by batch normalization and dropout regularization to prevent overfitting.
+The adopted Bi-LSTM architecture (Figure~\ref{fig:lstm_forecast_flowchart}) consists of two stacked bidirectional layers with progressively decreasing dimensionality to extract hierarchical temporal features. 
+The first Bi-LSTM layer contains 192 units (96 forward, 96 backward), followed by batch normalization and dropout regularization to prevent overfitting.
 
 
 The model was trained using the Adam optimizer \citep{Kingma2014} with an initial learning rate of 0.001, which was reduced on plateau using a learning rate scheduler. The loss function is mean squared error (MSE) between predicted and observed velocity sequences:
 \begin{equation}
 \mathcal{L}_{\text{MSE}} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2
 \end{equation}
-where $N$ is the total number of time steps, $y_i$ is the observed velocity, and $\hat{y}_i$ is the predicted velocity. Training was conducted exclusively on historical data without physics-based constraints, allowing the network to learn unconstrained temporal patterns. Physics-informed corrections are applied only during the forecasting stage.
+where $\mathcal{L}_{\text{MSE}}$ is the mean squared error loss function, $N$ is the total number of predictions across all training sequences, $i$ is the prediction index ranging from 1 to $N$, $y_i$ is the observed velocity at index $i$, and $\hat{y}_i$ is the predicted velocity at index $i$. Training was conducted exclusively on historical data without physics-based constraints, allowing the network to learn unconstrained temporal patterns. Physics-informed corrections are applied only during the forecasting stage.
+
 
 \subsection{Autoregressive Forecasting Strategy}
-After training, the Bi-LSTM is deployed in autoregressive forecasting mode to generate long-term subsidence projections (Figure~\ref{fig:lstm_forecast_flowchart}). The procedure operates as follows: (1) the final 18 months of observed data are provided as the initial input window, (2) the trained Bi-LSTM predicts the next time step, (3) the predicted value is appended to the input sequence, (4) the oldest value is removed to maintain the 18-month window length, and (5) the process repeats iteratively to generate forecasts extending to 2030.
+After training, the Bi-LSTM is deployed in autoregressive forecasting mode to generate long-term subsidence projections (Figure~\ref{fig:lstm_forecast_flowchart}). The procedure operates as follows: (1) the final 18 months of observed data 
+are provided as the initial input window, (2) the trained Bi-LSTM predicts the next value in the time series, (3) the predicted value is appended to the input sequence, (4) the oldest value is removed to maintain the fixed 18-month window length, 
+and (5) the process is repeated to generate forecasts extending to 2030.
 
 \subsection{Physics-Informed Constraint Module}
-The physics-informed module (Figure~\ref{fig:lstm_forecast_flowchart}) does not modify the Bi-LSTM architecture or training process. Instead, it constrains Bi-LSTM outputs during autoregressive forecasting to enforce physically plausible subsidence evolution. The constraint framework incorporates five complementary mechanisms: exponential decay, hybrid blending, temporal smoothing, rate-of-change limitation, and sign preservation.
+The physics-informed module steps as shown in Figure~\ref{fig:lstm_forecast_flowchart} does not modify the Bi-LSTM architecture or training process. Instead, it constrains Bi-LSTM outputs during autoregressive forecasting to enforce geomechanically and physically 
+plausible subsidence evolution. The constraint framework incorporates five complementary mechanisms: exponential decay, hybrid blending, temporal smoothing, rate-of-change limitation, and sign preservation constraints.
 
 \subsubsection{Exponential Subsidence Decay Model}
 
@@ -962,7 +986,7 @@ Long-term subsidence rates in aquifer systems are expected to stabilize as pore 
 \begin{equation}
 x_{t+1}^{\text{phys}} = x_t (1 - r)^{\Delta t}
 \end{equation}
-where $x_t$ is the subsidence velocity at time $t$, $r$ is the decay constant representing the fractional reduction in velocity per unit time, and $\Delta t$ is the time increment in years. The decay constant $r$ was calibrated to 0.004 yr$^{-1}$ based on historical deceleration trends observed in the SBAS time series and regional aquifer compaction studies \citep{Higgins2016}.
+where $x_{t+1}^{\text{phys}}$ is the physics-based predicted subsidence velocity at time $t+1$, $x_t$ is the subsidence velocity at time $t$, $r$ is the decay constant representing the fractional reduction in velocity per unit time, and $\Delta t$ is the time increment in years. The decay constant $r$ was calibrated to 0.004 yr$^{-1}$ based on historical deceleration trends observed in the SBAS time series and regional aquifer compaction studies \citep{Higgins2016}.
 
 \subsubsection{Hybrid LSTM--Physics Blending}
 
@@ -970,7 +994,8 @@ The physics-based velocity estimate is blended with the raw Bi-LSTM prediction u
 \begin{equation}
 x_{t+1} = \alpha x_{t+1}^{\text{LSTM}} + (1 - \alpha) x_{t+1}^{\text{phys}}
 \end{equation}
-where $x_{t+1}^{\text{LSTM}}$ is the unconstrained Bi-LSTM output, $x_{t+1}^{\text{phys}}$ is the physics-based decay estimate, and $\alpha \in [0,1]$ is a blending coefficient. This formulation allows the LSTM to capture short-term variability and local deviations from idealized decay behavior, while physics governs long-term trends. The coefficient $\alpha$ was set to 0.65, prioritizing data-driven predictions in the near term while increasing the influence of physics-based stabilization in the far-future forecast horizon.
+where $x_{t+1}$ is the final blended subsidence velocity at time $t+1$, $\alpha$ is the blending coefficient ($0 \leq \alpha \leq 1$), $x_{t+1}^{\text{LSTM}}$ is the unconstrained Bi-LSTM output, and $x_{t+1}^{\text{phys}}$ is the physics-based decay estimate from the exponential decay model above. This formulation allows the LSTM to capture short-term variability and local deviations from idealized decay behavior, while physics governs long-term trends.
+progressively enhancing the influence of the physics-based component toward the far-future forecast horizon.
 
 \subsubsection{Temporal Continuity Constraint}
 
@@ -978,7 +1003,7 @@ To prevent abrupt temporal discontinuities that violate geomechanical principles
 \begin{equation}
 x_{t+1}^{\text{smooth}} = \beta x_{t+1} + (1 - \beta) x_t
 \end{equation}
-where $\beta$ controls the degree of smoothing. Higher $\beta$ values preserve more of the predicted signal, while lower values enforce stronger temporal continuity. The parameter $\beta$ was set to 0.85 to balance responsiveness to predicted trends with suppression of unrealistic jumps.
+where $x_{t+1}^{\text{smooth}}$ is the smoothed subsidence velocity at time $t+1$, $x_{t+1}$ is the blended velocity from the hybrid LSTM-physics blending step above, $x_t$ is the subsidence velocity at the current time step $t$, and $\beta \in [0,1]$ controls the degree of smoothing.
 
 \subsubsection{Rate-of-Change Limitation}
 
@@ -986,15 +1011,15 @@ Physical limits on subsidence acceleration are enforced by constraining the maxi
 \begin{equation}
 |x_{t+1} - x_t| \leq \Delta_{\max}
 \end{equation}
-where $\Delta_{\max}$ is defined as a fraction of the previous velocity magnitude: $\Delta_{\max} = 0.15|x_t|$. This constraint prevents unphysical acceleration or deceleration that would correspond to instantaneous changes in aquifer stress conditions.
+where $x_{t+1}$ is the predicted subsidence velocity at time $t+1$, $x_t$ is the subsidence velocity at the current time step $t$, and $\Delta_{\max}$ is the maximum allowable velocity change, defined as a fraction of the previous velocity magnitude: $\Delta_{\max} = 0.15|x_t|$. This constraint prevents physically unrealistic acceleration or deceleration that would correspond to instantaneous changes in aquifer stress conditions.
 
 \subsubsection{Sign Preservation}
 
-To prevent unphysical sign reversal, where subsiding regions spontaneously transition to uplift without corresponding groundwater recharge or tectonic forcing, the sign consistency constraint is applied:
+To prevent unrealistic sign reversal, where subsiding regions spontaneously transition to uplift without corresponding groundwater recharge or tectonic forcing, the sign consistency constraint is applied:
 \begin{equation}
 \text{sign}(x_{t+1}) = \text{sign}(x_t)
 \end{equation}
-This ensures that the directional character of deformation is maintained throughout the forecast period, consistent with the persistent stress regime in East Baton Rouge Parish.
+where $\text{sign}(\cdot)$ denotes the sign function, $x_{t+1}$ is the predicted subsidence velocity at time $t+1$, and $x_t$ is the subsidence velocity at the current time step $t$. This ensures that the directional character of deformation is maintained throughout the forecast period, consistent with the persistent stress regime in the study area.
 
 
 \subsubsection{Stochastic Variability Representation}
@@ -1004,9 +1029,11 @@ Small-magnitude Gaussian noise is added to represent unresolved spatiotemporal h
 \begin{equation}
 x_{t+1}^{\text{final}} = x_{t+1} + \epsilon, \quad \epsilon \sim \mathcal{N}(0, \sigma^2)
 \end{equation}
-where $\sigma$ is set to 2\% of the current velocity magnitude. This stochastic component prevents over-deterministic forecasts and provides a mechanism for ensemble-based uncertainty quantification.
+where $x_{t+1}^{\text{final}}$ is the final forecast velocity at time $t+1$ after all constraints and stochastic perturbation, $x_{t+1}$ is the constrained velocity from the previous steps, $\epsilon$ is a random noise term drawn from a normal distribution $\mathcal{N}(0, \sigma^2)$ with mean 0 and variance $\sigma^2$, and $\sigma$ is set to 2\% of the current velocity magnitude. This stochastic component reduces over-deterministic forecasts and provides a mechanism for ensemble-based uncertainty quantification.
 
-The proposed framework employs a Bi-LSTM network for data-driven prediction of subsidence time series and a physics-informed constraint module for long-term forecasting stabilization. The Bi-LSTM captures complex temporal patterns including seasonal fluctuations, interannual variability, and non-linear trends, while physical constraints enforce continuity, exponential decay, and directional stability during autoregressive forecasting. This hybrid approach yields realistic and robust near-decadal subsidence projections that balance empirical learning with geomechanical consistency, addressing a critical gap in subsidence forecasting methodologies \citep{Zhu2024,Mirmazloumi2023}.
+The proposed framework employs a Bi-LSTM network for data-driven prediction of subsidence time series and a physics-informed constraint module for long-term forecasting stabilization. The Bi-LSTM captures complex temporal patterns including seasonal 
+fluctuations, interannual variability, and non-linear trends, while physical constraints enforce continuity, exponential decay, and directional stability during autoregressive forecasting. This hybrid approach yields 
+physically consistent and temporally stable near-decadal subsidence projections that balance empirical learning with geomechanical consistency, addressing an important limitation in subsidence forecasting methodologies \citep{Zhu2024,Mirmazloumi2023}.
 
 \section{Model Performance Evaluation Metrics}
 To ensure rigorous assessment of model performance across both spatial susceptibility mapping and temporal forecasting tasks, a comprehensive suite of quantitative metrics was employed. These metrics evaluate different aspects of model capability, including predictive accuracy, error magnitude, directional consistency, and distributional agreement between predicted and observed subsidence patterns. The evaluation framework is divided into regression metrics for continuous prediction assessment and correlation metrics for temporal pattern validation.
@@ -1016,73 +1043,95 @@ The coefficient of determination ($R^2$) measures the fraction of observed subsi
 \begin{equation}
 R^2 = 1 - \frac{\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}{\sum_{i=1}^{n}(y_i - \bar{y})^2}
 \end{equation}
-Here $y_i$ denotes the $i$-th observed subsidence measurement, $\hat{y}_i$ represents the corresponding model prediction, $\bar{y}$ indicates the mean observation, and $n$ is the sample count. $R^2$ spans 0 to 1, where values near unity signify strong explanatory capacity. This metric functions as the principal indicator of model fit for ERT and RF susceptibility models alongside the Bi-LSTM forecasting framework.
+where $R^2$ is the coefficient of determination, $n$ is the total number of samples, $i$ is the sample index ranging from 1 to $n$, $y_i$ is the $i$-th observed subsidence measurement, $\hat{y}_i$ is the corresponding model prediction, and $\bar{y}$ is the mean of observed values. $R^2$ spans 0 to 1, where values near unity signify strong explanatory capacity. This metric functions as the principal indicator of model fit for ERT and RF susceptibility models alongside the Bi-LSTM forecasting framework.
 
 \subsection{Root Mean Squared Error}
-RMSE quantifies the typical magnitude of prediction deviations in target variable units, yielding an intuitive measure of absolute predictive accuracy \citep{Chai2014}. RMSE computation follows:
+RMSE quantifies the typical magnitude of prediction deviations in target variable units, yielding an intuitive measure of absolute predictive accuracy \citep{Chai2014}. RMSE is computed as:
 \begin{equation}
 \text{RMSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}
 \end{equation}
-The squaring operation causes RMSE to weight larger errors disproportionately, rendering it responsive to outliers and substantial deviations. For subsidence monitoring applications, RMSE expresses typical prediction errors in mm/yr for velocity estimates and mm for cumulative displacement projections.
+where $\text{RMSE}$ is the root mean squared error, $n$ is the total number of samples, $i$ is the sample index ranging from 1 to $n$, $y_i$ is the $i$-th observed value, and $\hat{y}_i$ is the $i$-th predicted value. The squaring operation causes RMSE to weight larger errors disproportionately, rendering it sensitive to outliers and substantial deviations. For subsidence monitoring applications, RMSE expresses typical prediction errors in mm/yr for velocity estimates and mm for cumulative displacement projections.
 
 \subsection{Mean Absolute Error}
-MAE offers a robust average prediction error measure exhibiting reduced outlier sensitivity relative to RMSE \citep{Willmott2005}:
+MAE offers a robust measure of the average prediction error with lower sensitivity to outliers relative to RMSE \citep{Willmott2005}:
 \begin{equation}
 \text{MAE} = \frac{1}{n}\sum_{i=1}^{n}|y_i - \hat{y}_i|
 \end{equation}
-MAE captures the mean absolute deviation between predictions and observations without amplifying extreme errors. Comparing RMSE and MAE values illuminates error distribution characteristics: substantial RMSE-MAE divergence signals the presence of large prediction errors or outliers exerting disproportionate influence on model performance.
+where $\text{MAE}$ is the mean absolute error, $n$ is the total number of samples, $i$ is the sample index ranging from 1 to $n$, $y_i$ is the $i$-th observed value, and $\hat{y}_i$ is the $i$-th predicted value. MAE captures the mean absolute deviation between predictions and observations without amplifying extreme errors. Comparing RMSE and MAE values illuminates error distribution characteristics: substantial RMSE-MAE divergence signals the presence of large prediction errors or outliers exerting disproportionate influence on model performance.
 
 \subsection{Mean Absolute Percentage Error}
 Mean Absolute Percentage Error (MAPE) expresses prediction error as a percentage of observed values, enabling scale-independent comparison across different magnitudes of subsidence \citep{Hyndman2006}:
 \begin{equation}
 \text{MAPE} = \frac{100\%}{n}\sum_{i=1}^{n}\left|\frac{y_i - \hat{y}_i}{y_i}\right|
 \end{equation}
-MAPE is particularly useful for evaluating forecast performance across spatial regions experiencing different subsidence rates. However, MAPE becomes undefined when observed values approach zero and can produce asymmetric error penalties. Therefore, MAPE is reported alongside absolute error metrics to provide complementary performance perspectives.
+where $\text{MAPE}$ is the mean absolute percentage error, $n$ is the total number of samples, $i$ is the sample index ranging from 1 to $n$, $y_i$ is the $i$-th observed value, and $\hat{y}_i$ is the $i$-th predicted value. MAPE is particularly useful for evaluating forecast performance across spatial regions experiencing different subsidence rates. However, MAPE becomes undefined when observed values approach zero and can produce asymmetric error penalties. Therefore, MAPE is reported alongside absolute error metrics to provide complementary performance perspectives.
 
 \subsection{Pearson Correlation Coefficient}
 The Pearson correlation coefficient ($r$) characterizes the magnitude and directionality of linear relationships between predicted and observed values \citep{Rodgers1988}:
 \begin{equation}
 r = \frac{\sum_{i=1}^{n}(y_i - \bar{y})(\hat{y}_i - \bar{\hat{y}})}{\sqrt{\sum_{i=1}^{n}(y_i - \bar{y})^2}\sqrt{\sum_{i=1}^{n}(\hat{y}_i - \bar{\hat{y}})^2}}
 \end{equation}
-where $\bar{\hat{y}}$ denotes the mean predicted value. Pearson correlation spans $-1$ to $+1$, with values approaching $+1$ signifying robust positive linear correspondence. Whereas $R^2$ evaluates overall fit quality, the Pearson coefficient assesses proportional co-variation between predictions and observations, proving particularly valuable for evaluating temporal pattern reproduction in time-series forecasting contexts.
+where $r$ is the Pearson correlation coefficient, $n$ is the number of samples, $y_i$ is the $i$-th observed value, $\bar{y}$ is the mean of observed values, $\hat{y}_i$ is the $i$-th predicted value, and $\bar{\hat{y}}$ is the mean of predicted values. 
+Pearson correlation spans from $-1$ to $+1$, with values approaching $+1$ signifying strong positive linear correspondence.
 
 
 \subsection{Nash-Sutcliffe Efficiency}
-The NSE coefficient finds broad application in hydrological and geophysical modeling for assessing predictive capability against a baseline mean predictor \citep{Nash1970}:
+The NSE coefficient is widely used in hydrological and geophysical modeling for assessing predictive capability against a baseline mean predictor \citep{Nash1970}:
 \begin{equation}
 \text{NSE} = 1 - \frac{\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}{\sum_{i=1}^{n}(y_i - \bar{y})^2}
 \end{equation}
-NSE spans $-\infty$ to 1: NSE = 1 signifies perfect prediction, NSE = 0 represents performance matching the mean predictor, and NSE $<$ 0 indicates inferior performance relative to the mean baseline. For unbiased models, NSE equals $R^2$ mathematically, though values diverge when systematic bias exists. Elevated NSE values verify that model predictions surpass naive baseline strategies.
-
+where $\text{NSE}$ is the Nash-Sutcliffe Efficiency coefficient, $n$ is the total number of samples, $i$ is the sample index ranging from 1 to $n$, $y_i$ is the $i$-th observed value, $\hat{y}_i$ is the $i$-th predicted value, and $\bar{y}$ is 
+the mean of observed values. NSE spans $-\infty$ to 1: NSE = 1 signifies perfect prediction, NSE = 0 represents performance matching the mean predictor, and NSE $<$ 0 indicates inferior performance relative to the mean baseline. 
+For unbiased models, NSE becomes mathematically equivalent to $R^2$ mathematically, though values diverge when systematic bias exists. Elevated NSE values verify that model predictions surpass naive baseline strategies.
 
 \subsection{Area Under the ROC Curve}
 To supplement regression metrics with a classification-based evaluation, binarized Receiver Operating Characteristic (ROC) analysis is employed. The continuous velocity predictions are converted to binary labels by classifying pixels as subsidence-prone (velocity $< 0$~mm/yr) or non-subsidence (velocity $\geq 0$~mm/yr). The ROC curve plots the True Positive Rate (TPR) against the False Positive Rate (FPR) across all classification thresholds. TPR and FPR are defined as:
 \begin{equation}
 \text{TPR} = \frac{\text{TP}}{\text{TP} + \text{FN}}, \qquad \text{FPR} = \frac{\text{FP}}{\text{FP} + \text{TN}}
 \end{equation}
-where TP, FN, FP, and TN denote true positives, false negatives, false positives, and true negatives, respectively. The Area Under the Curve (AUC) integrates TPR over all FPR values:
+where $\text{TPR}$ is the true positive rate (sensitivity), $\text{FPR}$ is the false positive rate, $\text{TP}$ denotes true positives, $\text{FN}$ denotes false negatives, $\text{FP}$ denotes false positives, and $\text{TN}$ denotes true negatives. The Area Under the Curve (AUC) integrates TPR over all FPR values:
 \begin{equation}
 \text{AUC} = \int_0^1 \text{TPR}(\text{FPR})\, d(\text{FPR})
 \end{equation}
-AUC ranges from 0 to 1, where AUC $= 1.0$ represents perfect classification and AUC $= 0.5$ indicates performance equivalent to random chance. AUC values exceeding 0.9 are generally considered excellent.
+where $\text{AUC}$ is the area under the ROC curve, $\text{TPR}(\text{FPR})$ is the true positive rate as a function of false positive rate, and $d(\text{FPR})$ is the differential element of the false positive rate. 
+AUC ranges from 0 to 1. An AUC of 1.0 indicates the model perfectly distinguishes between subsidence and non-subsidence pixels, while an AUC of 0.5 means the model performs no better than random guessing. Values exceeding 0.9 indicate excellent discriminative capability, values between 0.8 and 0.9 reflect good performance, and values below 0.7 suggest limited classification ability.
 \subsection{Model Comparison and Selection Criteria}
-For susceptibility mapping, model selection between ERT and RF is based on test-set $R^2$, RMSE, MAE, and binarized AUC-ROC computed on hold-out data not used during training or hyperparameter optimization. The optimal model demonstrates superior performance across multiple metrics while maintaining computational efficiency and interpretability. For temporal forecasting, the physics-informed Bi-LSTM is evaluated using $R^2$, RMSE, MAE, Pearson correlation, and NSE on validation time periods, with particular emphasis on forecast stability and absence of unphysical trends during long-term extrapolation. Additionally, comparison with GNSS vertical displacement measurements at 1LSU and GMVS stations provides independent ground-truth validation of InSAR-derived and model-predicted subsidence rates \citep{Abdalla2024}.
+For susceptibility mapping, model selection between ERT and RF is based on test-set $R^2$, RMSE, MAE, and binarized AUC-ROC computed on hold-out data not used during training or hyperparameter optimization. 
+The optimal model is identified as the one that consistently outperforms the alternatives across multiple evaluation metrics while maintaining computational efficiency and interpretability. For temporal forecasting, 
+the physics-informed Bi-LSTM is evaluated using $R^2$, 
+RMSE, MAE, Pearson correlation, and NSE on independent validation time periods, with particular emphasis on forecast stability and absence of unphysical trends during long-term extrapolation. Additionally, comparison with GNSS 
+this was converted to LOS at 1LSU and GMVS stations provides independent ground-truth validation of InSAR-derived and model-predicted subsidence rates \citep{Abdalla2024}.
 
 \clearpage
 \chapter{Results and Discussion}
 
-This chapter presents the integrated results of SBAS deformation analysis, machine learning-based susceptibility mapping,
- explainable AI feature importance analysis, and physics-informed LSTM temporal forecasting for East Baton Rouge Parish.
-The findings are discussed in relation to the geological, hydrological, and anthropogenic controls on subsidence processes.
+This chapter presents the integrated results of SBAS deformation analysis, machine learning-based susceptibility mapping, explainable AI feature importance analysis, and physics-informed LSTM forecasting for EBRP. Findings are discussed in 
+relation to geological, hydrological, and anthropogenic controls on subsidence.
 
 \section{SBAS Deformation Analysis}
 
-The mean vertical displacement velocity across EBRP was $-1.46$~mm/yr, with a standard deviation of $\pm 0.98$~mm/yr,
-indicating spatially heterogeneous ground deformation with both subsidence and uplift.
-The SBAS velocity map (Figure~\ref{fig:sbas_results}a) displays subsidence zones in red-orange and uplift areas in blue, 
-with maximum subsidence rates of $-23.66$~mm/yr observed near fault systems and zones of intensive groundwater extraction with most in the 
-southern urban corridor, while maximum uplift of $+19.18$~mm/yr occurred in elevated forested regions occurring in the 
-northern parts of the parish. The derived SBAS susceptibility classification (Figure~\ref{fig:sbas_results}b) delineates high-risk zones (red), moderate-risk areas (yellow), and low-risk regions (green), reflecting complex interactions between geological, hydrological, and anthropogenic factors.
+\subsection{InSAR Processing Quality}
+The SBAS-InSAR processing of 246 Sentinel-1 acquisitions spanning 2017--2025 generated comprehensive temporal and spatial baseline networks for deformation monitoring across EBRP. 
+Although the processing chain was configured to analyze data from 2016 to 2025, no InSAR acquisitions were available in 2016  as evident in the temporal baseline network (Figure~\ref{fig:insar_processing}b), 
+resulting in an effective monitoring period of 2017--2025. Figure~\ref{fig:insar_processing} presents key quality metrics from the interferometric processing chain. 
+The temporal-spatial baseline network demonstrates well-distributed interferometric pairs with temporal baselines ranging from 6 to 96 days and perpendicular baselines up to 
+150 meters, ensuring robust phase unwrapping and minimizing decorrelation effects. Average coherence values exceed 0.7 across most of the study area, indicating high signal 
+quality suitable for reliable deformation measurements.
+
+\begin{figure}[!t]
+\centering
+\begin{tabular}{cc}
+\includegraphics[width=0.48\textwidth]{media/Insar_results/baseline.png} &
+\includegraphics[width=0.48\textwidth]{media/Insar_results/coherence.png} \\
+(a) Temporal-Spatial Baseline Network & (b) Average Coherence
+\end{tabular}
+\caption{SBAS-InSAR Processing Quality Metrics: (a) Temporal and spatial baseline distribution showing optimized interferometric pair selection with temporal baselines ranging from 6 to 96 days and perpendicular baselines up to 150 meters; (b) Mean coherence map indicating high signal quality across the study area.}
+\label{fig:insar_processing}
+\end{figure}
+
+\subsection{Displacement Velocity and Susceptibility}
+The mean vertical displacement velocity across EBRP was $-1.46$~mm/yr, with a standard deviation of $\pm 0.98$~mm/yr, indicating spatially heterogeneous ground deformation with both subsidence and uplift. As shown in Figure~\ref{fig:sbas_results}a, the SBAS velocity map displays subsidence zones in red-orange and uplift areas in blue. Maximum subsidence rates of $-23.66$~mm/yr were observed near fault systems and zones of intensive groundwater extraction, concentrated primarily in the southern urban corridor. Maximum uplift of $+19.18$~mm/yr occurred in elevated forested regions in the northern parts of the parish. Figure~\ref{fig:sbas_results}b presents the derived SBAS susceptibility classification, which delineates high-risk zones (red), moderate-risk areas (yellow), and low-risk regions (green), reflecting complex interactions between geological, hydrological, and anthropogenic factors.
+
 
 \begin{figure}[htbp]
 \centering
@@ -1091,24 +1140,26 @@ northern parts of the parish. The derived SBAS susceptibility classification (Fi
 \includegraphics[width=0.48\textwidth]{media/sbas_susc.png} \\
 (a) SBAS Velocity & (b) SBAS Susceptibility
 \end{tabular}
-\caption{SBAS Results: (a) Displacement Velocity (mm/yr) Showing Subsidence (Red-Orange) and Uplift (Blue); (b) Derived Susceptibility Classification.}
+\caption{SBAS Deformation Results: (a) Displacement Velocity (mm/yr) Showing Subsidence (Red-Orange) and Uplift (Blue); (b) Derived Susceptibility Classification.}
 \label{fig:sbas_results}
 \end{figure}
 
-The velocity distribution reveals a clear north-south gradient in deformation patterns. High subsidence rates ($-23.7$ to $-2.1$~mm/yr) concentrate in the southern portions of the parish, while uplift ($3.1$ to $19.2$~mm/yr) dominates the northern forested regions. Moderate deformation zones ($-2.1$ to $3.1$~mm/yr) occupy transitional areas between these extremes. The susceptibility classification correspondingly identifies Very High to High risk zones in the south, transitioning through Moderate risk in central areas to Low and Very Low risk in the north.
+The velocity distribution reveals a clear north-south gradient in deformation patterns. The southern portions of the parish exhibit high subsidence rates ranging from $-23.7$ to $-2.1$~mm/yr, while the northern forested regions are dominated by uplift rates between $3.1$ and $19.2$~mm/yr. Transitional areas between these extremes experience moderate deformation zones with rates from $-2.1$ to $3.1$~mm/yr. The susceptibility classification correspondingly identifies Very High to High risk zones in the south, transitioning through Moderate risk in central areas to Low and Very Low risk in the north.
 
-\subsection{GNSS Validation}
-
+\subsection{GNSS Validation of InSAR Measurements}
 
 InSAR displacements were validated against GNSS measurements from three GulfNet CORS stations (Figure~\ref{fig:gnss_validation}). GNSS components were projected into InSAR LOS using:
 \begin{equation}
 d_{\text{LOS}} = -\sin\theta\cos\alpha \cdot d_E - \sin\theta\sin\alpha \cdot d_N + \cos\theta \cdot d_U
 \end{equation}
+where $d_{\text{LOS}}$ is the displacement in the InSAR line-of-sight direction, $\theta$ is the satellite incidence angle, $\alpha$ is the satellite heading angle, $d_E$ is the east 
+displacement component, $d_N$ is the north displacement component, and $d_U$ is the vertical (up) displacement component from GNSS measurements.
+
 
 \begin{figure}[!t]
 \centering
 \includegraphics[width=0.95\textwidth]{GPS_InSAR_LOS_Validation.png}
-\caption{Timeseries Comparison of GPS and InSAR LOS Displacement at 1LSU, GVMS, and SJB1 Stations.}
+\caption{Time-series comparison between GNSS and SBAS at line-of-sight (LOS) displacement at the L1SU, GVMS, and SJB1 stations.}
 \label{fig:gnss_validation}
 \end{figure}
 
@@ -1127,20 +1178,33 @@ SJB1 & $-2.29$ & $-2.16$ & 0.17 & 23.3 \\
 \end{tabular}
 \end{table}
 
-The time series comparison (Figure~\ref{fig:gnss_validation}) spanning 2017--2025 demonstrates that both GPS and InSAR capture consistent subsidence trends at all three stations. GVMS exhibited the closest velocity agreement, with GPS at $-2.59$~mm/yr versus InSAR at $-2.60$~mm/yr (difference of only 0.01~mm/yr), with correlation $r = 0.37$ and RMSE of 13.8~mm. At 1LSU, GPS measured $-3.84$~mm/yr while InSAR recorded $-4.14$~mm/yr (difference of 0.30~mm/yr), yielding the highest correlation of $r = 0.41$ and RMSE of 22.0~mm. SJB1 showed excellent velocity agreement, with GPS at $-2.29$~mm/yr versus InSAR at $-2.16$~mm/yr (difference of 0.13~mm/yr), though with lower temporal correlation ($r = 0.17$, RMSE = 23.3~mm).
+The time series comparison (Figure~\ref{fig:gnss_validation}) spanning 2017--2025 demonstrates that both GPS and InSAR capture consistent subsidence trends at all three stations. 
+GVMS exhibited the closest velocity agreement, with GPS at $-2.59$~mm/yr versus InSAR at $-2.60$~mm/yr, yielding a difference of only 0.01~mm/yr with correlation $r = 0.37$ and RMSE of 13.8~mm. 
+At 1LSU, GPS measured $-3.84$~mm/yr while InSAR recorded $-4.14$~mm/yr with a difference of 0.30~mm/yr, achieving the highest correlation of $r = 0.41$ and RMSE of 22.0~mm. SJB1 showed 
+excellent velocity agreement, with GPS at $-2.29$~mm/yr versus InSAR at $-2.16$~mm/yr and a difference of 0.13~mm/yr, but with lower temporal correlation of $r = 0.17$ and RMSE of 23.3~mm.
 
-Both techniques reveal consistent linear subsidence trends throughout the 8-year monitoring period, with seasonal variability evident in GPS data. The excellent velocity agreement (mean difference of 0.15~mm/yr across all stations) confirms the reliability of SBAS measurements. The moderate temporal correlations are attributed to spatial separation between stations and InSAR pixels (571--993~m), differences in 3D versus line-of-sight measurement sensitivity, and tropospheric artifacts \citep{Crosetto2016}. Both GPS and InSAR confirm consistent subsidence at all stations, validating SBAS reliability for regional monitoring.
+Both techniques reveal consistent linear subsidence trends throughout the 9-year monitoring period, with seasonal variability evident in GNSS data. The excellent velocity agreement 
+(mean difference of 0.15~mm/yr across all stations) confirms the reliability of SBAS measurements. The moderate temporal correlations are attributed to spatial separation between 
+stations and InSAR pixels (571--993~m), differences in 3D versus line-of-sight measurement sensitivity, and tropospheric artifacts \citep{Crosetto2016}. Both GPS and InSAR confirm 
+consistent subsidence at all stations, validating SBAS reliability for regional monitoring.
+
 
 
 \section{Multicollinearity Assessment}
 
-Before training the machine learning models, multicollinearity among the conditioning factors was assessed using the Variance Inflation Factor (VIF). VIF measures how much a predictor's variance is inflated by its correlation with other predictors in the model. A VIF of 1 means no correlation exists, values between 1 and 5 are considered acceptable, values between 5 and 10 indicate moderate concern, and values above 10 suggest severe multicollinearity that can destabilize model estimates \citep{Dormann2013}.
+Before training the machine learning models, multicollinearity among the conditioning factors was assessed using the Variance Inflation Factor (VIF). 
+VIF measures how much a predictor's variance is inflated by its correlation with other predictors in the model. A VIF of 1 indicates the absence of multicollinearity, values 
+between 1 and 5 are considered acceptable, values between 5 and 10 indicate moderate concern, and values above 10 suggest severe multicollinearity that can 
+destabilize model estimates \citep{Dormann2013}.
 
-The initial analysis of all 15 conditioning factors revealed that distance to railway and distance to bridge had elevated VIF values, indicating that these variables were largely redundant with other infrastructure proximity measures. Accordingly, these two factors were removed. After their exclusion, the remaining 12 variables all returned VIF values well below the threshold of 5 (Table~\ref{tab:vif_results} and Figure~\ref{fig:vif_lollipop}), ranging from 1.10 for geology to 2.94 for elevation.
+The initial analysis of all fifteen conditioning factors revealed that distance to the railway and distance to the bridge had elevated VIF values, indicating that these 
+variables were largely redundant relative to other infrastructure proximity variables. Accordingly, these two factors were removed. After their exclusion, 
+the remaining twelve variables all returned VIF values well below the threshold of 5 (Table~\ref{tab:vif_results} and Figure~\ref{fig:vif_lollipop}), 
+ranging from 1.10 (geology) to 2.94 (elevation).
 
 \begin{table}[!t]
 \centering
-\caption{Variance Inflation Factor (VIF) Values for the 12 Retained Conditioning Factors}
+\caption{Variance Inflation Factor (VIF) Analysis for the Conditioning Factors}
 \label{tab:vif_results}
 \begin{tabular}{lc}
 \hline
@@ -1162,7 +1226,10 @@ Geology     & 1.10 \\
 \end{tabular}
 \end{table}
 
-As shown in Table~\ref{tab:vif_results}, elevation recorded the highest VIF at 2.94, followed by precipitation (2.26), aspect (2.23), and slope (2.20). These slightly elevated values reflect expected correlations among topographic variables, yet all remain well below the conservative threshold of 5. The remaining variables, including distance to river, TPI, TWI, LULC, curvature, distance to fault, well influence, and geology, returned VIF values between 1.10 and 1.65, indicating virtually no redundancy.
+
+As shown in Table~\ref{tab:vif_results}, elevation recorded the highest VIF of 2.94, followed by precipitation (2.26), aspect (2.23), and slope (2.20). These 
+slightly elevated values reflect expected correlations among topographic variables, yet all remain well below the conservative threshold of 5. The remaining variables, 
+including distance to the river, TPI, TWI, LULC, curvature, distance to the fault, well influence, and geology, returned VIF values between 1.10 and 1.65, indicating negligible redundancy.
 
 \begin{figure}[!t]
 \centering
@@ -1175,12 +1242,11 @@ These results confirm that each retained variable contributes unique information
 
 \section{Spatial Susceptibility Mapping}
 
-Both ERT and RF regressors were trained on the augmented dataset comprising 393,412 samples derived from SBAS velocities and 12 
-environmental conditioning factors.
+Both ERT and RF regressors were trained on the augmented dataset comprising 393,412 samples derived from SBAS velocities and 12 environmental conditioning factors. ERT achieved superior performance across all metrics, with test coefficient of determination of 0.9236 compared to RF with 0.8825. This difference of 0.041 is statistically significant with p < 0.001, confirming that ERT provides better generalization for subsidence prediction in EBRP.
 
 \begin{table}[!t]
 \centering
-\caption{ERT and RF Model Performance Comparison}
+\caption{Test-set performance comparison of ET and RF regression models for subsidence susceptibility prediction in EBR}
 \label{tab:model_performance}
 \begin{tabular}{lccc}
 \hline
@@ -1191,22 +1257,27 @@ Random Forest  & 0.8825 & 1.37 & 1.03 \\
 \hline
 \end{tabular}
 \end{table}
-ERT achieved superior performance across all metrics, with test $R^2 = 0.9236$ compared to RF ($R^2 = 0.8825$). This difference, $\Delta R^2 = 0.041$, 
-is statistically significant ($p < 0.001$), confirming that ERT provides better generalization for subsidence prediction in EBRP. 
-The improved performance is attributable to ERT's random threshold splitting mechanism, which introduces additional randomization at node splits, reducing overfitting and enhancing robustness to multicollinear predictors \citep{Geurts2006}. Similar findings have been reported in other geohazard susceptibility studies where ERT outperformed conventional RF \citep{Gharechaee2023}.
-In addition to regression metrics, the models were evaluated using binarized Receiver Operating Characteristic (ROC) analysis, where velocity predictions were classified as subsidence-prone  or non-subsidence. The Area Under the Curve (AUC) summarizes overall discriminative ability, with AUC $= 1.0$ representing perfect classification.
+In addition to regression metrics, the models were evaluated using binarized Receiver Operating Characteristic (ROC) curve analysis, where velocity predictions were 
+classified as subsidence-prone  or non-subsidence. The Area Under the Curve (AUC) summarizes overall discriminative ability, with AUC = 1.0 representing perfect classification.
 
-As shown in Figure~\ref{fig:auc_roc}, ERT achieved an AUC of 0.9663 and RF achieved an AUC of 0.9448. Both values exceed 0.94, confirming that both models have excellent ability to correctly distinguish subsidence-prone areas from stable or uplifting regions. The ROC curves rise steeply toward the upper-left corner, indicating high true positive rates at low false positive rates. 
-The higher AUC for ERT is consistent with its superior regression performance with $R^2 = 0.9236$ and RF with $R^2 = 0.8825$ and confirms that ERT more reliably identifies the spatial boundary between subsidence and non-subsidence zones across the study area.
+As shown in Figure~\ref{fig:auc_roc}, ERT achieved an AUC of 0.9663 and RF achieved an AUC of 0.9448. Both values exceed 0.94, confirming that both models have excellent ability to 
+correctly distinguish subsidence-prone areas from stable or uplifting regions. The ROC curves rise steeply toward the upper-left corner, indicating high true positive rates at low 
+false positive rates. 
+The higher AUC for ERT is consistent with its superior regression performance, with ERT achieving a coefficient of determination of 0.9236 and RF achieving 0.8825, and confirms 
+that ERT more reliably identifies the spatial boundary between subsidence and non-subsidence zones across the study area.
 
 \begin{figure}[!t]
 \centering
 \includegraphics[width=0.7\textwidth]{media/auc_roc_et_rf.png}
-\caption{ROC Curves for ERT and RF Models. Both Models Demonstrate Excellent Discrimination with AUC $> 0.94$.}
+\caption{ROC Curves for ERT and RF models based on the test dataset. Both models demonstrate excellent discriminative capability, with AUC values 
+exceeding 0.94 (ET = 0.9663; RF = 0.9448). The dashed diagonal line represents random classification.}
 \label{fig:auc_roc}
 \end{figure}
 
-The optimized models were applied to generate spatially continuous maps. The ERT velocity map (Figure~\ref{fig:et_results}a) shows predicted velocities ranging from $-23.3$ to $+19.2$~mm/yr, closely matching the SBAS observed range ($-23.7$ to $+19.2$~mm/yr). This strong agreement demonstrates that the selected environmental conditioning factors effectively capture the physical drivers of subsidence in EBRP. High subsidence ($-23.3$ to $-2$~mm/yr) concentrates in the southern parish, moderate zones ($-2$ to $1.4$~mm/yr) occupy transitional areas, and uplift ($3$ to $19.2$~mm/yr) dominates the northern forested regions.
+The optimized models were applied to generate spatially continuous maps. The ERT velocity map (Figure~\ref{fig:et_results}a) shows predicted velocity range from $-23.3$ to $+19.2$~mm/yr, 
+closely matching the SBAS observed range ($-23.7$ to $+19.2$~mm/yr). This strong agreement demonstrates that the selected environmental conditioning factors effectively 
+capture the physical drivers of subsidence in EBRP. High subsidence ($-23.3$ to $-2$~mm/yr) is concentrated in the southern parish, moderate zones ($-2$ to $1.4$~mm/yr) occupy 
+transitional areas, and uplift ($3$ to $19.2$~mm/yr) dominates the northern forested regions.
 
 \begin{figure}[!t]
 \centering
@@ -1232,14 +1303,17 @@ The optimized models were applied to generate spatially continuous maps. The ERT
 
 The RF velocity map (Figure~\ref{fig:rf_results}a) shows predicted velocities ranging from $-21.3$ to $+16.6$~mm/yr, with high subsidence ($-21.3$ to $-1.7$~mm/yr) in the southern parish, moderate zones ($-1.7$ to $1.3$~mm/yr) in transitional areas, and uplift ($2.7$ to $16.6$~mm/yr) in the northern regions. The corresponding susceptibility classification (Figure~\ref{fig:rf_results}b) identifies the same five risk levels as ERT. Both models exhibit consistent spatial patterns, with the southern urban corridor and fault-proximal areas classified as Very High to High risk, while northern forested areas show Low to Very Low susceptibility.
 
-In summary, SBAS observed velocities from $-23.7$ to $+19.2$~mm/yr, while ERT predicted $-23.3$ to $+19.2$~mm/yr ($R^2 = 0.9236$) and RF predicted $-21.3$ to $+16.6$~mm/yr ($R^2 = 0.8825$). All three approaches consistently identify subsidence concentrated in the southern urban corridor and fault-proximal areas, with uplift dominating the northern forested regions. The close agreement between observed SBAS patterns and ML predictions confirms that the environmental conditioning factors effectively explain subsidence variability in EBRP.
-
+In summary, all three approaches SBAS observations, ERT predictions, and RF predictions consistently identify subsidence concentrated in the southern urban corridor and 
+fault-proximal areas, with uplift dominating the northern forested regions. ERT achieved the highest accuracy ($R^2 = 0.9236$), closely matching the observed velocity 
+range, while RF also performed well ($R^2 = 0.8825$). The close agreement between the observed SBAS patterns and ML predictions confirms that the environmental conditioning 
+factors effectively explain subsidence variability in EBRP.
 
 \section{Feature Importance Analysis}
 
 Understanding the relative contribution of conditioning factors to subsidence susceptibility is essential for developing targeted mitigation strategies. Three complementary explainability techniques MDI, SHAP, and LIME were applied to quantify feature importance and reveal the physical mechanisms driving subsidence in EBRP.
 
-MDI-based feature importance rankings (Figure~\ref{fig:mdi_importance}) reveal model-specific predictor hierarchies. For Extra Trees (Figure~\ref{fig:mdi_importance}a), the top predictors are LULC, DTF, DTRd, DTRDEM, DTR, and DEM. For Random Forest (Figure~\ref{fig:mdi_importance}b), the ranking differs: DTFDEM, DEM, LULC, DTRd, DTRDEM, and DTF. Despite ranking differences, both models consistently identify LULC, fault proximity (DTF), elevation (DEM), and interaction terms (DTRDEM, DTFDEM) as dominant controls, confirming that subsidence is driven by coupled anthropogenic and geological factors.
+MDI-based feature importance rankings (Figure~\ref{fig:mdi_importance}) reveal model-specific predictor hierarchies. For ERT (Figure~\ref{fig:mdi_importance}a), the 
+top predictors are land use/land cover, distance to fault, distance to road, river-elevation interaction, distance to river, and elevation. For RF (Figure~\ref{fig:mdi_importance}b), the ranking differs: fault-elevation interaction, elevation, land use/land cover, distance to road, river-elevation interaction, and distance to fault. Despite ranking differences, both models consistently identify land use, fault proximity, elevation, and topographic-hydrological interactions as dominant controls, confirming that subsidence is driven by coupled anthropogenic and geological factors.
 
 \begin{figure}[!t]
 \centering
@@ -1252,22 +1326,30 @@ MDI-based feature importance rankings (Figure~\ref{fig:mdi_importance}) reveal m
 \label{fig:mdi_importance}
 \end{figure}
 
-SHAP analysis (Figures~\ref{fig:shap_summary} and \ref{fig:shap_bar}) provides deeper insight into directional effects and nonlinear relationships. LULC exhibits the highest mean absolute SHAP value, with urban and agricultural classes showing positive contributions (increased subsidence) and forested areas showing negative contributions (reduced subsidence). This pattern confirms that urbanization enhances susceptibility through reduced infiltration, concentrated loading, and localized groundwater demand.
+Figures~\ref{fig:shap_summary} and \ref{fig:shap_bar} show SHAP analysis results, which provide deeper insight into directional effects and nonlinear relationships. 
+Land use/land cover exhibits the highest mean absolute SHAP value, with urban and agricultural classes associated with increased subsidence and forested areas associated with 
+reduced subsidence. This pattern confirms that urbanization enhances susceptibility through reduced infiltration, concentrated loading, and localized groundwater demand.
 
-Distance to faults (DTF) shows that closer proximity to fault systems generates positive SHAP values contributing to increased subsidence, while greater distances yield near-zero contributions. This indicates fault-related influences on subsidence are spatially concentrated near fault traces. To further investigate the spatial relationship between fault proximity and subsidence patterns, the study area was classified into seven distinct zones based on distance from the Baton Rouge (upper) and Denham Springs (lower) fault systems (Figure~\ref{fig:fault_distance_classes}).
+Distance to faults (DTF) indicates that closer proximity to fault systems generates positive SHAP values contributing to increased subsidence, while greater distances yield 
+near-zero contributions. This indicates that fault-related influences on subsidence are spatially concentrated near fault traces. To further investigate the spatial relationship between fault proximity and subsidence patterns, the study area was classified into seven distinct zones based on distance from the Baton Rouge (upper) and Denham Springs (lower) fault systems (Figure~\ref{fig:fault_distance_classes}).
 
 \begin{figure}[!t]
 \centering
 \includegraphics[width=0.65\textwidth]{media/faultdistance.png}
-\caption{Distance from Fault Classification Map Showing Seven Proximity Zones Relative to the Baton Rouge (Upper) and Denham Springs (Lower) Fault Systems.}
+\caption{Distance-to-fault classification map showing seven proximity zones relative to the Baton Rouge (upper) and Denham Springs (lower) fault systems. The zonation is used to quantify 
+spatial variations in subsidence and uplift as a function of fault proximity.}
 \label{fig:fault_distance_classes}
 \end{figure}
 
-The zone-based analysis reveals distinct deformation patterns across the fault system (Figure~\ref{fig:fault_distance_classes}). The lower fault zone exhibits classic fault-controlled subsidence that decays systematically with distance from the fault trace. The near-fault zone (0--5~km) shows strong subsidence ($-0.674$~mm/yr), which decreases to weak subsidence ($-0.116$~mm/yr) in the intermediate zone (5--10~km), representing an 83\% reduction. Beyond 10~km, velocities approach zero, indicating stability and defining the spatial extent of fault influence.
+The zone-based analysis reveals distinct deformation patterns across the fault system (Figure~\ref{fig:fault_distance_classes}). The lower fault zone exhibits a characteristic 
+fault-controlled subsidence that decays systematically with distance from the fault trace. The near-fault zone (0--5~km) shows strong subsidence ($-0.674$~mm/yr), which decreases to weak subsidence ($-0.116$~mm/yr) in the intermediate zone (5--10~km), representing an 83\% reduction. Beyond 10~km, velocities approach zero, indicating stability and defining the spatial extent of fault influence.
 
-In contrast, the upper fault zone demonstrates regional uplift that increases with distance from the fault trace. Near-fault areas (0--5~km) exhibit weak uplift ($+0.252$~mm/yr), intermediate zones (5--10~km) show moderate uplift ($+0.538$~mm/yr), and far-field regions (>10~km) experience strong uplift ($+2.111$~mm/yr). This inverse distance relationship suggests regional tectonic uplift superimposed on local fault effects.
+In contrast, the upper fault zone demonstrates regional uplift that increases with distance from the fault trace. Near-fault areas (0--5~km) exhibit weak uplift ($+0.252$~mm/yr), 
+intermediate zones (5--10~km) show moderate uplift ($+0.538$~mm/yr), and far-field regions (>10~km) experience strong uplift ($+2.111$~mm/yr). This inverse distance relationship 
+suggests regional tectonic uplift superimposed on local fault effects.
 
-The between-fault transition zone exhibits the highest subsidence rate ($-0.914$~mm/yr), exceeding near-fault lower zone rates by 36\%. The extreme values range from $-7.21$ to $+6.01$~mm/yr, demonstrating localized areas of both intense subsidence and uplift characteristic of transfer zones in fault systems. This enhanced deformation suggests active strain accommodation between fault blocks.
+The inter-fault transition zone exhibits the highest subsidence rate ($-0.914$~mm/yr), exceeding the near-fault lower zone by 36\%. Extreme values range from $-7.21$ to $+6.01$~mm/yr, 
+indicating localized intense deformation characteristic of fault transfer zones. This enhanced deformation suggests active strain accommodation between fault blocks.
 
 
 
@@ -1277,35 +1359,38 @@ The between-fault transition zone exhibits the highest subsidence rate ($-0.914$
 \label{tab:fault_zones}
 \begin{tabular}{llcc}
 \hline
-\textbf{Fault Zone} & \textbf{Distance Class (km)} & \textbf{Mean Velocity (mm/yr)} & \textbf{Pattern} \\
+\textbf{Zone} & \textbf{Distance (km)} & \textbf{Velocity (mm/yr)} & \textbf{Pattern} \\
 \hline
-Lower Fault & 0--5  & $-0.674$ & Strong subsidence \\
-Lower Fault & 5--10  & $-0.116$ & Weak subsidence \\
-Lower Fault & >10  & $0.000$ & Stable \\
+lower  & 0--5  & $-0.674$ & strong  \\
+lower  & 5--10  & $-0.116$ & weak  \\
+lower  & >10  & $0.000$ & stable \\
 \hline
-Upper Fault & 0--5  & $+0.252$ & Weak uplift \\
-Upper Fault & 5--10  & $+0.538$ & Moderate uplift \\
-Upper Fault & >10  & $+2.111$ & Strong uplift \\
+upper  & 0--5  & $+0.252$ & weak  \\
+upper  & 5--10  & $+0.538$ & moderate  \\
+upper  & >10  & $+2.111$ & strong  \\
 \hline
-Between Faults & Transition Zone & $-0.914$ & Max subsidence \\
+interfault &transition Zone & $-0.914$ & maximum \\ 
 \hline
 \end{tabular}
 \end{table}
 
 The differential vertical velocity between the upper block ($+0.97$~mm/yr mean) and lower block ($-0.26$~mm/yr mean) is approximately 1.23~mm/yr (Table~\ref{tab:fault_zones}), indicating active normal fault kinematics with footwall uplift and hanging wall subsidence. Here’s a refined version that incorporates SHAP, LIME, and MDI clearly and academically:
 
-These findings support the explainable-AI results, where SHAP, LIME, and MDI analyses consistently identify fault proximity as a dominant control on subsidence susceptibility. All three interpretation methods rank fault-related variables among the top drivers of subsidence occurrence. This also indicates that the inter-fault zone behaves as a distributed deformation region that accommodates differential block motion, reinforcing the structural influence on observed ground displacement patterns.
+These findings are consistent with the explainable-AI results, in which SHAP, LIME, and MDI analyses identify fault proximity as a dominant control on subsidence susceptibility. All three interpretability methods rank fault-related variables among the primary drivers of subsidence. The interfault zone therefore represents a distributed 
+deformation domain accommodating differential block motion, highlighting the structural control on the observed displacement field.
 
-The DTRDEM interaction reveals that low-elevation areas near rivers exhibit positive SHAP contributions, indicating that elevation modulates hydrological influences on subsidence. Well influence consistently produces positive SHAP values, confirming groundwater extraction as a key anthropogenic driver.
+The DTRDEM interaction indicates that low-elevation areas proximal to river channels exhibit positive SHAP contributions, 
+demonstrating that elevation modulates hydrological controls on subsidence.
 
 \begin{figure}[!t]
 \centering
 \begin{tabular}{cc}
 \includegraphics[width=0.48\textwidth]{media/shap_sum_et.png} &
 \includegraphics[width=0.48\textwidth]{media/shap_sum_rf.png} \\
-(a) SHAP Summary (ERT) & (b) SHAP Summary (RF+++)
+(a) ERT & (b) RF
 \end{tabular}
-\caption{SHAP Summary Plots: (a) ERT; (b) RF. Color Scale: Red = High Feature Value, Blue = Low.}
+\caption{SHAP summary plots illustrating the relative influence of environmental conditioning factors on SBAS-InSAR-derived subsidence predictions for the Extra Trees (a) and Random Forest (b) models. Features are ranked by mean absolute SHAP value. The horizontal dispersion reflects the strength and direction of each variable’s 
+contribution, and the color scale indicates feature magnitude (red = high, blue = low).}
 \label{fig:shap_summary}
 \end{figure}
 
@@ -1325,14 +1410,18 @@ LIME analysis (Figures~\ref{fig:lime_et} and \ref{fig:lime_rf}) provides interpr
 \begin{figure}[!t]
 \centering
 \includegraphics[width=0.85\textwidth]{media/lime_et.png}
-\caption{LIME Local Explanation for Extra Trees Model at a Representative High-Subsidence Location. Orange Bars Indicate Positive Contributions to Subsidence; Blue Bars Indicate Negative Contributions.}
+\caption{LIME local explanation for ET model at a representative high-subsidence pixel. The figure shows the local surrogate model used to approximate the 
+complex prediction and the contribution of each conditioning factor to the predicted deformation. Orange bars indicate positive contributions to subsidence, and blue bars indicate negative contributions. 
+Bar length represents the magnitude of the contribution. The table on the right lists the corresponding feature values at the selected location.}
 \label{fig:lime_et}
 \end{figure}
 
 \begin{figure}[!t]
 \centering
 \includegraphics[width=0.85\textwidth]{media/lime_rf.png}
-\caption{LIME Local Explanation for Random Forest Model at a Representative High-Subsidence Location. Orange Bars Indicate Positive Contributions to Subsidence; Blue Bars Indicate Negative Contributions.}
+\caption{LIME local explanation for the RF model model at a representative high-subsidence pixel. The figure shows the local surrogate model used to 
+approximate the complex prediction and the contribution of each conditioning factor to the predicted deformation. Orange bars indicate positive contributions to subsidence, and blue bars indicate negative contributions. 
+Bar length represents the magnitude of the contribution. The table on the right lists the corresponding feature values at the selected location.}
 \label{fig:lime_rf}
 \end{figure}
 
@@ -1343,9 +1432,12 @@ The consistency across MDI, SHAP, and LIME rankings validates the robustness of 
 
 The physics-informed Bi-LSTM addresses this limitation by learning sequential deformation dynamics while enforcing geomechanically consistent constraints during long-term extrapolation.
 
-The Bi-LSTM network was trained on 12,847 time-series pixels exhibiting mean velocity $|v| \geq 1.5$~mm/yr, using an 18-month input window and 6-month output horizon. Training on historical data (2017--2023) achieved convergence after 85 epochs. Validation on the held-out period (2024--2025) demonstrates strong performance (Table~\ref{tab:lstm_performance}): $R^2 = 0.834$, RMSE = 18.71~mm, Pearson correlation $r = 0.918$, and Nash-Sutcliffe Efficiency NSE = 0.834.
+The Bi-LSTM network was trained on 12,847 deforming pixels exhibiting mean velocity $|v| \geq 1.5$~mm/yr, using an 18-month input window and 6-month output horizon. 
+Training on historical data (2017--2023) reached convergence after 85 epochs. Validation on the held-out period (2024--2025) shows strong predictive performance as 
+seen in (Table~\ref{tab:lstm_performance}): $R^2 = 0.834$, RMSE = 18.71~mm, with correlation $r = 0.918$, and Nash-Sutcliffe Efficiency NSE = 0.834.
 
-The strong Pearson correlation ($r = 0.918$) indicates excellent linear correspondence between predicted and observed values, while $R^2 = 0.834$ confirms the model explains 83.4\% of variance in subsidence rates. The physics-informed constraints successfully prevent unphysical trends (velocity reversals, unrealistic acceleration) while maintaining predictive accuracy, demonstrating the value of integrating geomechanical principles with data-driven learning \citep{Zhu2024}.
+The strong Pearson correlation ($r = 0.918$) indicates a high degree of linear agreement between predicted and observed values, while $R^2 = 0.834$ confirms that the model explains 83.4% of the variance in subsidence rates. 
+The physics-informed constraints suppress non-physical behavior, demonstrating the benefit of integrating geomechanical constraints with data-driven learning.
 
 \begin{table}[!t]
 \centering
@@ -1376,12 +1468,17 @@ The forecasted velocity map (Figure~\ref{fig:lstm_forecast_results}a) shows subs
 \includegraphics[width=0.48\textwidth]{media/lstm_susc2.png} \\
 (a) LSTM Forecasted Velocity & (b) LSTM Forecasted Susceptibility
 \end{tabular}
-\caption{Physics-Informed LSTM Forecasts to 2030: (a) Predicted Velocity Showing Continued Subsidence; (b) Forecasted Susceptibility Classification Indicating Persistent High-Risk Zones.}
+\caption{Physics-informed Bi-LSTM forecasts of ground deformation for the year 2030 in East Baton Rouge Parish. (a) Spatial distribution of the predicted LOS deformation velocity (mm/yr), 
+highlighting areas of continued subsidence and localized uplift. (b) Forecasted subsidence-susceptibility classes derived from the predicted velocities, showing the persistence of very high- to high-risk zones primarily in the 
+southern and central parts of the parish, with low-risk conditions in the northern sector. White circles in panel (a) indicate the representative locations used for the time-series analysis in Figure 5.14.}
 \label{fig:lstm_forecast_results}
 \end{figure}
 
 Time-series forecasts at four representative locations (Figure~\ref{fig:lstm_timeseries}) reveal spatially heterogeneous 
-subsidence behavior controlled by geological and land-use characteristics. Location 1 (Winbourne/Foster area) sits on Pleistocene Prairie Terraces with relatively stable, stiffer clay-rich soils, exhibiting a subsidence trend of $-8.10$~mm/yr with total displacement of $-197.69$~mm. Location 2 (Downtown, State Capitol/Main St) represents the urbanized core near the Mississippi River levee and active fault traces, showing the lowest subsidence rate ($-5.02$~mm/yr, total $-122.57$~mm). Location 3 (Merrydale, Greenwell Springs/Airline) lies within the active fault zone between the Baton Rouge and Denham Springs faults, with moderate subsidence ($-6.72$~mm/yr, total $-164.03$~mm). Location 4 (LSU Lakes, Stanford Ave area) consists of Holocene-age sediments that are highly prone to compaction, exhibiting the highest subsidence rate ($-12.25$~mm/yr, total $-299.12$~mm).
+subsidence behavior controlled by the geological and land-use characteristics. Location 1 (Winbourne/Foster area) is developed on Pleistocene Prairie Terraces with relatively stable, 
+stiffer clay-rich soils, exhibiting a subsidence trend of $-8.10$~mm/yr with total displacement of $-197.69$~mm. Location 2 (Downtown, State Capitol/Main St) 
+corresponds to the highly urbanized Mississippi River levee corridor, where ground conditions are influenced by engineered fill and proximity to mapped fault traces, and exhibits the lowest subsidence 
+rate ($-5.02$~mm/yr, total $-122.57$~mm). Location 3 (Merrydale, Greenwell Springs/Airline) is located within the structurally active zone between the Baton Rouge and Denham Springs fault systems ($-6.72$~mm/yr, total $-164.03$~mm). Location 4 (LSU Lakes, Stanford Ave area) consists of Holocene-age sediments that are highly prone to compaction, exhibiting the highest subsidence rate ($-12.25$~mm/yr, total $-299.12$~mm).
 
 \begin{figure}[!t]
 \centering
@@ -1392,19 +1489,12 @@ subsidence behavior controlled by geological and land-use characteristics. Locat
 
 The physics-informed constraints effectively reduce forecast uncertainty, with one-year-ahead forecasts showing $\pm 2.1$~mm/yr uncertainty growing to $\pm 4.8$~mm/yr for five-year forecasts. The cumulative displacement results highlight areas requiring continued monitoring, particularly zones with high subsidence rates where critical infrastructure may be affected.
 
-
 \section{Integrated Assessment and Implications}
 
-The spatial susceptibility mapping (ERT) and temporal forecasting (physics-informed LSTM) provide separate but complementary perspectives on 
-subsidence risk. Time-series analysis at four representative locations demonstrates how geological setting controls 
-subsidence behavior: LSU Lakes ($-12.25$~mm/yr) on compressible Holocene sediments shows the highest rates, 
-while Downtown ($-5.02$~mm/yr) near the Mississippi River levee exhibits the lowest. North Baton Rouge ($-8.10$~mm/yr) on stable Pleistocene terraces
-and Merrydale ($-6.72$~mm/yr) within the active fault zone show intermediate rates. These findings confirm that both sediment age/compressibility and 
-proximity to geological structures control subsidence magnitude.
+The spatial susceptibility mapping and temporal forecasting (physics-informed LSTM) provide separate but complementary perspectives on 
+subsidence risk. Analysis at four representative locations reveals how geological setting controls subsidence behavior. LSU Lakes exhibits the highest rate ($-12.25$~mm/yr) due to compressible Holocene sediments, while Downtown shows the lowest rate ($-5.02$~mm/yr) near the Mississippi River levee. North Baton Rouge ($-8.10$~mm/yr) on stable Pleistocene terraces and Merrydale ($-6.72$~mm/yr) within the active fault zone display intermediate rates. These patterns confirm that sediment compressibility and fault proximity are the primary controls on subsidence magnitude.
 
-The results provide actionable information for stakeholders: restricting high-density development within 2~km of fault systems, assessing critical 
-infrastructure in zones exceeding $-10$~mm displacement by 2030, regulating groundwater extraction in high-well-density clusters, 
-integrating subsidence risk into flood modeling and levee maintenance, and expanding InSAR monitoring and GNSS coverage in fault-proximal areas.
+These results provide actionable guidance for stakeholders. Land-use planning should restrict high-density development within 2~km of fault systems and require geotechnical assessments in high-susceptibility zones. Infrastructure management should prioritize structural evaluations for facilities in areas projected to exceed $-10$~mm cumulative displacement by 2030. Groundwater regulation should focus on high-well-density clusters where extraction intensifies subsidence. Flood risk planning should integrate subsidence forecasts into levee maintenance schedules and inundation models. Finally, monitoring networks should be expanded with additional GNSS stations and continuous InSAR coverage in fault-proximal and high-subsidence areas.
 
 
 
@@ -1412,42 +1502,45 @@ integrating subsidence risk into flood modeling and levee maintenance, and expan
 
 \section{Conclusions}
 
-This study developed an integrated framework for land subsidence susceptibility mapping and spatio-temporal forecasting in East Baton Rouge Parish by combining Sentinel-1 SBAS observations with machine learning and physics-informed deep learning models.
+This study developed an integrated framework for land-subsidence susceptibility mapping and spatiotemporal forecasting by integrating InSAR data with ML and physics-informed deep-learning models.
 
-SBAS analysis of 246 Sentinel-1 acquisitions (2017--2025) revealed spatially heterogeneous deformation with mean velocity of $-1.46 \pm 0.98$~mm/yr. Maximum subsidence ($-23.66$~mm/yr) occurred near fault systems and groundwater extraction zones, while uplift ($+19.18$~mm/yr) was observed in northern forested regions. Validation against three GNSS stations confirmed excellent agreement with a mean velocity difference of only 0.15~mm/yr.
+SBAS analysis of 246 Sentinel-1 acquisitions of 9-year Sentinel1-images revealed spatially heterogeneous deformation with mean velocity of $-1.46 \pm 0.98$~mm/yr. Maximum subsidence $-23.66$~mm/yr
+occurred near fault systems and groundwater extraction zones, while uplift $+19.18$~mm/yr was observed in northern forested regions. Validation against three GNSS stations confirmed 
+excellent agreement with a mean velocity difference of only 0.15~mm/yr.
 
-VIF-based multicollinearity screening reduced the initial fifteen conditioning factors to twelve independent predictors. Extra Trees regression achieved superior performance ($R^2 = 0.9236$, RMSE = 1.10~mm/yr) compared to Random Forest ($R^2 = 0.8825$), with binarized AUC-ROC analysis confirming excellent discriminative ability (ERT AUC = 0.9663, RF AUC = 0.9448). Explainability analysis using MDI, SHAP, and LIME consistently identified land use/land cover, fault proximity, elevation, and groundwater well influence as the primary subsidence drivers.
+VIF-based multicollinearity screening reduced the initial fifteen conditioning factors to twelve independent predictors. ERT regression achieved superior performance with a coefficient of determination of 0.9236 and RMSE of 1.10~mm/yr, outperforming Random Forest which achieved 0.8825 and 1.37~mm/yr respectively. Binarized AUC-ROC analysis confirmed excellent discriminative ability, with ERT achieving an AUC of 0.9663 and RF achieving 0.9448. Explainability analysis using MDI, SHAP, and LIME consistently identified land use/land cover, fault proximity, elevation, and groundwater well influence as the primary subsidence drivers.
 
 
-The physics-informed Bi-LSTM achieved strong forecasting performance ($R^2 = 0.834$, $r = 0.918$) and predicted continued subsidence averaging $-0.530$~mm/yr through 2030. Subsidence rates varied with geological setting, ranging from $-5.02$~mm/yr downtown to $-12.25$~mm/yr on compressible Holocene sediments near LSU Lakes.
+The physics-informed Bi-LSTM achieved strong forecasting performance, with a coefficient of determination of 0.834 and a Pearson correlation coefficient of 0.918, and predicts continued subsidence averaging $-0.530$~mm/yr through 2030. Subsidence magnitude varies with geological setting, reaching $-12.25$~mm/yr over the compressible Holocene sediments near the LSU Lakes and decreasing to $-5.02$~mm/yr in the downtown area.
 
-This research demonstrates that SBAS combined with ensemble machine learning effectively maps subsidence susceptibility, physics-informed constraints ensure geomechanically consistent forecasts, and both sediment compressibility and proximity to geological structures control subsidence magnitude in EBRP.
+This research demonstrates that the integration of SBAS and ML models effectively maps subsidence susceptibility in EBRP. Physics-informed constraints produce forecasts that remain mechanically consistent through time. 
+The results further show that sediment compressibility and proximity to mapped geological structures are the primary controls on subsidence magnitude.
 
 
 \section{Limitations}
 
-Several limitations should be acknowledged when interpreting these results:
+Several limitations should be considered when interpreting the results of this study.
 
 \begin{itemize}
-    \item The Sentinel-1 Line-of-Sight viewing geometry captures predominantly vertical motion and may underestimate horizontal displacement components, while temporal decorrelation in vegetated areas limited measurement density in northern EBRP.
-    \item GPS validation was restricted to three GNSS stations located in the southern urban corridor, limiting confidence in areas without ground truth.
-    \item The 8-year observation period may not capture long-term subsidence cycles or episodic events related to drought-induced aquifer compaction.
-    \item The LSTM model assumes stationarity in subsidence drivers and does not account for potential changes in groundwater extraction rates or land use conversion.
+    \item The Sentinel-1 line-of-sight viewing geometry is primarily sensitive to vertical motion. In addition, temporal decorrelation in vegetated areas reduced the density of reliable measurements in the northern part of East Baton Rouge Parish.
+    \item Validation using ground-based observations was limited to three GNSS stations located within the southern urban corridor. This spatial concentration reduces the level of confidence in areas where independent ground truth is not available.
+    \item The nine-year observation period may not fully capture long-term subsidence cycles. It may also miss episodic deformation associated with drought-induced aquifer compaction or short-term variations in groundwater extraction.
+    \item The LSTM forecasting model assumes that the relationships between subsidence and its controlling factors remain stationary through time. Consequently, future changes in groundwater withdrawal rates or land-use patterns are not explicitly represented in the predictions.
 \end{itemize}
 
 
 
 \section{Recommendations}
 
-Based on the findings of this study, the following recommendations are provided:
+Based on the findings of this study, the following recommendations are proposed.
 
 \begin{itemize}
     \item Restrict high-density development within 2~km of mapped fault systems and incorporate subsidence susceptibility maps into zoning regulations and building codes.
-    \item Require geotechnical assessments for new construction in Very High and High susceptibility zones, particularly on Holocene-age sediments.
-    \item Conduct structural assessments for critical infrastructure in zones with subsidence rates exceeding $-10$~mm/yr.
-    \item Integrate subsidence risk into flood hazard modeling and levee maintenance planning.
-    \item Implement groundwater extraction regulations in high-well-density clusters and establish monitoring networks to correlate pumping with subsidence.
-    \item Expand GNSS coverage to the northern parish and fault zones, and integrate multi-satellite InSAR for enhanced temporal sampling.
+    \item High-density urban development should be restricted within 2 km of mapped fault systems. Subsidence-susceptibility maps should be incorporated into zoning regulations and building codes to support risk-informed planning.
+    \item Structural condition assessments should be conducted for critical infrastructure located in areas where subsidence rates exceed -10 mm/yr. These evaluations will support maintenance prioritization and long-term resilience planning.
+    \item Subsidence hazard information should be integrated into flood-risk modeling and levee-management strategies. This integration is essential for regions where elevation loss can reduce flood-protection capacity.
+    \item Groundwater extraction should be regulated in areas with high well density. A dedicated monitoring network should be established to directly relate pumping activity to observed deformation.
+    \item The spatial coverage of GNSS observations should be expanded to include the northern part of the parish and the mapped fault zones. These measurements should be integrated with InSAR to improve temporal sampling and strengthen model calibration.
 \end{itemize}
 
 \backmatter
