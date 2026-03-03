@@ -759,14 +759,19 @@ The introduction of interaction and polynomial features increased the potential 
 where $R_i^2$ represents the coefficient of determination obtained by regressing the $i$-th variable against all remaining predictors. Although several engineered variables exhibited high VIF values, they were retained in the analysis because ensemble tree-based models are relatively insensitive to multicollinearity and can effectively exploit correlated predictors \citep{Dormann2013}.
 
 \section{Data Augmentation}
-To enhance model robustness, mitigate overfitting tendencies, and improve generalization capacity under conditions of measurement noise and sampling variability, data augmentation strategies were implemented to synthetically expand the training dataset, as illustrated in the methodology flowchart (Figure~\ref{fig:methodology_flowchart}). Augmentation introduces controlled perturbations into the original data, allowing machine learning algorithms to learn more comprehensive feature distributions and achieve greater predictive stability \citep{Shorten2019}. Given the inherent constraints in obtaining extensive, high-quality geospatial displacement measurements, augmentation was essential for strengthening the learning capacity of ensemble models.
+To enhance model robustness, mitigate overfitting tendencies, and improve generalization capacity under conditions of measurement noise and 
+sampling variability, data augmentation strategies were implemented to synthetically expand the training dataset, as illustrated in the 
+methodology flowchart (Figure~\ref{fig:methodology_flowchart}). Augmentation introduces controlled perturbations into the original data, 
+allowing machine learning algorithms to learn more comprehensive feature distributions and achieve greater predictive 
+stability \citep{Shorten2019}. Given the inherent constraints in obtaining extensive, high-quality geospatial displacement measurements, 
+augmentation was essential for strengthening the generalization performance of ensemble models.
 
 \subsection{Gaussian Noise Injection}
 Gaussian noise perturbation was applied to continuous predictor variables to simulate realistic measurement uncertainty and environmental stochasticity. This technique strengthens model robustness by training the algorithm on perturbed representations of the input feature space \citep{Bishop1995}. For each numerical feature $x_i$, augmented values were generated according to:
 \begin{equation}
 x_i^{\text{aug}} = x_i + \epsilon
 \end{equation}
-where the additive noise term $\epsilon$ is sampled from a Gaussian distribution:
+where the additive noise term $\epsilon$ is independently sampled from a Gaussian distribution:
 \begin{equation}
 \epsilon \sim \mathcal{N}(0, \sigma_i^2)
 \end{equation}
@@ -778,7 +783,7 @@ Here, $\mathcal{N}(0, \sigma_i^2)$ represents a normal distribution with zero me
 \begin{equation}
 y^{\text{aug}} = y + \eta, \quad \eta \sim \mathcal{N}(0, \sigma_y^2)
 \end{equation}
-where $\sigma_y = 0.02 \times \text{std}(y)$. This procedure maintains the underlying statistical structure of the dataset while incorporating realistic perturbations.
+where $\sigma_y = 0.02 \times \text{std}(y)$. This procedure preserves the original distributional structure of the dataset while incorporating realistic perturbations.
 
 \subsection{Interpolation-Based Synthetic Sample Generation}
 In addition to noise perturbation, synthetic samples were created using an interpolation technique adapted from the Synthetic Minority Over-sampling Technique (SMOTE) \citep{Chawla2002}. While SMOTE was originally formulated for classification tasks, this study adapted the approach for regression modeling. Two random samples $\mathbf{x}_a$ and $\mathbf{x}_b$ were selected from the original dataset, and new synthetic samples were generated through linear interpolation:
