@@ -1,6 +1,6 @@
 \contentsline {table}{\numberline {2.1}{\ignorespaces Key acquisition Parameters of Sentinel-1A SAR images used in this study}}{8}{table.caption.12}%
 \contentsline {table}{\numberline {5.1}{\ignorespaces Validation of InSAR-Derived Velocities Against GPS Measurements at 1LSU, GVMS, and SJB1 Stations}}{59}{table.caption.23}%
 \contentsline {table}{\numberline {5.2}{\ignorespaces Variance Inflation Factor (VIF) Analysis for the Conditioning Factors}}{62}{table.caption.24}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Test-set performance comparison of ET and RF regression models for subsidence susceptibility prediction in EBR}}{63}{table.caption.26}%
-\contentsline {table}{\numberline {5.4}{\ignorespaces Deformation Statistics by Fault Zone and Distance Class}}{69}{table.caption.32}%
-\contentsline {table}{\numberline {5.5}{\ignorespaces Physics-Informed LSTM Accuracy Metrics for the Temporal Forecasting}}{72}{table.caption.37}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Test-set performance comparison of ET and RF regression models for subsidence susceptibility prediction in EBR}}{64}{table.caption.26}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces Deformation Statistics by Fault Zone and Distance Class}}{70}{table.caption.32}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces Physics-Informed LSTM Accuracy Metrics for the Temporal Forecasting}}{74}{table.caption.37}%
