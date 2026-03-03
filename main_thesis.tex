@@ -797,7 +797,7 @@ where $\alpha \sim U(0.4, 0.6)$, with $U$ denoting a uniform distribution. This 
 \begin{equation}
 x_j^{\text{syn}} = x_{a,j}, \quad \text{for categorical } x_j
 \end{equation}
-This approach preserves semantic consistency within the augmented dataset.
+This approach preserves categorical integrity and semantic within the augmented dataset.
 
 \subsection{Construction of the Augmented Dataset}
 The final augmented dataset was assembled by concatenating the original dataset $D_{\text{orig}}$, the noise-augmented dataset $D_{\text{noise}}$, and the interpolated synthetic dataset $D_{\text{syn}}$. Formally:
@@ -819,17 +819,21 @@ D_{\text{test}} = D_{\text{test}}
 \end{equation}
 This strategy prevents artificially similar samples from appearing in both training and testing partitions, which would otherwise artificially inflate performance metrics.
 
-\section{Extra Trees Algorithm}
-This study employs both Random Forest and Extra Trees to determine which ensemble method provides optimal performance for subsidence susceptibility analysis, as outlined in the methodology flowchart (Figure~\ref{fig:methodology_flowchart}). Although RF is commonly used for geohazard applications, emerging evidence indicates that Extra Trees can deliver improved generalization performance when dealing with complex systems influenced by multiple factors \citep{Geurts2006}.
+\section{Extremely Randomized Trees Algorithm}
+This study employs both Random Forest and Extra Trees to determine which ensemble method provides optimal 
+performance for subsidence susceptibility analysis, as outlined in the methodology 
+flowchart (Figure~\ref{fig:methodology_flowchart}). RF is commonly used for geohazard applications. 
+However, emerging evidence indicates that ERT can deliver improved generalization performance when dealing with complex systems influenced by multiple factors \citep{Geurts2006}.
 
-Extra Trees (ERT) represents an ensemble technique that builds upon the Random Forest methodology. Two key differences distinguish ERT from RF: (1) ERT generates decision trees using randomly sampled subsets without replacement, which minimizes sampling bias, and (2) in ERT, randomness is introduced through random threshold selection at splits rather than through bootstrap sampling \citep{Geurts2006}.
-The splitting behavior in the ERT framework is controlled by two key hyperparameters: $k$, which specifies how many features are randomly chosen at each node, and $n_{min}$, which defines the smallest permissible sample size for splitting a node. These parameters improve the model's ability to generalize and reduce the risk of overfitting \citep{Geurts2006}. The model structure is illustrated in Figure \ref{fig:etc_model}.
+ERT represents an ensemble technique that builds upon the Random Forest methodology. Two key differences distinguish ERT from RF: (1) ERT generates decision trees using randomly sampled subsets without replacement, which minimizes sampling bias, and (2) in ERT, randomness is introduced through random threshold selection at splits rather than through bootstrap sampling \citep{Geurts2006}.
+The splitting behavior in the ERT framework is controlled by two key hyperparameters. The first hyperparameter, $k$, specifies the number of features randomly selected at each node for split evaluation. The second hyperparameter, $n_{\text{min}}$, defines the minimum sample size required to split a node. These parameters improve the model's ability to generalize and reduce the risk of overfitting \citep{Geurts2006}. The model structure is illustrated in Figure \ref{fig:etc_model}.
 
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\textwidth]{New_ERT.png}
-\caption{Extra Trees Model Architecture}
+\caption{Architecture of the Extremely Randomized Trees model. The input dataset is used to train multiple decision trees on randomly sampled subsets without replacement, with splits determined by random threshold selection rather than optimal splitting. 
+Individual predictions are aggregated through averaging to obtain the final output.}
 \label{fig:etc_model}
 \end{figure}
 
@@ -839,28 +843,34 @@ p(x, \beta_1, \ldots, \beta_n) = \frac{1}{m} \sum_{i=1}^{m} p(x, \beta_i)
 \end{equation}
 where $p(x, \beta_1, \ldots, \beta_n)$ is the ensemble prediction for input $x$, $x$ is the input feature vector, $m$ is the total number of trees in the ensemble, $i$ is the tree index ranging from 1 to $m$, $p(x, \beta_i)$ is the prediction from the $i$-th tree, and $\beta_i$ represents a random vector governing the construction of the $i$-th tree.
 
+
 \section{Random Forest Model}
 RF is a supervised machine-learning algorithm that uses several decision trees to produce predictions that are more precise. RF is an ensemble learning technique that produces the mean prediction for regression tasks by combining the predictions of several decision tree models (Figure~\ref{fig:rf_model}) \citep{Breiman2001,wahba2024forecasting}.
-The RF regressor operates an estimator that fits a collection of N randomized decision tree regressors independently and identically distributes random vectors \citep{Breiman2001}.
+The RF regressor operates an estimator that fits a collection of N randomized decision tree regressors independently and uses identically distributed random vectors \citep{Breiman2001}.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\textwidth]{NEW_RF.png}
-\caption{Random Forest Model Architecture}
+\caption{Architecture of the Random Forest model. The input dataset is used to train multiple independently generated decision trees, and their individual predictions are aggregated 
+through averaging (for regression) or majority voting (for classification) to obtain the final output.}
 \label{fig:rf_model}
 
 \end{figure}
 
 
-The RF training procedure begins by generating random subsets from the original training dataset consisting of independently and identically distributed $[0, 1]^d \times \mathbb{R}$-valued random variables ($d \geq 2$) with comparable distribution properties to the independent generic pairs $(x, y)$. This is achieved by randomly resampling a specified proportion of the complete dataset $t_n = \{(x_1, y_1), \ldots, (x_n, y_n)\}$.
- This bootstrap aggregating (bagging) technique constructs multiple unpruned decision trees (DTs) \citep{Breiman2017CART, Breiman1996Bagging}. Subsequently, $K$ input features are randomly selected for splitting at each node during the training of individual decision trees. The prediction output from the $n$-th decision tree is represented as $g(x, t_N^n)$, and the aggregate prediction obtained by averaging across all constituent trees forms the final forest predictor, expressed in Equation~(5):
+The RF training procedure begins by generating random subsets from the original training dataset through bootstrap resampling. Each subset is created by randomly selecting samples with replacement from the complete dataset, ensuring that each tree is trained on a slightly different version of the data.
+ This bootstrap aggregating (bagging) technique constructs multiple unpruned decision trees (DTs) \citep{Breiman2017CART, Breiman1996Bagging}. Subsequently, $K$ input features are randomly selected for splitting at each node for splitting during the training of the individual decision trees. 
+ The prediction output from the $n$-th decision tree is represented as $g(x, t_N^n)$, and the aggregate prediction obtained by averaging across all constituent trees forms the final forest predictor, expressed in Equation~(5):
 \begin{equation}
 \hat{y} = \frac{1}{n} \sum_{i=1}^{n} g(x, t_m^n)
 \end{equation}
 where $\hat{y}$ is the final prediction of the Random Forest model, $n$ is the total number of decision trees in the forest, $i$ is the tree index ranging from 1 to $n$, $g(x, t_m^n)$ is the prediction from the $i$-th decision tree trained on bootstrap sample $t_m^n$, and $x$ is the input feature vector.
 
 \section{Feature Importance and Model Explainability}
-The inherent black-box nature of ensemble machine learning models, despite their superior predictive performance, presents significant challenges for interpretability in scientific applications. To address this limitation and enhance understanding of the decision-making processes underlying subsidence predictions, this study employs three complementary explainability techniques, namely SHAP, LIME, and MDI. These methods collectively provide both global and local interpretations of model behavior, feature importance, and individual prediction rationales \citep{Lundberg2017,yu_explainable_2025}.
+The inherent black-box nature of ensemble machine learning models, despite their superior predictive performance, presents 
+significant challenges for interpretability in scientific applications. To address this limitation and enhance the understanding of 
+the decision-making processes underlying subsidence predictions, this study employs three complementary explainability techniques, 
+namely SHAP, LIME, and MDI. These methods collectively provide both global and local interpretations of model behavior, feature importance, and individual prediction rationales \citep{Lundberg2017,yu_explainable_2025}.
 
 
 \subsection{MDI}
@@ -893,7 +903,7 @@ The LIME procedure generates $N$ perturbed samples in the neighborhood of $x$. T
 \subsection{Integrated Explainability Framework}
 This study employs these three methods synergistically to achieve comprehensive model interpretability. MDI provides computationally efficient global feature rankings inherent to the tree ensemble structure. 
 SHAP analysis delivers theoretically grounded feature attributions at both local (instance-level) and global (aggregated) scales. This enables identification of dominant subsidence drivers and their directional effects. 
-LIME complements these approaches by offering human-interpretable local explanations that validate SHAP findings and provide intuitive justifications for individual high-risk predictions.
+LIME complements these approaches by offering human-interpretable local explanations that corroborate SHAP findings and provide intuitive justifications for individual high-risk predictions.
 
 By triangulating results across these explainability techniques, this framework addresses critical limitations of black-box models in geohazard assessment. It transforms predictive models into decision-support tools that provide both accurate forecasts and scientifically interpretable explanations of subsidence mechanisms \citep{yu_explainable_2025,Pradhan2023}. This integrated approach enables stakeholders to understand which environmental and anthropogenic factors drive subsidence risk in specific locations. Such understanding facilitates targeted mitigation strategies and informed land-use planning decisions.
 
@@ -910,12 +920,11 @@ Tree-based ensemble models excel at spatial susceptibility mapping by capturing 
 \subsection{Framework Overview and Conceptual Rationale}
 The physics-informed forecasting framework as shown in Figure~\ref{fig:lstm_forecast_flowchart} operates in two distinct stages. In the prediction stage, a Bi-LSTM model is trained to learn subsidence dynamics from historical SBAS-InSAR observations. In the forecasting stage, the trained network is iteratively applied in autoregressive mode with physics-based constraints. These constraints ensure temporal stability and geomechanical realism during extrapolation beyond the observation period \citep{Raissi2019,Zhu2024}. This separation ensures that machine learning captures complex nonlinear variability in the training data. Meanwhile, physical principles govern long-term behavior to prevent unrealistic acceleration, deceleration, or sign reversal commonly observed in purely data-driven extrapolation.
 
-Unlike Physics-Informed Neural Networks (PINNs) that encode partial differential equations directly into the loss function during training, the present approach applies constraints post-prediction during the autoregressive forecasting loop \citep{Raissi2019}. This design choice maintains model flexibility during training while ensuring physical consistency during deployment. This balances predictive accuracy with geomechanical plausibility.
-
+Unlike Physics-Informed Neural Networks (PINNs) that encode partial differential equations directly into the loss function during training, the present approach applies constraints in a post-prediction stage within the autoregressive forecasting loop \citep{Raissi2019}. This design choice maintains model flexibility during training while ensuring physical consistency during deployment. This balances predictive accuracy with geomechanical plausibility.
 
 
 \subsection{Data Preprocessing and Input Construction}
-As illustrated in Figure~\ref{fig:lstm_forecast_flowchart}, to suppress atmospheric noise and low-signal artifacts in the SBAS time series, only pixels exhibiting absolute mean velocity exceeding a significance threshold were retained for temporal modeling:
+As illustrated in Figure~\ref{fig:lstm_forecast_flowchart}, data preprocessing was performed to suppress atmospheric noise and low-signal artifacts in the SBAS time series. Only pixels exhibiting absolute mean velocity exceeding a significance threshold were retained for temporal modeling:
 \begin{equation}
 |v| \geq 1.5 \ \text{mm yr}^{-1}
 \end{equation}
@@ -933,6 +942,7 @@ A supervised learning structure was constructed using a sliding window approach 
 \mathbf{X}_i = [x_{t-17}, \dots, x_t], \quad \mathbf{Y}_i = [x_{t+1}, \dots, x_{t+6}]
 \end{equation}
 where $\mathbf{X}_i$ is the input sequence at index $i$ containing 18 consecutive values, $\mathbf{Y}_i$ is the output sequence at index $i$ containing the next 6 values, $T$ is the total length of the time series, $t$ is the current time index, and $i$ is the sample index for the training dataset. This formulation enables the network to learn temporal dependencies while supporting direct multi-horizon prediction, which is essential for operational forecasting applications.
+
 
 
 \subsection{LSTM Architecture and Temporal Dependency Modeling}
@@ -1015,7 +1025,7 @@ Long-term subsidence rates in aquifer systems are expected to stabilize as pore 
 \begin{equation}
 x_{t+1}^{\text{phys}} = x_t (1 - r)^{\Delta t}
 \end{equation}
-where $x_{t+1}^{\text{phys}}$ is the physics-based predicted subsidence velocity at time $t+1$, $x_t$ is the subsidence velocity at time $t$, $r$ is the decay constant representing the fractional reduction in velocity per unit time, and $\Delta t$ is the time increment in years. The decay constant $r$ was calibrated to 0.004 yr$^{-1}$ based on historical deceleration trends observed in the SBAS time series and regional aquifer compaction studies \citep{Higgins2016}.
+where $x_{t+1}^{\text{phys}}$ is the physics-based predicted subsidence velocity at time $t+1$, $x_t$ is the subsidence velocity at time $t$, $r$ is the decay constant representing the fractional reduction in velocity per unit time, and $\Delta t$ is the time increment in years. The decay constant $r$ was empirically calibrated to 0.004 yr$^{-1}$ based on historical deceleration trends observed in the SBAS time series and regional aquifer compaction studies \citep{Higgins2016}.
 
 \subsubsection{Hybrid LSTM--Physics Blending}
 
