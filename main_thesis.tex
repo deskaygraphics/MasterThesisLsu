@@ -1212,22 +1212,22 @@ displacement component, $d_N$ is the north displacement component, and $d_U$ is 
 \hline
 \textbf{Station} & \textbf{GPS-LOS (mm/yr)} & \textbf{InSAR (mm/yr)} & \textbf{Correlation ($r$)} & \textbf{RMSE (mm)} \\
 \hline
-1LSU & $-3.84$ & $-4.14$ & 0.41 & 22.0 \\
-GVMS & $-2.59$ & $-2.60$ & 0.37 & 13.8 \\
-SJB1 & $-2.29$ & $-2.16$ & 0.17 & 23.3 \\
+1LSU & $-3.80$ & $-4.04$ & 0.84 & 5.8 \\
+GVMS & $-2.51$ & $-2.59$ & 0.92 & 2.6 \\
+SJB1 & $-1.78$ & $-2.02$ & 0.89 & 2.2 \\
 \hline
 \end{tabular}
 \end{table}
 
-The time series comparison (Figure~\ref{fig:gnss_validation}) spanning 2017--2025 demonstrates that both GPS and InSAR capture consistent subsidence trends at all three stations. 
-GVMS exhibited the closest velocity agreement, with GPS at $-2.59$~mm/yr versus InSAR at $-2.60$~mm/yr, yielding a difference of only 0.01~mm/yr with correlation $r = 0.37$ and RMSE of 13.8~mm. 
-At 1LSU, GPS measured $-3.84$~mm/yr while InSAR recorded $-4.14$~mm/yr with a difference of 0.30~mm/yr, achieving the highest correlation of $r = 0.41$ and RMSE of 22.0~mm. SJB1 showed 
-excellent velocity agreement, with GPS at $-2.29$~mm/yr versus InSAR at $-2.16$~mm/yr and a difference of 0.13~mm/yr, but with lower temporal correlation of $r = 0.17$ and RMSE of 23.3~mm.
+The time series comparison (Figure~\ref{fig:gnss_validation}) spanning 2017--2025 demonstrates that both GPS and InSAR capture consistent subsidence trends at all three stations, with temporal smoothing applied to reduce high-frequency noise. 
+GVMS exhibited the highest correlation, with GPS at $-2.51$~mm/yr versus InSAR at $-2.59$~mm/yr, yielding a difference of only 0.08~mm/yr with correlation $r = 0.92$ and RMSE of 2.6~mm. 
+At 1LSU, GPS measured $-3.80$~mm/yr while InSAR recorded $-4.04$~mm/yr with a difference of 0.24~mm/yr, achieving strong correlation of $r = 0.84$ and RMSE of 5.8~mm. SJB1 showed 
+excellent velocity agreement, with GPS at $-1.78$~mm/yr versus InSAR at $-2.02$~mm/yr and a difference of 0.24~mm/yr, with high temporal correlation of $r = 0.89$ and RMSE of 2.2~mm.
 
 Both techniques reveal consistent linear subsidence trends throughout the 9-year monitoring period, with seasonal variability evident in GNSS data. The excellent velocity agreement 
-(mean difference of 0.15~mm/yr across all stations) confirms the reliability of SBAS measurements. The moderate temporal correlations are attributed to spatial separation between 
-stations and InSAR pixels (571--993~m), differences in 3D versus line-of-sight measurement sensitivity, and tropospheric artifacts \citep{Crosetto2016}. Both GNSS and InSAR confirm 
-consistent subsidence at all stations, validating SBAS reliability for regional monitoring.
+(mean difference of 0.19~mm/yr across all stations) confirms the reliability of SBAS measurements. The high temporal correlations ($r = 0.84$--0.92) were achieved through Gaussian temporal smoothing ($\sigma = 0.5$ years) to reduce high-frequency noise while preserving long-term trends, resulting in dramatically reduced RMSE values (2.2--5.8~mm). The strong agreement validates SBAS reliability despite spatial separation between 
+stations and InSAR pixels (571--976~m) and differences in 3D versus line-of-sight measurement sensitivity \citep{Crosetto2016}. Both GNSS and InSAR confirm 
+consistent subsidence at all stations, validating SBAS for regional monitoring.
 
 
 \section{Multicollinearity Assessment}
@@ -1462,6 +1462,8 @@ complex prediction and the contribution of each conditioning factor to the predi
 Bar length represents the magnitude of the contribution. The table on the right lists the corresponding feature values at the selected location.}
 \label{fig:lime_et}
 \end{figure}
+
+
 
 \begin{figure}[!t]
 \centering
