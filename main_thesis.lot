@@ -3,4 +3,4 @@
 \contentsline {table}{\numberline {5.2}{\ignorespaces Variance Inflation Factor (VIF) Analysis for the Conditioning Factors}}{62}{table.caption.24}%
 \contentsline {table}{\numberline {5.3}{\ignorespaces Test-set performance comparison of ET and RF regression models for subsidence susceptibility prediction in EBR}}{64}{table.caption.26}%
 \contentsline {table}{\numberline {5.4}{\ignorespaces Deformation Statistics by Fault Zone and Distance Class}}{70}{table.caption.32}%
-\contentsline {table}{\numberline {5.5}{\ignorespaces Physics-Informed LSTM Accuracy Metrics for the Temporal Forecasting}}{74}{table.caption.37}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces Physics-Informed LSTM Accuracy Metrics for the Temporal Forecasting}}{75}{table.caption.37}%
