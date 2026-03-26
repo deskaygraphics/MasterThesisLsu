@@ -1,0 +1,203 @@
+%% LSU thesis template (2025/04/08 version)
+%%\DocumentMetadata{lang=en-us, pdfversion=2.0, pdfstandard=ua-1, pdfstandard=a-4f, testphase=latest}
+%% Cannot use prior line because of bug in tagging project with comma in chapter titles.
+%% Future: once LuaLaTeX usage is standard, can change "ua-1" above to "ua-2".
+\begin{filecontents*}{\jobname.xmpdata}
+  \Title{Your Thesis Title}
+  \Author{Michelle Leopold Tiger}
+  \Keywords{comma, separated, keywords}
+  \Date{2015-05-15}
+  \Language{en-US}
+\end{filecontents*}
+%
+\documentclass[oneside,singlespacing,raggedright]{lsuthesis}
+%% The following class options are supported:
+%%
+%% oneside (default)
+%% twoside
+%%
+%% singlespacing (default)
+%% doublespacing
+%%
+%% raggedright (default)
+%% flushright
+
+
+%% To experiment with using a different document class, such as the ``book''
+%% class, comment-out the prior \documentclass line and uncomment the next line.
+%\documentclass[10pt,oneside]{book}
+
+
+%% Establish encoding. Source files should be UTF-8.
+\usepackage{ifluatex}\ifluatex\usepackage{unicode-math,fontspec}
+\else\usepackage[utf8]{inputenc}\usepackage[T1]{fontenc}\fi
+%% Always bring in amsmath, required by \DocumentMetadata{testphase=latest}
+\usepackage{amsmath}
+
+
+%% Specify additional LaTeX packages you want to use.
+%\usepackage{graphicx}
+%\usepackage{amsthm}
+%\usepackage{hyperref}
+
+
+\usepackage{lsutitle}
+\title{Your Thesis Title}
+\thesistype{Dissertation}
+\department{The Department of Mathematics}
+\soughtdegree{Doctor of Philosophy}
+\author{Michelle Leopold Tiger}
+\degrees{B.S., University of Michigan, 2001\\
+  M.S., Harvey Mudd College, 2005}
+\graduationdate{May 2015}
+
+
+\begin{document}
+
+%% The command ``\frontmatter'' switches to lowercase roman page numbers and
+%% unnumbered chapter headings without the word ``Chapter''.
+\frontmatter
+
+\maketitle
+
+
+%% The following ``Copyright'' page is optional. You have inherent copyright
+%% on anything you create, even if you choose not to include a copyright
+%% notice. But if you choose to also formally register your copyright with
+%% the Library of Congress, then a centered copyright notice should follow
+%% the title page.
+\begin{centeredpage}
+\copyright\ 2015\\
+Michelle L.\ Tiger
+\end{centeredpage}  
+
+
+%% The following ``Dedication'' page is optional.
+\begin{centeredpage}
+This thesis is dedicated to Sara Leopard.
+\end{centeredpage}
+
+
+%% The following ``Epigraph'' page is optional.
+\begin{centeredpage}
+\epigraph{And now for something completely different.}{---Monty Python\\
+\textit{Flying Circus}}
+\end{centeredpage}
+
+
+\chapter{Acknowledgments}
+
+The ``acknowledgments'' page is optional.
+
+
+\tableofcontents
+
+
+%% The list of tables is optional. Remove the following line if you don't
+%% have tables, don't have many tables, or simply don't wish to have a list
+%% of tables.
+\listoftables
+
+
+%% The list of figures is optional. Remove the following line if you don't
+%% have figures, don't have many figures, or simply don't wish to have a list
+%% of figures.
+\listoffigures
+
+
+\chapter{Nomenclature, Symbols, Acronyms}
+
+The ``nomenclature, symbols, acronyms'' page is optional.
+
+
+\chapter{Abstract}
+
+The ``abstract'' is required and is limited to 350 words.
+
+
+%% The command ``\mainmatter'' switches to regular page numbers and
+%% chapter headings that include the word ``Chapter''.
+\mainmatter
+
+
+\chapter{Introduction}
+\label{chap:intro}
+
+This is the first paragraph of your first chapter.
+
+\section{Audience}
+
+This is a paragraph inside of a section.
+
+\subsection{Background}
+\label{sec:background}
+
+A paragraph in a subsection.
+
+\section{Citing bibliography entries, figures, tables, and }
+
+As shown in \cite{latexCompanion}, you
+can reference bibliography entries using the ``\verb|\cite|'' command.
+You can also refer to other parts of the document, such as
+Chapter~\ref{chap:intro} or \S\ref{sec:background}, but letting
+\LaTeX\ handle the numbering. That way, if you move things around, or
+choose a different numbering style, then you won't have to manually keep
+track of the changes.
+
+
+
+%% The command ``\appendix'' switches into appendix-mode, meaning that
+%% subsequent ``\chapter'' commands will instead produce appendices.
+\appendix
+
+
+\chapter{Some appendix}
+
+This is an appendix.
+
+
+\chapter{Another appendix}
+
+This is another appendix.
+
+
+\chapter{IRB Approval}
+
+The ``IRB approval form'' must be reproduced here if the nature of this work
+requires such an approval. If included, then it should be the second-to-last
+appendix.
+
+
+\chapter{Permissions}
+
+The ``permissions'' area reproduces requests and permissions for previously
+published material or material belonging to others. If included, then it
+should be the last appendix.
+
+
+%% After ``\backmatter'', subsequent \chapter commands produce
+%% unnumbered headings.
+\backmatter
+
+
+\begin{thebibliography}{99}
+
+\bibitem{lsuetd} LSU Graduate School,
+  \textit{Formatting Electronic Theses and Dissertations}, October 2019.
+
+\bibitem{latexCompanion} Mittelbach, Frank, and Michel Goossens,
+{\em The \LaTeX\  Companion, Second Edition},
+Addison-Wesley, Boston, 2004.
+
+\bibitem{mathIntoLatex} George Gr\"{a}tzer,
+{\em Math into \LaTeX: an introduction to LaTeX and AMS-LaTeX, Third Edition},
+Library of Congress, Boston, 2000.
+
+\end{thebibliography}
+
+
+\chapter{Vita}
+
+The ``vita'' page is required and should be the last page.
+
+\end{document}
